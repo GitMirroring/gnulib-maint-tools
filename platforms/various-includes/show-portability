@@ -1,0 +1,270 @@
+#!/bin/sh
+# Usage: show-portability [--doc] foo.h...
+
+# Set to true to access the <platform>.list files.
+# Set to false to access the <platform>/usr/include/<header> files.
+use_list_files=true
+
+# func_has platform header
+# tests whether the given platform has the given header file.
+if $use_list_files; then
+  sed_string_to_regex='s/\([$^.*\\]\)/\\\1/g'
+  func_has () {
+    _pattern='^'`echo "$2" | sed -e "$sed_string_to_regex"`'$'
+    grep "$_pattern" "$1".list >/dev/null
+  }
+else
+  func_has () {
+    test -f "$1"/usr/include/"$2"
+  }
+fi
+
+LC_ALL=C
+export LC_ALL
+if test "x$1" = "x--doc"; then
+  shift
+  # Output a line suitable for the gnulib texinfo documentation.
+  # Only selected platforms, in a particular order.
+  for header
+  do
+    line=
+    if ! func_has glibc-2.29 "$header"; then
+      line=$line', glibc 2.29'
+    else
+      if ! func_has glibc-2.3.6 "$header"; then
+        line=$line', glibc 2.3.6'
+      fi
+    fi
+    if ! func_has macos-11.1 "$header"; then
+      line=$line', Mac OS 11.1'
+    else
+      if ! func_has macosx-10.13 "$header"; then
+        line=$line', Mac OS X 10.13'
+      else
+        if ! func_has macosx-10.5 "$header"; then
+          line=$line', Mac OS X 10.5'
+        else
+          if ! func_has macosx-10.3 "$header"; then
+            line=$line', Mac OS X 10.3'
+          fi
+        fi
+      fi
+    fi
+    if ! func_has freebsd-13.0 "$header"; then
+      line=$line', FreeBSD 13.0'
+    else
+      if ! func_has freebsd-12.0 "$header"; then
+        line=$line', FreeBSD 12.0'
+      else
+        if ! func_has freebsd-11.0 "$header"; then
+          line=$line', FreeBSD 11.0'
+        else
+          if ! func_has freebsd-6.4 "$header"; then
+            line=$line', FreeBSD 6.4'
+          else
+            if ! func_has freebsd-6.0 "$header"; then
+              line=$line', FreeBSD 6.0'
+            else
+              if ! func_has freebsd-5.2.1 "$header"; then
+                line=$line', FreeBSD 5.2.1'
+              fi
+            fi
+          fi
+        fi
+      fi
+    fi
+    if ! func_has netbsd-9.0 "$header"; then
+      line=$line', NetBSD 9.0'
+    else
+      if ! func_has netbsd-8.0 "$header"; then
+        line=$line', NetBSD 8.0'
+      else
+        if ! func_has netbsd-7.1 "$header"; then
+          line=$line', NetBSD 7.1'
+        else
+          if ! func_has netbsd-5.0 "$header"; then
+            line=$line', NetBSD 5.0'
+          else
+            if ! func_has netbsd-3.0 "$header"; then
+              line=$line', NetBSD 3.0'
+            fi
+          fi
+        fi
+      fi
+    fi
+    if ! func_has openbsd-6.7 "$header"; then
+      line=$line', OpenBSD 6.7'
+    else
+      if ! func_has openbsd-6.0 "$header"; then
+        line=$line', OpenBSD 6.0'
+      else
+        if ! func_has openbsd-3.8 "$header"; then
+          line=$line', OpenBSD 3.8'
+        fi
+      fi
+    fi
+    if ! func_has minix-3.3.0 "$header"; then
+      line=$line', Minix 3.3.0'
+    else
+      if ! func_has minix-3.1.8 "$header"; then
+        line=$line', Minix 3.1.8'
+      fi
+    fi
+    if ! func_has aix-7.1.0 "$header"; then
+      line=$line', AIX 7.1'
+    else
+      if ! func_has aix-6.1.0 "$header"; then
+        line=$line', AIX 6.1'
+      else
+        if ! func_has aix-5.3.0a "$header"; then
+          line=$line', AIX 5.3'
+        else
+          if ! func_has aix-5.2.0 "$header"; then
+            line=$line', AIX 5.2'
+          else
+            if ! func_has aix-5.1.0 "$header"; then
+              line=$line', AIX 5.1'
+            else
+              if ! func_has aix-4.3.2 "$header"; then
+                line=$line', AIX 4.3.2'
+              fi
+            fi
+          fi
+        fi
+      fi
+    fi
+    if ! func_has hpux-11.31 "$header"; then
+      line=$line', HP-UX 11.31'
+    else
+      if ! func_has hpux-11.23 "$header"; then
+        line=$line', HP-UX 11.23'
+      else
+        if ! func_has hpux-11.11 "$header"; then
+          line=$line', HP-UX 11.11'
+        else
+          if ! func_has hpux-11.00 "$header"; then
+            line=$line', HP-UX 11.00'
+          fi
+        fi
+      fi
+    fi
+    if ! func_has irix-6.5 "$header"; then
+      line=$line', IRIX 6.5'
+    fi
+    #if ! func_has osf1-5.1a "$header"; then
+    #  line=$line', OSF/1 5.1'
+    #else
+    #  if ! func_has osf1-4.0d "$header"; then
+    #    line=$line', OSF/1 4.0'
+    #  fi
+    #fi
+    if ! func_has solaris-2.11.4 "$header"; then
+      line=$line', Solaris 11.4'
+    else
+      if ! func_has solaris-2.11.3 "$header"; then
+        line=$line', Solaris 11.3'
+      else
+        if ! func_has solaris-2.11.0 "$header"; then
+          line=$line', Solaris 11.0'
+        else
+          if ! func_has solaris-2.11_2010_11 "$header"; then
+            line=$line', Solaris 11 2010-11'
+          else
+            if ! func_has solaris-2.10 "$header"; then
+              line=$line', Solaris 10'
+            fi
+          fi
+        fi
+      fi
+    fi
+    if ! func_has cygwin-2.9.0 "$header"; then
+      line=$line', Cygwin 2.9.0'
+    else
+      if ! func_has cygwin-1.5.19 "$header"; then
+        line=$line', Cygwin 1.5.19'
+      fi
+    fi
+    if ! func_has mingw "$header"; then
+      line=$line', mingw'
+    fi
+    headerglob=`echo $header | sed -e 's/\([^/]\)/[\1\u\1]/g'`
+    if ls -1 msvc14/usr/include/$headerglob >/dev/null 2>/dev/null; then
+      if ls -1 msvc9/usr/include/$headerglob >/dev/null 2>/dev/null; then
+        :
+      else
+        line=$line', MSVC 9'
+      fi
+    else
+      line=$line', MSVC 14'
+    fi
+    #if ! func_has interix-3.5 "$header"; then
+    #  line=$line', Interix 3.5'
+    #fi
+    #if ! func_has beos "$header"; then
+    #  line=$line', BeOS'
+    #fi
+    if ! func_has android-9.0 "$header"; then
+      line=$line', Android 9.0'
+    fi
+    echo "$line" | sed -e 's/^, //' -e 's/$/./'
+  done
+else
+  for header
+  do
+    missing=
+    if test $use_list_files; then
+      header_pattern='^'`echo "$header" | sed -e "$sed_string_to_regex"`'$'
+      header_pattern_insensitive='^'`echo "$header" | sed -e 's/\(.\)/[\1\u\1]/g'`'$'
+      for f in *.list; do
+        os=`echo $f | sed -e 's/\.list$//'`
+        case $os in
+          msvc* )
+            # Copied from a case-insensitive file system.
+            if grep "$header_pattern_insensitive" $f >/dev/null; then
+              :
+            else
+              missing="$missing $os"
+            fi
+            ;;
+          *)
+            if grep "$header_pattern" $f >/dev/null; then
+              :
+            else
+              missing="$missing $os"
+            fi
+            ;;
+        esac
+      done
+    else
+      for d in */.; do
+        os=`echo $d | sed -e 's,/\.$,,'`
+        case $os in
+          aix-5.3 | msvc10 | nsk | qnx | solaris-2.10-118833-17 )
+            # Not a complete set of include files present.
+            ;;
+          msvc* )
+            # Copied from a case-insensitive file system.
+            headerglob=`echo $header | sed -e 's/\(.\)/[\1\u\1]/g'`
+            if ls -1 $os/usr/include/$headerglob >/dev/null 2>/dev/null; then
+              :
+            else
+              missing="$missing $os"
+            fi
+            ;;
+          *)
+            if test -f $os/usr/include/$header; then
+              :
+            else
+              missing="$missing $os"
+            fi
+            ;;
+        esac
+      done
+    fi
+    if test -n "$missing"; then
+      echo "$header: MISSING in      " $missing
+    else
+      echo "$header: portable"
+    fi
+  done
+fi
