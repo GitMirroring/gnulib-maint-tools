@@ -1,0 +1,80 @@
+End-of-life / end-of-support data for various OS releases
+=========================================================
+
+* RHEL / CentOS
+  RHEL / CentOS 5:               2020-11-30 †
+  RHEL / CentOS 6:               2024-06-30
+  RHEL / CentOS 7:               2026-06-30
+  RHEL / CentOS 8 / AlmaLinux 8: 2029-03-01
+  RHEL / AlmaLinux 9:            2032-05-31
+  Reference: https://en.wikipedia.org/wiki/Red_Hat_Enterprise_Linux#Version_history_and_timeline
+             https://access.redhat.com/support/policy/updates/errata
+             https://endoflife.date/almalinux
+
+* FreeBSD
+  FreeBSD 11.4: 2021-09-30 †
+  FreeBSD 12.4: 2023-12-31
+  FreeBSD 13.2:
+  Reference: https://en.wikipedia.org/wiki/FreeBSD_version_history
+             https://endoflife.date/freebsd
+             https://www.freebsd.org/security/#sup
+             https://www.freebsd.org/security/unsupported/
+
+* NetBSD
+  NetBSD 7.0: 2020-06-30 †
+  NetBSD 8.0:
+  NetBSD 9.0:
+  Reference: https://en.wikipedia.org/wiki/NetBSD#Releases
+             https://endoflife.date/netbsd
+
+* OpenBSD
+  OpenBSD 7.1: 2023-04-10 †
+  OpenBSD 7.2: 2023-11
+  OpenBSD 7.3: 2024-05
+  Reference: https://en.wikipedia.org/wiki/OpenBSD#Releases
+             https://endoflife.date/openbsd
+
+* macOS
+  macOS 10.15: 2022-09-12 †
+  macOS 11:
+  macOS 12:
+  macOS 13:
+  Reference: https://en.wikipedia.org/wiki/MacOS_version_history
+             https://endoflife.date/macos
+
+* AIX
+  AIX 5.3: 2012-04-30 †
+  AIX 6.1: 2017-04-30 †
+  AIX 7.1: 2023-04-30 †
+  AIX 7.2:
+  AIX 7.3:
+  Reference: https://en.wikipedia.org/wiki/IBM_AIX#POWER/PowerPC/Power_ISA_releases
+             https://www.ibm.com/support/pages/aix-support-lifecycle-information
+
+* HP-UX
+  HP-UX 11.11:      2015-12-31 †
+  HP-UX 11.22:      2015-12-31 †
+  HP-UX 11.23:      2015-12-31 †
+  HP-UX 11.31/hppa: 2021-03-31 †
+  HP-UX 11.31/ia64: 2025-12-31
+  Reference: https://en.wikipedia.org/wiki/HP-UX#Version_history
+             https://www.hpe.com/psnow/doc/4aa4-7673enw.pdf?jumpid=in_pdfviewer-psnow
+
+* IRIX
+  IRIX 6.5: 2013-12 †
+  Reference: http://wiki.irixnet.org/IRIX
+
+* OSF/1
+  OSF/1 5.1: 2012-12-31 †
+  Reference: https://en.wikipedia.org/wiki/Tru64_UNIX#End_of_Life
+
+* Solaris
+  Solaris 9:    2014-10 †
+  Solaris 10:   2025-01
+  Solaris 11.0: †
+  Solaris 11.1: †
+  Solaris 11.2: †
+  Solaris 11.3: 2024-01
+  Solaris 11.4: 2034-01
+  Reference: https://en.wikipedia.org/wiki/Oracle_Solaris#Version_history
+
