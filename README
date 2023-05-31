@@ -1,0 +1,12 @@
+This repository contains tools and data for the *maintainers* of Gnulib.
+
+To check it out:
+  git clone ssh://<username>@git.savannah.gnu.org/srv/git/gnulib/maint-tools.git
+  git clone git://git.savannah.gnu.org/gnulib/maint-tools.git
+  git clone https://git.savannah.gnu.org/git/gnulib/maint-tools.git
+To view it through a web interface:
+  https://git.savannah.gnu.org/gitweb/?p=gnulib/maint-tools.git;a=shortlog
+  https://git.savannah.gnu.org/cgit/gnulib/maint-tools.git/
+
+It is not directly useful to the *users* of Gnulib; everything that is
+relevant to the users of Gnulib is in gnulib's main git repository.
