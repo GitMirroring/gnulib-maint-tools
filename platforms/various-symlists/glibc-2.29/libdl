@@ -1,0 +1,11 @@
+__libdl_freeres
+_dlfcn_hook
+dladdr
+dladdr1
+dlclose
+dlerror
+dlinfo
+dlmopen
+dlopen
+dlsym
+dlvsym

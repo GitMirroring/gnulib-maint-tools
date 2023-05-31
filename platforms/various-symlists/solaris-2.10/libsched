@@ -1,0 +1,9 @@
+SUNWprivate_1.1
+_DYNAMIC
+_PROCEDURE_LINKAGE_TABLE_
+_edata
+_end
+_etext
+schedctl_exit
+schedctl_init
+schedctl_lookup

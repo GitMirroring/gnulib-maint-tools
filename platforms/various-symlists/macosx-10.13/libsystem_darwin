@@ -1,0 +1,10 @@
+__libdarwin_init
+_dirstat_fileid_set_add
+_dirstat_fileid_set_create
+_dirstat_fileid_set_destroy
+dirstat_np
+dirstatat_np
+os_variant_allows_internal_security_policies
+os_variant_has_internal_content
+os_variant_has_internal_diagnostics
+os_variant_has_internal_ui

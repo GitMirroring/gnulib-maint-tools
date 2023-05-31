@@ -1,0 +1,8 @@
+_DYNAMIC
+_edata
+_end
+_etext
+_PROCEDURE_LINKAGE_TABLE_
+schedctl_exit
+schedctl_init
+schedctl_lookup

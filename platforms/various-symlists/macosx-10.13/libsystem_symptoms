@@ -1,0 +1,10 @@
+_symptoms_daemon_fallback_initial_disposition
+_symptoms_daemon_fallback_subseq_disposition
+_symptoms_is_daemon_fallback_blacklisted
+symptom_framework_init
+symptom_framework_set_version
+symptom_new
+symptom_send
+symptom_send_immediate
+symptom_set_additional_qualifier
+symptom_set_qualifier

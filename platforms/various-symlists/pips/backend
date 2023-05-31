@@ -1,0 +1,116 @@
+Backend()
+BackendAlloc
+BackendAllocTLD
+BackendFree
+BackendReAlloc
+CFileDescBase::Close()
+CLocalSystemInterface::Alloc(unsigned int)
+CLocalSystemInterface::AllocTLD(int)
+CLocalSystemInterface::CLocalSystemInterface()
+CLocalSystemInterface::CheckOrigins(wchar_t**&, int&)
+CLocalSystemInterface::Free(void*)
+CLocalSystemInterface::GetDesc(int)
+CLocalSystemInterface::ReAlloc(void*, unsigned int)
+CLocalSystemInterface::ResolvePath(TParse&, wchar_t const*, TDes16*)
+CLocalSystemInterface::Truncate(int, int, int&)
+CLocalSystemInterface::~CLocalSystemInterface()
+MapError(int, int&)
+TUSockAddr::Get(void*, unsigned long*)
+TUSockAddr::TUSockAddr(void const*, unsigned int)
+_ReadSysSplFile(wchar_t const*, char*, int, int&, RSessionBase&)
+_SystemSpecialFileBasedFilePath(wchar_t const*, int&, RSessionBase&)
+_accept_r
+_bind_r
+_chdir_r
+_chmod_r
+_chown
+_close_r
+_connect_r
+_dup2_r
+_dup_r
+_exit_r
+_fchdir_r
+_fchmod_r
+_fcntl_r
+_fstat_r
+_fsync_r
+_getcwd_r
+_getegid
+_geteuid
+_getgid
+_getgroups
+_gethostbyaddr_r
+_gethostbyname_r
+_gethostname_r
+_getpeername_r
+_getpgid
+_getpgrp
+_getppid
+_getprotobyname_r
+_getprotobynumber_r
+_getsockname_r
+_getsockopt_r
+_getuid
+_iconv_close_r
+_iconv_open_r
+_iconv_r
+_ioctl_r
+_lchown
+_link_r
+_listen_r
+_lseek_r
+_mkdir_r
+_mkfifo_r
+_open_r
+_opendir_r
+_pclose_r
+_pipe_r
+_posix_spawn_r
+_read_r
+_readdir_r
+_recvfrom_r
+_rename_r
+_rmdir_r
+_select_r
+_semctl_r
+_semget_r
+_semop_r
+_sendto_r
+_setegid
+_seteuid
+_setgid
+_setpgid
+_setpgrp
+_setregid
+_setreuid
+_setsid
+_setsockopt_r
+_setuid
+_shmat_r
+_shmctl_r
+_shmdt_r
+_shmget_r
+_shutdown_r
+_socket_r
+_stat_r
+_umask
+_unlink_r
+_utime_r
+_wait_r
+_waitpid_r
+_wchdir_r
+_wchmod_r
+_wgetcwd_r
+_wmkdir_r
+_wopen_r
+_wpopen3_r
+_wpopen_r
+_wreaddir_r
+_wrealpath_r
+_wrename_r
+_wrewinddir_r
+_write_r
+_wrmdir_r
+_wstat_r
+_wsystem_r
+_wunlink_r

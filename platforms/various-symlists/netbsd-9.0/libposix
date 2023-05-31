@@ -1,0 +1,8 @@
+__posix_cerror
+_end
+_fini
+_init
+chown
+fchown
+lchown
+rename

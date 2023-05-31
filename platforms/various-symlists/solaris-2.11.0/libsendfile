@@ -1,0 +1,10 @@
+_DYNAMIC
+_edata
+_end
+_etext
+_GLOBAL_OFFSET_TABLE_
+_PROCEDURE_LINKAGE_TABLE_
+sendfile
+sendfile64
+sendfilev
+sendfilev64

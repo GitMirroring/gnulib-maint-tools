@@ -1,0 +1,20 @@
+environ
+errno
+execv
+execve
+execvp
+floss_execv
+floss_execv(char const *, char *const *)
+floss_execve
+floss_execve__FPCcPCPcT2
+floss_execvp
+floss_execvp(char const *, char *const *)
+floss_read
+floss_read(int, void *, unsigned int)
+floss_write
+floss_write(int, void *, unsigned int)
+getpid
+read
+tdm_execve
+tdm_execvep
+write

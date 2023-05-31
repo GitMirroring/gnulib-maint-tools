@@ -1,0 +1,16 @@
+_DYNAMIC
+_edata
+_end
+_etext
+_PROCEDURE_LINKAGE_TABLE_
+BC
+ILLUMOS_0.1
+ospeed
+PC
+tgetent
+tgetflag
+tgetnum
+tgetstr
+tgoto
+tputs
+UP

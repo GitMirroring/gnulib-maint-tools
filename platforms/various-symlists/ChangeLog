@@ -1,0 +1,168 @@
+2021-04-15  Bruno Haible  <bruno@clisp.org>
+
+	* freebsd-13.0: New directory.
+	* show-portability: Update accordingly.
+
+2021-03-21  Bruno Haible  <bruno@clisp.org>
+
+	* macos-11.1: New directory.
+	* show-portability: Update accordingly.
+
+2020-07-25  Bruno Haible  <bruno@clisp.org>
+
+	* openbsd-6.0: New directory.
+	* openbsd-6.7: New directory.
+	* show-portability: Update accordingly.
+
+2020-07-25  Bruno Haible  <bruno@clisp.org>
+
+	* netbsd-7.1.1: New directory.
+	* netbsd-8.0: New directory.
+	* netbsd-9.0: New directory.
+	* show-portability: Update accordingly.
+
+2020-07-24  Bruno Haible  <bruno@clisp.org>
+
+	* cygwin-2.9: New directory.
+	* macosx-10.13: New directory.
+	* show-portability: Update accordingly.
+
+2020-06-21  Bruno Haible  <bruno@clisp.org>
+
+	* minix-3.3.0: New directory.
+	* show-portability: Update accordingly.
+
+2019-06-06  Bruno Haible  <bruno@clisp.org>
+
+	* glibc-2.29: New directory.
+	* show-portability: Update accordingly.
+
+2018-12-18  Bruno Haible  <bruno@clisp.org>
+
+	* freebsd-12.0: New directory.
+	* show-portability: Update accordingly.
+
+2018-10-14  Bruno Haible  <bruno@clisp.org>
+
+	* solaris-2.11-openindiana-20171031: New directory.
+
+2018-10-13  Bruno Haible  <bruno@clisp.org>
+
+	* solaris-2.11.4: New directory.
+	* show-portability: Update accordingly.
+
+2018-05-10  Bruno Haible  <bruno@clisp.org>
+
+	* android-4.3: New directory.
+	* android-9.0: New directory.
+	* musl: New directory.
+	* hurd-0.9: New directory.
+	* glibc-2.13-kfreebsd: New directory.
+	* hpux-11.31-ia64: New directory.
+	* freebsd-11.0: New directory.
+	* show-portability: Update accordingly.
+
+2017-10-12  Bruno Haible  <bruno@clisp.org>
+
+	* solaris-2.11.0: Renamed from solaris-2.11_2011_11.
+	* solaris-2.11.3: New directory.
+	* show-portability: Update accordingly.
+
+2011-10-07  Bruno Haible  <bruno@clisp.org>
+
+	* macosx-10.5/libmathCommon: New file.
+	* show-portability: Convert libmathCommon to libc for display.
+
+2011-07-30  Bruno Haible  <bruno@clisp.org>
+
+	* minix-3.1.8: New directory.
+	* show-portability: Update the --doc option.
+
+2010-11-26  Bruno Haible  <bruno@clisp.org>
+
+	* solaris-2.11_2010_11: New directory.
+	* show-portability: Update the --doc option.
+
+2010-11-24  Bruno Haible  <bruno@clisp.org>
+
+	* macosx-10.4: Renamed from macosx-10.5.
+	* macosx-10.5: New directory.
+	* show-portability: Update the --doc option.
+
+2010-11-21  Bruno Haible  <bruno@clisp.org>
+
+	* aix-5.1.0/{libpthread,libpthreads}: Remove duplicates.
+	* aix-5.2.0: New directory.
+	* aix-5.3.0a: New directory.
+	* aix-6.1.0: New directory.
+	* aix-7.1.0: New directory.
+	* cygwin-1.7: New directory. Raw data from Eric Blake.
+	* freebsd-6.4: New directory.
+	* hpux-11.{00,11}/*: Remove trailing '|' character.
+	* hpux-11.23: New directory.
+	* hpux-11.31: New directory.
+	* macosx-10.5: New directory. Raw data from Simon Josefsson.
+	* netbsd-5.0: New directory.
+	* netbsd-5.0.1: New directory. Raw data from Martin Lambers.
+	* show-portability: Update the --doc option.
+
+2010-01-20  Bruno Haible  <bruno@clisp.org>
+
+	* aix-5.1.0/{libm,libiconv,libcurses,libxcurses}: Remove duplicates.
+
+2009-11-26  Bruno Haible  <bruno@clisp.org>
+
+	* cygwin-1.5: Renamed from Cygwin.
+
+2008-09-22  Bruno Haible  <bruno@clisp.org>
+
+	* irix-5.3: New directory. Raw data from Eric Blake <ebb9@byu.net>.
+	* irix-6.5: Remove duplicates from each file.
+	* show-portability: Mention missing symbols on IRIX 5.3.
+
+2008-08-12  Ben Pfaff  <blp@cs.stanford.edu>
+
+	* show-portability: Sort by OS, not by library.
+	See <http://lists.gnu.org/archive/html/bug-gnulib/2008-08/msg00106.html>.
+
+2008-01-13  Bruno Haible  <bruno@clisp.org>
+
+	* show-portability: Accept a --doc option.
+
+2007-05-01  Bruno Haible  <bruno@clisp.org>
+
+	* interix-3.5: New directory.
+
+2007-05-01  Bruno Haible  <bruno@clisp.org>
+
+	* pips: New directory.
+
+2007-04-28  Bruno Haible  <bruno@clisp.org>
+
+	* aix-5.1.0/libc: Add some symbols that are not visible in the "nm"
+	output but present according to AC_CHECK_FUNCS.
+	* aix-4.3.2/libc: Likewise.
+
+2007-04-28  Bruno Haible  <bruno@clisp.org>
+
+	* mingw: Add files libcoldname, libmoldname, libmoldnamed, libmingwex.
+
+2007-04-28  Bruno Haible  <bruno@clisp.org>
+
+	* nsk-G06: Regenerate the symbol lists. Symbols like 'fopen' were
+	missing from libc.
+
+2007-04-27  Bruno Haible  <bruno@clisp.org>
+
+	* glibc-2.3.6: New directory.
+
+2007-04-10  Bruno Haible  <bruno@clisp.org>
+
+	* show-portability: Incorporate the knowledge that -lc links with
+	libcygwin on Cygwin and with libroot on BeOS.
+	Reported by Eric Blake <ebb9@byu.net>.
+
+2007-02-27  Bruno Haible  <bruno@clisp.org>
+
+	* nsk-G06: New directory.
+

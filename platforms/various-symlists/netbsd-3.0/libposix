@@ -1,0 +1,15 @@
+_DYNAMIC
+_GLOBAL_OFFSET_TABLE_
+_Jv_RegisterClasses
+__bss_start
+__cxa_finalize
+__deregister_frame_info
+__register_frame_info
+_edata
+_end
+_fini
+_init
+chown
+fchown
+lchown
+rename

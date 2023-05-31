@@ -1,0 +1,16 @@
+_DYNAMIC
+_edata
+_end
+_etext
+_PROCEDURE_LINKAGE_TABLE_
+_sigaction
+aiocancel
+aioread
+aioread64
+aiowait
+aiowrite
+aiowrite64
+assfail
+close
+fork
+sigaction

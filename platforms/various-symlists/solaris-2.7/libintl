@@ -1,0 +1,14 @@
+SUNW_0.7
+SUNW_0.8
+SUNW_1.1
+SUNWprivate_1.1
+_DYNAMIC
+_PROCEDURE_LINKAGE_TABLE_
+_edata
+_end
+_etext
+bindtextdomain
+dcgettext
+dgettext
+gettext
+textdomain

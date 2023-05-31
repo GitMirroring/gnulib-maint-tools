@@ -1,0 +1,7 @@
+catd
+tgetent
+tgetflag
+tgetnum
+tgetstr
+tgoto
+tputs

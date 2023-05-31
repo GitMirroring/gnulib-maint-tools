@@ -1,0 +1,13 @@
+__shl_pbo_clear
+__shl_pbo_load
+__shl_pbo_unload
+shl_definesym
+shl_findsym
+shl_get
+shl_getHandle
+shl_get_r
+shl_gethandle
+shl_gethandle_r
+shl_getsymbols
+shl_load
+shl_unload

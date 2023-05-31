@@ -1,0 +1,15 @@
+_DYNAMIC
+_edata
+_end
+_etext
+_GLOBAL_OFFSET_TABLE_
+_lib_version
+_nlscall
+_nlslog
+_nlsrmsg
+_PROCEDURE_LINKAGE_TABLE_
+nlsc2addr
+nlsenv
+nlsgetcall
+nlsprovider
+nlsrequest

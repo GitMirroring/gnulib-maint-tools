@@ -1,0 +1,10 @@
+_DYNAMIC
+_edata
+_end
+_etext
+_PROCEDURE_LINKAGE_TABLE_
+bindtextdomain
+dcgettext
+dgettext
+gettext
+textdomain

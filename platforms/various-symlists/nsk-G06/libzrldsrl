@@ -1,0 +1,349 @@
+CLSCONCIRLFL::__ct(void)
+CLSCONLL::__ct(void)
+CLSCONLSL::__ct(void)
+CLSDSO::__ct(void)
+CLSDSO::__dt(void)
+CLSDSOL::__ct(void)
+CLSLFI::__LSG__pcszTIDSymbolName__L0__bfnGBLZDSymbolSearch(CLSLFL *, unsigned int *, char *, bool, bool)
+CLSLFI::__ct(void)
+CLSLFI::__dt(void)
+CLSLFI::bfnGBLZDSymbolSearch(CLSLFL *, unsigned int *, char *, bool, bool)
+CLSLFI::pcszTIDSymbolName__L0__bfnGBLZDSymbolSearch(CLSLFL *, unsigned int *, char *, bool, bool)
+CLSLFI::slfnRebind(CLSLFL *, NSK_RLDSuccessParam *, bool, bool, bool)
+CLSLFI::vfnFixupDefinedSymbol(CLSLFL *, unsigned int, unsigned int, bool, bool, char *, bool, bool)
+CLSLFL::bfnLibNamePresent(unsigned int, unsigned char *, bool, CLSLFI **)
+CLSLFL::eninitermdirectionGet(CLSCONINITERM *)
+CLSLFL::pclslfifnDeleteCAN_Link(CLSCONCIRLFL *, CLSLFI *)
+CLSLFL::vfnDelinkGBLZD_Entries(CLSLFI *)
+CLSLFL::vfnDelinkGBLZD_Entry(CLSLFI *)
+CLSLFL::vfnDelinkLFL_Entry(CLSLFI *)
+CLSLFL::vfnDelinkLFL_Entry(CLSLFI *, CLSCONLFL *)
+CLSLFL::vfnDelinkSRL_Entries(CLSLFI *)
+CLSLFL::vfnDelinkSRL_Entry(CLSLFI *)
+CLSLL::vfnDeleteLL(void)
+CLSPSL::__ct(void)
+CLSPSL::__dt(void)
+CLSPSL::bfnIsDuplicatePathName(unsigned char *, unsigned int)
+CLSSLARRAY::__ct(void)
+CLSSLARRAY::__dt(void)
+CLSSLARRAY::vfnAddSLArray_Entry(CLSLFI *)
+CLS_SC_DYNAMIC_SEGMENT::__ct(void)
+CLS_SC_DYNAMIC_SEGMENT::__dt(void)
+CLS_SC_DYNAMIC_SEGMENT::bfnGetNextGOTSYM_Entry(unsigned int *)
+CLS_SC_DYNAMIC_SEGMENT::bfnGetNextLOCAL_GOTNO_Entry(unsigned int *)
+CLS_SC_DYNAMIC_SEGMENT::bfnLimitPaths(void)
+CLS_SC_DYNAMIC_SEGMENT::ecfnAcceptObj(CLS_SC_PROGRAM_HEADERS *, bool)
+CLS_SC_DYNAMIC_SEGMENT::elfvofnGetRebaseAmount(void)
+CLS_SC_DYNAMIC_SEGMENT::elofnGetNameOffset(int)
+CLS_SC_DYNAMIC_SEGMENT::elwfnGetSectionEntryCount(int)
+CLS_SC_DYNAMIC_SEGMENT::elwfnGetSectionSize(int)
+CLS_SC_DYNAMIC_SEGMENT::pvfnGetSectionPtr(int)
+CLS_SC_DYNAMIC_SEGMENT::vfnInitGblzdGOTSYM_Entry(void)
+CLS_SC_DYNAMIC_SEGMENT::vfnInitNextGOTSYM_Entry(void)
+CLS_SC_DYNAMIC_SEGMENT::vfnInitNextLOCAL_GOTNO_Entry(void)
+CLS_SC_DYNAMIC_SEGMENT::vfnResetObj(void)
+CLS_SC_DYNAMIC_SEGMENT::vfnSaveGblzdGOTSYM_Entry(void)
+CLS_SC_DYNAMIC_SEGMENT::vfnSetupObj(void)
+CLS_SC_DYNAMIC_SEGMENT::vfnSwapDYNSEG(void)
+CLS_SC_ELFHDR::__ct(void)
+CLS_SC_ELFHDR::__dt(void)
+CLS_SC_ELFHDR::bfnIsDynStr2Used(void)
+CLS_SC_ELFHDR::bfnIsELF(void)
+CLS_SC_ELFHDR::bfnIsGlobalized(void)
+CLS_SC_ELFHDR::bfnIsHybrid(void)
+CLS_SC_ELFHDR::bfnIsLocalized(void)
+CLS_SC_ELFHDR::bfnIsSRL(void)
+CLS_SC_ELFHDR::bfnIsSemiGlobalized(void)
+CLS_SC_ELFHDR::bfnIsTndmPICProgram(void)
+CLS_SC_ELFHDR::bfnSwapped(void)
+CLS_SC_ELFHDR::elfafnGetEntryPoint(void)
+CLS_SC_ELFHDR::limGetProgHdrNumEntries(void)
+CLS_SC_ELFHDR::pvfnGetPtr(void)
+CLS_SC_ELFHDR::ulGetProgHdrOffset(void)
+CLS_SC_ELFHDR::vfnAcceptPtr(void *, bool, bool)
+CLS_SC_ELFHDR::vfnSaveMagicID(char *)
+CLS_SC_ELFHDR::vfnSwap(Elf_Ehdr *)
+CLS_SC_EXCEPTION::__ct(unsigned long)
+CLS_SC_EXCEPTION::__ct(void)
+CLS_SC_EXCEPTION::__dt(void)
+CLS_SC_EXCEPTION::bfnExceptionOccurred(unsigned long)
+CLS_SC_EXCEPTION::bfnOtherExceptionOccurred(unsigned long)
+CLS_SC_EXCEPTION::ulfnGetExceptionTypes(void)
+CLS_SC_EXCEPTION::vfnPutExceptionType(unsigned long)
+CLS_SC_FUNCTIONS::__ct(void)
+CLS_SC_FUNCTIONS::__vtbl(void)
+CLS_SC_FUNCTIONS::ecfnBinaryFileClose(CLS_SC_BINARY_FILE *)
+CLS_SC_FUNCTIONS::ecfnBinaryFileOpen(CLS_SC_BINARY_FILE *, bool)
+CLS_SC_FUNCTIONS::ecfnBinaryFileOpenForUpdate(CLS_SC_BINARY_FILE *, bool)
+CLS_SC_FUNCTIONS::ecfnBinaryFileRemove(CLS_SC_BINARY_FILE *)
+CLS_SC_FUNCTIONS::ecfnBinaryFileRename(char *, char *)
+CLS_SC_FUNCTIONS::ecfnBinaryRead(CLS_SC_BINARY_FILE *, void *, unsigned int)
+CLS_SC_FUNCTIONS::ecfnBinaryTempFileOpen(CLS_SC_BINARY_FILE *, bool)
+CLS_SC_FUNCTIONS::ecfnBinaryWrite(CLS_SC_BINARY_FILE *, void *, unsigned int)
+CLS_SC_FUNCTIONS::ecfnFileEOF(CLS_SC_BINARY_FILE *, unsigned long *)
+CLS_SC_FUNCTIONS::ecfnFileSeekFromBOF(CLS_SC_BINARY_FILE *, unsigned int)
+CLS_SC_FUNCTIONS::pvfnMemReallocAndClear(void *, unsigned int, unsigned int)
+CLS_SC_FUNCTIONS::pvfnRealCalloc(unsigned int, unsigned int)
+CLS_SC_FUNCTIONS::pvfnRealMalloc(unsigned int)
+CLS_SC_FUNCTIONS::pvfnRealMallocWithThrow(unsigned int)
+CLS_SC_FUNCTIONS::vfnMemFree(void *)
+CLS_SC_LIBLIST::__ct(void)
+CLS_SC_LIBLIST::__dt(void)
+CLS_SC_LIBLIST::bfnIsNotFound(void)
+CLS_SC_LIBLIST::bfnIsReexported(void)
+CLS_SC_LIBLIST::bfnLimitPaths(void)
+CLS_SC_LIBLIST::cfnGetTotalPathCount(int, char)
+CLS_SC_LIBLIST::ecfnAcceptObj(CLS_SC_ELFHDR *, bool)
+CLS_SC_LIBLIST::elwGetCurrFlags(void)
+CLS_SC_LIBLIST::pchfnScanToColonOrNull(char *, unsigned int *, bool *)
+CLS_SC_LIBLIST::pszGetFirstName(unsigned int *, bool *)
+CLS_SC_LIBLIST::pszGetNextName(unsigned int *, bool *)
+CLS_SC_LIBLIST::pszGetRPATH_FIRST_String(void)
+CLS_SC_LIBLIST::pszGetRPATH_String(void)
+CLS_SC_LIBLIST::pszRPATH_FIRST_GetFirstEntry(unsigned int *)
+CLS_SC_LIBLIST::pszRPATH_FIRST_GetNextEntry(unsigned int *)
+CLS_SC_LIBLIST::pszRPATH_GetFirstEntry(unsigned int *)
+CLS_SC_LIBLIST::pszRPATH_GetNextEntry(unsigned int *)
+CLS_SC_LIBLIST::vfnResetObj(void)
+CLS_SC_LIBLIST::vfnSetupObj(void)
+CLS_SC_LIBLIST::vfnSwap(void)
+CLS_SC_PROGRAM_HEADERS::__ct(void)
+CLS_SC_PROGRAM_HEADERS::__dt(void)
+CLS_SC_PROGRAM_HEADERS::ecfnAcceptObj(CLS_SC_ELFHDR *, bool)
+CLS_SC_PROGRAM_HEADERS::elfvofnGetRebaseAmount(void)
+CLS_SC_PROGRAM_HEADERS::elwfnGetSegmentMemVaddr(unsigned int)
+CLS_SC_PROGRAM_HEADERS::elwfnGetSegmentMemsz(unsigned int)
+CLS_SC_PROGRAM_HEADERS::pvfnGetSegmentPtr(unsigned int)
+CLS_SC_PROGRAM_HEADERS::vfnResetObj(void)
+CLS_SC_PROGRAM_HEADERS::vfnSetupObj(void)
+CLS_SC_PROGRAM_HEADERS::vfnSwap(Elf_Phdr *)
+CLS_SC_PROGRAM_HEADERS::vfnSwap(void)
+CLS_SC_REBIND_REBASE::__ct(void)
+CLS_SC_REBIND_REBASE::__dt(void)
+CLS_SC_REBIND_REBASE::bfnGetRebaseLocalGOTWork(unsigned int *)
+CLS_SC_REBIND_REBASE::bfnGetRebaseSectionInfoWork(unsigned int *, EN_ELF_RELOC_TYPES *)
+CLS_SC_REBIND_REBASE::bfnGetRebindGlobalGOTWork(unsigned int *, unsigned int *, bool *, bool *)
+CLS_SC_REBIND_REBASE::bfnGetRelocateDataWork(unsigned int *, int *, EN_ELF_RELOC_TYPES *)
+CLS_SC_REBIND_REBASE::bfnInitRebaseLocalGOTWork(void)
+CLS_SC_REBIND_REBASE::bfnInitRebindGlobalGOTWork(void)
+CLS_SC_REBIND_REBASE::bfnIsSymbolDefined(unsigned char const *, unsigned int *, bool *)
+CLS_SC_REBIND_REBASE::bfnLookupInLoadfile(CLS_SC_REBIND_REBASE *, unsigned int *, bool, bool *)
+CLS_SC_REBIND_REBASE::bfnMoreWork(void)
+CLS_SC_REBIND_REBASE::ecfnAcceptObj(CLS_SC_ELFHDR *)
+CLS_SC_REBIND_REBASE::m_bGlobalizedSymbols(void)
+CLS_SC_REBIND_REBASE::sizeGetGOT_NumEntries(void)
+CLS_SC_REBIND_REBASE::ulHash(unsigned char const *)
+CLS_SC_REBIND_REBASE::vfnGetSymbolInfo(unsigned int *, bool *)
+CLS_SC_REBIND_REBASE::vfnInitMoreWork(void)
+CLS_SC_REBIND_REBASE::vfnInitRebaseSectionInfoWork(void)
+CLS_SC_REBIND_REBASE::vfnInitRelocateDataWork(void)
+CLS_SC_REBIND_REBASE::vfnLookup(char *, unsigned int, bool *, unsigned int *)
+CLS_SC_REBIND_REBASE::vfnResetObj(void)
+CLS_SC_REBIND_REBASE::vfnSetGlobalizedSymbols(bool)
+CLS_SC_REBIND_REBASE::vfnSetupObj(void)
+CLS_SC_REBIND_REBASE::vfnSwap(bool, bool)
+CLS_SC_STRING_TABLE::__ct(void)
+CLS_SC_STRING_TABLE::__dt(void)
+CLS_SC_STRING_TABLE::ecfnAcceptObj(CLS_SC_DYNAMIC_SEGMENT *, int)
+CLS_SC_STRING_TABLE::pszfnGetString(unsigned int)
+CLS_SC_STRING_TABLE::pvfnGetPtr(void)
+CLS_SC_STRING_TABLE::vfnResetObj(void)
+CLS_SC_TANDEM_INFO::__ct(void)
+CLS_SC_TANDEM_INFO::__dt(void)
+CLS_SC_TANDEM_INFO::bfnIsFlagGBLZD(void)
+CLS_SC_TANDEM_INFO::bfnIsRuntime_ErrorUnresolved(void)
+CLS_SC_TANDEM_INFO::bfnIsRuntime_WarnUnresolved(void)
+CLS_SC_TANDEM_INFO::ecfnAcceptObj(CLS_SC_PROGRAM_HEADERS *, bool, bool)
+CLS_SC_TANDEM_INFO::elafnGetCtorsVaddr(void)
+CLS_SC_TANDEM_INFO::elafnGetDtorsVaddr(void)
+CLS_SC_TANDEM_INFO::elafnGetInitzVaddr(void)
+CLS_SC_TANDEM_INFO::elafnGetTermzVaddr(void)
+CLS_SC_TANDEM_INFO::pszfnGetDLLName(void)
+CLS_SC_TANDEM_INFO::vfnRebaseIniTermVaddr(unsigned int *)
+CLS_SC_TANDEM_INFO::vfnRebaseReadOnlyDataVaddrs(void)
+CLS_SC_TANDEM_INFO::vfnResetObj(void)
+CLS_SC_TANDEM_INFO::vfnSwap(bool)
+CLS_SC_TANDEM_INFO::vfnSwapIniTermVaddr(unsigned int *)
+CLS_SC_TANDEM_INFO::vfnSwapReadOnlyDataVaddrs(bool)
+CLS_SC_TANDEM_INFO::vfnSwap_iniTermWords(Elf_Tandem_Info *)
+CLS_SC_VIRTUAL_FUNCTIONS::__ct(void)
+CLS_SC_VIRTUAL_FUNCTIONS::__vtbl(void)
+CRldError::__ct(ErrorActionDef)
+CRldError::__dt(void)
+CRldError::bfnAppendError(char *)
+CRldError::bfnAppendTextToBuffer(char const *)
+CRldError::bfnFormatAppendError(ErrorActionDef, int, char const *, char const *)
+CRldError::nfnExceptionCleanup(void)
+CRldError::nfnExceptionSetup(void)
+CRldError::nfnReportNSKError(int, int, char const *, char const *)
+CRldError::vfnInitHeaderContext(void)
+CRldError::vfnInitMessageContext(void)
+CRldError::vfnSetErrorCode(int)
+CRldError::vfnSetGlobalError(void)
+CRldError::vfnSetMsgContext(char const *, unsigned int, char const *, unsigned int)
+CRldError::vfnSetMsgContextInt(int)
+CRldError::vfnSetValidHdrHandle(char const *, unsigned int)
+CRldError::vfnSetValidHdrString(unsigned int)
+CRldError::vfnSetupDlCloseHdrContext(void *)
+CRldError::vfnSetupDlOpenHdrContext(char const *, int)
+CRldError::vfnSetupDlSymHdrContext(void *, char const *)
+CRldError::vfnSetupRLD_MainHdrContext(void)
+CRldGlobalError::__ct(void)
+CRldGlobalError::pCRldErrorfnSetContext(CRldError *)
+CRldGlobalError::vfnResetGlobalError(void)
+CRldGlobalError::vfnSetGlobalError(char *, int)
+CRldVerboseLevel::vfnSetVerboseLevelFlags(unsigned short)
+DEFINEREADATTR
+FILENAME_DECOMPOSE_
+FILENAME_SCAN_
+GCRE_EXPORT_fnptr
+GNSK_HomeTermHandle
+G_NSK_RLDOpenPrivateLibProgLoc_Type
+G_NSK_RLDOpenPrivateLibProgLoc_TypeText
+G_NSK_RLDOpenPrivateLib_Type
+G_NSK_RLDOpenPrivateLib_TypeText
+GbIgnoreUnresolvedData
+GbLoaderStays
+GbNumberedMessage
+GbWarnOnMultipleDefinition
+GblimitRuntimePaths
+GcMessageCount
+GchNodeDelimiter
+Gen_seg_typesList
+Ggr_initinfoProgram
+Ggr_mapinfoLoader
+Ggr_mapinfoProgram
+Ggr_mapinfoUserLib
+Ggr_success
+GpExceptionContext
+GpRldGlobalError
+GpRldVerbose
+GpchDefaultSearchLocs
+GpclsconinitermForTermNext
+Gpclsdsol
+GpclslflProgram
+Gpclspsl
+Gpgr_fileinfoLoader
+Gpgr_fileinfoProgram
+Gpgr_fileinfoUserLib
+GpnfnPathAvailable
+GpslfnCheckForSimpleFilename
+GpszRPATH
+GpszRPATH_FIRST
+GszScratchBuffer
+GucSL_Ordinal
+GulEyeCatcher
+HOMETERM_CLOSE_
+HOMETERM_WRITE_
+NSKAllocateKeyID_
+NSKDeallocateKeyID_
+NSKKeyBasicCall_
+NSK_DLOpenCloseAnnounce_
+NSK_FileUID::__ct(void)
+NSK_FileUID::operator==( const(NSK_FileUID const &))
+NSK_PICFileInfo::__ct(void)
+NSK_RLDComplete_
+NSK_RLDInitialize_
+NSK_RLDOpenPrivate_
+NSK_RLDRunIniTerms_
+POOL_DEFINE_
+POOL_GETSPACE_
+POOL_PUTSPACE_
+POOL_RESIZE_
+PROCESS_STOP_
+ProcessPhaseOK_
+RESIZESEGMENT
+RLD_Main
+SIGACTION_RESTORE_
+SIGACTION_SUPPLANT_
+STRING_UPSHIFT_
+SYSTEMENTRYPOINT_RISC_
+T0428G09_30APR2003_25APR03_
+ZRLDSRL_VERSION
+_CTORS
+_DTORS
+__PURE_VIRTUAL_CALLED
+__V140356600
+_ctors
+_dtors
+_gp
+_initz
+_procedure_string_table
+_procedure_table
+_procedure_table_size
+_termz
+aszNullText
+bfnRldAllocatedPointer(char const *)
+dlclose
+dlerror
+dlopen
+dlresultcode
+dlsym
+libraryUnshare_
+longjmp
+memcmp
+memcpy
+memset
+nfnRunIniterms(unsigned int, CLSLFI *, char const *)
+nfnValidateString(char const *)
+nfnValidateVerboseLevel(char)
+pRldErrorGetCurrent(void)
+pRldFlagsGetCurrent(void)
+pcszDLOpenCloseAnnounce_
+pcszDllFileName
+pcszErrorText
+pcszGetFileInfo
+pcszGetMapInfo
+pcszGetName
+pcszIniTerms_Constructors
+pcszIniTerms_Destructor
+pcszIniTerms_Initializations
+pcszIniTerms_Terminations
+pcszLibraryUnshare_
+pcszMapMapData
+pcszNSKKeyBasicCall_
+pcszNSK_RLDOpenPrivate_
+pcszNSK_RLDRunIniTerms_
+pcszOCDestroy
+pcszOpenOssPriLibProgLocType
+pcszOpenOssPrivateLibType
+pcszOpenPrivateLibProgLocType
+pcszOpenPrivateLibType
+pcszPICMapMapStage1
+pcszPICMapMapStage2
+pcszPICMapMapStage3
+pcszPicMapMapStage0
+pcszPrivateRebindComplete
+pcszPubLibsOpenPublicLib
+pcszSharedRebindComplete
+pcszSigActionRestore
+pcszSigActionSupplant
+pcszSymbolName
+pcszWarningText
+printf
+pszErrorEyecatcherNotSet
+pszGRDDEFAULT_LOC
+pszOSSDEFAULT_LOC
+pszRLD_FIRST_LIB_PATH_GRD
+pszRLD_FIRST_LIB_PATH_OSS
+pszRLD_IGNORE_UNRESOLVED_DATA_GRD
+pszRLD_IGNORE_UNRESOLVED_DATA_OSS
+pszRLD_LIB_PATH_GRD
+pszRLD_LIB_PATH_OSS
+pszRLD_VERBOSE_GRD
+pszRLD_VERBOSE_OSS
+pszRLD_WARN_ON_MULTIPLE_DEFS_GRD
+pszRLD_WARN_ON_MULTIPLE_DEFS_OSS
+pszStandardTrailerText
+pszUNRESOLVED_PROCEDURE_CALLED_NAME
+pszfnGetFormatString(int)
+setjmp
+sprintf
+strcmp
+strcpy
+strlen
+vfnCloseHomeTerm(void)
+vfnInitHomeTerm(void)
+vfnRldRaiseException(int)
+vfnSignalHandler(int, void **, void *)
+vfnWriteToHomeTerm(char *, short)

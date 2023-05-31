@@ -1,0 +1,15 @@
+_libiconv_version
+aliases2_lookup
+aliases_lookup
+iconv
+iconv_canonicalize
+iconv_close
+iconv_open
+iconvctl
+iconvlist
+libiconv_relocate
+libiconv_set_relocation_prefix
+locale_charset
+utf8_decodestr
+utf8_encodestr
+utf_extrabytes

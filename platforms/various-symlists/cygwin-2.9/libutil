@@ -1,0 +1,17 @@
+daemon
+err
+errx
+forkpty
+getprogname
+login
+login_tty
+logout
+logwtmp
+openpty
+setprogname
+verr
+verrx
+vwarn
+vwarnx
+warn
+warnx

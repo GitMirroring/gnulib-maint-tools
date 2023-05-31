@@ -1,0 +1,10 @@
+_dlfcn_hook
+dladdr
+dladdr1
+dlclose
+dlerror
+dlinfo
+dlmopen
+dlopen
+dlsym
+dlvsym

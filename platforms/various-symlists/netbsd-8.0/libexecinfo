@@ -1,0 +1,13 @@
+__bss_start
+_edata
+_end
+_fini
+_init
+backtrace
+backtrace_symbols
+backtrace_symbols_fd
+backtrace_symbols_fd_fmt
+backtrace_symbols_fmt
+symtab_create
+symtab_destroy
+symtab_find

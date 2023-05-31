@@ -1,0 +1,52 @@
+On Android, the newest header files apply not only to the current Android API version, but also to all older ones.
+The function declarations are therefore marked
+1) through an __ANDROID_API__ conditional,
+2) through an __INTRODUCED_IN invocation.
+
+__INTRODUCED_IN(9)
+syms="pipe2 fdatasync"
+
+__INTRODUCED_IN(11)
+syms="ether_ntoa ether_ntoa_r ether_aton ether_aton_r"
+
+__INTRODUCED_IN(12)
+syms="pthread_atfork getpwnam_r getpwuid_r pread pwrite ftruncate pread64 pwrite64 ftruncate64 __pread64_real __pwrite64_real __system_property_set utimensat sched_getcpu sched_setaffinity sched_getaffinity __sched_cpualloc __sched_cpufree __sched_cpucount timelocal timegm"
+
+__INTRODUCED_IN(15)
+syms="personality"
+
+__INTRODUCED_IN(16)
+syms="faccessat tdelete tdestroy tfind tsearch fsetxattr setxattr lsetxattr fgetxattr getxattr lgetxattr listxattr llistxattr flistxattr removexattr lremovexattr fremovexattr readahead"
+
+__INTRODUCED_IN(17)
+syms="psiginfo psignal getsid __fgets_chk __open_2 __openat_2 __strlcpy_chk __strlcat_chk ftw nftw mlockall munlockall unshare posix_memalign malloc_usable_size __strlen_chk"
+
+__INTRODUCED_IN(18)
+syms="__umask_chk getdelim getline wait4 getauxval signalfd log2 log2f nexttoward __strchr_chk __strrchr_chk"
+
+__INTRODUCED_IN(19)
+syms="timerfd_create timerfd_settime timerfd_gettime swapon swapoff __system_property_foreach futimens statvfs fstatvfs abs labs llabs imaxabs imaxdiv"
+
+__INTRODUCED_IN(21)
+syms="pthread_condattr_getclock pthread_condattr_setclock pthread_gettid_np pthread_mutex_timedlock __libc_current_sigrtmin __libc_current_sigrtmax signal sigaddset sigdelset sigemptyset sigfillset sigismember ppoll c16rtomb c32rtomb mbrtoc16 mbrtoc32 cfgetispeed cfgetospeed cfmakeraw cfsetspeed cfsetispeed cfsetospeed tcdrain tcflow tcflush tcgetattr tcgetsid tcsendbreak tcsetattr execvpe linkat symlinkat readlinkat dup3 truncate truncate64 getpagesize isalnum_l isalpha_l isblank_l iscntrl_l isdigit_l isgraph_l islower_l isprint_l ispunct_l isspace_l isupper_l isxdigit_l tolower_l toupper_l _tolower _toupper inet_lnaof inet_makeaddr inet_netof inet_network insque remque lfind lsearch twalk __ppoll_real __read_chk __stpncpy_chk2 __strncpy_chk2 __recvfrom_chk iswblank dprintf vdprintf iswalnum_l iswalpha_l iswblank_l iswcntrl_l iswdigit_l iswgraph_l iswlower_l iswprint_l iswpunct_l iswspace_l iswupper_l iswxdigit_l towlower_l towupper_l wctype_l iswctype_l mmap64 setfsuid setfsgid statfs64 fstatfs64 epoll_create1 epoll_pwait inotify_init1 htonl htons ntohl ntohs __FD_CLR_chk __FD_SET_chk __FD_ISSET_chk mkfifo mknodat sendfile sendfile64 getrlimit64 setrlimit64 prlimit64 statvfs64 fstatvfs64 __cmsg_nxthdr accept4 recvmmsg sendmmsg fts_children fts_close fts_open fts_read fts_set setns isinf significandl _Exit at_quick_exit quick_exit mkstemp64 rand_r initstate setstate posix_openpt getprogname setprogname mbtowc wctomb __ctype_get_mb_cur_max strtof atof rand srand random srandom grantpt strtoll_l strtoull_l strtold_l endmntent getmntent_r setmntent wcstoimax wcstoumax localeconv duplocale freelocale newlocale uselocale readdir64 readdir64_r alphasort64 scandir64 creat64 openat64 open64 splice tee vmsplice fallocate fallocate64 posix_fadvise posix_fadvise64 posix_fallocate posix_fallocate64 strftime_l mbsnrtowcs vfwscanf vswscanf vwscanf wcsnrtombs wcstof wcstoll wcstoull wcstoll_l wcstoull_l wcstold_l wcscoll_l wcsxfrm_l dl_iterate_phdr stpcpy stpncpy strcoll_l strxfrm_l"
+
+__INTRODUCED_IN(23)
+syms="pthread_rwlockattr_getkind_np pthread_rwlockattr_setkind_np sigqueue sigtimedwait sigwaitinfo sethostname gethostbyaddr_r gethostbyname2_r login_tty __poll_chk __ppoll_chk __pread_chk __pread64_chk __readlink_chk __readlinkat_chk __memchr_chk __memrchr_chk strcasecmp_l strncasecmp_l stdin stdout stderr fmemopen open_memstream clearerr_unlocked feof_unlocked ferror_unlocked error_print_progname error_message_count error_one_per_line error error_at_line posix_madvise mkfifoat get_nprocs_conf get_nprocs get_phys_pages get_avphys_pages process_vm_readv process_vm_writev lgammal_r mkostemp64 mkostemp mkostemps64 mkostemps mkstemps64 lcong48 malloc_info cacos cacosf casin casinf catan catanf ccos ccosf csin csinf ctan ctanf cacosh cacoshf casinh casinhf catanh catanhf ccosh ccoshf csinh csinhf ctanh ctanhf cexp cexpf cabs cabsf csqrt csqrtf carg cargf cimag cimagf conj conjf cproj cprojf creal crealf openpty forkpty __fbufsize __freadable __fwritable __flbf __fpurge __fpending _flushlbf __fsetlocking seekdir telldir clock_getcpuclockid wcscasecmp_l wcsncasecmp_l wmempcpy open_wmemstream mempcpy strerror_l strerror_r basename"
+
+__INTRODUCED_IN(24)
+syms="pthread_barrierattr_init pthread_barrierattr_destroy pthread_barrierattr_getpshared pthread_barrierattr_setpshared pthread_barrier_init pthread_barrier_destroy pthread_barrier_wait pthread_spin_destroy pthread_spin_init pthread_spin_lock pthread_spin_trylock pthread_spin_unlock if_nameindex if_freenameindex freeifaddrs getifaddrs __getcwd_chk __pwrite_chk __pwrite64_chk __write_chk __fread_chk __fwrite_chk lockf lockf64 in6addr_any in6addr_loopback fgetpos fsetpos fseeko ftello funopen fgetpos64 fsetpos64 fseeko64 ftello64 funopen64 fopen64 freopen64 tmpfile64 fileno_unlocked preadv pwritev preadv64 pwritev64 adjtimex clock_adjtime getgrgid_r getgrnam_r scandirat64 scandirat strchrnul dlvsym"
+
+__INTRODUCED_IN(26)
+syms="pthread_getname_np sighold sigignore sigpause sigrelse sigset getpwent setpwent endpwent getdomainname setdomainname __sendto_chk towctrans wctrans ctermid nl_langinfo nl_langinfo_l towctrans_l wctrans_l __system_property_read_callback __system_property_wait semctl semget semop semtimedop msgctl msgget msgrcv msgsnd shmat shmctl shmdt shmget quotactl futimes lutimes futimesat catopen catgets catclose getgrent setgrent endgrent strtoul_l getsubopt mblen strtod_l strtof_l strtol_l hasmntopt mallopt clog clogf cpow cpowf sync_file_range"
+
+__INTRODUCED_IN(28)
+syms="pthread_mutexattr_getprotocol pthread_mutexattr_setprotocol pthread_mutex_timedlock_monotonic_np pthread_rwlock_timedrdlock_monotonic_np pthread_rwlock_timedwrlock_monotonic_np pthread_setschedprio iconv_open iconv iconv_close sigaction64 sigaddset64 sigdelset64 sigemptyset64 sigfillset64 sigismember64 sigpending64 sigprocmask64 sigsuspend64 sigwait64 pthread_sigmask64 sigtimedwait64 sigwaitinfo64 ppoll64 sem_timedwait_monotonic_np fexecve getlogin_r syncfs swab posix_spawn posix_spawnp posix_spawnattr_init posix_spawnattr_destroy posix_spawnattr_setflags posix_spawnattr_getflags posix_spawnattr_setpgroup posix_spawnattr_getpgroup posix_spawnattr_setsigmask posix_spawnattr_setsigmask64 posix_spawnattr_getsigmask posix_spawnattr_getsigmask64 posix_spawnattr_setsigdefault posix_spawnattr_setsigdefault64 posix_spawnattr_getsigdefault posix_spawnattr_getsigdefault64 posix_spawnattr_setschedparam posix_spawnattr_getschedparam posix_spawnattr_setschedpolicy posix_spawnattr_getschedpolicy posix_spawn_file_actions_init posix_spawn_file_actions_destroy posix_spawn_file_actions_addopen posix_spawn_file_actions_addclose posix_spawn_file_actions_adddup2 glob globfree endhostent sethostent endnetent getnetent setnetent endprotoent getprotoent setprotoent hcreate hdestroy hsearch hcreate_r hdestroy_r hsearch_r __ppoll64_chk fflush_unlocked fgetc_unlocked fputc_unlocked fread_unlocked fwrite_unlocked fputs_unlocked fgets_unlocked epoll_pwait64 getentropy getrandom signalfd64 aligned_alloc __malloc_hook __realloc_hook __free_hook __memalign_hook __freading __fwriting __fseterr strptime_l wcsftime_l wcstod_l wcstof_l wcstol_l wcstoul_l"
+
+
+Compute the list of doc files like this:
+cd doc
+files=`for s in $syms; do ls -1 *-functions/$s.texi; done 2>/dev/null|LC_ALL=C sort -u`
+
+To translate API versions to Android versions, use
+https://source.android.com/setup/start/build-numbers
+

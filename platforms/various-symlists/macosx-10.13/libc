@@ -1,0 +1,4 @@
+libSystem_atfork_child
+libSystem_atfork_parent
+libSystem_atfork_prepare
+mach_init_routine

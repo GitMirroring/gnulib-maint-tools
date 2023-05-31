@@ -1,0 +1,17 @@
+SUNW_1.1
+SUNWprivate_1.1
+_DYNAMIC
+_GLOBAL_OFFSET_TABLE_
+_PROCEDURE_LINKAGE_TABLE_
+_edata
+_end
+_etext
+_lib_version
+_nlscall
+_nlslog
+_nlsrmsg
+nlsc2addr
+nlsenv
+nlsgetcall
+nlsprovider
+nlsrequest
