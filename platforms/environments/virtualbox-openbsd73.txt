@@ -1,0 +1,50 @@
+Use https://cdn.openbsd.org/pub/OpenBSD/7.3/amd64/install73.iso -> OpenBSD-7.3-amd64-install.iso.
+
+Disk size: 8 GB
+
+System > Motherboard: Disable "Enable I/O APIC", otherwise a kernel panic occurs later.
+(See https://dev.to/nabbisen/openbsd-73-on-virtualbox-7-installation-as-guest-os-failed-due-to-io-apic-enabled-4ake )
+
+(I)nstall.
+Host name: openbsd73
+Root password: ********
+X Window System: no
+Setup a user?
+  login: *****
+  password: ********
+Allow root ssh login: yes
+Partitioning: (W)hole disk MBR, then (E)dit auto layout
+  d e
+  d d
+  d b
+  c a
+      14680064 [= 7 GB]
+  a b
+      swap
+  p
+  q
+Sets:
+  -game73.tgz
+  -xbase73.tgz
+  -xshare73.tgz
+  -xfont73.tgz
+  -xserv73.tgz
+Continue without verification: yes
+
+Reboot. Eject CD.
+# mail
+
+# Install some packages.
+# List is at https://ftp.hostserver.de/pub/OpenBSD/7.3/packages/amd64/
+# See https://www.openbsd.org/faq/faq15.html#PkgMgmt
+Edit ~/.profile to define PKG_PATH:
+PKG_PATH=https://ftp.hostserver.de/pub/OpenBSD/7.3/packages/`uname -m`/
+export PKG_PATH
+Logout.
+
+# pkg_add bzip2
+# pkg_add gtar
+# pkg_add bash
+# pkg_add gmake
+# pkg_add vim, pick no_x11 variant
+# pkg_add emacs, pick no_x11 variant

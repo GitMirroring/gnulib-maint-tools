@@ -1,0 +1,67 @@
+Use https://cdn.openbsd.org/pub/OpenBSD/7.3/amd64/install73.iso -> OpenBSD-7.3-amd64-install.iso.
+
+
+Use qemu-8.0.2
+PATH=$HOME/inst-qemu/8.0.2/bin:$PATH
+
+Create empty disk:
+qemu-img create -f vmdk openbsd73.vmdk 8G
+
+Boot with CD:
+
+machine_args="-enable-kvm -m 1024"
+disk_args="-device virtio-blk,drive=hd0 -drive if=none,file=x86_64-openbsd73/openbsd73.vmdk,id=hd0"
+net_args="-net user -net nic,model=virtio"
+#display_args="-nographic"
+display_args="-display gtk -monitor stdio"
+common_args="$machine_args $disk_args $net_args $display_args"
+qemu-system-x86_64 $common_args -cdrom OpenBSD-7.3-amd64-install.iso
+
+
+(I)nstall.
+Host name: openbsd73
+Root password: ********
+X Window System: no
+Setup a user?
+  login: *****
+  password: ********
+Allow root ssh login: yes
+Partitioning: (W)hole disk MBR, then (E)dit auto layout
+  d e
+  d d
+  d b
+  c a
+      14680064 [= 7 GB]
+  a b
+      swap
+  p
+  q
+Sets:
+  -game73.tgz
+  -xbase73.tgz
+  -xshare73.tgz
+  -xfont73.tgz
+  -xserv73.tgz
+Continue without verification: yes
+
+Reboot.
+Boot from the installed disk, without the CD
+(does not need a -kernel option, since a SeaBIOS bootloader is installed):
+qemu-system-x86_64 $common_args
+
+# mail
+
+# Install some packages.
+# List is at https://ftp.hostserver.de/pub/OpenBSD/7.3/packages/amd64/
+# See https://www.openbsd.org/faq/faq15.html#PkgMgmt
+Edit ~/.profile to define PKG_PATH:
+PKG_PATH=https://ftp.hostserver.de/pub/OpenBSD/7.3/packages/`uname -m`/
+export PKG_PATH
+Logout.
+
+# pkg_add bzip2
+# pkg_add gtar
+# pkg_add bash
+# pkg_add gmake
+# pkg_add vim, pick no_x11 variant
+# pkg_add emacs, pick no_x11 variant

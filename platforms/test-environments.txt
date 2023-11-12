@@ -1,0 +1,110 @@
+Test environments
+=================
+
+This page explains how to get access to environments of various platforms,
+suitable for testing Gnulib.
+
+
+Testing specific operating systems
+==================================
+
+The compile farm
+----------------
+
+The compile farm (formerly known as GCC compile farm)
+<https://portal.cfarm.net/>
+offers developer accounts for Free Software contributors.
+After obtaining an account, you have ssh access to machines
+with the following OSes:
+  - GNU/Linux
+  - macOS
+  - AIX
+  - Solaris
+
+
+Virtual machines
+----------------
+
+For the following OSes, you can install a virtual machine:
+  - GNU/Hurd
+  - musl libc (Alpine Linux)
+  - FreeBSD, DragonFly BSD
+  - NetBSD
+  - OpenBSD
+  - Minix
+  - Haiku
+  - Solaris 11.4, Solaris 11 OpenIndiana, Solaris 11 OmnioOS
+
+There is an investment of ca. 2 hours up-front to create the virtual machine,
+and it takes some amount of disk space (typically something like 10 GB for
+each virtual machine).
+
+How to do this:
+1. Pick your preferred hypervisor (such as QEMU or VirtualBox).
+2. Download an installation CD-ROM or DVD image.
+3. Create an empty disk image to be used by the virtual machine.
+4. Find the right parameters for the hypervisor, so that it boots from
+   the CD/DVD.
+5. Perform the steps of the installer.
+6. Reboot the virtual machine without the CD/DVD.
+7. Install whatever packages you will need for development (gcc, g++,
+   make, vim, emacs).
+
+As examples, find in the environments/ directory:
+  * qemu-x86_64-openbsd73.txt: How to install OpenBSD 7.3 with QEMU.
+  * virtualbox-openbsd73.txt: How to install OpenBSD 7.3 with VirtualBox.
+
+
+Bring your own hardware
+-----------------------
+
+For the following OSes, the simplest approach is to buy some real hardware:
+  - Android
+    Costs less than $100.
+    Configuration details:
+    <https://gitlab.com/ghwiki/gnow-how/-/wikis/Platforms/Android>
+
+
+Testing specific CPUs
+=====================
+
+For testing specific CPUs, such as
+  - alpha
+  - arm
+  - arm64
+  - hppa
+  - mips, mips64
+  - powerpc, powerpc64, powerpc64le
+  - riscv64
+  - s390x
+  - sparc, sparc64
+the easiest approach is to use QEMU in system emulation mode.
+
+The how-to is similar to above:
+1. Pick your preferred hypervisor (QEMU; for riscv32 you can use tinyemu
+   instead).
+2. Download an installation CD-ROM or DVD image. For most CPUs, Debian
+   provides installable GNU/Linux images.
+3. Create an empty disk image to be used by the virtual machine.
+4. Find the right parameters for the hypervisor, so that it boots from
+   the CD/DVD. This is generally the most challenging part, because
+     - for some CPUs the boot loader is not standardized,
+     - for hardware devices such as the Ethernet card, you need to find
+       a model that QEMU can emulate _and_ that the OS can make use of.
+5. Perform the steps of the installer.
+6. Reboot the virtual machine without the CD/DVD.
+7. Install whatever packages you will need for development (gcc, g++,
+   make, vim, emacs).
+
+As examples, look at the recipes from GNU libffcall:
+<https://git.savannah.gnu.org/gitweb/?p=libffcall.git;a=tree;f=porting-tools/emulation>
+
+QEMU in "user mode" is not recommended in general, because it has limitations:
+  - Catching stack overflow is not supported.
+  - ioctl() are not well supported (e.g. functions that deal with ttys).
+  - glibc iconv modules are not installed.
+  - On alpha: O_CLOEXEC is not well supported (e.g. in dup3, open).
+  - On mips: Quiet NaNs behave like signalling NaNs and vice versa.
+  - On sparc: Spin lock tests hang.
+That is, in the really tricky areas QEMU in "user mode" is less reliable
+than QEMU in system emulation mode.
