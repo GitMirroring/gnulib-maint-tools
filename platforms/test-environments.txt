@@ -68,6 +68,9 @@ For the following OSes, the simplest approach is to buy some real hardware:
 Testing specific CPUs
 =====================
 
+Emulated virtual machines
+-------------------------
+
 For testing specific CPUs, such as
   - alpha
   - arm
@@ -108,3 +111,23 @@ QEMU in "user mode" is not recommended in general, because it has limitations:
   - On sparc: Spin lock tests hang.
 That is, in the really tricky areas QEMU in "user mode" is less reliable
 than QEMU in system emulation mode.
+
+
+Bring your own hardware
+-----------------------
+
+For the following CPUs, it is possible to buy some real hardware:
+  - arm
+    Raspberry Pi 1 or 2
+    <https://en.wikipedia.org/wiki/Raspberry_Pi>
+    Costs less than $50.
+  - arm64
+    Raspberry Pi 3 or newer
+    <https://en.wikipedia.org/wiki/Raspberry_Pi>
+    Costs less than $100.
+  - mips
+    Onion Omega2 Pro, costs less than $100.
+  - riscv64
+    SiFive HF103-000, costs less than $50.
+    SiFive HF103-001, costs less than $100.
+    BeagleBoard BeagleV, costs less than $200.
