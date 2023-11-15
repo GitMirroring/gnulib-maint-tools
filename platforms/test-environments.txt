@@ -130,4 +130,5 @@ For the following CPUs, it is possible to buy some real hardware:
   - riscv64
     SiFive HF103-000, costs less than $50.
     SiFive HF103-001, costs less than $100.
+    StarFive VisionFive 2, costs less than $100.
     BeagleBoard BeagleV, costs less than $200.
