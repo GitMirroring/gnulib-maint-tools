@@ -68,6 +68,39 @@ For the following OSes, the simplest approach is to buy some real hardware:
 Testing specific CPUs
 =====================
 
+The compile farm
+----------------
+
+The compile farm (formerly known as GCC compile farm)
+<https://portal.cfarm.net/>
+offers developer accounts for Free Software contributors.
+After obtaining an account, you have ssh access to machines
+with glibc and the following CPUs:
+  - arm64
+  - loongarch64
+  - mips64
+  - powerpc64, powerpc64le
+
+
+Matoro's ISA Sandbox
+--------------------
+
+This is a small compile farm focused on glibc machines with
+rare CPUs.
+<https://static.matoro.tk/isa-sandbox-faq.html>
+offers developer accounts.
+After obtaining an account, you have ssh access to machines
+with glibc and the following CPUs:
+  - alpha
+  - hppa
+  - ia64
+  - loongarch64
+  - mips64
+  - powerpc64, powerpc64le
+  - riscv64
+  - sparc64
+
+
 Emulated virtual machines
 -------------------------
 
