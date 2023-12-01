@@ -37,23 +37,27 @@ if test "x$1" = "x--doc"; then
         fi
       fi
     fi
-    if ! grep '^'"$symbol"'$' freebsd-13.0/* >/dev/null; then
-      line=$line', FreeBSD 13.0'
+    if ! grep '^'"$symbol"'$' freebsd-14.0/* >/dev/null; then
+      line=$line', FreeBSD 14.0'
     else
-      if ! grep '^'"$symbol"'$' freebsd-12.0/* >/dev/null; then
-        line=$line', FreeBSD 12.0'
+      if ! grep '^'"$symbol"'$' freebsd-13.0/* >/dev/null; then
+        line=$line', FreeBSD 13.0'
       else
-        if ! grep '^'"$symbol"'$' freebsd-11.0/* >/dev/null; then
-          line=$line', FreeBSD 11.0'
+        if ! grep '^'"$symbol"'$' freebsd-12.0/* >/dev/null; then
+          line=$line', FreeBSD 12.0'
         else
-          if ! grep '^'"$symbol"'$' freebsd-6.4/* >/dev/null; then
-            line=$line', FreeBSD 6.4'
+          if ! grep '^'"$symbol"'$' freebsd-11.0/* >/dev/null; then
+            line=$line', FreeBSD 11.0'
           else
-            if ! grep '^'"$symbol"'$' freebsd-6.0/* >/dev/null; then
-              line=$line', FreeBSD 6.0'
+            if ! grep '^'"$symbol"'$' freebsd-6.4/* >/dev/null; then
+              line=$line', FreeBSD 6.4'
             else
-              if ! grep '^'"$symbol"'$' freebsd-5.2.1/* >/dev/null; then
-                line=$line', FreeBSD 5.2.1'
+              if ! grep '^'"$symbol"'$' freebsd-6.0/* >/dev/null; then
+                line=$line', FreeBSD 6.0'
+              else
+                if ! grep '^'"$symbol"'$' freebsd-5.2.1/* >/dev/null; then
+                  line=$line', FreeBSD 5.2.1'
+                fi
               fi
             fi
           fi

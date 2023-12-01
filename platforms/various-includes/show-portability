@@ -50,23 +50,27 @@ if test "x$1" = "x--doc"; then
         fi
       fi
     fi
-    if ! func_has freebsd-13.0 "$header"; then
-      line=$line', FreeBSD 13.0'
+    if ! func_has freebsd-14.0 "$header"; then
+      line=$line', FreeBSD 14.0'
     else
-      if ! func_has freebsd-12.0 "$header"; then
-        line=$line', FreeBSD 12.0'
+      if ! func_has freebsd-13.0 "$header"; then
+        line=$line', FreeBSD 13.0'
       else
-        if ! func_has freebsd-11.0 "$header"; then
-          line=$line', FreeBSD 11.0'
+        if ! func_has freebsd-12.0 "$header"; then
+          line=$line', FreeBSD 12.0'
         else
-          if ! func_has freebsd-6.4 "$header"; then
-            line=$line', FreeBSD 6.4'
+          if ! func_has freebsd-11.0 "$header"; then
+            line=$line', FreeBSD 11.0'
           else
-            if ! func_has freebsd-6.0 "$header"; then
-              line=$line', FreeBSD 6.0'
+            if ! func_has freebsd-6.4 "$header"; then
+              line=$line', FreeBSD 6.4'
             else
-              if ! func_has freebsd-5.2.1 "$header"; then
-                line=$line', FreeBSD 5.2.1'
+              if ! func_has freebsd-6.0 "$header"; then
+                line=$line', FreeBSD 6.0'
+              else
+                if ! func_has freebsd-5.2.1 "$header"; then
+                  line=$line', FreeBSD 5.2.1'
+                fi
               fi
             fi
           fi
