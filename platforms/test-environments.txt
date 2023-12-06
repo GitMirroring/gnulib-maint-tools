@@ -51,8 +51,8 @@ How to do this:
    make, vim, emacs).
 
 As examples, find in the environments/ directory:
-  * qemu-x86_64-openbsd73.txt: How to install OpenBSD 7.3 with QEMU.
-  * virtualbox-openbsd73.txt: How to install OpenBSD 7.3 with VirtualBox.
+  * qemu/x86_64-openbsd73.txt: How to install OpenBSD 7.3 with QEMU.
+  * virtualbox/openbsd73.txt: How to install OpenBSD 7.3 with VirtualBox.
 
 
 Bring your own hardware
