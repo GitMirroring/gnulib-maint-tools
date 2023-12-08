@@ -1,0 +1,149 @@
+(DR) Collect pointers to documentation and references
+-----------------------------------------------------
+
+https://www.kernel.org/doc/html/v6.6/admin-guide/kernel-parameters.html
+https://www.debian.org/ports/alpha/port-status.en.html
+
+(QV) Choose a QEMU version
+--------------------------
+
+Use qemu-8.1.2
+% PATH=$HOME/inst-qemu/8.1.2/bin:$PATH
+
+(DL) Download an installation CD-ROM or DVD image
+-------------------------------------------------
+
+Download: http://dl.t2sde.org/binary/2023/t2-23.6-alpha-minimal-desktop-gcc-glibc.iso
+
+(XK) Extract the kernel from the CD-ROM or DVD image
+----------------------------------------------------
+
+% sudo mount -r -t iso9660 -o loop t2-23.6-alpha-minimal-desktop-gcc-glibc.iso /mnt
+% mkdir boot
+% cp -a /mnt/boot/* boot/
+% sudo umount /mnt
+% gunzip boot/vmlinux-6.3.7-t2.gz
+
+(CD) Create an empty disk image to be used by the virtual machine
+-----------------------------------------------------------------
+
+% qemu-img create -f qcow2 t2sde.qcow2 10G
+
+(MA) Choose the machine arguments
+---------------------------------
+
+% machine_args="-M clipper -m 512"
+
+(DI) Choose the disk arguments
+------------------------------
+
+% disk_args="-drive file=t2sde.qcow2,format=qcow2,id=hd0"
+
+(NW) Choose the network arguments
+---------------------------------
+
+% net_args=""
+This provides an ethernet interface:
+(qemu) info network
+hub 0
+ \ hub0port1: #net182: index=0,type=user,net=10.0.2.0,restrict=off
+ \ hub0port0: e1000.0: index=0,type=nic,model=e1000,macaddr=52:54:00:12:34:56
+
+(DV) Choose the display/video arguments
+---------------------------------------
+
+% display_args="-nographic"
+
+(B1) Boot from the CD/DVD
+-------------------------
+
+% common_args="$machine_args $disk_args $net_args $display_args"
+
+Resize the terminal to 80x24.
+
+% qemu-system-alpha $common_args \
+    -kernel boot/vmlinux-6.3.7-t2 -initrd boot/initrd-6.3.7-t2 -append "console=ttyS0,115200" \
+    -cdrom t2-23.6-alpha-minimal-desktop-gcc-glibc.iso
+does not work; the CD-ROM device is:
+(qemu) info block
+...
+ide1-cd0 (#block321): t2-23.6-alpha-minimal-desktop-gcc-glibc.iso (raw, read-only)
+    Attached to:      /machine/unattached/device[17]
+    Removable device: not locked, tray closed
+    Cache mode:       writeback
+
+but Linux does not recognize it. Instead, use:
+
+% qemu-system-alpha $common_args \
+    -kernel boot/vmlinux-6.3.7-t2 -initrd boot/initrd-6.3.7-t2 -append "console=ttyS0,115200" \
+    -drive file=t2-23.6-alpha-minimal-desktop-gcc-glibc.iso,if=ide,media=cdrom
+
+This creates a different CD-ROM device:
+(qemu) info block
+...
+ide0-cd1 (#block321): t2-23.6-alpha-minimal-desktop-gcc-glibc.iso (raw, read-only)
+    Attached to:      /machine/unattached/device[17]
+    Removable device: locked, tray closed
+    Cache mode:       writeback
+
+that Linux recognizes.
+
+Here, the '-append "console=..."' option is needed so that output gets directed
+to the terminal emulator.
+
+(IN) Perform the steps of the installer
+---------------------------------------
+
+Serial terminal: <Enter> or console
+# install
+Keyboard: us
+Partition: Automatic, classic partitions.
+File system on /dev/sda2: ext4
+Install the system
+Start gasgui Package Manager
+Full install (all packages).
+Keyboard: us
+Root password: ********
+Time zone: Europe/Berlin
+Set date: 2023, not 2003.
+Locale: en_US.UTF-8
+=> While installing aboot:
+  "Existing disk label is corrupt"
+Therefore: <Back>
+Network configuration: Configure eth0 through DHCP. <Back>.
+System init configuration: Default runlevel 3. <Back>.
+Then: <Exit>
+
+(B2) Boot from the installed disk
+---------------------------------
+
+This needs a -kernel option, since no bootloader is installed.
+% qemu-system-alpha $common_args \
+    -kernel boot/vmlinux-6.3.7-t2 -initrd boot/initrd-6.3.7-t2 -append "root=/dev/sda2 console=ttyS0,115200"
+
+This boots fine. Now is the time to switch to a graphic display, if desired:
+
+% display_args="-display gtk -monitor stdio"
+% common_args="$machine_args $disk_args $net_args $display_args"
+% qemu-system-alpha $common_args \
+    -kernel boot/vmlinux-6.3.7-t2 -initrd boot/initrd-6.3.7-t2 -append "root=/dev/sda2 console=ttyS0,115200"
+
+# useradd -d /home/MY_USER_NAME -m -U -u 1000 -G wheel MY_USER_NAME
+# passwd MY_USER_NAME
+New password: ********
+
+(PK) Install packages
+---------------------
+
+Nothing to do. If some packages are needed that are not on the CD-ROM,
+they can be compiled locally through
+# cd /usr/src/t2-src
+# svn update
+# scripts/Emerge-Pkg -f PACKAGE
+But that takes a long time.
+
+
+Notes
+-----
+
+After every reboot, you need to set the date (year 2023, not 2003).

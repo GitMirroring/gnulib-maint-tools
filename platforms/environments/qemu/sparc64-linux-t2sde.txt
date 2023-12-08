@@ -1,0 +1,292 @@
+(DR) Collect pointers to documentation and references
+-----------------------------------------------------
+
+https://www.qemu.org/docs/master/system/target-sparc64.html
+https://wiki.qemu.org/Documentation/Platforms/SPARC
+https://www.kernel.org/doc/html/v6.6/admin-guide/kernel-parameters.html
+
+(QV) Choose a QEMU version
+--------------------------
+
+Use qemu-8.1.2
+% PATH=$HOME/inst-qemu/8.1.2/bin:$PATH
+
+(DL) Download an installation CD-ROM or DVD image
+-------------------------------------------------
+
+Download: http://dl.t2sde.org/binary/2023/t2-23.10-sparc6432-minimal-desktop-gcc-glibc.iso
+
+(XK) Extract the kernel from the CD-ROM or DVD image
+----------------------------------------------------
+
+% sudo mount -r -t iso9660 -o loop t2-23.10-sparc6432-minimal-desktop-gcc-glibc.iso /mnt
+% mkdir boot
+% cp -a /mnt/boot/* boot/
+% sudo umount /mnt
+
+(CD) Create an empty disk image to be used by the virtual machine
+-----------------------------------------------------------------
+
+% qemu-img create -f qcow2 t2sde.qcow2 10G
+
+(MA) Choose the machine arguments
+---------------------------------
+
+On this platform, more system calls can get interrupted (EINTR)
+than on other Linux platforms. In particular, we get a "short write"
+while extracting second stage file system if we specify only "-m 1024".
+This is probably a bug in the initrd's 'cat', 'mv', and 'tar' programs.
+So, as a workaround:
+% machine_args="-m 2048"
+
+(DI) Choose the disk arguments
+------------------------------
+
+% disk_args="-drive file=t2sde.qcow2,format=qcow2,index=0"
+
+(NW) Choose the network arguments
+---------------------------------
+
+% net_args=""
+This provides an ethernet interface:
+(qemu) info network
+hub 0
+ \ hub0port1: #net109: index=0,type=user,net=10.0.2.0,restrict=off
+ \ hub0port0: sunhme.0: index=0,type=nic,model=sunhme,macaddr=52:54:00:12:34:56
+
+(DV) Choose the display/video arguments
+---------------------------------------
+
+% display_args="-nographic"
+
+(B1) Boot from the CD/DVD
+-------------------------
+
+% common_args="$machine_args $disk_args $net_args $display_args"
+
+Resize the terminal to 80x24.
+
+% qemu-system-sparc64 $common_args \
+    -kernel boot/vmlinux-6.6.3-t2 -initrd boot/initrd-6.6.3-t2 \
+    -cdrom t2-23.10-sparc6432-minimal-desktop-gcc-glibc.iso
+works; the CD-ROM device is:
+(qemu) info block
+...
+ide1-cd0 (#block387): t2-23.10-sparc6432-minimal-desktop-gcc-glibc.iso (raw, read-only)
+    Attached to:      /machine/unattached/device[19]
+    Removable device: not locked, tray closed
+    Cache mode:       writeback
+
+(IN) Perform the steps of the installer
+---------------------------------------
+
+Serial terminal: <Enter> or console
+# install
+Keyboard: us
+Partition: Automatic, classic partitions.
+File system on /dev/sda1: ext4
+  Proceed anyway: y
+Install the system
+Start gasgui Package Manager
+Full install (all packages).
+Keyboard: us
+Root password: ********
+Time zone: Europe/Berlin
+Locale: en_US.UTF-8
+Generated /boot/grub/grub.cfg:
+  menuentry "T2/Linux" {
+    linux /boot/vmlinux-6.6.3-t2 root=/dev/disk/by-uuid/6191b4f7-31be-4b8a-8a8a-a545cb286a8b ro resume=/dev/disk/by-uuid/c5f7d2b5-ff7a-4c09-880e-864b85cc52b4 console=ttyS0 initrd /boot/initrd-6.6.3-t2
+  }
+Error: grub2-install: error: unknown filesystem.
+Therefore: <Back>
+Generated /boot/silo.conf:
+  root=/dev/sda1
+  image=/boot/vmlinuz-6.6.3-t2
+   label=linux root=/dev/sda1 initrd=/boot/initrd-6.6.3-t2 read-only
+Again: <Back>
+Network configuration: Configure eth0 through DHCP. <Back>.
+SSH daemon configuration: <Back>.
+System init configuration: Default runlevel 3. <Back>.
+Then: <Exit>
+# halt
+
+(B2) Boot from the installed disk
+---------------------------------
+
+This needs a -kernel option, since no bootloader is installed.
+% qemu-system-sparc64 $common_args
+does not boot:
+--------------------------------------------------------------------------------
+OpenBIOS for Sparc64
+Configuration device id QEMU version 1 machine id 0
+kernel cmdline
+CPUs: 1 x SUNW,UltraSPARC-IIi
+UUID: 00000000-0000-0000-0000-000000000000
+Welcome to OpenBIOS v1.1 built on Mar 7 2023 22:22
+  Type 'help' for detailed information
+Trying disk:a...
+Not a bootable ELF image
+Loading a.out image...
+Loaded 7680 bytes
+entry point is 0x4000
+SILO Version 1.4.14
+
+Cannot find /boot/silo.conf (error: 4294967295)
+
+Couldn't load /boot/silo.conf
+No config file loaded, you can boot just from this command line
+Type [prompath;]part/path_to_image [parameters] on the prompt
+E.g. /iommu/sbus/espdma/esp/sd@3,0;4/vmlinux root=/dev/sda4
+or 2/vmlinux.live (to load vmlinux.live from 2nd partition of boot disk)
+boot:
+--------------------------------------------------------------------------------
+
+So, use:
+% qemu-system-sparc64 $common_args -kernel boot/vmlinux-6.6.3-t2 -initrd boot/initrd-6.6.3-t2 -append "root=/dev/sda1"
+
+It boots, but there is no login prompt. There are two possible fixes for this situation:
+
+* Tell the kernel about the console device, so that a 'getty' process gets spawned for it.
+  (See also the generated grub.cfg, above.)
+  % qemu-system-sparc64 $common_args -kernel boot/vmlinux-6.6.3-t2 -initrd boot/initrd-6.6.3-t2 -append "root=/dev/sda1 console=ttyS0,115200"
+
+* Use a graphic display:
+  % display_args="-display gtk -monitor stdio"
+  % common_args="$machine_args $disk_args $net_args $display_args"
+  % qemu-system-sparc64 $common_args -kernel boot/vmlinux-6.6.3-t2 -initrd boot/initrd-6.6.3-t2 -append "root=/dev/sda1"
+  But this mode is rather useless, since typing into the VGA window has
+  no effect, and the serial0 window merely displays what the console would
+  show.
+
+# useradd -d /home/MY_USER_NAME -m -U -u 1000 -G wheel MY_USER_NAME
+# passwd MY_USER_NAME
+New password: ********
+
+(PK) Install packages
+---------------------
+
+Nothing to do. If some packages are needed that are not on the CD-ROM,
+they can be compiled locally through
+# cd /usr/src/t2-src
+# svn update
+# scripts/Emerge-Pkg -f PACKAGE
+But that takes a long time.
+
+
+Notes
+-----
+
+"gcc" produces 32-bit binaries. "gcc -m64" produces 64-bit binaries.
+
+But the machine is not usable for several reasons:
+
+1) After a couple of hours of run time, there is no available memory any more:
+
+$ free
+               total        used        free      shared  buff/cache   available
+Mem:         2056072     1996384       30744          16       86008       59688
+Swap:         514072        6208      507864
+
+2) gdb is broken:
+
+$ gdb --help
+../../gdb/arch-utils.c:753: internal-error: initialize_current_architecture: Selection of initial architecture failed
+A problem internal to GDB has been detected,
+further debugging may prove unreliable.
+----- Backtrace -----
+0x7010f43b ???
+0x704eba53 ???
+0x704ebe9b ???
+0x705f884f ???
+0x700c8257 ???
+0x7049c6ab ???
+0x7032d6ff ???
+0x7032e893 ???
+0x7006436b ???
+0xf7247937 __libc_start_call_main
+0xf7247a3b __libc_start_main@@GLIBC_2.34
+0x700641bb ???
+---------------------
+
+This is a bug, please report it.  For instructions, see:
+<https://www.gnu.org/software/gdb/bugs/>.
+
+Aborted (core dumped)
+
+Try: Install gdb from source:
+# cd /usr/src/t2-src
+# svn update
+# scripts/Emerge-Pkg -f gdb
+  (takes 05:09:15 to build perl,
+         03:21:51 to build python,
+         13:58:35 to build gdb)
+Did not help.
+
+3) A configure test hangs (not reproducible):
+checking whether chown always updates ctime...
+
+4) After a certain time, all new files have the same time stamp.
+-rw-r--r-- 1 bruno bruno    5088 2023-12-03 10:11:42.172000000 +0100 gettime-res.o
+-rw-r--r-- 1 bruno bruno    5460 2023-12-03 10:11:44.692000000 +0100 getugroups.o
+-rw-r--r-- 1 bruno bruno    9196 2023-12-03 10:11:48.088000000 +0100 getumask.o
+-rw-r--r-- 1 bruno bruno    5868 2023-12-03 10:11:55.536000000 +0100 yesno.o
+-rw-r--r-- 1 bruno bruno    6692 2023-12-03 10:11:55.536000000 +0100 xvasprintf.o
+-rw-r--r-- 1 bruno bruno   20028 2023-12-03 10:11:55.536000000 +0100 xstrtoumax.o
+-rw-r--r-- 1 bruno bruno   14048 2023-12-03 10:11:55.536000000 +0100 xstrtoul.o
+-rw-r--r-- 1 bruno bruno   19860 2023-12-03 10:11:55.536000000 +0100 xstrtoull.o
+-rw-r--r-- 1 bruno bruno   15612 2023-12-03 10:11:55.536000000 +0100 xstrtol.o
+...
+
+5) In 64-bit mode, the compilation of mktime.c crashes:
+depbase=`echo mktime.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+gcc -m64 -DHAVE_CONFIG_H -DEXEEXT=\"\" -DEXEEXT=\"\" -DNO_XMALLOC -DEXEEXT=\"\" -I. -I../../gllib -I..  -DGNULIB_STRICT_CHECKING=1 -I/home/bruno/prefix64/include -Wall -fvisibility=hidden -g -O2 -MT mktime.o -MD -MP -MF $depbase.Tpo -c -o mktime.o ../../gllib/mktime.c &&\
+mv -f $depbase.Tpo $depbase.Po
+during GIMPLE pass: slp
+../../gllib/mktime.c: In function 'ranged_convert':
+../../gllib/mktime.c:271:1: internal compiler error: Bus error
+  271 | ranged_convert (struct tm *(*convert) (const __time64_t *, struct tm *),
+      | ^~~~~~~~~~~~~~
+0x1303c37 internal_error(char const*, ...)
+        ???:0
+0xf732fc03 __rt_sigreturn_stub
+        ???:0
+0xf732fc03 __rt_sigreturn_stub
+        ???:0
+0xf732fc03 __rt_sigreturn_stub
+        ???:0
+0xf732fc03 __rt_sigreturn_stub
+        ???:0
+0xf732fc03 __rt_sigreturn_stub
+        ???:0
+0xf732fc03 __rt_sigreturn_stub
+        ???:0
+0xf732fc03 __rt_sigreturn_stub
+        ???:0
+0xf732fc03 __rt_sigreturn_stub
+        ???:0
+0xf732fc03 __rt_sigreturn_stub
+        ???:0
+0xf732fc03 __rt_sigreturn_stub
+        ???:0
+0xf732fc03 __rt_sigreturn_stub
+        ???:0
+0xf732fc03 __rt_sigreturn_stub
+        ???:0
+0xf732fc03 __rt_sigreturn_stub
+        ???:0
+0xf732fc03 __rt_sigreturn_stub
+        ???:0
+0xf732fc03 __rt_sigreturn_stub
+        ???:0
+0xf732fc03 __rt_sigreturn_stub
+        ???:0
+0xf732fc03 __rt_sigreturn_stub
+        ???:0
+0xf732fc03 __rt_sigreturn_stub
+        ???:0
+0xf732fc03 __rt_sigreturn_stub
+        ???:0
+Please submit a full bug report, with preprocessed source (by using -freport-bug).
+Please include the complete backtrace with any bug report.
+See <https://gcc.gnu.org/bugs/> for instructions.
+make[4]: *** [Makefile:11320: mktime.o] Error 1

@@ -1,0 +1,185 @@
+(DR) Collect pointers to documentation and references
+-----------------------------------------------------
+
+https://wiki.qemu.org/Documentation/Platforms/m68k
+https://www.kernel.org/doc/html/v6.6/admin-guide/kernel-parameters.html
+https://www.debian.org/ports/m68k/index.en.html
+
+(QV) Choose a QEMU version
+--------------------------
+
+Use qemu-8.1.2
+% PATH=$HOME/inst-qemu/8.1.2/bin:$PATH
+
+(DL) Download an installation CD-ROM or DVD image
+-------------------------------------------------
+
+Download: https://cdimage.debian.org/cdimage/ports/12.0/m68k/debian-12.0.0-m68k-NETINST-1.iso
+
+(XK) Extract the kernel from the CD-ROM or DVD image
+----------------------------------------------------
+
+% sudo mount -r -t iso9660 -o loop debian-12.0.0-m68k-NETINST-1.iso /mnt
+% mkdir boot-for-install
+% cp -p /mnt/install/kernels/* boot-for-install/
+% cp -p /mnt/install/cdrom/* boot-for-install/
+% sudo umount /mnt
+% ln -s vmlinux-6.1.0-9-m68k boot-for-install/vmlinux
+
+(CD) Create an empty disk image to be used by the virtual machine
+-----------------------------------------------------------------
+
+% qemu-img create -f qcow2 debian12.qcow2 10G
+
+(MA) Choose the machine arguments
+---------------------------------
+
+% machine_args="-M q800 -m 256"
+
+(DI) Choose the disk arguments
+------------------------------
+
+% disk_args="-drive file=debian12.qcow2,format=qcow2,id=hd0"
+
+(NW) Choose the network arguments
+---------------------------------
+
+Either
+  % net_args=""
+or
+  % net_args="-net nic,model=dp83932 -net user"
+works. Each provides an ethernet interface:
+(qemu) info network
+hub 0
+ \ hub0port1: #net110: index=0,type=user,net=10.0.2.0,restrict=off
+ \ hub0port0: dp8393x.0: index=0,type=nic,model=dp8393x,macaddr=08:00:07:12:34:56
+
+(DV) Choose the display/video arguments
+---------------------------------------
+
+% display_args="-nographic"
+
+(B1) Boot from the CD/DVD
+-------------------------
+
+% common_args="$machine_args $disk_args $net_args $display_args"
+
+Resize the terminal to 80x24.
+
+Either
+% qemu-system-m68k $common_args \
+    -kernel boot-for-install/vmlinux -initrd boot-for-install/initrd.gz -append "console=ttyS0,115200" \
+    -cdrom debian-12.0.0-m68k-NETINST-1.iso
+or
+  % qemu-system-m68k $common_args \
+    -kernel boot-for-install/vmlinux -initrd boot-for-install/initrd.gz -append "console=ttyS0,115200" \
+    -drive file=debian-12.0.0-m68k-NETINST-1.iso,if=scsi,media=cdrom
+works; the CD-ROM device is:
+(qemu) info block
+...
+scsi0-cd2 (#block364): debian-12.0.0-m68k-NETINST-1.iso (raw, read-only)
+    Attached to:      /machine/esp/scsi.0/legacy[2]
+    Removable device: not locked, tray closed
+    Cache mode:       writeback
+
+Here, the '-append "console=..."' option is needed so that output gets directed
+to the terminal emulator.
+
+(IN) Perform the steps of the installer
+---------------------------------------
+
+Language: English
+Location: United States
+Keyboard: American English
+Host name: m68k-debian12
+Domain name: MYDOMAINNAME
+
+If you get asked for a Debian archive mirror at this point, it means that the
+CDROM was not recognized. Fix that problem first; this will avoid redownloading
+most of its contents.
+
+No root account.
+Full name: MY_FULL_NAME
+login: MY_USER_NAME
+password: ********
+
+Accept a dummy time zone.
+
+Partitioning: Entire disk. All files in one partition.
+
+When asked for a Debian archive mirror, do *not* enter a valid mirror,
+because it would lead to a crash:
+--------------------------------------------------------------------------------
+[ 2393.270000] *** TRAP #7 ***   FORMAT=0
+[ 2393.270000] Current process id is 20895
+[ 2393.270000] BAD KERNEL TRAP: 00000000
+[ 2393.270000] Modules linked in: ipv6(+) dm_mod md_mod btrfs libcrc32c xor zlib
+--------------------------------------------------------------------------------
+Instead, as a workaround:
+Select <Go back>.
+Continue without a network mirror? Yes.
+
+Software selection: Keep enabled: SSH server.
+
+Take note of the message
+   │                       No boot loader installed                        │
+   │ No boot loader has been installed, either because you chose not to or │
+   │ because your specific architecture doesn't support a boot loader yet. │
+   │                                                                       │
+   │ You will need to boot manually with the /vmlinuz kernel on partition  │
+   │ /dev/sda2 and root=/dev/sda2 passed as a kernel argument.             │
+
+(B2) Boot from the installed disk
+---------------------------------
+
+For booting from the installed disk, we need another kernel and initrd,
+because
+  % qemu-system-m68k $common_args \
+      -kernel boot-for-install/vmlinux -initrd boot-for-install/initrd.gz -append "console=ttyS0,115200 root=/dev/sda2"
+merely launches the installer again, which is not what we want.
+
+Extract the kernel for booting:
+http://superuser.com/questions/344899/how-can-i-mount-a-disk-image
+% qemu-img convert -f qcow2 -O raw debian12.qcow2 debian12.img
+% sudo kpartx -av debian12.img
+% sudo mount -r -t ext4 /dev/mapper/loop18p2 /mnt
+% mkdir boot
+% cp -p /mnt/boot/* boot/
+% sudo umount /mnt
+% sudo kpartx -dv debian12.img
+% rm debian12.img
+
+% qemu-system-m68k $common_args \
+    -kernel boot/vmlinux-6.1.0-9-m68k -initrd boot/initrd.img-6.1.0-9-m68k -append "console=ttyS0,115200 root=/dev/sda2"
+
+login as MY_USER_NAME
+$ sudo bash
+# timedatectl set-timezone Europe/Berlin
+
+(PK) Install packages
+---------------------
+
+Binary packages are at
+https://ftp.debian.org/debian-ports/pool-m68k/main/
+
+Edit /etc/apt/sources.list:
+- Comment out the cdrom line.
+- Add:
+  deb http://deb.debian.org/debian-ports sid main
+('sid' means 'unstable'.)
+
+# apt update
+
+Upgrade from 12.0 ('bookworm') to unstable ('sid'):
+# apt upgrade
+
+# reboot
+
+login as MY_USER_NAME
+$ sudo bash
+# apt install make
+# apt install gcc binutils-doc glibc-doc libc-dbg gdb
+# apt install vim-nox vim-doc
+# apt install emacs-nox emacs-el
+# apt install g++
+# apt install expect dejagnu

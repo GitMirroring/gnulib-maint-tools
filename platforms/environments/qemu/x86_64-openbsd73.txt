@@ -1,29 +1,80 @@
-Use https://cdn.openbsd.org/pub/OpenBSD/7.3/amd64/install73.iso -> OpenBSD-7.3-amd64-install.iso.
+(DR) Collect pointers to documentation and references
+-----------------------------------------------------
 
+https://www.qemu.org/docs/master/system/target-i386.html
+https://wiki.qemu.org/Hosts/BSD
+
+(QV) Choose a QEMU version
+--------------------------
 
 Use qemu-8.0.2
-PATH=$HOME/inst-qemu/8.0.2/bin:$PATH
+% PATH=$HOME/inst-qemu/8.0.2/bin:$PATH
 
-Create empty disk:
-qemu-img create -f vmdk openbsd73.vmdk 8G
+(DL) Download an installation CD-ROM or DVD image
+-------------------------------------------------
 
-Boot with CD:
+Download: https://cdn.openbsd.org/pub/OpenBSD/7.3/amd64/install73.iso
+-> OpenBSD-7.3-amd64-install.iso.
 
-machine_args="-enable-kvm -m 1024"
-disk_args="-device virtio-blk,drive=hd0 -drive if=none,file=x86_64-openbsd73/openbsd73.vmdk,id=hd0"
-net_args="-net user -net nic,model=virtio"
-#display_args="-nographic"
-display_args="-display gtk -monitor stdio"
-common_args="$machine_args $disk_args $net_args $display_args"
-qemu-system-x86_64 $common_args -cdrom OpenBSD-7.3-amd64-install.iso
+(XK) Extract the kernel from the CD-ROM or DVD image
+----------------------------------------------------
 
+This is not needed in this case.
+
+(CD) Create an empty disk image to be used by the virtual machine
+-----------------------------------------------------------------
+
+% qemu-img create -f vmdk openbsd73.vmdk 8G
+
+(MA) Choose the machine arguments
+---------------------------------
+
+% machine_args="-enable-kvm -m 1024"
+
+(DI) Choose the disk arguments
+------------------------------
+
+% disk_args="-device virtio-blk,drive=hd0 -drive if=none,file=openbsd73.vmdk,id=hd0"
+
+(NW) Choose the network arguments
+---------------------------------
+
+Either
+  % net_args=""
+or
+  % net_args="-net user -net nic,model=virtio"
+works. In the first case, OpenBSD will recognize an ethernet interface named
+'em0'. In the second case, it will recognize a network interface named 'vio0'.
+
+(DV) Choose the display/video arguments
+---------------------------------------
+
+% display_args="-display gtk -monitor stdio"
+
+(B1) Boot from the CD/DVD
+-------------------------
+
+% common_args="$machine_args $disk_args $net_args $display_args"
+% qemu-system-x86_64 $common_args -cdrom OpenBSD-7.3-amd64-install.iso
+
+If you get an error
+-----------------------------------------------------------------------
+  ioctl(KVM_CREATE_VM) failed: 16 Device or resource busy
+  qemu-system-x86_64: failed to initialize kvm: Device or resource busy
+-----------------------------------------------------------------------
+it means that another hypervisor is in use. As a workaround, remove the
+option '-enable-kvm' from the machine_args. This will significantly slow
+down the execution speed of the VM, though.
+
+(IN) Perform the steps of the installer
+---------------------------------------
 
 (I)nstall.
 Host name: openbsd73
 Root password: ********
 X Window System: no
 Setup a user?
-  login: *****
+  login: MY_USER_NAME
   password: ********
 Allow root ssh login: yes
 Partitioning: (W)hole disk MBR, then (E)dit auto layout
@@ -45,18 +96,24 @@ Sets:
 Continue without verification: yes
 
 Reboot.
-Boot from the installed disk, without the CD
-(does not need a -kernel option, since a SeaBIOS bootloader is installed):
-qemu-system-x86_64 $common_args
+
+(B2) Boot from the installed disk
+---------------------------------
+
+This does not need a -kernel option, since a SeaBIOS bootloader is installed.
+
+% qemu-system-x86_64 $common_args
 
 # mail
 
-# Install some packages.
-# List is at https://ftp.hostserver.de/pub/OpenBSD/7.3/packages/amd64/
-# See https://www.openbsd.org/faq/faq15.html#PkgMgmt
+(PK) Install packages
+---------------------
+
+The list of packages is at https://ftp.hostserver.de/pub/OpenBSD/7.3/packages/amd64/
+See https://www.openbsd.org/faq/faq15.html#PkgMgmt
 Edit ~/.profile to define PKG_PATH:
-PKG_PATH=https://ftp.hostserver.de/pub/OpenBSD/7.3/packages/`uname -m`/
-export PKG_PATH
+# PKG_PATH=https://ftp.hostserver.de/pub/OpenBSD/7.3/packages/`uname -m`/
+# export PKG_PATH
 Logout.
 
 # pkg_add bzip2

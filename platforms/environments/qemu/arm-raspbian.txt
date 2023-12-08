@@ -1,0 +1,120 @@
+(DR) Collect pointers to documentation and references
+-----------------------------------------------------
+
+https://www.qemu.org/docs/master/system/target-arm.html
+https://wiki.qemu.org/Documentation/Platforms/ARM
+https://www.kernel.org/doc/html/v6.6/admin-guide/kernel-parameters.html
+https://blog.agchapman.com/using-qemu-to-emulate-a-raspberry-pi/
+or (older):
+https://azeria-labs.com/emulate-raspberry-pi-with-qemu/
+https://www.raspberrypi.org/forums/viewtopic.php?t=175454
+https://blogs.msdn.microsoft.com/iliast/2016/11/10/how-to-emulate-raspberry-pi/
+http://www.raspberry-pi-geek.de/Magazin/2014/04/Raspberry-Pi-emulieren
+
+(QV) Choose a QEMU version
+--------------------------
+
+Use qemu-2.12.0
+% PATH=$HOME/inst-qemu/2.12.0/bin:$PATH
+
+(DL) Download an installation CD-ROM or DVD image
+-------------------------------------------------
+
+Use Raspbian from https://www.raspberrypi.org/downloads/raspbian/
+I downloaded 2017-11-29-raspbian-stretch.zip .
+
+% unzip -x 2017-11-29-raspbian-stretch.zip
+
+Add 5 GiB to the 2nd partition, as described in
+https://askubuntu.com/questions/107228/how-to-resize-virtual-machine-disk
+% mv 2017-11-29-raspbian-stretch.img raspbian-orig.img
+% (cat raspbian-orig.img; dd if=/dev/zero bs=1048576 count=5120) > raspbian.img
+% fdisk raspbian.img
+d 2
+n p 2 94208 20094975
+w
+% sudo kpartx -av raspbian.img
+% sudo e2fsck -f /dev/mapper/loop0p2
+% sudo resize2fs /dev/mapper/loop0p2
+% sudo kpartx -dv raspbian.img
+% rm raspbian-orig.img
+
+Convert to qcow2 format:
+% qemu-img convert -f raw -O qcow2 raspbian.img raspbian.qcow2
+
+(XK) Extract the kernel from the CD-ROM or DVD image
+----------------------------------------------------
+
+This is not needed in this case.
+
+(CD) Create an empty disk image to be used by the virtual machine
+-----------------------------------------------------------------
+
+This is not needed in this case; we have a disk image already.
+
+(MA) Choose the machine arguments
+---------------------------------
+
+% machine_args="-machine versatilepb -cpu arm1176 -m 256"
+
+(DI) Choose the disk arguments
+------------------------------
+
+% disk_args="-hda raspbian.qcow2"
+
+(NW) Choose the network arguments
+---------------------------------
+
+% net_args=""
+This provides an ethernet interface by default:
+(qemu) info network
+hub 0
+ \ hub0port1: user.0: index=0,type=user,net=10.0.2.0,restrict=off
+ \ hub0port0: smc91c111.0: index=0,type=nic,model=smc91c111,macaddr=52:54:00:12:34:56
+
+(DV) Choose the display/video arguments
+---------------------------------------
+
+Either choose text mode
+  % display_args="-nographic"
+or the graphics mode (Raspbian has a nice UI)
+  % display_args="-display gtk -monitor stdio"
+
+(B2) Boot from the disk
+-----------------------
+
+This needs a -kernel option, since no bootloader is installed.
+And the kernel must be one has been specially built for being a QEMU guest.
+
+% common_args="$machine_args $disk_args $net_args $display_args"
+
+% wget https://github.com/dhruvvyas90/qemu-rpi-kernel/raw/master/kernel-qemu-4.4.34-jessie
+
+For text mode:
+  % qemu-system-arm $common_args \
+      -kernel kernel-qemu-4.4.34-jessie -append "root=/dev/sda2 panic=1 console=ttyAMA0"
+
+  login: pi
+  Password: raspberry
+
+For graphics mode:
+  % qemu-system-arm $common_args \
+      -kernel kernel-qemu-4.4.34-jessie -append "root=/dev/sda2 panic=1"
+
+  Applications Menu > Preferences > Raspberry Pi Configuration > Localisation
+    Locale: en / US / UTF-8
+    Timezone: Europe / Berlin
+    Keyboard: United States / English (US)
+    WiFi Country: DE
+
+Reboot.
+
+(PK) Install packages
+---------------------
+
+
+Notes
+-----
+
+At boot, an error "failed to start load kernel modules" can occur if not enough CPU power.
+Workaround: stop other CPU intensive processes while booting Raspbian.

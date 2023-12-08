@@ -1,0 +1,164 @@
+(DR) Collect pointers to documentation and references
+-----------------------------------------------------
+
+https://www.qemu.org/docs/master/system/target-arm.html
+https://wiki.qemu.org/Documentation/Platforms/ARM
+https://www.kernel.org/doc/html/v6.6/admin-guide/kernel-parameters.html
+https://wiki.debian.org/ArmHardFloatPort
+
+(QV) Choose a QEMU version
+--------------------------
+
+Use qemu-8.0.2
+% PATH=$HOME/inst-qemu/8.0.2/bin:$PATH
+
+(DL) Download an installation CD-ROM or DVD image
+-------------------------------------------------
+
+Download: https://cdimage.debian.org/cdimage/release/12.0.0/armhf/iso-cd/debian-12.0.0-armhf-netinst.iso
+This CD image does not work any more already six months after it
+was released. You need the *newest* Debian version's netinst CD.
+As of 2023-12-12 it is
+https://cdimage.debian.org/cdimage/release/12.4.0/armhf/iso-cd/debian-12.4.0-armhf-netinst.iso
+
+(XK) Extract the kernel from the CD-ROM or DVD image
+----------------------------------------------------
+
+% sudo mount -r -t iso9660 -o loop debian-12.4.0-armhf-netinst.iso /mnt
+% mkdir boot-for-install
+
+Here, we have the choice among /cdrom/ and /netboot/ installers.
+However, the /cdrom/ installers don't actually recognize the CD-ROM
+later, regardless which of the two options we pass:
+  -cdrom debian-12.4.0-armhf-netinst.iso
+or
+  -drive file=debian-12.4.0-armhf-netinst.iso,if=virtio,media=cdrom
+So, use the /netboot/ installer:
+
+% cp -a /mnt/install.ahf/netboot/* boot-for-install/
+% sudo umount /mnt
+% mv boot-for-install/vmlinuz boot-for-install/vmlinux
+
+(CD) Create an empty disk image to be used by the virtual machine
+-----------------------------------------------------------------
+
+% qemu-img create -f qcow2 debian12.qcow2 10G
+
+(MA) Choose the machine arguments
+---------------------------------
+
+Which CPU? Cf.
+  https://www.debian.org/releases/stable/armhf/ch02s01.html.en#idp42797344
+  https://en.wikipedia.org/wiki/Comparison_of_ARMv7-A_cores
+
+% machine_args="-M virt -cpu cortex-a15 -m 256"
+
+(DI) Choose the disk arguments
+------------------------------
+
+% disk_args="-drive file=debian12.qcow2,format=qcow2,if=none,id=hd0 -device virtio-blk-device,drive=hd0"
+
+(NW) Choose the network arguments
+---------------------------------
+
+Use this:
+
+% net_args="-netdev user,id=net0 -device virtio-net-device,netdev=net0,mac=52:54:00:12:34:56"
+or (equivalent)
+% net_args="-netdev type=user,id=net0 -device virtio-net-device,netdev=net0,mac=52:54:00:12:34:56"
+
+This provides an ethernet interface:
+(qemu) info network
+virtio-net-device.0: index=0,type=nic,model=virtio-net-device,macaddr=52:54:00:12:34:56
+ \ net0: index=0,type=user,net=10.0.2.0,restrict=off
+
+The other candidate
+  % net_args=""
+provides an ethernet interface too:
+(qemu) info network
+hub 0
+ \ hub0port1: #net191: index=0,type=user,net=10.0.2.0,restrict=off
+ \ hub0port0: virtio-net-pci.0: index=0,type=nic,model=virtio-net-pci,macaddr=52:54:00:12:34:56
+But the installer would not recognize it later.
+
+(DV) Choose the display/video arguments
+---------------------------------------
+
+% display_args="-nographic"
+
+(B1) Boot from the CD/DVD
+-------------------------
+
+% common_args="$machine_args $disk_args $net_args $display_args"
+
+Resize the terminal to 80x24.
+
+No option for the CD-ROM since it would not be recognized.
+% qemu-system-arm $common_args \
+    -kernel boot-for-install/vmlinux -initrd boot-for-install/initrd.gz
+
+(IN) Perform the steps of the installer
+---------------------------------------
+
+Language: English
+Location: United States
+Keyboard: American English
+Host name: armhf-debian12
+Domain name: MYDOMAINNAME
+
+Since the CDROM is ignored, it asks for the Debian archive mirror.
+Debian archive mirror: Germany, deb.debian.org
+
+No root account.
+Full name: MY_FULL_NAME
+login: MY_USER_NAME
+password: ********
+
+Accept a dummy time zone.
+
+Partitioning: Entire disk. All files in one partition.
+
+Software selection: Keep enabled: SSH server.
+
+(B2) Boot from the installed disk
+---------------------------------
+
+This needs a -kernel option, since no bootloader is installed.
+
+For booting from the installed disk, we need another kernel and initrd,
+because
+  % qemu-system-arm $common_args \
+      -kernel boot-for-install/vmlinux -initrd boot-for-install/initrd.gz -append "root=/dev/vda2"
+merely launches the installer again, which is not what we want.
+
+Extract the kernel for booting:
+http://superuser.com/questions/344899/how-can-i-mount-a-disk-image
+% qemu-img convert -f qcow2 -O raw debian12.qcow2 debian12.img
+% sudo kpartx -av debian12.img
+% sudo mount -r -t ext4 /dev/mapper/loop6p1 /mnt
+% mkdir boot
+% (cd /mnt && tar cf - --exclude=lost+found .) | (cd boot && tar xvf -)
+% sudo umount /mnt
+% sudo kpartx -dv debian12.img
+% rm debian12.img
+
+% qemu-system-arm $common_args \
+    -kernel boot/vmlinuz -initrd boot/initrd.img -append "root=/dev/vda2"
+
+login as MY_USER_NAME
+$ sudo bash
+# timedatectl set-timezone Europe/Berlin
+# reboot
+
+(PK) Install packages
+---------------------
+
+login as MY_USER_NAME
+$ sudo bash
+# apt update
+# apt install make
+# apt install gcc binutils-doc glibc-doc libc-dbg gdb
+# apt install vim-nox vim-doc
+# apt install emacs-nox emacs-el
+# apt install g++
+# apt install expect dejagnu

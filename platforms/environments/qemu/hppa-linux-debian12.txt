@@ -1,0 +1,157 @@
+(DR) Collect pointers to documentation and references
+-----------------------------------------------------
+
+https://www.kernel.org/doc/html/v6.6/admin-guide/kernel-parameters.html
+https://parisc.wiki.kernel.org/index.php/Qemu
+https://www.debian.org/ports/hppa/index.en.html
+
+(QV) Choose a QEMU version
+--------------------------
+
+Use qemu-8.0.2
+% PATH=$HOME/inst-qemu/8.0.2/bin:$PATH
+
+(DL) Download an installation CD-ROM or DVD image
+-------------------------------------------------
+
+Download: https://cdimage.debian.org/cdimage/ports/12.0/hppa/debian-12.0.0-hppa-NETINST-1.iso
+
+(XK) Extract the kernel from the CD-ROM or DVD image
+----------------------------------------------------
+
+% sudo mount -r -t iso9660 -o loop debian-12.0.0-hppa-NETINST-1.iso /mnt
+% mkdir boot-for-install
+% cp -a /mnt/install/* boot-for-install/
+% sudo umount /mnt
+% ln -s vmlinuz-6.1.0-9-parisc boot-for-install/vmlinux
+
+(CD) Create an empty disk image to be used by the virtual machine
+-----------------------------------------------------------------
+
+% qemu-img create -f qcow2 debian12.qcow2 10G
+
+(MA) Choose the machine arguments
+---------------------------------
+
+% machine_args="-M hppa -m 256"
+
+(DI) Choose the disk arguments
+------------------------------
+
+% disk_args="-drive file=debian12.qcow2,format=qcow2,id=hd0"
+
+(NW) Choose the network arguments
+---------------------------------
+
+% net_args=""
+This provides an ethernet interface:
+(qemu) info network
+hub 0
+ \ hub0port1: #net160: index=0,type=user,net=10.0.2.0,restrict=off
+ \ hub0port0: tulip.0: index=0,type=nic,model=tulip,macaddr=52:54:00:12:34:56
+
+(DV) Choose the display/video arguments
+---------------------------------------
+
+% display_args="-nographic"
+
+(B1) Boot from the CD/DVD
+-------------------------
+
+% common_args="$machine_args $disk_args $net_args $display_args"
+
+Resize the terminal to 80x24.
+
+Either
+  % qemu-system-hppa $common_args \
+      -kernel boot-for-install/vmlinux -initrd boot-for-install/initrd.gz \
+      -cdrom debian-12.0.0-hppa-NETINST-1.iso
+or (equivalently)
+  % qemu-system-hppa $common_args \
+      -kernel boot-for-install/vmlinux -initrd boot-for-install/initrd.gz \
+      -drive file=debian-12.0.0-hppa-NETINST-1.iso,if=scsi,bus=0,unit=2,media=cdrom
+works; the CD-ROM device is:
+(qemu) info block
+...
+scsi0-cd2 (#block320): debian-12.0.0-hppa-NETINST-1.iso (raw, read-only)
+    Attached to:      /machine/unattached/device[9]/scsi.0/legacy[2]
+    Removable device: not locked, tray closed
+    Cache mode:       writeback
+
+(IN) Perform the steps of the installer
+---------------------------------------
+
+Language: English
+Location: United States
+Keyboard: American English
+Host name: hppa-debian12
+Domain name: MYDOMAINNAME
+
+If you get asked for a Debian archive mirror at this point, it means that the
+CDROM was not recognized. Fix that problem first; this will avoid redownloading
+most of its contents.
+
+No root account.
+Full name: MY_FULL_NAME
+login: MY_USER_NAME
+password: ********
+
+Accept a dummy time zone.
+
+Partitioning: Entire disk. All files in one partition.
+
+Debian archive mirror: Germany, deb.debian.org
+Software selection: Keep enabled: SSH server.
+
+Fix the configuration on the installed disk
+-------------------------------------------
+
+Increase a couple of systemd timeouts.
+https://unix.stackexchange.com/questions/227017/how-to-change-systemd-service-timeout-value
+https://wiki.archlinux.org/title/Kernel_parameters
+https://wiki.archlinux.org/title/Systemd#Targets
+https://wiki.debian.org/DebianInstaller/FAQ#Q:_Can_I_use_d-i_as_a_rescue_system.3F_What_pitfalls_are_there.3F
+https://www.debian.org/releases/stable/amd64/ch08s06.en.html
+% qemu-system-hppa $common_args \
+    -kernel boot-for-install/vmlinux -initrd boot-for-install/initrd.gz -append "rescue/enable=true" \
+    -cdrom debian-12.0.0-hppa-NETINST-1.iso
+Language: English
+Location: United States
+Keyboard: American English
+Host name: hppa-debian12
+Domain name: MYDOMAINNAME
+Accept a dummy time zone.
+Device to use as root file system: /dev/sda5
+Execute a shell in /dev/sda5
+# vi /etc/systemd/system.conf /etc/systemd/user.conf
+Edit /etc/systemd/system.conf,
+replacing 3 Timeout values: 90s -> 900s, and uncommenting these lines.
+Edit /etc/systemd/user.conf,
+replacing 3 Timeout values: 90s -> 900s, and uncommenting these lines.
+# sync
+# Ctrl-D
+Reboot.
+
+(B2) Boot from the installed disk
+---------------------------------
+
+This does not need a -kernel option, since a SeaBIOS bootloader is installed.
+% qemu-system-hppa $common_args
+
+login as MY_USER_NAME
+$ sudo bash
+# timedatectl set-timezone Europe/Berlin
+# reboot
+
+(PK) Install packages
+---------------------
+
+login as MY_USER_NAME
+$ sudo bash
+# apt update
+# apt install make
+# apt install gcc binutils-doc glibc-doc libc-dbg gdb
+# apt install vim-nox vim-doc
+# apt install emacs-nox emacs-el
+# apt install g++
+# apt install expect dejagnu

@@ -1,0 +1,160 @@
+(DR) Collect pointers to documentation and references
+-----------------------------------------------------
+
+https://www.qemu.org/docs/master/system/target-sparc64.html
+https://wiki.qemu.org/Documentation/Platforms/SPARC
+https://wiki.freebsd.org/QemuRecipes
+https://wiki.qemu.org/Hosts/BSD
+
+(QV) Choose a QEMU version
+--------------------------
+
+Use qemu-5.0.0
+% PATH=$HOME/inst-qemu/5.0.0/bin:$PATH
+
+(DL) Download an installation CD-ROM or DVD image
+-------------------------------------------------
+
+Download: https://download.freebsd.org/ftp/releases/ISO-IMAGES/12.2/FreeBSD-12.2-RELEASE-sparc64-dvd1.iso.xz
+Uncompress it:
+% xz -d FreeBSD-12.2-RELEASE-sparc64-dvd1.iso.xz
+-> FreeBSD-12.2-RELEASE-sparc64-dvd1.iso
+
+(XK) Extract the kernel from the CD-ROM or DVD image
+----------------------------------------------------
+
+This is not needed in this case.
+
+(CD) Create an empty disk image to be used by the virtual machine
+-----------------------------------------------------------------
+
+% qemu-img create -f qcow2 freebsd12.qcow2 10G
+
+(MA) Choose the machine arguments
+---------------------------------
+
+% machine_args="-m 512"
+
+(DI) Choose the disk arguments
+------------------------------
+
+% disk_args="-drive file=freebsd12.qcow2,format=qcow2,index=0"
+
+(NW) Choose the network arguments
+---------------------------------
+
+% net_args=""
+
+This provides an ethernet interface by default:
+(qemu) info network
+hub 0
+ \ hub0port1: user.0: index=0,type=user,net=10.0.2.0,restrict=off
+ \ hub0port0: sunhme.0: index=0,type=nic,model=sunhme,macaddr=52:54:00:12:34:56
+
+(DV) Choose the display/video arguments
+---------------------------------------
+
+% display_args="-nographic"
+
+(B1) Boot from the CD/DVD
+-------------------------
+
+% common_args="$machine_args $disk_args $net_args $display_args"
+% qemu-system-sparc64 $common_args -cdrom FreeBSD-12.2-RELEASE-sparc64-dvd1.iso -boot d
+
+(IN) Perform the steps of the installer
+---------------------------------------
+
+Console type: xterm
+<Install>
+Continue with default keymap
+Hostname: sparc64-freebsd12.MYDOMAINNAME
+Optional system components: base-dbg ports
+Partition: Manual
+  Auto
+  Entire disk
+  Sun VTOC8
+  Finish
+Wait...
+Root password: ********
+Network interface:
+  IPv4: yes, DHCP
+  IPv6: no
+Clock UTC: yes
+Region: Europe, Germany, Germany
+Services: ntpd
+Hardening: none
+
+Reboot.
+
+(B2) Boot from the installed disk
+---------------------------------
+
+This does not need a -kernel option, since an OpenBIOS bootloader is installed.
+
+% qemu-system-sparc64 $common_args
+
+Login in as root.
+
+Reboot, since the file system is not stable yet.
+
+(PK) Install packages
+---------------------
+
+# pkg search bash => Not found.
+Indeed, http://pkg.freebsd.org/ does not have anything for sparc64.
+So, following https://www.freebsd.org/doc/handbook/ports-using.html :
+# cd /usr/ports/shells/bash
+# make install
+=> Takes hours and does not complete because of a dependency chain
+   bash -> bison -> m4 -> texinfo -> help2man -> p5-Locale-gettext
+Retry:
+# cd /usr/ports/ports-mgmt/pkg
+# make install
+# cd /usr/ports/devel/m4
+# make install
+# cd /usr/ports/devel/bison
+# make install
+# cd /usr/ports/shells/bash
+# make install
+=> Takes hours again.
+
+Remove nonsensical symlink.
+# rm /home
+
+Add account:
+# adduser
+Username: MY_USER_NAME
+Full name: MY_FULL_NAME
+Invite MY_USER_NAME into other groups? wheel
+Shell: sh
+=>
+login: MY_USER_NAME
+password: ********
+
+Edit ~/.profile to set TERM=xterm (since qemu's 'gtk' display is based on vte):
+# env TERM=xterm vi /etc/profile .cshrc
+In /etc/profile, add
+  TERM=xterm
+  export TERM
+In .cshrc, add
+  setenv TERM xterm
+
+Edit /etc/passwd: Change root's shell to /bin/sh.
+
+At boot time, there are problems with the file system. Need to run
+# fsck -y
+
+Mount /proc:
+Edit /etc/fstab as indicated in
+https://www.freebsd.org/cgi/man.cgi?query=procfs&sektion=&n=1
+
+
+Notes
+-----
+
+GNU libsigsegv does not work:
+checking if the system supports catching SIGSEGV... no
+checking if the system supports catching stack overflow... no
+
+GNU mpfr does not work: 117 test failures.

@@ -1,0 +1,116 @@
+(DR) Collect pointers to documentation and references
+-----------------------------------------------------
+
+https://www.qemu.org/docs/master/system/target-ppc.html
+https://www.kernel.org/doc/html/v6.6/admin-guide/kernel-parameters.html
+https://www.debian.org/ports/powerpc/index.en.html
+
+(QV) Choose a QEMU version
+--------------------------
+
+Use qemu-8.1.2 (This version fixes a couple of 'Illegal instruction' in glibc math functions.)
+% PATH=$HOME/inst-qemu/8.1.2/bin:$PATH
+
+(DL) Download an installation CD-ROM or DVD image
+-------------------------------------------------
+
+Download: https://cdimage.debian.org/cdimage/release/12.0.0/ppc64el/iso-cd/debian-12.0.0-ppc64el-netinst.iso
+
+(XK) Extract the kernel from the CD-ROM or DVD image
+----------------------------------------------------
+
+This is not needed in this case.
+
+(CD) Create an empty disk image to be used by the virtual machine
+-----------------------------------------------------------------
+
+% qemu-img create -f qcow2 debian12.qcow2 10G
+
+(MA) Choose the machine arguments
+---------------------------------
+
+The best supported machine appears to be 'pseries'.
+With only 512 MB, later an "Out of memory" error may occur.
+% machine_args="-M pseries,cap-cfpc=broken,cap-sbbc=broken,cap-ibs=broken,cap-ccf-assist=off -cpu POWER8 -m 1024"
+
+(DI) Choose the disk arguments
+------------------------------
+
+% disk_args="-drive file=debian12.qcow2,format=qcow2,index=0"
+
+(NW) Choose the network arguments
+---------------------------------
+
+% net_args=""
+This provides an ethernet interface:
+(qemu) info network
+hub 0
+ \ hub0port1: #net100: index=0,type=user,net=10.0.2.0,restrict=off
+ \ hub0port0: l-lan@71000002: index=0,type=nic,model=spapr-vlan,macaddr=52:54:00:12:34:56
+
+(DV) Choose the display/video arguments
+---------------------------------------
+
+% display_args="-nographic"
+
+(B1) Boot from the CD/DVD
+-------------------------
+
+% common_args="$machine_args $disk_args $net_args $display_args"
+% qemu-system-ppc64 $common_args -cdrom debian-12.0.0-ppc64el-netinst.iso -boot d
+
+(IN) Perform the steps of the installer
+---------------------------------------
+
+Language: English
+Location: United States
+Keyboard: American English
+Host name: powerpc64le-debian12
+Domain name: MYDOMAINNAME
+
+If you get asked for a Debian archive mirror at this point, it means that the
+CDROM was not recognized. Fix that problem first; this will avoid redownloading
+most of its contents.
+
+No root account.
+Full name: MY_FULL_NAME
+login: MY_USER_NAME
+password: ********
+
+Accept a dummy time zone.
+
+Partitioning: Entire disk. All files in one partition.
+
+Debian archive mirror: Germany, deb.debian.org
+Software selection: Keep enabled: SSH server.
+
+(B2) Boot from the installed disk
+---------------------------------
+
+This does not need a -kernel option, since an Open Firmware bootloader and a GRUB bootloader are installed.
+
+% qemu-system-ppc64 $common_args
+
+This boots fine. Now is the time to switch to a graphic display, if desired:
+
+% display_args="-display gtk -monitor stdio"
+% common_args="$machine_args $disk_args $net_args $display_args"
+% qemu-system-ppc64 $common_args
+
+login as MY_USER_NAME
+$ sudo bash
+# timedatectl set-timezone Europe/Berlin
+# reboot
+
+(PK) Install packages
+---------------------
+
+login as MY_USER_NAME
+$ sudo bash
+# apt update
+# apt install make
+# apt install gcc binutils-doc glibc-doc libc-dbg gdb
+# apt install vim-nox vim-doc
+# apt install emacs-nox emacs-el
+# apt install g++
+# apt install expect dejagnu

@@ -1,0 +1,152 @@
+(DR) Collect pointers to documentation and references
+-----------------------------------------------------
+
+https://www.qemu.org/docs/master/system/target-mips.html
+https://www.kernel.org/doc/html/v6.6/admin-guide/kernel-parameters.html
+
+(QV) Choose a QEMU version
+--------------------------
+
+Use qemu-8.0.2
+% PATH=$HOME/inst-qemu/8.0.2/bin:$PATH
+
+(DL) Download an installation CD-ROM or DVD image
+-------------------------------------------------
+
+Download: https://cdimage.debian.org/cdimage/release/12.0.0/mipsel/iso-cd/debian-12.0.0-mipsel-netinst.iso
+This CD image does not work any more already six months after it
+was released. You need the *newest* Debian version's netinst CD.
+As of 2023-12-12 it is
+https://cdimage.debian.org/cdimage/release/12.4.0/mipsel/iso-cd/debian-12.4.0-mipsel-netinst.iso
+
+(XK) Extract the kernel from the CD-ROM or DVD image
+----------------------------------------------------
+
+% sudo mount -r -t iso9660 -o loop debian-12.4.0-mipsel-netinst.iso /mnt
+% mkdir boot-for-install
+% cp -p /mnt/install/malta/netboot/* boot-for-install/
+% sudo umount /mnt
+% ln -s vmlinuz-6.1.0-15-4kc-malta boot-for-install/vmlinux
+
+(CD) Create an empty disk image to be used by the virtual machine
+-----------------------------------------------------------------
+
+% qemu-img create -f qcow2 debian12.qcow2 10G
+
+(MA) Choose the machine arguments
+---------------------------------
+
+% machine_args="-M malta -m 256"
+
+(DI) Choose the disk arguments
+------------------------------
+
+% disk_args="-drive file=debian12.qcow2,format=qcow2,index=0"
+
+(NW) Choose the network arguments
+---------------------------------
+
+% net_args=""
+This provides an ethernet interface:
+(qemu) info network
+hub 0
+ \ hub0port1: #net120: index=0,type=user,net=10.0.2.0,restrict=off
+ \ hub0port0: pcnet.0: index=0,type=nic,model=pcnet,macaddr=52:54:00:12:34:56
+
+(DV) Choose the display/video arguments
+---------------------------------------
+
+% display_args="-nographic"
+
+(B1) Boot from the CD/DVD
+-------------------------
+
+% common_args="$machine_args $disk_args $net_args $display_args"
+
+This combination of QEMU machine and kernel appears to not recognize any CD-ROM.
+I tried
+  % qemu-system-mipsel $common_args \
+      -kernel boot-for-install/vmlinux -initrd boot-for-install/initrd.gz
+with each of the following options:
+      -cdrom debian-12.0.0-mipsel-netinst.iso
+      -drive file=debian-12.0.0-mipsel-netinst.iso,media=cdrom
+      -drive file=debian-12.0.0-mipsel-netinst.iso,index=1,media=cdrom
+      -drive file=debian-12.0.0-mipsel-netinst.iso,if=ide,media=cdrom
+and in all cases the installer asked for the Debian mirror already very early.
+
+So, let's actually use this feature of the Debian installer: it acts like a
+net-installation CD when only the kernel and initrd are present and the CD
+cannot be accessed.
+% qemu-system-mipsel $common_args \
+    -kernel boot-for-install/vmlinux -initrd boot-for-install/initrd.gz
+
+(IN) Perform the steps of the installer
+---------------------------------------
+
+Language: English
+Location: United States
+Keyboard: American English
+Host name: mipsel-debian12
+Domain name: MYDOMAINNAME
+
+Since the CDROM is ignored, it asks for the Debian archive mirror.
+Debian archive mirror: Germany, deb.debian.org
+
+No root account.
+Full name: MY_FULL_NAME
+login: MY_USER_NAME
+password: ********
+
+Accept a dummy time zone.
+
+Partitioning: Entire disk. All files in one partition.
+
+Software selection: Keep enabled: SSH server.
+
+Take note of the message
+   │                       No boot loader installed                        │
+   │ No boot loader has been installed, either because you chose not to or │
+   │ because your specific architecture doesn't support a boot loader yet. │
+   │                                                                       │
+   │ You will need to boot manually with the /vmlinux kernel on partition  │
+   │ /dev/sda1 and root=/dev/sda1 passed as a kernel argument.             │
+
+(B2) Boot from the installed disk
+---------------------------------
+
+This needs a -kernel option, since no bootloader is installed:
+% qemu-system-mipsel $common_args -boot c
+just hangs.
+
+Extract the kernel for booting:
+http://superuser.com/questions/344899/how-can-i-mount-a-disk-image
+% qemu-img convert -f qcow2 -O raw debian12.qcow2 debian12.img
+% sudo kpartx -av debian12.img
+% sudo mount -r -t ext4 /dev/mapper/loop6p1 /mnt
+% mkdir boot
+% (cd /mnt/boot && sudo tar cf - --exclude=lost+found .) | (cd boot && tar xvf -)
+% sudo umount /mnt
+% sudo kpartx -dv debian12.img
+% rm debian12.img
+% ln -s vmlinuz-6.1.0-15-4kc-malta boot/vmlinuz
+% ln -s initrd.img-6.1.0-15-4kc-malta boot/initrd.img
+
+% qemu-system-mipsel $common_args -kernel boot/vmlinuz -initrd boot/initrd.img -append "root=/dev/sda1"
+
+login as MY_USER_NAME
+$ sudo bash
+# timedatectl set-timezone Europe/Berlin
+# reboot
+
+(PK) Install packages
+---------------------
+
+login as MY_USER_NAME
+$ sudo bash
+# apt update
+# apt install make
+# apt install gcc binutils-doc glibc-doc libc-dbg gdb
+# apt install vim-nox vim-doc
+# apt install emacs-nox emacs-el
+# apt install g++
+# apt install expect dejagnu

@@ -1,0 +1,195 @@
+Installation media for emulated virtual machines
+================================================
+
+With Glibc (or uClibc)
+======================
+
+alpha
+-----
+
+* Debian
+  https://cdimage.debian.org/cdimage/ports/12.0/alpha/
+  -> https://cdimage.debian.org/cdimage/ports/12.0/alpha/debian-12.0.0-alpha-NETINST-1.iso
+* T2 SDE
+  http://dl.t2sde.org/binary/2023/t2-23.6-alpha-minimal-desktop-gcc-glibc.iso
+
+arm v5 (soft-float)
+------
+
+* Debian
+  https://cdimage.debian.org/debian-cd/12.2.0/armel/iso-dvd/
+  -> https://cdimage.debian.org/debian-cd/12.2.0/armel/iso-dvd/debian-12.2.0-armel-DVD-1.iso
+
+arm v7 (hard-float)
+------
+
+* Debian
+  https://cdimage.debian.org/debian-cd/12.2.0/armhf/iso-dvd/
+  -> https://cdimage.debian.org/debian-cd/12.2.0/armhf/iso-dvd/debian-12.2.0-armhf-DVD-1.iso
+* Raspbian
+  https://www.raspberrypi.com/software/operating-systems/
+
+arm64
+-----
+
+* Debian
+  https://cdimage.debian.org/debian-cd/12.2.0/arm64/iso-dvd/
+  -> https://cdimage.debian.org/debian-cd/12.2.0/arm64/iso-dvd/debian-12.2.0-arm64-DVD-1.iso
+* Raspbian
+  https://www.raspberrypi.com/software/operating-systems/
+* openSUSE
+  https://get.opensuse.org/leap/15.5/#download
+  -> https://download.opensuse.org/distribution/leap/15.5/iso/openSUSE-Leap-15.5-DVD-aarch64-Media.iso
+* Fedora
+  https://fedoraproject.org/server/download
+  -> https://download.fedoraproject.org/pub/fedora/linux/releases/39/Server/aarch64/iso/Fedora-Server-dvd-aarch64-39-1.5.iso
+* Gentoo
+  https://www.gentoo.org/downloads/#arm64-advanced
+
+hppa
+----
+
+* Debian
+  https://cdimage.debian.org/cdimage/ports/12.0/hppa/
+  -> https://cdimage.debian.org/cdimage/ports/12.0/hppa/debian-12.0.0-hppa-NETINST-1.iso
+* T2 SDE
+  http://dl.t2sde.org/binary/2023/t2-23.6-hppa-minimal-desktop-gcc-glibc.iso
+* Gentoo
+  https://www.gentoo.org/downloads/#hppa
+
+loongarch64
+-----------
+
+?
+
+m68k
+----
+
+* Debian
+  https://cdimage.debian.org/cdimage/ports/12.0/m68k/
+  -> https://cdimage.debian.org/cdimage/ports/12.0/m68k/debian-12.0.0-m68k-NETINST-1.iso
+* T2 SDE
+  http://dl.t2sde.org/binary/2023/t2-23.12-m68k-minimal-desktop-gcc-glibc-68020.iso
+
+mips, mips64
+------------
+
+* Debian
+  https://cdimage.debian.org/debian-cd/12.2.0/mipsel/iso-dvd/
+  -> https://cdimage.debian.org/debian-cd/12.2.0/mipsel/iso-dvd/debian-12.2.0-mipsel-DVD-1.iso
+  https://cdimage.debian.org/debian-cd/12.2.0/mips64el/iso-dvd/
+  -> https://cdimage.debian.org/debian-cd/12.2.0/mips64el/iso-dvd/debian-12.2.0-mips64el-DVD-1.iso
+
+powerpc, powerpc64, powerpc64le
+-------------------------------
+
+* Debian
+  https://cdimage.debian.org/cdimage/ports/12.0/powerpc/
+  -> https://cdimage.debian.org/cdimage/ports/12.0/powerpc/debian-12.0.0-powerpc-NETINST-1.iso
+  https://cdimage.debian.org/cdimage/ports/12.0/ppc64/
+  -> https://cdimage.debian.org/cdimage/ports/12.0/ppc64/debian-12.0.0-ppc64-NETINST-1.iso
+  https://cdimage.debian.org/debian-cd/12.2.0/ppc64el/iso-dvd/
+  -> https://cdimage.debian.org/debian-cd/12.2.0/ppc64el/iso-dvd/debian-12.2.0-ppc64el-DVD-1.iso
+* openSUSE
+  https://get.opensuse.org/leap/15.5/#download
+  -> https://download.opensuse.org/distribution/leap/15.5/iso/openSUSE-Leap-15.5-DVD-ppc64le-Media.iso
+* Fedora
+  https://fedoraproject.org/server/download
+  -> https://download.fedoraproject.org/pub/fedora-secondary/releases/39/Server/ppc64le/iso/Fedora-Server-dvd-ppc64le-39-1.5.iso
+* Gentoo
+  https://www.gentoo.org/downloads/#ppc
+* T2 SDE
+  http://dl.t2sde.org/binary/2023/t2-23.6-ppc-minimal-firefox-gcc-glibc-603.iso
+
+riscv64
+-------
+
+* openSUSE
+  https://download.opensuse.org/ports/riscv/tumbleweed/images/
+* Fedora
+  http://fedora.riscv.rocks/koji/tasks?state=closed&view=flat&method=createAppliance&order=-id
+  -> http://fedora.riscv.rocks/kojifiles/work/tasks/6900/1466900/Fedora-Developer-39-20230927.n.0-sda.raw.xz
+
+s390x
+-----
+
+* Debian
+  https://cdimage.debian.org/debian-cd/12.2.0/s390x/iso-dvd/
+  -> https://cdimage.debian.org/debian-cd/12.2.0/s390x/iso-dvd/debian-12.2.0-s390x-DVD-1.iso
+* openSUSE
+  https://get.opensuse.org/leap/15.5/#download
+  -> https://download.opensuse.org/distribution/leap/15.5/iso/openSUSE-Leap-15.5-DVD-s390x-Media.iso
+* Fedora
+  https://fedoraproject.org/server/download
+  -> https://download.fedoraproject.org/pub/fedora-secondary/releases/39/Server/s390x/iso/Fedora-Server-dvd-s390x-39-1.5.iso
+* Gentoo
+  https://www.gentoo.org/downloads/#s390
+
+sh4
+---
+
+?
+
+sparc, sparc64
+--------------
+
+* Debian
+  https://cdimage.debian.org/cdimage/ports/12.0/sparc64/
+  -> https://cdimage.debian.org/cdimage/ports/12.0/sparc64/debian-12.0.0-sparc64-NETINST-1.iso
+* Gentoo
+  https://www.gentoo.org/downloads/#sparc
+* T2 SDE
+  http://dl.t2sde.org/binary/2023/t2-23.10-sparc6432-minimal-desktop-gcc-glibc.iso
+
+With musl libc
+==============
+
+arm v7
+------
+
+* Alpine
+  https://alpinelinux.org/downloads/
+  -> http://dl-cdn.alpinelinux.org/alpine/v3.19/releases/armv7/
+     http://dl-cdn.alpinelinux.org/alpine/v3.19/releases/armhf/
+
+arm64
+-----
+
+* Alpine
+  https://alpinelinux.org/downloads/
+  -> http://dl-cdn.alpinelinux.org/alpine/v3.19/releases/aarch64/
+
+m68k
+----
+
+?
+
+mips, mips64
+------------
+
+?
+
+powerpc, powerpc64, powerpc64le
+-------------------------------
+
+* Alpine
+  https://alpinelinux.org/downloads/
+  -> http://dl-cdn.alpinelinux.org/alpine/v3.19/releases/ppc64le/
+
+riscv64
+-------
+
+?
+
+s390x
+-----
+
+* Alpine
+  https://alpinelinux.org/downloads/
+  -> http://dl-cdn.alpinelinux.org/alpine/v3.19/releases/s390x/
+
+sh4
+---
+
+?
+

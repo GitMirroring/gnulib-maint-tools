@@ -1,0 +1,145 @@
+(DR) Collect pointers to documentation and references
+-----------------------------------------------------
+
+https://www.qemu.org/docs/master/system/target-arm.html
+https://wiki.qemu.org/Documentation/Platforms/ARM
+https://www.kernel.org/doc/html/v6.6/admin-guide/kernel-parameters.html
+https://wiki.debian.org/Arm64Port
+
+(QV) Choose a QEMU version
+--------------------------
+
+Use qemu-8.0.2
+% PATH=$HOME/inst-qemu/8.0.2/bin:$PATH
+
+(DL) Download an installation CD-ROM or DVD image
+-------------------------------------------------
+
+Download: https://cdimage.debian.org/cdimage/release/12.0.0/arm64/iso-cd/debian-12.0.0-arm64-netinst.iso
+
+(XK) Extract the kernel from the CD-ROM or DVD image
+----------------------------------------------------
+
+% sudo mount -r -t iso9660 -o loop debian-12.0.0-arm64-netinst.iso /mnt
+% mkdir boot-for-install
+% cp -a /mnt/install.a64/* boot-for-install/
+% sudo umount /mnt
+% mv boot-for-install/vmlinuz boot-for-install/vmlinux
+
+(CD) Create an empty disk image to be used by the virtual machine
+-----------------------------------------------------------------
+
+% qemu-img create -f qcow2 debian12.qcow2 10G
+
+(MA) Choose the machine arguments
+---------------------------------
+
+Which CPU? Cf.
+  https://www.debian.org/releases/stable/arm64/ch02s01.html.en#arm64-supported-platforms
+  https://en.wikipedia.org/wiki/Comparison_of_ARMv8-A_cores
+
+% machine_args="-M virt -cpu cortex-a53 -m 512"
+
+(DI) Choose the disk arguments
+------------------------------
+
+% disk_args="-drive file=debian12.qcow2,format=qcow2,if=none,id=hd0 -device virtio-blk-device,drive=hd0"
+
+(NW) Choose the network arguments
+---------------------------------
+
+% net_args=""
+This provides an ethernet interface:
+(qemu) info network
+virtio-net-device.0: index=0,type=nic,model=virtio-net-device,macaddr=52:54:00:12:34:56
+ \ net0: index=0,type=user,net=10.0.2.0,restrict=off
+
+(DV) Choose the display/video arguments
+---------------------------------------
+
+% display_args="-nographic"
+
+(B1) Boot from the CD/DVD
+-------------------------
+
+% common_args="$machine_args $disk_args $net_args $display_args"
+
+Resize the terminal to 80x24.
+
+% qemu-system-aarch64 $common_args \
+    -kernel boot-for-install/vmlinux -initrd boot-for-install/initrd.gz \
+    -cdrom debian-12.0.0-arm64-netinst.iso
+works; the CD-ROM device is:
+(qemu) info block
+...
+virtio2 (#block348): debian-12.0.0-arm64-netinst.iso (raw, read-only)
+    Attached to:      /machine/peripheral-anon/device[1]/virtio-backend
+    Cache mode:       writeback
+
+(IN) Perform the steps of the installer
+---------------------------------------
+
+Language: English
+Location: United States
+Keyboard: American English
+Host name: arm64-debian12
+Domain name: MYDOMAINNAME
+
+If you get asked for a Debian archive mirror at this point, it means that the
+CDROM was not recognized. Fix that problem first; this will avoid redownloading
+most of its contents.
+
+No root account.
+Full name: MY_FULL_NAME
+login: MY_USER_NAME
+password: ********
+
+Accept a dummy time zone.
+
+Partitioning: Entire disk. All files in one partition.
+
+Debian archive mirror: Germany, deb.debian.org
+Software selection: Keep enabled: SSH server.
+
+(B2) Boot from the installed disk
+---------------------------------
+
+This needs a -kernel option, since no bootloader is installed.
+
+For booting from the installed disk, we need another kernel and initrd,
+because
+  % qemu-system-aarch64 $common_args \
+      -kernel boot-for-install/vmlinux -initrd boot-for-install/initrd.gz -append "root=/dev/vda2"
+merely launches the installer again, which is not what we want.
+
+Extract the kernel for booting:
+http://superuser.com/questions/344899/how-can-i-mount-a-disk-image
+% qemu-img convert -f qcow2 -O raw debian12.qcow2 debian12.img
+% sudo kpartx -av debian12.img
+% sudo mount -r -t ext2 /dev/mapper/loop6p1 /mnt
+% mkdir boot
+% (cd /mnt && sudo tar cf - --exclude=lost+found .) | (cd boot && tar xvf -)
+% sudo umount /mnt
+% sudo kpartx -dv debian12.img
+% rm debian12.img
+
+% qemu-system-aarch64 $common_args \
+    -kernel boot/vmlinuz -initrd boot/initrd.img -append "root=/dev/vda2"
+
+login as MY_USER_NAME
+$ sudo bash
+# timedatectl set-timezone Europe/Berlin
+# halt
+
+(PK) Install packages
+---------------------
+
+login as MY_USER_NAME
+$ sudo bash
+# apt update
+# apt install make
+# apt install gcc binutils-doc glibc-doc libc-dbg gdb
+# apt install vim-nox vim-doc
+# apt install emacs-nox emacs-el
+# apt install g++
+# apt install expect dejagnu

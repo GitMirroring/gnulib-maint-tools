@@ -1,0 +1,190 @@
+(DR) Collect pointers to documentation and references
+-----------------------------------------------------
+
+https://www.qemu.org/docs/master/system/target-ppc.html
+https://wiki.qemu.org/Documentation/Platforms/PowerPC
+https://www.kernel.org/doc/html/v6.6/admin-guide/kernel-parameters.html
+https://www.debian.org/ports/powerpc/index.en.html
+
+(QV) Choose a QEMU version
+--------------------------
+
+Use qemu-8.1.2 (This version fixes a couple of 'Illegal instruction' in glibc math functions.)
+% PATH=$HOME/inst-qemu/8.1.2/bin:$PATH
+
+(DL) Download an installation CD-ROM or DVD image
+-------------------------------------------------
+
+Download: https://cdimage.debian.org/cdimage/ports/12.0/powerpc/debian-12.0.0-powerpc-NETINST-1.iso
+
+(XK) Extract the kernel from the CD-ROM or DVD image
+----------------------------------------------------
+
+% sudo mount -r -t iso9660 -o loop debian-12.0.0-powerpc-NETINST-1.iso /mnt
+% mkdir boot-for-install
+% cp -a /mnt/install/* boot-for-install/
+% sudo umount /mnt
+
+(CD) Create an empty disk image to be used by the virtual machine
+-----------------------------------------------------------------
+
+% qemu-img create -f qcow2 debian12.qcow2 10G
+
+(MA) Choose the machine arguments
+---------------------------------
+
+The only supported machines that can boot a Linux kernel are g3beige, mac99.
+% machine_args="-M g3beige -m 256"
+
+(DI) Choose the disk arguments
+------------------------------
+
+% disk_args="-drive file=debian12.qcow2,format=qcow2,if=ide,index=0"
+
+(NW) Choose the network arguments
+---------------------------------
+
+% net_args=""
+This provides an ethernet interface:
+(qemu) info network
+hub 0
+ \ hub0port1: #net107: index=0,type=user,net=10.0.2.0,restrict=off
+ \ hub0port0: ne2k_pci.0: index=0,type=nic,model=ne2k_pci,macaddr=52:54:00:12:34:56
+
+(DV) Choose the display/video arguments
+---------------------------------------
+
+% display_args="-nographic"
+
+(B1) Boot from the CD/DVD
+-------------------------
+
+% common_args="$machine_args $disk_args $net_args $display_args"
+
+Without a -kernel option, it doesn't boot:
+% qemu-system-ppc $common_args \
+    -cdrom debian-12.0.0-powerpc-NETINST-1.iso
+-----------------------------------------------------------------------
+>> =============================================================
+>> OpenBIOS 1.1 [Mar 7 2023 22:21]
+>> Configuration device id QEMU version 1 machine id 2
+>> CPUs: 1
+>> Memory: 256M
+>> UUID: 00000000-0000-0000-0000-000000000000
+>> CPU type PowerPC,750
+milliseconds isn't unique.
+Welcome to OpenBIOS v1.1 built on Mar 7 2023 22:21
+Trying hd:,\\:tbxi...
+Trying hd:,\ppc\bootinfo.txt...
+Trying hd:,%BOOT...
+No valid state has been set by load or init-program
+
+0 >
+-----------------------------------------------------------------------
+
+So:
+% qemu-system-ppc $common_args \
+    -kernel boot-for-install/vmlinux -initrd boot-for-install/initrd.gz -append "console=ttyPZ0" \
+    -cdrom debian-12.0.0-powerpc-NETINST-1.iso
+
+Here, the '-append "console=..."' option is needed so that output gets
+directed to the terminal emulator throughout the boot process.
+'-append "console=ttyS0"' would not be the right option, because with it,
+the output stops after 5 seconds.
+
+Alternatively, you could activate the graphic display:
+
+% display_args="-display gtk -monitor stdio"
+% common_args="$machine_args $disk_args $net_args $display_args"
+% qemu-system-ppc $common_args \
+    -kernel boot-for-install/vmlinux -initrd boot-for-install/initrd.gz \
+    -cdrom debian-12.0.0-powerpc-NETINST-1.iso
+
+(IN) Perform the steps of the installer
+---------------------------------------
+
+Language: English
+Location: United States
+Keyboard: American English
+Host name: powerpc-debian12
+Domain name: MYDOMAINNAME
+
+If you get asked for a Debian archive mirror at this point, it means that the
+CDROM was not recognized. Fix that problem first; this will avoid redownloading
+most of its contents.
+
+No root account.
+Full name: MY_FULL_NAME
+login: MY_USER_NAME
+password: ********
+
+Accept a dummy time zone.
+
+Partitioning: Entire disk. All files in one partition.
+
+Debian archive mirror: Germany, deb.debian.org
+Software selection:
+  (without graphic display) Keep enabled: SSH server.
+  (with graphic display)    Disable desktop and Xfce. Enable SSH server.
+
+(B2) Boot from the installed disk
+---------------------------------
+
+This needs a -kernel option because, although an OpenBIOS bootloader is installed, no "-boot X" option works.
+% qemu-system-ppc $common_args -boot c
+-----------------------------------------------------------------------
+>> =============================================================
+>> OpenBIOS 1.1 [Mar 7 2023 22:21]
+>> Configuration device id QEMU version 1 machine id 2
+>> CPUs: 1
+>> Memory: 256M
+>> UUID: 00000000-0000-0000-0000-000000000000
+>> CPU type PowerPC,750
+milliseconds isn't unique.
+Welcome to OpenBIOS v1.1 built on Mar 7 2023 22:21
+Trying hd:,\\:tbxi...
+Trying hd:,\ppc\bootinfo.txt...
+Trying hd:,%BOOT...
+No valid state has been set by load or init-program
+
+0 >
+-----------------------------------------------------------------------
+
+Extract the kernel for booting:
+http://superuser.com/questions/344899/how-can-i-mount-a-disk-image
+% qemu-img convert -f qcow2 -O raw debian12.qcow2 debian12.img
+% sudo kpartx -av debian12.img
+% sudo mount -r -t ext4 /dev/mapper/loop6p2 /mnt
+% mkdir boot
+% (cd /mnt && sudo tar cf - --exclude=lost+found .) | (cd boot && tar xvf -)
+% sudo umount /mnt
+% sudo kpartx -dv debian12.img
+% rm debian12.img
+
+Boot without graphic display:
+% qemu-system-ppc $common_args -kernel boot/vmlinux -initrd boot/initrd.img -append "root=/dev/sda3 console=ttyPZ0"
+
+This boots fine. Now is the time to switch to a graphic display, if desired
+and if not already done before:
+
+% display_args="-display gtk -monitor stdio"
+% common_args="$machine_args $disk_args $net_args $display_args"
+% qemu-system-ppc $common_args -kernel boot/vmlinux -initrd boot/initrd.img -append "root=/dev/sda3"
+
+login as MY_USER_NAME
+$ sudo bash
+# timedatectl set-timezone Europe/Berlin
+# reboot
+
+(PK) Install packages
+---------------------
+
+login as MY_USER_NAME
+$ sudo bash
+# apt update
+# apt install make
+# apt install gcc binutils-doc glibc-doc libc-dbg gdb
+# apt install vim-nox vim-doc
+# apt install emacs-nox emacs-el     # fails
+# apt install g++
+# apt install expect dejagnu

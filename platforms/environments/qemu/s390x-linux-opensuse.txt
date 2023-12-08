@@ -1,0 +1,118 @@
+(DR) Collect pointers to documentation and references
+-----------------------------------------------------
+
+https://www.qemu.org/docs/master/system/target-s390x.html
+https://wiki.qemu.org/Documentation/Platforms/S390X
+https://www.kernel.org/doc/html/v6.6/admin-guide/kernel-parameters.html
+
+(QV) Choose a QEMU version
+--------------------------
+
+Use qemu-8.2.0-rc0 (to fix <https://gitlab.com/qemu-project/qemu/-/issues/1865>).
+% PATH=$HOME/inst-qemu/8.2.0-rc0/bin:$PATH
+
+(DL) Download an installation CD-ROM or DVD image
+-------------------------------------------------
+
+openSUSE Leap 15.5
+Download: https://get.opensuse.org/leap/15.5/#download
+-> https://download.opensuse.org/distribution/leap/15.5/iso/openSUSE-Leap-15.5-DVD-s390x-Media.iso
+
+(XK) Extract the kernel from the CD-ROM or DVD image
+----------------------------------------------------
+
+This is not needed in this case.
+
+(CD) Create an empty disk image to be used by the virtual machine
+-----------------------------------------------------------------
+
+% qemu-img create -f qcow2 opensuse.qcow2 10G
+
+(MA) Choose the machine arguments
+---------------------------------
+
+% machine_args="-M s390-ccw-virtio -m 2048"
+
+(DI) Choose the disk arguments
+------------------------------
+
+% disk_args="-drive file=opensuse.qcow2,format=qcow2,if=none,id=hd0 -device virtio-blk-ccw,drive=hd0"
+
+(NW) Choose the network arguments
+---------------------------------
+
+% net_args="-netdev user,id=net0 -device virtio-net-ccw,netdev=net0,mac=52:54:00:71:f3:5c,devno=fe.0.0001"
+
+(DV) Choose the display/video arguments
+---------------------------------------
+
+% display_args="-nographic"
+
+(B1) Boot from the CD/DVD
+-------------------------
+
+% common_args="$machine_args $disk_args $net_args $display_args"
+
+Resize the terminal to 80x24.
+
+% qemu-system-s390x $common_args -cdrom openSUSE-Leap-15.5-DVD-s390x-Media.iso
+
+(IN) Perform the steps of the installer
+---------------------------------------
+
+VLAN ID: <Enter> 1 <Enter>
+Display type: 2
+
+List of online repositories: Keep only Main Update and Main repositories.
+System role: Server
+Partitioning:
+  Accept the default, because the Guided Setup does not propose a /boot/zipl partition.
+  /dev/vda1 (300 MiB) ext2, /boot/zipl
+  /dev/vda2 (9.71 GiB) btrfs, /
+Time zone: Europe / Germany
+Local User:
+  Full name: MY_FULL_NAME
+  Username: MY_USER_NAME
+  Password: ********
+Settings: nothing to change
+Wait for the packages installation to complete.
+Wait 34 minutes while nothing visible happens.
+Wait for the bootloader installation to complete.
+It shuts down.
+
+(B2) Boot from the installed disk
+---------------------------------
+
+This does not need a -kernel option, since a grub bootloader is installed.
+
+Keep the CD-ROM, for being able to install packages.
+
+% qemu-system-s390x $common_args -cdrom openSUSE-Leap-15.5-DVD-s390x-Media.iso
+
+$ sudo bash
+# zypper repos
+The repositories that I turned off are enabled again!
+# zypper modifyrepo --disable repo-backports-update
+# zypper modifyrepo --disable repo-non-oss
+# zypper modifyrepo --disable repo-openh264
+# zypper modifyrepo --disable repo-sle-update
+# zypper modifyrepo --disable repo-update-non-oss
+# zypper repos
+10 | repo-oss                    | Main Reposi-> | Yes     | (r ) Yes  | Yes
+14 | repo-update                 | Main Update-> | Yes     | (r ) Yes  | Yes
+Now it's OK.
+
+(PK) Install packages
+---------------------
+
+$ sudo bash
+# cnf gcc
+# cnf gdb
+# cnf emacs
+# zypper install gcc10-c++
+# zypper install gdb
+# zypper install emacs
+# zypper install make
+
+# halt
+Power Off.

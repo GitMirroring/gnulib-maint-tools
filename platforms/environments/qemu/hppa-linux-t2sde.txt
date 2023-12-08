@@ -1,0 +1,153 @@
+(DR) Collect pointers to documentation and references
+-----------------------------------------------------
+
+https://www.kernel.org/doc/html/v6.6/admin-guide/kernel-parameters.html
+https://parisc.wiki.kernel.org/index.php/Qemu
+
+(QV) Choose a QEMU version
+--------------------------
+
+Use qemu-8.2.0-rc3 (because it supports 64-bit CPUs and has
+<https://gitlab.com/qemu-project/qemu/-/issues/1991> fixed).
+% PATH=$HOME/inst-qemu/8.2.0-rc3/bin:$PATH
+
+(DL) Download an installation CD-ROM or DVD image
+-------------------------------------------------
+
+Download: http://dl.t2sde.org/binary/2023/t2-23.6-hppa-minimal-desktop-gcc-glibc.iso
+
+(XK) Extract the kernel from the CD-ROM or DVD image
+----------------------------------------------------
+
+% sudo mount -r -t iso9660 -o loop t2-23.6-hppa-minimal-desktop-gcc-glibc.iso /mnt
+% mkdir boot
+% cp -a /mnt/boot/* boot/
+% sudo umount /mnt
+
+(CD) Create an empty disk image to be used by the virtual machine
+-----------------------------------------------------------------
+
+% qemu-img create -f qcow2 t2sde.qcow2 10G
+
+(MA) Choose the machine arguments
+---------------------------------
+
+The documentation says: Start 64-bit machine with "-machine C3700" and 32-bit CPU with "-machine B160L".
+Since the kernel provided by T2-SDE is a 64-bit kernel, we need a 64-bit machine.
+If we try it without '-M C3700', we later get an error message:
+-------------------------------------------------------------------
+Autobooting Linux kernel which was loaded by qemu...
+
+Can't boot kernel which was built for PA8x00 CPUs on this machine.
+-------------------------------------------------------------------
+So:
+
+% machine_args="-M C3700 -m 256"
+
+(DI) Choose the disk arguments
+------------------------------
+
+% disk_args="-drive file=t2sde.qcow2,format=qcow2,id=hd0"
+
+(NW) Choose the network arguments
+---------------------------------
+
+% net_args=""
+
+(DV) Choose the display/video arguments
+---------------------------------------
+
+% display_args="-nographic"
+
+(B1) Boot from the CD/DVD
+-------------------------
+
+% common_args="$machine_args $disk_args $net_args $display_args"
+
+Resize the terminal to 80x24.
+
+Either
+  % qemu-system-hppa $common_args \
+      -kernel boot/vmlinux-6.3.7-t2 -initrd boot/initrd-6.3.7-t2 \
+      -cdrom t2-23.6-hppa-minimal-desktop-gcc-glibc.iso
+or
+  % qemu-system-hppa $common_args \
+      -kernel boot/vmlinux-6.3.7-t2 -initrd boot/initrd-6.3.7-t2 \
+      -drive file=t2-23.6-hppa-minimal-desktop-gcc-glibc.iso,if=scsi,bus=0,unit=2,media=cdrom
+works; the CD-ROM device is:
+(qemu) info block
+...
+scsi0-cd2 (#block311): t2-23.6-hppa-minimal-desktop-gcc-glibc.iso (raw, read-only)
+    Attached to:      /machine/unattached/device[6]/scsi.0/legacy[2]
+    Removable device: locked, tray closed
+    Cache mode:       writeback
+
+(IN) Perform the steps of the installer
+---------------------------------------
+
+Serial terminal: <Enter> or console
+# install
+Partition:
+  fdisk
+  n p 1 <Enter> <Enter>
+  w
+On /dev/sda1: Create filesystem of type ext3 [why not ext4?] with mount point /
+Install the system
+Start gasgui Package Manager
+Full install (all packages).
+Keyboard: us
+Root password: ********
+Time zone: Europe/Berlin
+Locale: en_US.UTF-8
+Generated /etc/palo.conf:
+  --format-as=3 --commandline=1/vmlinuz-6.3.7-t2 initrd=1/initrd-6.3.7-t2 root=/dev/disk/by-uuid/2ee3cd4d-9f49-4fac-9300-fcd546150c34
+Finally: <Back>
+Network configuration: Configure eth0 through DHCP. <Back>.
+System init configuration: Default runlevel 3. <Back>.
+Then: <Exit>
+It reboots.
+
+(B2) Boot from the installed disk
+---------------------------------
+
+This needs a -kernel option, since no bootloader is installed.
+% qemu-system-hppa $common_args
+does not boot:
+--------------------------------------------------------------------------------
+  Primary boot path:    FWSCSI.0.0
+  Alternate boot path:  FWSCSI.2.0
+  Console path:         SERIAL_2.9600.8.none
+  Keyboard path:        SERIAL_2.9600.8.none
+
+  Available boot devices:
+  FWSCSI.0.0 : lsi 00:00.0 0:0 Drive QEMU QEMU HARDDISK 2.5+
+  FWSCSI.2.0 : DVD/CD [lsi 00:00.0 2:0 Drive QEMU QEMU CD-ROM 2.5+]
+
+Booting from FWSCSI.0.0 ...
+Not a PA-RISC boot image. LIF magic is 0x0, should be 0x8000.
+SeaBIOS wants SYSTEM HALT.
+--------------------------------------------------------------------------------
+
+So, use:
+% qemu-system-hppa $common_args \
+    -kernel boot/vmlinux-6.3.7-t2 -initrd boot/initrd-6.3.7-t2 -append "root=/dev/sda1"
+
+This boots fine. Now would be the time to switch to a graphic display,
+but it does not work:
+  - The window's height is too large.
+  - T2-SDE creates two login sessions that read from the same input device
+    at the same time.
+
+# useradd -d /home/MY_USER_NAME -m -U -u 1000 -G wheel MY_USER_NAME
+# passwd MY_USER_NAME
+New password: ********
+
+(PK) Install packages
+---------------------
+
+Nothing to do. If some packages are needed that are not on the CD-ROM,
+they can be compiled locally through
+# cd /usr/src/t2-src
+# svn update
+# scripts/Emerge-Pkg -f PACKAGE
+But that takes a long time.

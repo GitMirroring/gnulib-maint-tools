@@ -1,0 +1,149 @@
+(DR) Collect pointers to documentation and references
+-----------------------------------------------------
+
+https://www.kernel.org/doc/html/v6.6/admin-guide/kernel-parameters.html
+https://www.debian.org/ports/alpha/port-status.en.html
+
+(QV) Choose a QEMU version
+--------------------------
+
+Use qemu-8.0.2
+% PATH=$HOME/inst-qemu/8.0.2/bin:$PATH
+
+(DL) Download an installation CD-ROM or DVD image
+-------------------------------------------------
+
+Download: https://cdimage.debian.org/cdimage/ports/12.0/alpha/debian-12.0.0-alpha-NETINST-1.iso
+
+(XK) Extract the kernel from the CD-ROM or DVD image
+----------------------------------------------------
+
+% sudo mount -r -t iso9660 -o loop debian-12.0.0-alpha-NETINST-1.iso /mnt
+% mkdir boot-for-install
+% cp -p /mnt/boot/* boot-for-install/
+% sudo umount /mnt
+% mv boot-for-install/vmlinuz boot-for-install/vmlinux.gz
+% gunzip boot-for-install/vmlinux.gz
+
+(CD) Create an empty disk image to be used by the virtual machine
+-----------------------------------------------------------------
+
+% qemu-img create -f qcow2 debian12.qcow2 10G
+
+(MA) Choose the machine arguments
+---------------------------------
+
+With only 256 MB, later an "Out of memory" error may occur.
+% machine_args="-M clipper -m 512"
+
+(DI) Choose the disk arguments
+------------------------------
+
+% disk_args="-drive file=debian12.qcow2,format=qcow2,id=hd0"
+
+(NW) Choose the network arguments
+---------------------------------
+
+% net_args=""
+This provides an ethernet interface:
+(qemu) info network
+hub 0
+ \ hub0port1: #net124: index=0,type=user,net=10.0.2.0,restrict=off
+ \ hub0port0: e1000.0: index=0,type=nic,model=e1000,macaddr=52:54:00:12:34:56
+
+(DV) Choose the display/video arguments
+---------------------------------------
+
+% display_args="-nographic"
+
+(B1) Boot from the CD/DVD
+-------------------------
+
+% common_args="$machine_args $disk_args $net_args $display_args"
+
+Resize the terminal to 80x24.
+
+% qemu-system-alpha $common_args \
+    -kernel boot-for-install/vmlinux -initrd boot-for-install/initrd.gz -append "console=ttyS0,115200" \
+    -drive file=debian-12.0.0-alpha-NETINST-1.iso,if=ide,media=cdrom
+
+Here, the '-append "console=..."' option is needed so that output gets directed
+to the terminal emulator.
+
+(IN) Perform the steps of the installer
+---------------------------------------
+
+Language: English
+Location: United States
+Keyboard: American English
+Host name: alpha-debian12
+Domain name: MYDOMAINNAME
+
+If you get asked for a Debian archive mirror at this point, it means that the
+CDROM was not recognized. Fix that problem first; this will avoid redownloading
+most of its contents.
+
+No root account.
+Full name: MY_FULL_NAME
+login: MY_USER_NAME
+password: ********
+
+Accept a dummy time zone.
+
+Partitioning: Entire disk. All files in one partition.
+
+Debian archive mirror: Germany, deb.debian.org
+Software selection: Keep enabled: SSH server.
+
+After "Install aboot on a hard disk" failed:
+Since kpartx won't work here:
+At the "Finishing the installation" screen, save the contents of the boot partition:
+  - Execute a shell
+  - # mount -t proc proc /target/proc
+    # mount --rbind /sys /target/sys
+    # mount --rbind /dev /target/dev
+    # chroot /target bash
+    # tar cvf /dev/boot.tar --exclude=lost+found boot
+    # scp /dev/boot.tar USER@10.0.2.2:
+    Ctrl-D
+    Ctrl-D
+Then "Finishing the installation" -> "Continue without boot loader".
+
+(B2) Boot from the installed disk
+---------------------------------
+
+This needs a -kernel option, since no bootloader is installed.
+
+Extract this boot partition here:
+% tar xvf $HOME/boot.tar
+% cp boot/vmlinuz-6.5.0-5-alpha-generic boot/vmlinux.gz
+% ln -s initrd.img-6.5.0-5-alpha-generic boot/initrd.img
+% gunzip boot/vmlinux.gz
+
+% qemu-system-alpha $common_args \
+    -kernel boot/vmlinux -initrd boot/initrd.img -append "root=/dev/sda3 console=ttyS0,115200"
+
+This boots fine. Now is the time to switch to a graphic display, if desired:
+
+% display_args="-display gtk -monitor stdio"
+% common_args="$machine_args $disk_args $net_args $display_args"
+% qemu-system-alpha $common_args \
+    -kernel boot/vmlinux -initrd boot/initrd.img -append "root=/dev/sda3"
+
+login as MY_USER_NAME
+$ sudo bash
+# timedatectl set-timezone Europe/Berlin
+
+(PK) Install packages
+---------------------
+
+# apt update
+
+Edit /etc/apt/sources.list, commenting out the "unreleased" line.
+
+# apt install make
+# apt install gcc binutils-doc glibc-doc libc-dbg gdb
+# apt install vim-nox vim-doc
+# apt install emacs-nox emacs-el     # does not work
+# apt install g++
+# apt install expect dejagnu

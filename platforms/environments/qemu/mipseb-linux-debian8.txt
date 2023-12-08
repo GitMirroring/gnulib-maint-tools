@@ -1,0 +1,122 @@
+(DR) Collect pointers to documentation and references
+-----------------------------------------------------
+
+https://www.qemu.org/docs/master/system/target-mips.html
+https://www.kernel.org/doc/html/v6.6/admin-guide/kernel-parameters.html
+
+(QV) Choose a QEMU version
+--------------------------
+
+Use qemu-2.12.0
+% PATH=$HOME/inst-qemu/2.12.0/bin:$PATH
+
+(DL) Download an installation CD-ROM or DVD image
+-------------------------------------------------
+(XK) Extract the kernel from the CD-ROM or DVD image
+----------------------------------------------------
+
+We don't use a CD-ROM image, only a kernel + initrd.
+
+% mkdir boot-for-install
+% (cd boot-for-install
+   wget ftp://ftp.de.debian.org/pub/debian/dists/jessie/main/installer-mips/current/images/malta/netboot/vmlinux-3.16.0-4-4kc-malta
+   wget ftp://ftp.de.debian.org/pub/debian/dists/jessie/main/installer-mips/current/images/malta/netboot/initrd.gz)
+
+(CD) Create an empty disk image to be used by the virtual machine
+-----------------------------------------------------------------
+
+% qemu-img create -f qcow2 debian87.qcow2 10G
+
+(MA) Choose the machine arguments
+---------------------------------
+
+% machine_args="-M malta -m 256"
+
+(DI) Choose the disk arguments
+------------------------------
+
+% disk_args="-drive file=debian87.qcow2,format=qcow2,index=0"
+
+(NW) Choose the network arguments
+---------------------------------
+
+% net_args=""
+
+(DV) Choose the display/video arguments
+---------------------------------------
+
+% display_args="-nographic"
+
+(B1) Boot from the CD/DVD
+-------------------------
+
+% common_args="$machine_args $disk_args $net_args $display_args"
+
+Resize the terminal to 80x24.
+
+% qemu-system-mips $common_args \
+    -kernel boot-for-install/vmlinux-3.16.0-4-4kc-malta -initrd boot-for-install/initrd.gz
+
+(IN) Perform the steps of the installer
+---------------------------------------
+
+Host name: mipseb-debian8
+Domain name: MYDOMAINNAME
+
+No root account.
+login: MY_USER_NAME
+password: ********
+
+"No boot loader installed
+You will need to boot manually with the /vmlinuz kernel on partition /dev/sda1
+and root=/dev/sda1 passed as kernel argument."
+
+(B2) Boot from the installed disk
+---------------------------------
+
+This needs a -kernel option, since no bootloader is installed.
+
+http://superuser.com/questions/344899/how-can-i-mount-a-disk-image
+% qemu-img convert -f qcow2 -O raw debian87.qcow2 debian87.img
+a)
+% sudo kpartx -av debian87.img
+% sudo mount -r -t ext4 /dev/mapper/loop1p1 /mnt
+% mkdir boot
+% (cd /mnt/boot && tar chf - --exclude=lost+found vmlinux-* initrd.img-*) | (cd boot && tar xvf -)
+% sudo umount /mnt
+% sudo kpartx -dv debian87.img
+b)
+(fdisk shows the offset as 2048*512. hd shows the offset is 0x100000 bytes. But mount option 'offset' requires it in bytes, not sectors.)
+% sudo mount -r -o loop,offset=1048576 -t ext4 debian87.img /mnt
+% (cd /mnt && tar cf - boot) | tar xvf -
+% sudo umount /mnt
+
+% qemu-system-mips $common_args \
+    -kernel boot/vmlinux-3.16.0-4-4kc-malta -initrd boot/initrd.img-3.16.0-4-4kc-malta -append "root=/dev/sda1"
+
+Networking not working!
+It's a DNS problem. /etc/resolv.conf contains: "nameserver fec0::3"
+Replace it with: "nameserver 8.8.8.8"
+This works temporarily.
+https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=844592
+https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=844566
+Workaround: Disable IPv6 through
+# echo 'net.ipv6.conf.all.disable_ipv6 = 1' > /etc/sysctl.d/01-disable-ipv6.conf
+See https://www.thomas-krenn.com/de/wiki/IPv6_deaktivieren
+
+(PK) Install packages
+---------------------
+
+$ sudo bash
+
+Restore ability to install precompiled packages:
+Edit /etc/apt/sources.list, replacing http://ftp.de.debian.org/debian/
+with                                  http://ftp.de.debian.org/debian-archive/debian/
+
+# apt-get update
+# apt-get install make
+# apt-get install gcc binutils-doc glibc-doc libc-dbg gdb
+# apt-get install vim-nox vim-doc
+# apt-get install emacs-nox emacs24-el
+# apt-get install g++
+# apt-get install expect dejagnu

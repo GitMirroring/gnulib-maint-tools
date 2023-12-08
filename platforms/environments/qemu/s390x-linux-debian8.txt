@@ -1,0 +1,128 @@
+(DR) Collect pointers to documentation and references
+-----------------------------------------------------
+
+https://www.qemu.org/docs/master/system/target-s390x.html
+https://wiki.qemu.org/Documentation/Platforms/S390X
+https://www.kernel.org/doc/html/v6.6/admin-guide/kernel-parameters.html
+
+(QV) Choose a QEMU version
+--------------------------
+
+Use at least qemu-4.1.0 (earlier versions such as 2.9.0 hang when building gmp).
+% PATH=$HOME/inst-qemu/6.1.0/bin:$PATH
+
+(DL) Download an installation CD-ROM or DVD image
+-------------------------------------------------
+(XK) Extract the kernel from the CD-ROM or DVD image
+----------------------------------------------------
+
+We don't use a CD-ROM image, only a kernel + initrd.
+
+% mkdir boot-for-install
+% (cd boot-for-install
+   wget ftp://ftp.de.debian.org/pub/debian/dists/jessie/main/installer-s390x/current/images/generic/kernel.debian
+   wget ftp://ftp.de.debian.org/pub/debian/dists/jessie/main/installer-s390x/current/images/generic/initrd.debian)
+
+(CD) Create an empty disk image to be used by the virtual machine
+-----------------------------------------------------------------
+
+% qemu-img create -f qcow2 debian86.qcow2 10G
+
+(MA) Choose the machine arguments
+---------------------------------
+
+% machine_args="-M s390-ccw-virtio -m 512"
+
+(DI) Choose the disk arguments
+------------------------------
+
+% disk_args="-drive file=debian86.qcow2,if=none,format=raw,id=hd0 -device virtio-blk-ccw,drive=hd0"
+
+(NW) Choose the network arguments
+---------------------------------
+
+% net_args="-netdev user,id=net0 -device virtio-net-ccw,netdev=net0,mac=52:54:00:71:f3:5c,devno=fe.0.0001"
+
+(DV) Choose the display/video arguments
+---------------------------------------
+
+% display_args="-display gtk -monitor stdio"
+
+(B1) Boot from the CD/DVD
+-------------------------
+
+% common_args="$machine_args $disk_args $net_args $display_args"
+% qemu-system-s390x $common_args \
+    -kernel boot-for-install/kernel.debian -initrd boot-for-install/initrd.debian
+
+(IN) Perform the steps of the installer
+---------------------------------------
+
+Network device: virtio
+IP address: 10.0.2.15
+Netmask: 255.255.255.0
+Gateway: 10.0.2.2
+Name server: 10.0.2.3
+
+Host name: s390x-debian8
+Domain name: MYDOMAINNAME
+Remote installation password: ******** (never used)
+
+No root account.
+login: MY_USER_NAME
+password: ********
+
+Disk: vda
+Partition: yes
+Free space to partition: pri/log
+Create a new partition.
+  0.2 GB, Primary, /boot
+  9.5 GB, Primary, /
+  1 GB, Primary, swap area
+
+(B2) Boot from the installed disk
+---------------------------------
+
+This needs a -kernel option, in order to tell the kernel which is the root device.
+
+http://superuser.com/questions/344899/how-can-i-mount-a-disk-image
+% qemu-img convert -f qcow2 -O raw debian86.qcow2 debian86.img
+a)
+% sudo kpartx -av debian86.img
+% sudo mount -r -t ext4 /dev/mapper/loop0p1 /mnt
+% mkdir boot
+% (cd /mnt && sudo tar cf - --exclude=lost+found .) | (cd boot && tar xvf -)
+% sudo umount /mnt
+% sudo kpartx -dv debian86.img
+b)
+(fdisk shows the offset as 2048*512. hd shows the offset is 0x100000 bytes. But mount option 'offset' requires it in bytes, not sectors.)
+% sudo mount -r -o loop,offset=1048576 -t ext4 debian86.img /mnt
+% (cd /mnt && tar cf - boot) | tar xvf -
+% sudo umount /mnt
+
+% qemu-system-s390x $common_args \
+    -kernel boot/vmlinuz -initrd boot/initrd.img -append "root=/dev/vda2"
+
+(PK) Install packages
+---------------------
+
+$ sudo bash
+
+Restore ability to install precompiled packages:
+Edit /etc/apt/sources.list, replacing http://ftp.de.debian.org/debian/
+with                                  http://ftp.de.debian.org/debian-archive/debian/
+
+# apt-get update
+# apt-get install make
+# apt-get install gcc binutils-doc glibc-doc libc-dbg gdb
+# apt-get install vim-nox vim-doc
+# apt-get install emacs-nox emacs24-el
+# apt-get install libc6-dev-s390
+# apt-get install g++
+# apt-get install expect dejagnu
+
+
+Notes
+-----
+
+"make check" of gmp-6.2.0 in 64-bit mode hangs. (with qemu-2.9.0)

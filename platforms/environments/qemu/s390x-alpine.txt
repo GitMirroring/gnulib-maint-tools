@@ -1,0 +1,135 @@
+(DR) Collect pointers to documentation and references
+-----------------------------------------------------
+
+https://www.qemu.org/docs/master/system/target-s390x.html
+https://wiki.qemu.org/Documentation/Platforms/S390X
+https://www.kernel.org/doc/html/v6.6/admin-guide/kernel-parameters.html
+https://wiki.alpinelinux.org/wiki/S390x/Installation
+
+(QV) Choose a QEMU version
+--------------------------
+
+Use qemu-8.1.2.
+% PATH=$HOME/inst-qemu/8.1.2/bin:$PATH
+
+(DL) Download an installation CD-ROM or DVD image
+-------------------------------------------------
+
+Download: https://dl-cdn.alpinelinux.org/alpine/v3.13/releases/s390x/alpine-standard-3.13.0-s390x.iso
+          https://dl-cdn.alpinelinux.org/alpine/v3.13/releases/s390x/netboot-3.13.0/vmlinuz-lts
+          https://dl-cdn.alpinelinux.org/alpine/v3.13/releases/s390x/netboot-3.13.0/initramfs-lts
+          https://dl-cdn.alpinelinux.org/alpine/v3.13/releases/s390x/alpine-netboot-3.13.0-s390x.tar.gz
+
+Now:
+Download: https://dl-cdn.alpinelinux.org/alpine/v3.19/releases/s390x/alpine-standard-3.19.0-s390x.iso
+          https://dl-cdn.alpinelinux.org/alpine/v3.19/releases/s390x/netboot-3.19.0/vmlinuz-lts
+          https://dl-cdn.alpinelinux.org/alpine/v3.19/releases/s390x/netboot-3.19.0/initramfs-lts
+          https://dl-cdn.alpinelinux.org/alpine/v3.19/releases/s390x/alpine-netboot-3.19.0-s390x.tar.gz
+
+(XK) Extract the kernel from the CD-ROM or DVD image
+----------------------------------------------------
+
+This is not needed in this case; we downloaded the kernel and initial RAM disk
+separately.
+
+(CD) Create an empty disk image to be used by the virtual machine
+-----------------------------------------------------------------
+
+% qemu-img create -f qcow2 alpine.qcow2 9G
+
+(MA) Choose the machine arguments
+---------------------------------
+
+% machine_args="-M s390-ccw-virtio -m 512"
+
+(DI) Choose the disk arguments
+------------------------------
+
+% disk_args="-device virtio-blk-ccw,drive=hd0 -drive file=alpine.qcow2,format=qcow2,if=none,id=hd0"
+
+(NW) Choose the network arguments
+---------------------------------
+
+% net_args="-device virtio-net-ccw,netdev=net0,mac=52:54:00:71:f3:5c,devno=fe.0.0001 -netdev user,id=net0"
+
+(DV) Choose the display/video arguments
+---------------------------------------
+
+% display_args="-nographic"
+
+(B1) Boot from the CD/DVD
+-------------------------
+
+% common_args="$machine_args $disk_args $net_args $display_args"
+
+Resize the terminal to 80x24.
+
+% qemu-system-s390x $common_args -cdrom alpine-standard-3.19.0-s390x.iso -boot d
+This does not work: The CD-ROM is not bootable.
+Explanation: "The first problem is that QEMU’s firmware for the s390x guests can not directly boot the ISO images yet, since the images have been built without the so-called El-Torito boot information, which is required for bootable images here. ... you still have to fetch the kernel and initrd images from the ISO image and specify them with the --kernel and --initrd parameters when running QEMU."
+
+So, use netboot, as it does not rely on a bootable CDROM.
+% qemu-system-s390x $common_args \
+    -kernel vmlinuz-lts -initrd initramfs-lts \
+    -append "ip=dhcp alpine_repo=http://dl-cdn.alpinelinux.org/alpine/v3.19/main modloop=http://dl-cdn.alpinelinux.org/alpine/v3.19/releases/s390x/netboot/modloop-lts"
+
+(IN) Perform the steps of the installer
+---------------------------------------
+
+login: root
+
+# ifconfig -a
+shows network devices lo, eth0.
+
+# setup-alpine
+keyboard layout: us
+variant: us
+hostname: s390x-alpine
+interface [eth0]:
+  ip address: 10.0.2.15
+  netmask: 255.255.255.0
+  gateway: 10.0.2.2
+DNS domain name: MYDOMAINNAME
+DNS nameserver: 10.0.2.3
+root password: ********
+time zone: Europe/Berlin
+mirror: either http://ftp.halifax.rwth-aachen.de/alpine/ or f
+disk: vda
+partitioning scheme: sys
+
+# halt
+
+(B2) Boot from the installed disk
+---------------------------------
+
+% qemu-system-s390x $common_args
+
+This boots fine. Now is the time to switch to a graphic display, if desired:
+
+% display_args="-display gtk -monitor stdio"
+% common_args="$machine_args $disk_args $net_args $display_args"
+% qemu-system-s390x $common_args
+
+login: root
+password: ********
+
+# apk update
+# apk add bash
+
+# adduser -s /bin/bash MY_USER_NAME
+Password: ********
+
+(PK) Install packages
+---------------------
+
+The list of packages is at https://pkgs.alpinelinux.org/packages
+
+# apk add make
+# apk add gcc g++
+# apk add gdb
+# apk add vim
+
+Edit /etc/apk/repositories, to enable the 'community' repository (next to 'main').
+# apk add emacs
+
+# apk add expect dejagnu dejagnu-dev

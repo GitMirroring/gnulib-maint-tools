@@ -1,0 +1,207 @@
+(DR) Collect pointers to documentation and references
+-----------------------------------------------------
+
+https://www.qemu.org/docs/master/system/target-arm.html
+https://wiki.qemu.org/Documentation/Platforms/ARM
+https://wiki.freebsd.org/QemuRecipes
+https://wiki.qemu.org/Hosts/BSD
+
+(QV) Choose a QEMU version
+--------------------------
+
+Use qemu-5.0.0
+% PATH=$HOME/inst-qemu/5.0.0/bin:$PATH
+
+(DL) Download an installation CD-ROM or DVD image
+-------------------------------------------------
+
+Download image from
+https://download.freebsd.org/ftp/releases/ISO-IMAGES/12.2/FreeBSD-12.2-RELEASE-arm-armv7-RPI2.img.xz
+Uncompress it:
+% xz -d FreeBSD-12.2-RELEASE-arm-armv7-RPI2.img.xz
+
+Convert to qcow2 format:
+% qemu-img convert -f raw -O qcow2 FreeBSD-12.2-RELEASE-arm-armv7-RPI2.img freebsd12.qcow2
+
+(XK) Extract the kernel from the CD-ROM or DVD image
+----------------------------------------------------
+
+This is not needed in this case.
+
+(CD) Create an empty disk image to be used by the virtual machine
+-----------------------------------------------------------------
+
+This is not needed in this case; we have a disk image already.
+
+(MA) Choose the machine arguments
+---------------------------------
+
+% machine_args="-M virt -m 512"
+
+Since QEMU cannot directly boot a FreeBSD kernel, we'll need some
+boot firmware:
+
+  - Either the UEFI firmware that comes bundled with QEMU:
+    % machine_args="$machine_args -bios edk2-arm-code.fd"
+
+  - Or U-Boot. References:
+      https://www.denx.de/wiki/U-Boot
+      https://github.com/ARM-software/u-boot
+    FreeBSD provided binaries of it in its package repository:
+    https://freebsd.pkgs.org/12/freebsd-armv7/26/ ->
+    https://freebsd.pkgs.org/12/freebsd-armv7/u-boot-qemu-arm-2020.07.txz.html ->
+    https://freebsd.pkgs.org/12/freebsd-amd64/u-boot-qemu-arm-2020.07.txz.html ->
+    https://pkg.freebsd.org/FreeBSD:12:amd64/quarterly/All/u-boot-qemu-arm-2020.07.txz
+    Unpack it.
+    But these binaries are no longer available. Newer binaries are, though:
+    https://freebsd.pkgs.org/12/freebsd-amd64/u-boot-qemu-arm-2023.07.02.pkg.html ->
+    https://pkg.freebsd.org/FreeBSD:12:amd64/quarterly/All/u-boot-qemu-arm-2023.07.02.pkg
+    % mv u-boot-qemu-arm-2023.07.02.pkg u-boot-qemu-arm-2023.07.02.tar.xz
+    % xz -d u-boot-qemu-arm-2023.07.02.tar.xz
+    % tar -xOf u-boot-qemu-arm-2023.07.02.tar /usr/local/share/u-boot/u-boot-qemu-arm/u-boot.bin > u-boot.bin
+    % machine_args="$machine_args -bios u-boot.bin"
+
+(DI) Choose the disk arguments
+------------------------------
+
+% disk_args="-hda freebsd12.qcow2"
+
+(NW) Choose the network arguments
+---------------------------------
+
+% net_args=""
+This provides an ethernet interface by default:
+(qemu) info network
+hub 0
+ \ hub0port1: user.0: index=0,type=user,net=10.0.2.0,restrict=off
+ \ hub0port0: virtio-net-pci.0: index=0,type=nic,model=virtio-net-pci,macaddr=52:54:00:12:34:56
+
+This common alternative does not work in this case:
+% net_args="-netdev type=user,id=net0 -device e1000,netdev=net0,mac=52:54:00:12:34:56"
+This provides an ethernet interface too:
+(qemu) info network
+e1000.0: index=0,type=nic,model=e1000,macaddr=52:54:00:12:34:56
+ \ net0: index=0,type=user,net=10.0.2.0,restrict=off
+But FreeBSD would not recognize it later.
+
+(DV) Choose the display/video arguments
+---------------------------------------
+
+% display_args="-nographic"
+
+(B1) Boot from the CD/DVD
+-------------------------
+
+This is not needed in this case; we have a disk image already.
+
+(IN) Perform the steps of the installer
+---------------------------------------
+
+This is not needed in this case; we have a disk image already.
+
+(B2) Boot from the installed disk
+---------------------------------
+
+% common_args="$machine_args $disk_args $net_args $display_args"
+% qemu-system-arm $common_args
+
+With machine_args containing '-bios edk2-arm-code.fd', it fails
+with an error such as
+--------------------------------------------------------------
+Starting dhclient.
+DHCPDISCOVER on vtnet0 to 255.255.255.255 port 67 interval 3
+Fatal kernel mode data abort: 'Alignment Fault' on read
+trapframe: 0xd0d2ba98
+FSR=00000001, FAR=d461901a, spsr=40000013
+r0 =00000000, r1 =00000000, r2 =00000000, r3 =d0d2bbac
+r4 =00000014, r5 =d461901a, r6 =0000011a, r7 =d461902e
+r8 =c091aec0, r9 =00000000, r10=0000011a, r11=d0d2bbc8
+r12=4300ffff, ssp=d0d2bb28, slr=c04dfcb8, pc =c04dfe18
+
+panic: Fatal abort
+cpuid = 0
+time = 1603427332
+KDB: stack backtrace:
+#0 0xc0324600 at kdb_backtrace+0x48
+#1 0xc02ce07c at vpanic+0x164
+#2 0xc02cdf18 at vpanic+0
+#3 0xc06606ac at abort_align+0
+#4 0xc0660724 at abort_align+0x78
+#5 0xc0660414 at abort_handler+0x4a0
+#6 0xc0640370 at exception_exit+0
+#7 0xc04dfe18 at udp_input+0x3b8
+#8 0xc0422588 at ip_input+0x204
+#9 0xc03f92f8 at netisr_dispatch_src+0x138
+#10 0xc03ef5b0 at ether_demux+0x1c4
+#11 0xc03f0b2c at ether_nh_input+0x46c
+#12 0xc03f92f8 at netisr_dispatch_src+0x138
+#13 0xc03efa50 at ether_input+0x3c
+#14 0xc01af650 at vtnet_rx_vq_process+0x974
+#15 0xc01aa6b4 at vtpci_legacy_intr+0x78
+#16 0xc028fd6c at ithread_loop+0x298
+#17 0xc028bf28 at fork_exit+0xc0
+--------------------------------------------------------------
+
+With machine_args containing '-bios u-boot.bin':
+- The original u-boot-qemu-arm-2020.07 worked fine.
+- With the newer one u-boot-qemu-arm-2023.07.02, it hangs after
+--------------------------------------------------------------
+Booting [/boot/kernel/kernel]...
+Using DTB provided by EFI at 0x5dcd3000.
+Kernel entry at 0x57e00180...
+Kernel args: (null)
+--------------------------------------------------------------
+
+Login in as root. Password: root
+
+As in https://www.freebsd.org/doc/en/articles/linux-users/network.html
+# env TERM=xterm vi /etc/rc.conf
+hostname="arm-freebsd12.MYDOMAINNAME"
+
+Reboot.
+
+Set root password:
+# passwd
+login: root
+password: ********
+
+Add account:
+# adduser
+Username: MY_USER_NAME
+Full name: MY_FULL_NAME
+Invite MY_USER_NAME into other groups? wheel
+=>
+login: MY_USER_NAME
+password: ********
+
+Edit ~/.profile to set TERM=xterm (since qemu's 'gtk' display is based on vte):
+# env TERM=xterm vi /etc/profile .cshrc
+In /etc/profile, add
+  TERM=xterm
+  export TERM
+In .cshrc, add
+  setenv TERM xterm
+
+Edit /etc/passwd: Change root's shell to /bin/sh.
+
+Mount /proc:
+Edit /etc/fstab as indicated in
+https://www.freebsd.org/cgi/man.cgi?query=procfs&sektion=&n=1
+
+(PK) Install packages
+---------------------
+
+# pkg search bash
+# pkg install bash
+# pkg install gmake
+Do not install these, because they take up too much disk space:
+# pkg install gcc9 binutils gdb vim-console emacs-nox
+
+
+Notes
+-----
+
+After every reboot, you need to set the clock:
+# env TZ=Europe/Berlin date yymmddHHMM
+
+The primary compiler is CC="cc" (clang 10.0.1).

@@ -1,0 +1,49 @@
+(DR) Collect pointers to documentation and references
+-----------------------------------------------------
+
+https://www.qemu.org/docs/master/system/target-mips.html
+https://www.kernel.org/doc/html/v6.6/admin-guide/kernel-parameters.html
+
+(QV) Choose a QEMU version
+--------------------------
+
+Use qemu-2.12.0
+% PATH=$HOME/inst-qemu/2.12.0/bin:$PATH
+
+(UP) Upgrade a 32-bit VM to a 64-bit VM
+---------------------------------------
+
+Start with a copy of the mipsel-linux-debian8 VM.
+
+Support for "gcc -mabi=n32" and "gcc -mabi=64":
+$ sudo bash
+# apt-get install libc6-dev-mipsn32 libc6-dev-mips64
+
+Install a 64-bit kernel:
+$ sudo bash
+# apt-cache pkgnames | sort | grep linux | grep image
+# apt-get install linux-image-5kc-malta
+
+Reboot:
+$ sudo shutdown now
+
+(B2) Boot from the installed disk, in 64-bit mode now
+-----------------------------------------------------
+
+This needs a -kernel option, since no bootloader is installed.
+
+% qemu-img convert -f qcow2 -O raw debian87.qcow2 debian87.img
+% sudo kpartx -av debian87.img
+% sudo mount -r -t ext4 /dev/mapper/loop1p1 /mnt
+% mkdir boot
+% (cd /mnt/boot && tar chf - --exclude=lost+found *-5kc-malta) | (cd boot && tar xvf -)
+% sudo umount /mnt
+% sudo kpartx -dv debian87.img
+
+% common_args="$common_args -cpu 5KEc"
+
+% qemu-system-mips64 $common_args \
+    -kernel boot/vmlinux-3.16.0-4-5kc-malta -initrd boot/initrd.img-3.16.0-4-5kc-malta -append "root=/dev/sda1"
+
+(PK) Install packages
+---------------------

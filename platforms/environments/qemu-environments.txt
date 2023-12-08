@@ -1,0 +1,629 @@
+QEMU environments
+=================
+
+This page explains how set up a QEMU environment for a platform.
+
+
+Introduction
+============
+
+Setting up a QEMU environment for a platform can be a matter of
+trial-and-error, and sometimes may not succeed at all.
+
+The reasons are:
+
+  * QEMU does not only emulate a CPU, but also some hardware
+    (IDE disk adapter or SCSI disk adapter, ethernet card,
+    graphics card, and so on). The OS that you want to install
+    in the guest VM supports some set of hardware, too.
+    And the two need to have some intersection! If, for example,
+    the machine emulated by QEMU has IDE disks but no SCSI disks
+    and the OS has SCSI drivers but no IDE drivers, you will never
+    succeed in making the two work together.
+
+  * The boot loading mechanism in the original hardware often starts
+    with a piece of proprietary software (BIOS, EFI, etc.). For
+    some of them, QEMU contains a Free Software replacement (U-Boot,
+    OpenBIOS, SeaBIOS, OpenSBI, skiboot, etc.). For others, there is
+    a Free Software replacement packaged separately: edk2 a.k.a.
+    'qemu-efi'.
+    For this reasons, QEMU allows to bypass this platform dependent
+    boot loading mechanism, but only for Linux kernels. It offers
+    three options
+      - -kernel, indicating the kernel image to start,
+      - -initrd, indicating a (most often compressed) file system
+        to load into a RAM disk,
+      - -append, containing command line options for the kernel.
+
+  * The RAM size of the virtual machine. For many distros, 512 MiB
+    are enough. However, some need 1 GiB, some even 2 GiB.
+
+The writeup here describes how to reduce the trial-and-error.
+
+
+Steps
+=====
+
+(DR) Collect pointers to documentation and references.
+(QV) Choose a QEMU version.
+(DL) Download an installation CD-ROM or DVD image.
+(XK) Extract the kernel from the CD-ROM or DVD image.
+(CD) Create an empty disk image to be used by the virtual machine.
+(MA) Choose the machine arguments.
+(DI) Choose the disk arguments.
+(NW) Choose the network arguments.
+(DV) Choose the display/video arguments.
+(B1) Boot from the CD/DVD.
+(IN) Perform the steps of the installer.
+(B2) Boot from the installed disk.
+(PK) Install packages.
+
+Here are considerations and tips for each of the steps.
+
+As a convention, let me define these prompts:
+% command executed on the host
+# command executed as root on the guest
+$ command executed as normal user on the guest
+
+
+(DR) Collect pointers to documentation and references
+-----------------------------------------------------
+
+It's useful to have relevant documentation at hand, as well as references
+to configurations some other people have successfully used.
+
+
+(QV) Choose a QEMU version
+--------------------------
+
+Generally, the best QEMU version to use is the newest release.
+
+It's pretty easy to build, per <https://www.qemu.org/download/>.
+It's the usual "./configure; make; make install" trio. The configure
+options that I choose are the following:
+
+./configure --prefix=... \
+--target-list=\
+aarch64-softmmu,\
+alpha-softmmu,\
+arm-softmmu,\
+hppa-softmmu,\
+i386-softmmu,\
+loongarch64-softmmu,\
+m68k-softmmu,\
+mips-softmmu,mipsel-softmmu,mips64-softmmu,mips64el-softmmu,\
+ppc-softmmu,ppc64-softmmu,\
+riscv32-softmmu,riscv64-softmmu,\
+s390x-softmmu,\
+sh4-softmmu,\
+sparc-softmmu,sparc64-softmmu,\
+x86_64-softmmu,\
+aarch64-linux-user,\
+alpha-linux-user,\
+arm-linux-user,\
+hppa-linux-user,\
+i386-linux-user,\
+loongarch64-linux-user,\
+m68k-linux-user,\
+mips-linux-user,mipsel-linux-user,mipsn32-linux-user,mipsn32el-linux-user,mips64-linux-user,mips64el-linux-user,\
+ppc-linux-user,ppc64-linux-user,ppc64le-linux-user,\
+riscv32-linux-user,riscv64-linux-user,\
+s390x-linux-user,\
+sh4-linux-user,\
+sparc-linux-user,sparc32plus-linux-user,sparc64-linux-user,\
+x86_64-linux-user \
+--disable-strip \
+--disable-werror \
+--enable-slirp \
+--enable-curses --enable-gtk --enable-vnc
+
+Notes:
+* --disable-werror is to avoid gratuitous compilation errors.
+* --enable-slirp is to enable an easy networking setup.
+  https://wiki.qemu.org/Documentation/Networking#User_Networking_(SLIRP)
+* --enable-curses --enable-gtk --enable-vnc is for supporting
+  the text-mode UI, the Gtk UI, and a VNC UI.
+
+
+(DL) Download an installation CD-ROM or DVD image
+-------------------------------------------------
+
+Most distributions provide ISO CD or DVD images.
+For Linux distros, see the file linux-install-media.txt.
+
+Generally, try to get a CD/DVD with packages included.
+This gives you the advantage that you can install additional packages
+after the installation, even years after the installation. These CDs/DVDs
+are typically 0.5 GB or larger.
+The CDs/DVDs that are 100 MB or 200 MB large are typically
+"network installation" CDs/DVDs. They download packages to install through
+the network. They drawback is that they stop working when the package
+repositories disappear from the distro's site or their mirrors.
+For instance, Debian's ports
+  https://cdimage.debian.org/cdimage/ports/12.0/
+have only "network installation" CDs. Which is OK for now, but will be a
+problem when 15.0 is released, because as you can see in
+<http://ftp.debian.org/debian/dists/>, only the three latest major Debian
+releases still have downloadable package repositories.
+
+Use 'wget', not a browser, to download the image.
+In case there you encounter a network disconnect during the download,
+a 'wget' download can be continued, while a browser download cannot.
+(Debian mentions this too, in
+<https://www.debian.org/CD/http-ftp/index.en.html>.)
+
+You can inspect their contents by mounting them:
+% sudo mount -r -t iso9660 DISTRO.iso /mnt
+Afterwards, don't forget
+% sudo umount /mnt
+
+Some distributions also provide ready-to-use disk images.
+But they have the drawbacks that
+  - The disk size is not your choice; you may need to add additional
+    virtual disks.
+  - The credentials are not your choice either.
+
+
+(XK) Extract the kernel from the CD-ROM or DVD image
+----------------------------------------------------
+
+As mentioned above, QEMU offers a way to bypass bootloader problems,
+by starting a Linux (or *BSD) kernel directly. To use it, you need three
+files, that you will find on the CD/DVD:
+  - The Linux kernel, typically called 'vmlinux' or 'vmlinuz',
+  - The initial RAM disk, typically called 'initrd' or 'initrd.gz',
+  - The bootloader's configuration, typically called 'grub.cfg'. Here
+    you will find appropriate Linux kernel command line options.
+    (Who would guess options such as "console=ttyS0", "root=/dev/sda3", or
+    "dwc_otg.lpm_enable=0" without some help?)
+
+To extract these files from a CD/DVD image:
+  % sudo mount -r -t iso9660 DISTRO.iso /mnt
+  % ls -l /mnt
+  Once you found them, copy them out. For example:
+  % mkdir boot
+  % cp -a /mnt/boot/* boot/
+  % cp -p /mnt/EFI/BOOT/grub.cfg boot/
+  % sudo umount /mnt
+
+To extract these files from a pre-made disk image:
+1. Convert the disk image to raw format (standard suffix: .img).
+   For example:
+   % qemu-img convert -f qcow2 -O raw distroimage.qcow2 distroimage.img
+2. You need the 'kpartx' package installed. (You can also get away without
+   kpartx, but then you need to guess numerical offsets...) 'kpartx' makes
+   the partitions of a disk image accessible as individual device files
+   (under /dev/mapper/), so that you can mount them through 'mount'.
+   % sudo kpartx -av distroimage.img
+   Here you may need to try various loopXpY devices.
+   % sudo mount -r -t ext4 /dev/mapper/loop1p1 /mnt
+   % mkdir boot
+   % (cd /mnt/boot && tar chf - --exclude=lost+found *) | (cd boot && tar xvf -)
+   % sudo umount /mnt
+   % sudo kpartx -dv distroimage.img
+
+Often, the kernel file is compressed; However, QEMU needs an uncompressed file
+instead. So, in order to make the file usable, you have to uncompress it first.
+Like this:
+
+  % file boot/vmlinuz
+  boot/vmlinuz: gzip compressed data, max compression, from Unix, original size modulo 2^32 22547496
+  % mv boot/vmlinuz boot/vmlinux.gz
+  % gunzip boot/vmlinux.gz
+  % file boot/vmlinux
+  boot/vmlinux: ELF 64-bit LSB executable, Alpha (unofficial), version 1 (SYSV), statically linked, BuildID[sha1]=a734ed8b161f494c6d5eaac927f06fadd80d01c9, stripped
+
+
+(CD) Create an empty disk image to be used by the virtual machine
+-----------------------------------------------------------------
+
+In the simplest case, it is a command such as
+
+  % qemu-img create -f qcow2 DISKNAME.qcow2 10G
+
+or
+
+  % qemu-img create -f raw DISKNAME.img 10G
+
+QEMU supports several disk formats. While "raw" (suffix .img) is the
+simplest one — every block of the virtual disk is stored explicitly
+and takes up a block of space on your host's disk —, "qcow2" is the
+common one. It supports snapshots and consumes less space in the
+beginning. For details, see
+https://www.qemu.org/docs/master/system/images.html .
+
+Regarding the disk size: It's common to work with a single virtual disk.
+So, it will need to contain both the OS and your data. The size of the OS
+can vary from 1 GB for a headless server to 8 GB for a distro with, say,
+a KDE GUI environment. About the data: I like to have 5 GB of disk space
+for development purposes. So 10 GB are a good first-time guess for me.
+
+On most QEMU machines, you can add another virtual disk afterwards, that
+is, pass another '-drive' option the the qemu-system-CPU command and then
+mount it from from inside the VM. But as this is a bit of a hassle, I
+suggest to reserve enough room on the first disk from the beginning.
+
+
+(MA) Choose the machine arguments
+---------------------------------
+
+qemu-system-CPU always emulates a complete machine, that includes
+PCI, SCSI, USB etc. buses and some hard disks, keyboard, mouse, display
+and serial console devices. The machine may also impose limitations,
+for example on the available RAM size. So, choose the machine wisely,
+as it has implications on all the other parameters.
+
+You get a list of possible machines through
+
+  % qemu-system-CPU -M ?
+or
+  % qemu-system-CPU -M help
+
+If a machine named 'virt' is supported, and the OS that you want to
+run in the VM is a sufficiently recent Linux (with virt I/O drivers
+supported in the kernel), it is a good choice, because it will allow
+much greater I/O throughput than with the other machines that emulate
+a PCI or SCSI access to the disk.
+
+After choosing the machine, choose also the CPU and the memory size.
+For a list of possible CPUs, do
+
+  % qemu-system-CPU -cpu ?
+or
+  % qemu-system-CPU -cpu help
+
+For the memory size, typically pick something between 256 MB (sufficient
+for a distro without GUI, unless the installer needs more than that) and
+2048 MB (this is what you need for a GNOME GUI, for example).
+
+In some cases, you will also need a '-bios ...' option. This denotes the
+software that is activated at boot time, before the kernel takes over.
+QEMU comes with a working BIOS/EFI/... for most machines and uses that by
+default; therefore you will need a '-bios ...' option only in the most
+exotic cases.
+
+Assign these arguments to a variable, by convention named machine_args.
+
+
+(DI) Choose the disk arguments
+------------------------------
+
+The QEMU arguments that tell it about the disk file and format are easy
+to find. If the machine is a 'virt' machine, use
+
+  % disk_args="-drive file=DISKNAME.qcow2,format=qcow2,if=none,id=hd0 -device virtio-blk-device,drive=hd0"
+or (for a raw-format disk)
+  % disk_args="-drive file=DISKNAME.img,format=raw,if=none,id=hd0 -device virtio-blk-device,drive=hd0"
+
+Otherwise, use
+
+  % disk_args="-drive file=DISKNAME.qcow2,format=qcow2,[if=...,]index=0"
+or
+  % disk_args="-drive file=DISKNAME.img,format=raw,[if=...,]index=0"
+
+The 'if=...' sub-option defines the disk interface, typically 'if=ide'
+or 'if=scsi'.
+
+If you want to understand what such an option is doing, run
+
+  % qemu-system-CPU -S -nographic $disk_args
+
+switch to QEMU input mode (C-a c), then enter the command
+
+  (qemu) info block
+
+For more info, see https://www.qemu.org/docs/master/system/invocation.html .
+
+
+(NW) Choose the network arguments
+---------------------------------
+
+There are many available QEMU options regarding networking, that support
+advanced features like allowing different VMs to communicate with each other.
+
+For our purposes, the "user" mode is sufficient. In this mode, QEMU
+implements a virtual ethernet card and a DHCP server that sits between
+the host and the guest VM. As a result:
+  - The guest has a direct connection only to the host.
+  - The guest's IP address is 10.0.2.15.
+  - The host's IP address on this connection is 10.0.2.2.
+  - The public internet can be reached through the host, once the
+    virtual ethernet interface is brought "up" in the guest VM.
+
+To get this "user" networking enabled, on many QEMU machines, no particular
+options are needed:
+
+  % net_args=""
+
+On a 'virt' machine, instead, you may need
+
+  % net_args="-device virtio-net-device,netdev=usernet -netdev user,id=usernet"
+
+Special case: On m68k, machine '-M q800', use
+
+  % net_args="-net nic,model=dp83932 -net user"
+
+You don't need to provide a particular MAC address for the guest, since only
+the connection to the host gets to see this MAC address.
+
+To test these arguments, run
+
+  % qemu-system-CPU -S -nographic $machine_args $net_args
+
+switch to QEMU input mode (C-a c), then enter the command
+
+  (qemu) info network
+
+It should produce output similar to:
+
+  hub 0
+   \ hub0port1: user.0: index=0,type=user,net=10.0.2.0,restrict=off
+   \ hub0port0: virtio-net-pci.0: index=0,type=nic,model=virtio-net-pci,macaddr=52:54:00:12:34:56
+
+or
+
+  hub 0
+   \ hub0port1: user.0: index=0,type=user,net=10.0.2.0,restrict=off
+   \ hub0port0: smc91c111.0: index=0,type=nic,model=smc91c111,macaddr=52:54:00:12:34:56
+
+The name and model of the ethernet card can vary, of course.
+
+
+(DV) Choose the display/video arguments
+---------------------------------------
+
+You need to pass arguments to QEMU to tell it how to configure the display
+and video (graphics card). The two most useful configurations are:
+
+* Do input and output to the current terminal emulator.
+
+  This has the advantages:
+    - During boot, when things may go wrong, you have the terminal emulator's
+      scrollback buffer available, for investigation.
+    - You can easily copy text from/into the VM.
+
+  To achieve this mode, usually it is enough to specify
+
+    % display_args="-nographic"
+
+  For optimal results, it may be useful to later set TERM=xterm in the VM.
+
+* Do input and output in a separate window.
+
+  This has the advantages:
+    - You can run a graphical environment.
+    - It behaves more like real hardware.
+
+  To achieve this mode, you specify
+
+    % display_args="-display gtk -monitor stdio"
+
+  It would also be possible to specify '-display vnc' instead of '-display gtk',
+  if you need remote access to the VM.
+
+  Note that '-display gtk' sometimes does not work satisfactorily:
+    - In some configurations, keystrokes are ignored.
+    - In some configurations, decent keyboard input does not work, due to a
+      problem with repeat.
+    - In some environments, use of the arrow keys in a bash prompt tends to
+      hang for a while. (Maybe it can be fixed by setting TERM?)
+    - In some configurations, non-ASCII characters are not well rendered.
+
+How to enter QEMU commands while the VM is running?
+
+* In the "-nographic" mode, the terminal is multiplexing the input for the VM
+  and the input for QEMU.
+  Some "magic" commands in this mode are:
+    C-a h    print this help
+    C-a x    exit emulator
+    C-a s    save disk data back to file (if -snapshot)
+    C-a t    toggle console timestamps
+    C-a b    send break (magic sysrq)
+    C-a c    switch between console and monitor
+    C-a C-a  sends C-a
+  For the full reference, see
+  https://www.qemu.org/docs/master/system/mux-chardev.html .
+
+* In the separate-window mode, due to the '-monitor stdio' option, you use
+  the terminal emulator exclusively for QEMU commands.
+
+
+(B1) Boot from the CD/DVD
+-------------------------
+
+This step may require some trial-and-error.
+
+Start by combining the previously selected QEMU command-line options:
+
+  % common_args="$machine_args $disk_args $net_args $display_args"
+
+In case you downloaded a CD/DVD image (as opposed to a pre-made disk image),
+find the command-line option that simulates the presence of this CD/DVD in a
+CD/DVD drive.
+
+  -cdrom CDIMAGE.iso
+
+If that does not work, use a '-drive' option, similar to the $disk_args.
+If the machine is a 'virt' machine, use
+
+  -drive file=CDIMAGE.iso,if=virtio,media=cdrom
+
+Otherwise, use
+
+  -drive file=CDIMAGE.iso,if=...,media=cdrom
+
+The 'if=...' sub-option defines the disk interface, typically 'if=ide'
+or 'if=scsi'.
+
+Don't forget the 'media=cdrom' sub-option; this is what tells QEMU to access
+the image in read-only mode (as opposed to read-write mode, which is the
+default for '-drive').
+
+Note a subtle difference between the two syntaxes: '-cdrom' "inserts" the
+CD/DVD image into an existing CD/DVD drive, whereas '-drive' creates a new
+CD/DVD drive and "inserts" the CD/DVD image into it.
+
+If you want to understand what such an option is doing, run
+
+  % qemu-system-CPU -S -nographic ...
+
+switch to QEMU input mode (C-a c), then enter the command
+
+  (qemu) info block
+
+For more info, see https://www.qemu.org/docs/master/system/invocation.html .
+
+Now, you are ready to boot the VM. Try first without any -kernel option:
+
+  % qemu-system-CPU $common_args -cdrom ...
+
+This may work if the BIOS and the contents of the CD together provide a
+working bootloader chain.
+
+In some configurations, adding a '-boot d' option may be helpful.
+
+If this did not work and the OS to boot is Linux, use the options -kernel,
+-initrd, -append, as described in the Introduction above, to bypass the
+platform dependent boot loading mechanism:
+
+  % qemu-system-CPU $common_args -cdrom ... \
+                    -kernel boot/vmlinux -initrd boot/initrd.gz
+
+There are good chances that this works fine.
+
+If this produces some output but the essential error messages get cleared
+from the screen before you can read them, log the output to a file:
+
+  % qemu-system-CPU $common_args ... 2>&1 | tee out
+
+If it fails to produce any output, it may be because the kernel is booting
+but its output is not directed to the terminal emulator. In this situation
+it may help to add kernel parameters such as
+
+  -append "loglevel=9"
+
+or
+
+  -append "console=ttyS0,115200"
+
+or
+
+  -append "vga=off"
+
+If it still fails to produce any output, try replacing the display_args with
+
+  % display_args="-display gtk -monitor stdio"
+
+If the kernel is now booting fine and you used display_args="-nographic",
+you may now terminate the qemu-system-CPU process and instead replace the
+display_args with
+
+  % display_args="-display gtk -monitor stdio"
+
+if you find that desirable.
+
+Another troubleshooting trick: If you want to know what things look like
+from the booted Linux OS, use a Debian installer CD and either
+  - at the first installer screen press ESC, and then choose "Execute a shell",
+or
+  - boot with a '-append "rescue/enable=true"' option.
+
+
+(IN) Perform the steps of the installer
+---------------------------------------
+
+Assume that the previous step succeeded, that is, that the kernel booted and
+started an installer. For curses-based installers it is generally useful to
+resize the terminal emulator window to 80x24 characters.
+
+Take note of the partitioning result, in particular which disk partition
+contains the / file system.
+
+To terminate the installation: If available, use a 'halt' (or 'reboot')
+command from within the VM. Otherwise, if you have a (qemu) prompt,
+give the command
+
+  (qemu) quit
+
+Or, if the input is multiplexed, use the
+
+  C-a x
+
+magic command.
+
+
+(B2) Boot from the installed disk
+---------------------------------
+
+This step may require some trial-and-error as well.
+
+Start with the successful QEMU arguments from the step "Boot from the CD/DVD",
+except that you remove the option that activate the CD.
+
+If the installer installed a working boot loader chain, you don't need any
+further arguments; this will be enough:
+
+  % qemu-system-CPU $common_args
+
+If this does not work and the OS to boot is Linux, then you will need
+-kernel, -initrd, -append options, as described in the Introduction.
+
+For the T2-SDE Linux distribution, the same kernel and the same initrd can
+be used as when installing. Thus the command line is
+
+  % qemu-system-CPU $common_args \
+                    -kernel boot/vmlinux-X.Y.Z-t2 -initrd boot/initrd-X.Y.Z-t2 \
+                    -append "root=/dev/sdaN"
+
+where /dev/sdaN is the partition on which the / file system was installed.
+
+For other Linux distributions (in particular, Debian, openSUSE), you need
+to extract
+  - the kernel,
+  - the initial RAM disk (initrd),
+  - and the boot loader configuration file
+from the virtual disk, so that you can use them as arguments to QEMU.
+It goes like this:
+1. Convert the disk image to raw format (standard suffix: .img).
+   For example:
+   % qemu-img convert -f qcow2 -O raw DISKNAME.qcow2 DISKNAME.img
+2. You need the 'kpartx' package installed. (Alternatively, you could use
+   the 'guestmount' program that is part of the 'libguestfs' package. You
+   can also get away without kpartx or guestmount, but then you need to
+   guess numerical offsets...)
+   'kpartx' makes the partitions of a disk image accessible as individual
+   device files (under /dev/mapper/), so that you can mount them through
+   'mount'.
+   % sudo kpartx -av DISKNAME.img
+   Here you may need to try various loopXpY devices.
+   % sudo mount -r -t ext4 /dev/mapper/loop1p1 /mnt
+   % cp /mnt/boot/vmlinux /mnt/boot/vmlinuz .
+   % cp /mnt/boot/initrd.gz .
+   % cp /mnt/boot/grub/grub.cfg .
+   % sudo umount /mnt
+   % sudo kpartx -dv DISKNAME.img
+3. Often, the kernel file is compressed; However, QEMU needs an uncompressed
+   file instead. So, in order to make the file usable, you have to uncompress
+   it first. Like this:
+   % file vmlinuz
+   vmlinuz: gzip compressed data, max compression, from Unix, original size modulo 2^32 22547496
+   % mv vmlinuz vmlinux.gz
+   % gunzip vmlinux.gz
+   % file vmlinux
+   vmlinux: ELF 64-bit LSB executable, Alpha (unofficial), version 1 (SYSV), statically linked, BuildID[sha1]=a734ed8b161f494c6d5eaac927f06fadd80d01c9, stripped
+4. Inspect the boot loader configuration file (grub.cfg in this case)
+   and note relevant kernel command line options, to pass through '-append'.
+Now the command line is
+
+  % qemu-system-CPU $common_args \
+                    -kernel vmlinux -initrd initrd.gz \
+                    -append "root=/dev/sdaN ..."
+
+
+(PK) Install packages
+---------------------
+
+Install packages you will need. For development, I typically make sure
+'make', 'gcc', 'g++', 'vim', and 'emacs' are available.
+
+Details depend on the distribution and its package manager.

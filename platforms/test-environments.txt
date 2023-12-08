@@ -27,6 +27,7 @@ Virtual machines
 
 For the following OSes, you can install a virtual machine:
   - GNU/Hurd
+  - GNU/kFreeBSD
   - musl libc (Alpine Linux)
   - FreeBSD, DragonFly BSD
   - NetBSD
@@ -46,13 +47,63 @@ How to do this:
 4. Find the right parameters for the hypervisor, so that it boots from
    the CD/DVD.
 5. Perform the steps of the installer.
-6. Reboot the virtual machine without the CD/DVD.
+6. Reboot the virtual machine, this time booting from the virtual disk.
 7. Install whatever packages you will need for development (gcc, g++,
    make, vim, emacs).
 
+Specific, detailed instructions for QEMU are in
+environments/qemu-environments.txt.
+
 As examples, find in the environments/ directory:
+  * qemu/alpha-linux-debian5.txt
+  * qemu/alpha-linux-debian12.txt
+  * qemu/alpha-linux-t2sde.txt
+  * qemu/arm-freebsd12.txt
+  * qemu/arm-raspbian.txt
+  * qemu/armel-linux-debian8.txt
+  * qemu/armelhf-linux-debian12.txt
+  * qemu/arm64-linux-debian12.txt
+  * qemu/arm64-linux-opensuse-a.txt
+  * qemu/arm64-linux-opensuse-b.txt
+  * qemu/arm64-alpine-3.13.txt
+  * qemu/arm64-alpine-3.19.txt
+  * qemu/arm64-freebsd132.txt
+  * qemu/hppa-linux-debian12.txt
+  * qemu/hppa-linux-t2sde.txt
+  * qemu/m68k-linux-debian12.txt
+  * qemu/m68k-linux-t2sde.txt
+  * qemu/mipseb-linux-debian8.txt
+  * qemu/mipsel-linux-debian12.txt
+  * qemu/mipsel-linux-debian8.txt
+  * qemu/mips64eb-linux-debian8.txt
+  * qemu/mips64el-linux-debian8.txt
+  * qemu/powerpc-linux-debian12.txt
+  * qemu/powerpc-linux-t2sde.txt
+  * qemu/powerpc64-linux-debian12.txt
+  * qemu/ppc64le-linux-debian12.txt
+  * qemu/ppc64le-linux-opensuse-kde.txt
+  * qemu/ppc64le-linux-opensuse.txt
+  * qemu/ppc64le-alpine.txt
+  * qemu/riscv64-linux-fedora28.txt
+  * qemu/s390x-linux-debian8.txt
+  * qemu/s390x-linux-opensuse.txt
+  * qemu/s390x-alpine.txt
+  * qemu/sparc-netbsd.txt
+  * qemu/sparc64-linux-debian9.txt
+  * qemu/sparc64-linux-t2sde.txt
+  * qemu/sparc64-freebsd12.txt
+  * qemu/sparc64-netbsd.txt
   * qemu/x86_64-openbsd73.txt: How to install OpenBSD 7.3 with QEMU.
   * virtualbox/openbsd73.txt: How to install OpenBSD 7.3 with VirtualBox.
+
+Download locations:
+  * GNU/Linux and Linux:
+    See linux-install-media.txt.
+  * GNU/Hurd:
+    https://cdimage.debian.org/cdimage/ports/12.0/hurd-i386/iso-cd/
+  * GNU/kFreeBSD:
+    https://cdimage.debian.org/cdimage/archive/7.11.0/kfreebsd-i386/iso-dvd/
+    https://cdimage.debian.org/cdimage/archive/7.11.0/kfreebsd-amd64/iso-dvd/
 
 
 Bring your own hardware
@@ -109,6 +160,7 @@ For testing specific CPUs, such as
   - arm
   - arm64
   - hppa
+  - m68k
   - mips, mips64
   - powerpc, powerpc64, powerpc64le
   - riscv64

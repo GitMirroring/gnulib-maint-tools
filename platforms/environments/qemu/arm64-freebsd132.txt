@@ -1,0 +1,164 @@
+(DR) Collect pointers to documentation and references
+-----------------------------------------------------
+
+https://www.qemu.org/docs/master/system/target-arm.html
+https://wiki.qemu.org/Documentation/Platforms/ARM
+https://wiki.freebsd.org/arm64/QEMU
+
+(QV) Choose a QEMU version
+--------------------------
+
+Use qemu-5.0.0
+% PATH=$HOME/inst-qemu/5.0.0/bin:$PATH
+
+(DL) Download an installation CD-ROM or DVD image
+-------------------------------------------------
+
+Download: https://download.freebsd.org/ftp/releases/ISO-IMAGES/13.2/FreeBSD-13.2-RELEASE-arm64-aarch64-disc1.iso.xz
+Uncompress it:
+% xz -d FreeBSD-13.2-RELEASE-arm64-aarch64-disc1.iso.xz
+-> FreeBSD-13.2-RELEASE-arm64-aarch64-disc1.iso
+
+(XK) Extract the kernel from the CD-ROM or DVD image
+----------------------------------------------------
+
+This is not needed in this case.
+
+(CD) Create an empty disk image to be used by the virtual machine
+-----------------------------------------------------------------
+
+% qemu-img create -f qcow2 freebsd132.qcow2 9.5G
+
+(MA) Choose the machine arguments
+---------------------------------
+
+% machine_args="-M virt -cpu cortex-a53 -m 1024"
+
+Since QEMU cannot directly boot a FreeBSD kernel, we'll need some
+boot firmware:
+
+  - Either the UEFI firmware that comes bundled with QEMU:
+    % machine_args="$machine_args -bios edk2-aarch64-code.fd"
+
+  - Or some UEFI firmware named 'QEMU_EFI.fd' that is part of some Linux
+    distros, such as in the Ubuntu package 'qemu-efi'.
+    % machine_args="$machine_args -bios QEMU_EFI.fd"
+
+  - Or U-Boot.
+
+(DI) Choose the disk arguments
+------------------------------
+
+% disk_args="-drive file=freebsd132.qcow2,format=qcow2,if=none,id=hd0 -device virtio-blk-device,drive=hd0"
+
+(NW) Choose the network arguments
+---------------------------------
+
+There are several possibilities.
+
+% net_args=""
+
+This provides an ethernet interface by default:
+(qemu) info network
+hub 0
+ \ hub0port1: #net176: index=0,type=user,net=10.0.2.0,restrict=off
+ \ hub0port0: virtio-net-pci.0: index=0,type=nic,model=virtio-net-pci,macaddr=52:54:00:12:34:56
+FreeBSD will recognize it as 'vtnet0'.
+
+% net_args="-netdev type=user,id=net0 -device virtio-net-device,netdev=net0,mac=52:54:00:12:34:56"
+
+This provides an ethernet interface too:
+(qemu) info network
+virtio-net-device.0: index=0,type=nic,model=virtio-net-device,macaddr=52:54:00:12:34:56
+ \ net0: index=0,type=user,net=10.0.2.0,restrict=off
+FreeBSD will recognize it as 'vtnet0'.
+
+% net_args="-netdev type=user,id=net0 -device e1000,netdev=net0,mac=52:54:00:12:34:56"
+
+This provides an ethernet interface too:
+(qemu) info network
+e1000.0: index=0,type=nic,model=e1000,macaddr=52:54:00:12:34:56
+ \ net0: index=0,type=user,net=10.0.2.0,restrict=off
+FreeBSD will recognize it as 'em0'.
+
+(DV) Choose the display/video arguments
+---------------------------------------
+
+% display_args="-nographic"
+
+(B1) Boot from the CD/DVD
+-------------------------
+
+% common_args="$machine_args $disk_args $net_args $display_args"
+
+Resize the terminal to 80x24.
+
+% qemu-system-aarch64 $common_args -cdrom FreeBSD-13.2-RELEASE-arm64-aarch64-disc1.iso
+
+(IN) Perform the steps of the installer
+---------------------------------------
+
+Console type: xterm
+Install.
+Host name: arm64-freebsd132.MYDOMAINNAME
+ZFS configuration: on the first device, not on the second.
+
+login: root
+password: ********
+
+System configuration: Enable ntpdate and ntpd.
+
+System hardening: Select proc_debug.
+
+Username: MY_USER_NAME
+Full name: MY_FULL_NAME
+Invite MY_USER_NAME into other groups? wheel
+password: ********
+
+Exit installer.
+Reboot.
+
+(B2) Boot from the installed disk
+---------------------------------
+
+This does not need a -kernel option, since a FreeBSD/arm64 EFI bootloader is installed.
+
+% qemu-system-aarch64 $common_args
+
+This boots fine. Now is the time to switch to a graphic display, if desired:
+
+% display_args="-display gtk -monitor stdio"
+% common_args="$machine_args $disk_args $net_args $display_args"
+% qemu-system-aarch64 $common_args
+
+Login in as root.
+
+Edit ~/.profile to set TERM=xterm (since qemu's 'gtk' display is based on vte):
+# env TERM=xterm vi /etc/profile .cshrc
+In /etc/profile, add
+  TERM=xterm
+  export TERM
+In .cshrc, add
+  setenv TERM xterm
+
+Add these lines to /etc/sysctl.conf:
+Cf. https://www.freebsd.org/releases/13.0R/relnotes/
+  kern.elf32.allow_wx=0
+  kern.elf64.allow_wx=0
+
+(PK) Install packages
+---------------------
+
+# pkg search bash
+# pkg install bash
+# pkg install gmake gcc12 binutils gdb vim emacs-nox
+
+Make room:
+# rm /var/cache/pkg/*.pkg
+
+
+Notes
+-----
+
+The primary compiler is CC="cc" (clang 14.0.5).
+Alternatively, you may use CC="gcc12 -Wl,-rpath=/usr/local/lib/gcc12" (gcc 12.2.0).

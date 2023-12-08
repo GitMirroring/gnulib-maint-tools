@@ -1,0 +1,119 @@
+(DR) Collect pointers to documentation and references
+-----------------------------------------------------
+
+https://www.kernel.org/doc/html/v6.6/admin-guide/kernel-parameters.html
+https://www.debian.org/ports/alpha/port-status.en.html
+https://virtuallyfun.com/2021/08/10/installing-debian-linux-5-0-on-the-qemu-dec-alpha/
+
+(QV) Choose a QEMU version
+--------------------------
+
+Use qemu-2.9.0
+% PATH=$HOME/inst-qemu/2.9.0/bin:$PATH
+
+(DL) Download an installation CD-ROM or DVD image
+-------------------------------------------------
+
+I downloaded
+https://cdimage.debian.org/cdimage/archive/5.0.10/alpha/iso-cd/debian-5010-alpha-netinst.iso
+but you are better off starting with
+https://cdimage.debian.org/cdimage/archive/5.0.10/alpha/iso-dvd/debian-5010-alpha-DVD-1.iso
+
+(XK) Extract the kernel from the CD-ROM or DVD image
+----------------------------------------------------
+
+% sudo mount -r -t iso9660 -o loop debian-5010-alpha-netinst.iso /mnt
+% mkdir boot-for-install
+% cp -p /mnt/boot/* boot-for-install/
+% sudo umount /mnt
+
+(CD) Create an empty disk image to be used by the virtual machine
+-----------------------------------------------------------------
+
+% qemu-img create -f qcow2 debian5010.qcow2 10G
+
+(MA) Choose the machine arguments
+---------------------------------
+
+% machine_args="-M clipper -m 256"
+
+(DI) Choose the disk arguments
+------------------------------
+
+% disk_args="-drive file=debian5010.qcow2,format=qcow2,id=hd0"
+
+(NW) Choose the network arguments
+---------------------------------
+
+% net_args=""
+
+(DV) Choose the display/video arguments
+---------------------------------------
+
+% display_args="-display gtk -monitor stdio"
+
+(B1) Boot from the CD/DVD
+-------------------------
+
+% common_args="$machine_args $disk_args $net_args $display_args"
+% qemu-system-alpha $common_args \
+    -kernel boot-for-install/vmlinux -initrd boot-for-install/initrd.gz \
+    -drive file=debian-5010-alpha-netinst.iso,if=ide,media=cdrom
+
+(IN) Perform the steps of the installer
+---------------------------------------
+
+Host name: alpha-debian5
+Domain name: MYDOMAINNAME
+
+login: root
+password: ********
+
+login: MY_USER_NAME
+password: ********
+
+Mirror: enter manually
+  ftp.de.debian.org
+  /debian-archive/debian/   (instead of /debian/)
+
+Since kpartx won't work here:
+At the "Finishing the installation" screen, save the contents of the boot partition:
+  - Go back
+  - Execute a shell
+  - # mount -t proc proc /target/proc
+    # mount --rbind /sys /target/sys
+    # mount --rbind /dev /target/dev
+    # chroot /target bash
+    # tar cvf /dev/boot.tar --exclude=lost+found boot
+    # scp /dev/boot.tar ...
+
+(B2) Boot from the installed disk
+---------------------------------
+
+This needs a -kernel option, since no bootloader is installed.
+
+Extract this boot partition here:
+% tar xvf boot.tar
+% gunzip -c < boot/vmlinuz > boot/vmlinux
+
+% qemu-system-alpha $common_args \
+    -kernel boot/vmlinux -initrd boot/initrd.img -append "root=/dev/hda3"
+
+(PK) Install packages
+---------------------
+
+login as root
+# apt-get update
+# apt-get install make
+# apt-get install gcc binutils-doc glibc-doc libc-dbg gdb
+# apt-get install vim-nox vim-doc
+# apt-get install emacs22-nox emacs22-el
+# apt-get install bzip2
+# apt-get install g++
+# apt-get install expect dejagnu
+
+
+Notes
+-----
+
+To shutdown: Use 'reboot' - because 'shutdown' only navigates among the runlevels.

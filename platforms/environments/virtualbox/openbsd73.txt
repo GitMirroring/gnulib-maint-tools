@@ -10,7 +10,7 @@ Host name: openbsd73
 Root password: ********
 X Window System: no
 Setup a user?
-  login: *****
+  login: MY_USER_NAME
   password: ********
 Allow root ssh login: yes
 Partitioning: (W)hole disk MBR, then (E)dit auto layout

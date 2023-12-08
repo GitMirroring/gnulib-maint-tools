@@ -1,0 +1,104 @@
+(DR) Collect pointers to documentation and references
+-----------------------------------------------------
+
+https://www.qemu.org/docs/master/system/target-riscv.html
+https://www.kernel.org/doc/html/v6.6/admin-guide/kernel-parameters.html
+
+Development source code:
+https://github.com/riscv
+https://riscv.org/software-status/
+
+Distros:
+https://wiki.debian.org/RISC-V
+https://fedoraproject.org/wiki/Architectures/RISC-V
+https://github.com/rwmjones/fedora-riscv-bootstrap/blob/master/README
+
+(QV) Choose a QEMU version
+--------------------------
+
+Use qemu-2.12.0
+% PATH=$HOME/inst-qemu/2.12.0/bin:$PATH
+
+(DL) Download an installation CD-ROM or DVD image
+-------------------------------------------------
+
+% wget -r -l 1 https://fedorapeople.org/groups/risc-v/disk-images/
+% xz -d < disk-images/stage4-disk.img.xz > stage4-disk.img
+% qemu-img convert -f raw -O qcow2 stage4-disk.img stage4-disk.qcow2
+
+(XK) Extract the kernel from the CD-ROM or DVD image
+----------------------------------------------------
+
+This is not needed in this case.
+
+(CD) Create an empty disk image to be used by the virtual machine
+-----------------------------------------------------------------
+
+This is not needed in this case; we have a disk image already.
+
+(MA) Choose the machine arguments
+---------------------------------
+
+% machine_args="-machine virt -m 2G"
+
+(DI) Choose the disk arguments
+------------------------------
+
+% disk_args="-device virtio-blk-device,drive=hd0 -drive file=stage4-disk.qcow2,format=qcow2,id=hd0"
+
+(NW) Choose the network arguments
+---------------------------------
+
+% net_args="-device virtio-net-device,netdev=usernet -netdev user,id=usernet"
+This provides an ethernet interface:
+(qemu) info network
+virtio-net-device.0: index=0,type=nic,model=virtio-net-device,macaddr=52:54:00:12:34:56
+ \ usernet: index=0,type=user,net=10.0.2.0,restrict=off
+
+(RN) Choose the random-number generator arguments
+-------------------------------------------------
+
+% rng_args="-device virtio-rng-device,rng=rng0 -object rng-random,filename=/dev/urandom,id=rng0"
+
+(DV) Choose the display/video arguments
+---------------------------------------
+
+% display_args="-nographic"
+
+(B2) Boot from the disk
+-----------------------
+
+This needs a -kernel option, since no bootloader is installed.
+
+% common_args="$machine_args $disk_args $net_args $rng_args $display_args"
+
+Resize the terminal to 80x24.
+
+% qemu-system-riscv64 $common_args -kernel disk-images/bbl -append "console=ttyS0 ro root=/dev/vda"
+
+login: root
+password: riscv
+
+# useradd -d /home/MY_USER_NAME -m -U -u 1000 -G wheel MY_USER_NAME
+# passwd MY_USER_NAME
+
+login: MY_USER_NAME
+password: ********
+
+Edit /etc/crypto-policies/back-ends/openssh.config
+to remove unsupported 'GSSAPIKexAlgorithms' option.
+Edit /etc/ssh/ssh_config.d/05-redhat.conf
+to remove unsupported 'GSSAPIAuthentication' option.
+
+(PK) Install packages
+---------------------
+
+
+Notes
+-----
+
+After every boot:
+# date MMDDhhmmYYYY  (in UTC)
+
+Bugs:
+- Building mpfr-4.2.1-rc1 works only with --disable-shared.

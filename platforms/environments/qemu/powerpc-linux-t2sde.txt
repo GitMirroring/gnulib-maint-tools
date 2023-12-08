@@ -1,0 +1,157 @@
+(DR) Collect pointers to documentation and references
+-----------------------------------------------------
+
+https://www.qemu.org/docs/master/system/target-ppc.html
+https://wiki.qemu.org/Documentation/Platforms/PowerPC
+https://www.kernel.org/doc/html/v6.6/admin-guide/kernel-parameters.html
+
+(QV) Choose a QEMU version
+--------------------------
+
+Use qemu-8.1.2
+% PATH=$HOME/inst-qemu/8.1.2/bin:$PATH
+
+(DL) Download an installation CD-ROM or DVD image
+-------------------------------------------------
+
+Download: http://dl.t2sde.org/binary/2023/t2-23.6-ppc-minimal-firefox-gcc-glibc-603.iso
+
+(XK) Extract the kernel from the CD-ROM or DVD image
+----------------------------------------------------
+
+% sudo mount -r -t iso9660 -o loop t2-23.6-ppc-minimal-firefox-gcc-glibc-603.iso /mnt
+% mkdir boot
+% cp -a /mnt/boot/* boot/
+% cp -a /mnt/etc/kboot.conf boot/
+% sudo umount /mnt
+
+(CD) Create an empty disk image to be used by the virtual machine
+-----------------------------------------------------------------
+
+% qemu-img create -f qcow2 t2sde.qcow2 10G
+
+(MA) Choose the machine arguments
+---------------------------------
+
+% machine_args="-M g3beige -m 256"
+
+(DI) Choose the disk arguments
+------------------------------
+
+% disk_args="-drive file=t2sde.qcow2,format=qcow2,index=0"
+
+(NW) Choose the network arguments
+---------------------------------
+
+% net_args=""
+This provides an ethernet interface:
+(qemu) info network
+hub 0
+ \ hub0port1: #net144: index=0,type=user,net=10.0.2.0,restrict=off
+ \ hub0port0: ne2k_pci.0: index=0,type=nic,model=ne2k_pci,macaddr=52:54:00:12:34:56
+
+(DV) Choose the display/video arguments
+---------------------------------------
+
+% display_args="-nographic"
+
+(B1) Boot from the CD/DVD
+-------------------------
+
+% common_args="$machine_args $disk_args $net_args $display_args"
+
+Resize the terminal to 80x24.
+
+% qemu-system-ppc $common_args \
+    -kernel boot/vmlinux-6.3.7-t2 -initrd boot/initrd-6.3.7-t2 \
+    -cdrom t2-23.6-ppc-minimal-firefox-gcc-glibc-603.iso
+works; the CD-ROM device is:
+(qemu) info block
+...
+ide1-cd0 (#block354): t2-23.6-ppc-minimal-firefox-gcc-glibc-603.iso (raw, read-only)
+    Attached to:      /machine/unattached/device[7]
+    Removable device: not locked, tray closed
+    Cache mode:       writeback
+
+(IN) Perform the steps of the installer
+---------------------------------------
+
+Serial terminal: <Enter> or console
+# install
+Partition:
+  fdisk
+  n p 1 <Enter> <Enter>
+  w
+On /dev/sda1: Create filesystem of type ext3 [why not ext4?] with mount point /
+Install the system
+Start gasgui Package Manager
+Full install (all packages).
+Keyboard: us
+Root password: ********
+Time zone: Europe/Berlin
+Locale: en_US.UTF-8
+Generated /boot/grub/grub.cfg:
+  menuentry "T2/Linux" {
+    linux /boot/vmlinux-6.3.7-t2
+    root=/dev/disk/by-uuid/3be5afe0-790f-4726-a1c4-71adeab1fbf4
+    ro console=ttyPZ0 initrd /boot/initrd-6.3.7-t2
+  }
+But: "No HFS bootstrap partition found!"
+Therefore: <Back>
+Generated /etc/kboot.conf:
+  t2sde='/boot/vmlinux-6.3.7-t2 initrd=/boot/initrd-6.3.7-t2 root=/dev/sda1' # video=ps3fb:mode:13
+Again: <Back>
+Network configuration: Configure eth0 through DHCP. <Back>.
+System init configuration: Default runlevel 3. <Back>.
+Then: <Exit>
+It reboots.
+
+(B2) Boot from the installed disk
+---------------------------------
+
+This needs a -kernel option, since no bootloader is installed.
+% qemu-system-ppc $common_args
+does not boot:
+--------------------------------------------------------------------------------
+>> =============================================================
+>> OpenBIOS 1.1 [Mar 7 2023 22:21]
+>> Configuration device id QEMU version 1 machine id 2
+>> CPUs: 1
+>> Memory: 256M
+>> UUID: 00000000-0000-0000-0000-000000000000
+>> CPU type PowerPC,750
+milliseconds isn't unique.
+Welcome to OpenBIOS v1.1 built on Mar 7 2023 22:21
+Trying hd:,\\:tbxi...
+Trying hd:,\ppc\bootinfo.txt...
+Trying hd:,%BOOT...
+No valid state has been set by load or init-program
+--------------------------------------------------------------------------------
+
+So, use:
+% qemu-system-ppc $common_args -kernel boot/vmlinux-6.3.7-t2 -initrd boot/initrd-6.3.7-t2 -append "root=/dev/sda1"
+
+It boots, but there is no login prompt. There are two possible fixes for this situation:
+
+* Tell the kernel about the console device, so that a 'getty' process gets spawned for it.
+  (See also the generated grub.cfg, above.)
+  % qemu-system-ppc $common_args -kernel boot/vmlinux-6.3.7-t2 -initrd boot/initrd-6.3.7-t2 -append "root=/dev/sda1 console=ttyPZ0,115200"
+
+* Use a graphic display:
+  % display_args="-display gtk -monitor stdio"
+  % common_args="$machine_args $disk_args $net_args $display_args"
+  % qemu-system-ppc $common_args -kernel boot/vmlinux-6.3.7-t2 -initrd boot/initrd-6.3.7-t2 -append "root=/dev/sda1"
+
+# useradd -d /home/MY_USER_NAME -m -U -u 1000 -G wheel MY_USER_NAME
+# passwd MY_USER_NAME
+New password: ********
+
+(PK) Install packages
+---------------------
+
+Nothing to do. If some packages are needed that are not on the CD-ROM,
+they can be compiled locally through
+# cd /usr/src/t2-src
+# svn update
+# scripts/Emerge-Pkg -f PACKAGE
+But that takes a long time.

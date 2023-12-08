@@ -1,0 +1,144 @@
+(DR) Collect pointers to documentation and references
+-----------------------------------------------------
+
+https://www.qemu.org/docs/master/system/target-arm.html
+https://wiki.qemu.org/Documentation/Platforms/ARM
+https://www.kernel.org/doc/html/v6.6/admin-guide/kernel-parameters.html
+
+(QV) Choose a QEMU version
+--------------------------
+
+Use qemu-8.1.2
+% PATH=$HOME/inst-qemu/8.1.2/bin:$PATH
+
+(DL) Download an installation CD-ROM or DVD image
+-------------------------------------------------
+
+openSUSE Leap 15.2
+Download: https://get.opensuse.org/leap aarch64 Offline image.
+->
+https://ftp.gwdg.de/pub/opensuse/ports/aarch64/distribution/leap/15.2/iso/openSUSE-Leap-15.2-DVD-aarch64-Build208.3-Media.iso
+
+(XK) Extract the kernel from the CD-ROM or DVD image
+----------------------------------------------------
+
+% sudo mount -r -t iso9660 -o loop openSUSE-Leap-15.2-DVD-aarch64-Build208.3-Media.iso /mnt
+% mkdir boot-for-install
+% cp -a /mnt/boot/aarch64/* boot-for-install/
+% cp -p /mnt/EFI/BOOT/grub.cfg boot-for-install/
+% sudo umount /mnt
+
+(CD) Create an empty disk image to be used by the virtual machine
+-----------------------------------------------------------------
+
+% qemu-img create -f qcow2 opensuse.qcow2 10G
+
+(MA) Choose the machine arguments
+---------------------------------
+
+% machine_args="-M virt -cpu cortex-a53 -m 1024"
+
+(DI) Choose the disk arguments
+------------------------------
+
+% disk_args="-drive file=opensuse.qcow2,format=qcow2,if=none,id=hd0 -device virtio-blk-device,drive=hd0"
+
+(NW) Choose the network arguments
+---------------------------------
+
+% net_args="-netdev type=user,id=net0 -device virtio-net-device,netdev=net0,mac=52:54:00:12:34:56"
+
+(DV) Choose the display/video arguments
+---------------------------------------
+
+% display_args="-nographic"
+
+(B1) Boot from the CD/DVD
+-------------------------
+
+% common_args="$machine_args $disk_args $net_args $display_args"
+
+Resize the terminal to 80x24.
+
+% qemu-system-aarch64 $common_args \
+    -kernel boot-for-install/linux -initrd boot-for-install/initrd \
+    -cdrom openSUSE-Leap-15.2-DVD-aarch64-Build208.3-Media.iso
+
+(IN) Perform the steps of the installer
+---------------------------------------
+
+It takes 1 minute to boot and a couple of minutes to start the YaST2 installer.
+
+List of online repositories: none anyway
+System role: Server
+Partitioning:
+  Guided
+  Choose ext4 instead of btrfs.
+  /dev/vdb1 (8 MiB) BIOS boot
+  /dev/vdb2 (9.99 GiB) ext4, /
+Time zone: Europe / Germany
+Local User:
+  Full name: MY_FULL_NAME
+  Username: MY_USER_NAME
+  Password: ********
+Settings:
+  Secure boot: disable
+Wait for the packages installation to complete.
+--------------------------------------------------------------------------------
+│Error                                                                         │
+│Execution of command "[["/usr/sbin/grub2-install", "--target=arm64-efi", "--fo│
+│Exit code: 1                                                                  │
+│Error output: Installing for arm64-efi platform.                              │
+│/usr/sbin/grub2-install: error: cannot find EFI directory.                    │
+--------------------------------------------------------------------------------
+[Abort].
+[Continue installation].
+It reboots.
+
+(B2) Boot from the installed disk
+---------------------------------
+
+This needs a -kernel option, since no bootloader is installed.
+(The installer attempted to install grub as bootloader, but failed to do so.)
+
+Extract the kernel for booting:
+http://superuser.com/questions/344899/how-can-i-mount-a-disk-image
+% qemu-img convert -f qcow2 -O raw opensuse.qcow2 opensuse.img
+% sudo kpartx -av opensuse.img
+% sudo mount -r -t ext4 /dev/mapper/loop6p2 /mnt
+% mkdir boot
+% (cd /mnt/boot && sudo tar cf - .) | (cd boot && tar xvf -)
+% sudo umount /mnt
+% sudo kpartx -dv opensuse.img
+% rm opensuse.img
+
+Keep the CD-ROM, for being able to install packages.
+
+% qemu-system-aarch64 $common_args \
+    -kernel boot/Image -initrd boot/initrd \
+    -cdrom openSUSE-Leap-15.2-DVD-aarch64-Build208.3-Media.iso
+
+$ sudo bash
+# zypper repos
+4 | repo-oss             | Main Repository           | Yes     | (r ) Yes  | Yes
+6 | repo-update          | Main Update Repository    | Yes     | (r ) Yes  | Yes
+OK
+
+$ sudo halt
+Power Off.
+
+(PK) Install packages
+---------------------
+
+$ sudo bash
+# cnf make
+# cnf gcc
+# cnf gdb
+# cnf emacs
+# zypper install make
+# zypper install gcc10-c++
+# zypper install gdb
+# zypper install emacs
+
+# halt
+Power Off.

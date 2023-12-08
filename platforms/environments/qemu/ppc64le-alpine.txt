@@ -1,0 +1,135 @@
+(DR) Collect pointers to documentation and references
+-----------------------------------------------------
+
+https://www.qemu.org/docs/master/system/target-ppc.html
+https://www.kernel.org/doc/html/v6.6/admin-guide/kernel-parameters.html
+https://wiki.alpinelinux.org/wiki/Ppc64le
+
+(QV) Choose a QEMU version
+--------------------------
+
+Use qemu-5.0.0
+% PATH=$HOME/inst-qemu/5.0.0/bin:$PATH
+
+(DL) Download an installation CD-ROM or DVD image
+-------------------------------------------------
+
+Download: https://dl-cdn.alpinelinux.org/alpine/v3.13/releases/ppc64le/alpine-standard-3.13.0-ppc64le.iso
+
+(XK) Extract the kernel from the CD-ROM or DVD image
+----------------------------------------------------
+
+This is not needed in this case.
+
+(CD) Create an empty disk image to be used by the virtual machine
+-----------------------------------------------------------------
+
+% qemu-img create -f qcow2 alpine.qcow2 9G
+
+(MA) Choose the machine arguments
+---------------------------------
+
+% machine_args="-M pseries -cpu POWER8 -m 1024"
+
+(DI) Choose the disk arguments
+------------------------------
+
+% disk_args="-drive file=alpine.qcow2,format=qcow2,if=scsi,index=0"
+
+(NW) Choose the network arguments
+---------------------------------
+
+% net_args=""
+This provides an ethernet interface:
+(qemu) info network
+hub 0
+ \ hub0port1: #net174: index=0,type=user,net=10.0.2.0,restrict=off
+ \ hub0port0: l-lan@71000002: index=0,type=nic,model=spapr-vlan,macaddr=52:54:00:12:34:56
+
+(DV) Choose the display/video arguments
+---------------------------------------
+
+% display_args="-nographic"
+
+(B1) Boot from the CD/DVD
+-------------------------
+
+% common_args="$machine_args $disk_args $net_args $display_args"
+
+Resize the terminal to 80x24.
+
+% qemu-system-ppc64 $common_args -cdrom alpine-standard-3.13.0-ppc64le.iso
+
+(IN) Perform the steps of the installer
+---------------------------------------
+
+It takes 1-5 minutes to boot.
+
+login: root
+
+Configure the networking in a preliminary way:
+# ifconfig -a
+shows network devices lo, eth0.
+Later I can customize /etc/network/interfaces. But now:
+# ifconfig lo up
+# ifconfig eth0 10.0.2.15 netmask 255.255.255.0 up
+# route add default gw 10.0.2.2
+# echo 'nameserver 10.0.2.3' > /etc/resolv.conf
+Test it:
+# wget http://www.gnu.org
+# rm index.html
+
+# setup-alpine
+keyboard layout: us
+variant: us
+hostname: powerpc64le-alpine
+interface [eth0]:
+  ip address: 10.0.2.15
+  netmask: 255.255.255.0
+  gateway: 10.0.2.2
+DNS domain name: MYDOMAINNAME
+DNS nameserver: 10.0.2.3
+root password: ********
+time zone: Europe/Berlin
+mirror: either http://ftp.halifax.rwth-aachen.de/alpine/ or f
+disk: sda
+partitioning scheme: sys
+
+# halt
+
+(B2) Boot from the installed disk
+---------------------------------
+
+This does not need a -kernel option, since an Open Firmware bootloader is installed.
+
+% qemu-system-ppc64 $common_args
+
+This boots fine. Now is the time to switch to a graphic display, if desired:
+
+% display_args="-display gtk -monitor stdio"
+% common_args="$machine_args $disk_args $net_args $display_args"
+% qemu-system-ppc64 $common_args
+
+login: root
+password: ********
+
+# apk update
+# apk add bash
+
+# adduser -s /bin/bash MY_USER_NAME
+Password: ********
+
+(PK) Install packages
+---------------------
+
+The list of packages is at https://pkgs.alpinelinux.org/packages
+
+# apk add make
+# apk add gcc g++
+# apk add gdb
+# apk add vim
+
+Edit /etc/apk/repositories, to enable the 'community' repository (next to 'main').
+# apk add emacs
+
+# apk add expect dejagnu dejagnu-dev

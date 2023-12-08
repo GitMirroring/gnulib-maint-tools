@@ -1,0 +1,118 @@
+(DR) Collect pointers to documentation and references
+-----------------------------------------------------
+
+https://www.qemu.org/docs/master/system/target-ppc.html
+https://www.kernel.org/doc/html/v6.6/admin-guide/kernel-parameters.html
+
+(QV) Choose a QEMU version
+--------------------------
+
+Use qemu-8.1.2
+% PATH=$HOME/inst-qemu/8.1.2/bin:$PATH
+
+(DL) Download an installation CD-ROM or DVD image
+-------------------------------------------------
+
+openSUSE Leap 15.2
+Download: https://get.opensuse.org/leap ppc64le Offline image.
+->
+https://ftp.gwdg.de/pub/opensuse/ports/ppc/distribution/leap/15.2/iso/openSUSE-Leap-15.2-DVD-ppc64le-Build314.3-Media.iso
+
+(XK) Extract the kernel from the CD-ROM or DVD image
+----------------------------------------------------
+
+This is not needed in this case.
+
+(CD) Create an empty disk image to be used by the virtual machine
+-----------------------------------------------------------------
+
+% qemu-img create -f qcow2 opensuse.qcow2 10G
+
+(MA) Choose the machine arguments
+---------------------------------
+
+% machine_args="-M pseries,cap-cfpc=broken,cap-sbbc=broken,cap-ibs=broken,cap-ccf-assist=off -cpu POWER8 -m 2048"
+
+The option '-m 2048' (for 2 GiB of RAM) is needed because the final phase
+of the YaST installer takes a lot of memory.
+
+(DI) Choose the disk arguments
+------------------------------
+
+% disk_args="-drive file=opensuse.qcow2,format=qcow2,if=scsi,index=0"
+
+(NW) Choose the network arguments
+---------------------------------
+
+% net_args=""
+
+(DV) Choose the display/video arguments
+---------------------------------------
+
+% display_args="-nographic"
+
+(B1) Boot from the CD/DVD
+-------------------------
+
+% common_args="$machine_args $disk_args $net_args $display_args"
+
+Resize the terminal to 80x24.
+
+% qemu-system-ppc64 $common_args -cdrom openSUSE-Leap-15.2-DVD-ppc64le-Build314.3-Media.iso
+
+(IN) Perform the steps of the installer
+---------------------------------------
+
+Choose: Installation.
+
+It takes 1 minute to boot and a couple of minutes to start the YaST2 installer.
+
+List of online repositories: none anyway
+System role: Server
+Partitioning:
+  Guided
+  Choose ext4 instead of btrfs.
+  /dev/vdb1 (8 MiB) PReP boot
+  /dev/vdb2 (9.99 GiB) ext4, /
+Time zone: Europe / Germany
+Local User:
+  Full name: MY_FULL_NAME
+  Username: MY_USER_NAME
+  Password: ********
+Settings: nothing to change
+Wait for the packages installation to complete.
+Wait 8 minutes while nothing visible happens.
+Wait for the bootloader installation to complete.
+It reboots.
+
+(B2) Boot from the installed disk
+---------------------------------
+
+This does not need a -kernel option, since a grub bootloader is installed.
+
+Keep the CD-ROM, for being able to install packages.
+
+% qemu-system-ppc64 $common_args -cdrom openSUSE-Leap-15.2-DVD-aarch64-Build208.3-Media.iso
+
+$ sudo bash
+# zypper repos
+4 | repo-oss             | Main Repository           | Yes     | (r ) Yes  | Yes
+6 | repo-update          | Main Update Repository    | Yes     | (r ) Yes  | Yes
+OK
+
+$ sudo halt
+Power Off.
+
+(PK) Install packages
+---------------------
+
+$ sudo bash
+# cnf gcc
+# cnf gdb
+# cnf emacs
+# zypper install gcc10-c++
+# zypper install gdb
+# zypper install emacs
+
+# halt
+Power Off.

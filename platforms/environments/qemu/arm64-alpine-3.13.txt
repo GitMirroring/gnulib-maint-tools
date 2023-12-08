@@ -1,0 +1,158 @@
+(DR) Collect pointers to documentation and references
+-----------------------------------------------------
+
+https://www.qemu.org/docs/master/system/target-arm.html
+https://wiki.qemu.org/Documentation/Platforms/ARM
+https://www.kernel.org/doc/html/v6.6/admin-guide/kernel-parameters.html
+
+(QV) Choose a QEMU version
+--------------------------
+
+Use qemu-8.1.2
+% PATH=$HOME/inst-qemu/8.1.2/bin:$PATH
+
+(DL) Download an installation CD-ROM or DVD image
+-------------------------------------------------
+
+Download: https://dl-cdn.alpinelinux.org/alpine/v3.13/releases/aarch64/alpine-standard-3.13.0-aarch64.iso
+
+(XK) Extract the kernel from the CD-ROM or DVD image
+----------------------------------------------------
+
+This is not needed in this case.
+
+(CD) Create an empty disk image to be used by the virtual machine
+-----------------------------------------------------------------
+
+% qemu-img create -f qcow2 alpine.qcow2 9G
+
+(MA) Choose the machine arguments
+---------------------------------
+
+% machine_args="-M virt -cpu cortex-a53 -m 1024"
+
+With versions < 3.15, if we try to let QEMU boot the Linux kernel
+directly, the Alpine Linux installer fails with an error message
+"Bootloader "" not supported!". So, use a boot firmware:
+
+  - Either the UEFI firmware that comes bundled with QEMU:
+    % machine_args="$machine_args -bios edk2-aarch64-code.fd"
+
+  - Or some UEFI firmware named 'QEMU_EFI.fd' that is part of some Linux
+    distros, such as in the Ubuntu package 'qemu-efi'.
+    % machine_args="$machine_args -bios QEMU_EFI.fd"
+
+  - Or U-Boot.
+
+(DI) Choose the disk arguments
+------------------------------
+
+% disk_args="-drive file=alpine.qcow2,format=qcow2,if=none,id=hd0 -device virtio-blk-device,drive=hd0"
+
+(NW) Choose the network arguments
+---------------------------------
+
+There are several possibilities.
+
+% net_args=""
+
+This provides an ethernet interface by default:
+(qemu) info network
+hub 0
+ \ hub0port1: #net176: index=0,type=user,net=10.0.2.0,restrict=off
+ \ hub0port0: virtio-net-pci.0: index=0,type=nic,model=virtio-net-pci,macaddr=52:54:00:12:34:56
+
+% net_args="-netdev type=user,id=net0 -device virtio-net-device,netdev=net0,mac=52:54:00:12:34:56"
+
+This provides an ethernet interface too:
+(qemu) info network
+virtio-net-device.0: index=0,type=nic,model=virtio-net-device,macaddr=52:54:00:12:34:56
+ \ net0: index=0,type=user,net=10.0.2.0,restrict=off
+
+% net_args="-netdev type=user,id=net0 -device e1000,netdev=net0,mac=52:54:00:12:34:56"
+
+This provides an ethernet interface too:
+(qemu) info network
+e1000.0: index=0,type=nic,model=e1000,macaddr=52:54:00:12:34:56
+ \ net0: index=0,type=user,net=10.0.2.0,restrict=off
+
+In all three cases, Linux will recognize it as 'eth0'.
+
+(DV) Choose the display/video arguments
+---------------------------------------
+
+% display_args="-nographic"
+
+(B1) Boot from the CD/DVD
+-------------------------
+
+% common_args="$machine_args $disk_args $net_args $display_args"
+
+Resize the terminal to 80x24.
+
+% qemu-system-aarch64 $common_args \
+    -cdrom alpine-standard-3.13.0-aarch64.iso
+
+(IN) Perform the steps of the installer
+---------------------------------------
+
+login: root
+
+# date MMDDhhmmYYYY  (in UTC)
+
+# ifconfig -a
+shows network devices lo, eth0.
+
+# setup-alpine
+keyboard layout: us
+variant: us
+hostname: arm64-alpine
+interface [eth0]: dhcp
+root password: ********
+time zone: Europe/Berlin
+mirror: either http://ftp.halifax.rwth-aachen.de/alpine/ or f
+disk: vda
+partitioning scheme: sys
+
+# halt
+
+(B2) Boot from the installed disk
+---------------------------------
+
+This does not need a -kernel option, since a GRUB bootloader is installed.
+% qemu-system-aarch64 $common_args
+
+login: root
+password: ********
+
+# date MMDDhhmmYYYY  (in local time)
+
+# apk update
+# apk add bash
+
+# adduser -s /bin/bash MY_USER_NAME
+Password: ********
+
+(PK) Install packages
+---------------------
+
+The list of packages is at https://pkgs.alpinelinux.org/packages
+
+# date MMDDhhmmYYYY  (in local time)
+
+# apk add make
+# apk add gcc g++
+# apk add gdb
+# apk add vim
+
+Edit /etc/apk/repositories, to enable 'community' repository (next to 'main').
+# apk add emacs
+
+# apk add expect dejagnu dejagnu-dev
+
+
+Notes
+-----
+
+After every boot:
+# date MMDDhhmmYYYY  (in local time)
