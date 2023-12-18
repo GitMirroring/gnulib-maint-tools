@@ -14,12 +14,12 @@ Use qemu-8.1.2
 (DL) Download an installation CD-ROM or DVD image
 -------------------------------------------------
 
-Download: http://dl.t2sde.org/binary/2023/t2-23.10-sparc6432-minimal-desktop-gcc-glibc.iso
+Download: http://dl.t2sde.org/binary/2023/t2-23.12-sparc6432-minimal-desktop-gcc-glibc.iso
 
 (XK) Extract the kernel from the CD-ROM or DVD image
 ----------------------------------------------------
 
-% sudo mount -r -t iso9660 -o loop t2-23.10-sparc6432-minimal-desktop-gcc-glibc.iso /mnt
+% sudo mount -r -t iso9660 -o loop t2-23.12-sparc6432-minimal-desktop-gcc-glibc.iso /mnt
 % mkdir boot
 % cp -a /mnt/boot/* boot/
 % sudo umount /mnt
@@ -32,12 +32,32 @@ Download: http://dl.t2sde.org/binary/2023/t2-23.10-sparc6432-minimal-desktop-gcc
 (MA) Choose the machine arguments
 ---------------------------------
 
-On this platform, more system calls can get interrupted (EINTR)
-than on other Linux platforms. In particular, we get a "short write"
-while extracting second stage file system if we specify only "-m 1024".
-This is probably a bug in the initrd's 'cat', 'mv', and 'tar' programs.
-So, as a workaround:
 % machine_args="-m 2048"
+because with just "-m 512" we would later get an error during installation:
+--------------------------------------------------------------------------------
+Out of memory (oom_kill_allocating_task): Killed process 2023 (mine) total-vm:2328kB, anon-rss:0kB, file-rss:0kB, shmem-rss:0kB, UID:0 pgtables:48kB oom_score_adj:0
+Killed
+Error while installing package rustc!
+--------------------------------------------------------------------------------
+and with just "-m 1024" we would later get an error during installation as well:
+--------------------------------------------------------------------------------
+...
+Installing ntfsprogs-2022.5.17 ...
+Installing ntp-4.2.8p17 ...
+BUG: non-zero pgtables_bytes on freeing mm: 8192
+Kernel panic - not syncing: Attempted to kill init! exitcode=0x00000100
+CPU: 0 PID: 1 Comm: init Not tainted 6.6.7-t2 #1
+Call Trace:
+[<0000000000a35ab8>] dump_stack+0x8/0x18
+[<0000000000466840>] panic+0x10c/0x370
+[<000000000046c57c>] do_exit+0x9fc/0xa20
+[<000000000046c73c>] do_group_exit+0x1c/0xa0
+[<000000000046c7d4>] sys_exit_group+0x14/0x20
+[<0000000000406214>] linux_sparc_syscall32+0x34/0x60
+Rebooting in 60 seconds..
+BOOTKernel panic - not syncing: Reboot failed!
+Rebooting in 60 seconds..
+--------------------------------------------------------------------------------
 
 (DI) Choose the disk arguments
 ------------------------------
@@ -66,16 +86,22 @@ hub 0
 
 Resize the terminal to 80x24.
 
+Either boot directly into Linux:
 % qemu-system-sparc64 $common_args \
-    -kernel boot/vmlinux-6.6.3-t2 -initrd boot/initrd-6.6.3-t2 \
-    -cdrom t2-23.10-sparc6432-minimal-desktop-gcc-glibc.iso
+    -kernel boot/vmlinux-6.6.7-t2 -initrd boot/initrd-6.6.7-t2 \
+    -cdrom t2-23.12-sparc6432-minimal-desktop-gcc-glibc.iso
 works; the CD-ROM device is:
 (qemu) info block
 ...
-ide1-cd0 (#block387): t2-23.10-sparc6432-minimal-desktop-gcc-glibc.iso (raw, read-only)
+ide1-cd0 (#block387): t2-23.12-sparc6432-minimal-desktop-gcc-glibc.iso (raw, read-only)
     Attached to:      /machine/unattached/device[19]
     Removable device: not locked, tray closed
     Cache mode:       writeback
+
+Or boot into Linux via grub:
+% qemu-system-sparc64 $common_args \
+    -cdrom t2-23.12-sparc6432-minimal-desktop-gcc-glibc.iso \
+    -boot d
 
 (IN) Perform the steps of the installer
 ---------------------------------------
@@ -95,19 +121,20 @@ Time zone: Europe/Berlin
 Locale: en_US.UTF-8
 Generated /boot/grub/grub.cfg:
   menuentry "T2/Linux" {
-    linux /boot/vmlinux-6.6.3-t2 root=/dev/disk/by-uuid/6191b4f7-31be-4b8a-8a8a-a545cb286a8b ro resume=/dev/disk/by-uuid/c5f7d2b5-ff7a-4c09-880e-864b85cc52b4 console=ttyS0 initrd /boot/initrd-6.6.3-t2
+    linux /boot/vmlinux-6.6.7-t2 root=/dev/disk/by-uuid/6191b4f7-31be-4b8a-8a8a-a545cb286a8b ro resume=/dev/disk/by-uuid/c5f7d2b5-ff7a-4c09-880e-864b85cc52b4 console=ttyS0 initrd /boot/initrd-6.6.7-t2
   }
 Error: grub2-install: error: unknown filesystem.
-Therefore: <Back>
+Therefore: <Continue>
 Generated /boot/silo.conf:
   root=/dev/sda1
-  image=/boot/vmlinuz-6.6.3-t2
-   label=linux root=/dev/sda1 initrd=/boot/initrd-6.6.3-t2 read-only
-Again: <Back>
-Network configuration: Configure eth0 through DHCP. <Back>.
-SSH daemon configuration: <Back>.
-System init configuration: Default runlevel 3. <Back>.
-Then: <Exit>
+  image=/boot/vmlinuz-6.6.7-t2
+   label=linux root=/dev/sda1 initrd=/boot/initrd-6.6.7-t2 read-only
+Again: <Continue>
+SILO configuration: <Continue>.
+Network configuration: Configure eth0 through DHCP. <Continue>.
+SSH daemon configuration: <Continue>.
+System init configuration: Default runlevel 3. <Continue>.
+Then: <Quit>
 # halt
 
 (B2) Boot from the installed disk
@@ -140,20 +167,21 @@ E.g. /iommu/sbus/espdma/esp/sd@3,0;4/vmlinux root=/dev/sda4
 or 2/vmlinux.live (to load vmlinux.live from 2nd partition of boot disk)
 boot:
 --------------------------------------------------------------------------------
+Likewise with '-boot c'.
 
 So, use:
-% qemu-system-sparc64 $common_args -kernel boot/vmlinux-6.6.3-t2 -initrd boot/initrd-6.6.3-t2 -append "root=/dev/sda1"
+% qemu-system-sparc64 $common_args -kernel boot/vmlinux-6.6.7-t2 -initrd boot/initrd-6.6.7-t2 -append "root=/dev/sda1"
 
 It boots, but there is no login prompt. There are two possible fixes for this situation:
 
 * Tell the kernel about the console device, so that a 'getty' process gets spawned for it.
   (See also the generated grub.cfg, above.)
-  % qemu-system-sparc64 $common_args -kernel boot/vmlinux-6.6.3-t2 -initrd boot/initrd-6.6.3-t2 -append "root=/dev/sda1 console=ttyS0,115200"
+  % qemu-system-sparc64 $common_args -kernel boot/vmlinux-6.6.7-t2 -initrd boot/initrd-6.6.7-t2 -append "root=/dev/sda1 console=ttyS0,115200"
 
 * Use a graphic display:
   % display_args="-display gtk -monitor stdio"
   % common_args="$machine_args $disk_args $net_args $display_args"
-  % qemu-system-sparc64 $common_args -kernel boot/vmlinux-6.6.3-t2 -initrd boot/initrd-6.6.3-t2 -append "root=/dev/sda1"
+  % qemu-system-sparc64 $common_args -kernel boot/vmlinux-6.6.7-t2 -initrd boot/initrd-6.6.7-t2 -append "root=/dev/sda1"
   But this mode is rather useless, since typing into the VGA window has
   no effect, and the serial0 window merely displays what the console would
   show.
@@ -176,68 +204,46 @@ But that takes a long time.
 Notes
 -----
 
+During installation, the kernel printed:
+--------------------------------------------------------------------------------
+rcu: INFO: rcu_sched detected stalls on CPUs/tasks:
+rcu:    (detected by 0, t=5259 jiffies, g=429925, q=32 ncpus=1)
+rcu: All QSes seen, last rcu_sched kthread activity 5259 (4295315252-4295309993), jiffies_till_next_fqs=1, root ->qsmask 0x0
+rcu: rcu_sched kthread starved for 5259 jiffies! g429925 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=0
+rcu:    Unless rcu_sched kthread gets sufficient CPU time, OOM is now expected behavior.
+rcu: RCU grace-period kthread stack dump:
+rcu: Stack dump where RCU GP kthread last ran:
+CPU: 0 PID: 23 Comm: kcompactd0 Not tainted 6.6.7-t2 #1
+TSTATE: 0000000011001603 TPC: 00000000009c5cf8 TNPC: 00000000009c5cfc Y: 00000000    Not tainted
+TPC: <memcpy+0x1b8/0x13c0>
+g0: 000006000003a650 g1: fffff800019f3ff8 g2: 0000000000000000 g3: 0000000000000038
+g4: fffff800040abb80 g5: fffff8007eb7e000 g6: fffff80004120000 g7: 0000000000000940
+o0: fffff80002eb1600 o1: fffff800019f36c0 o2: 0000000000000008 o3: 00000000009c5cc0
+o4: fffff80002eb0000 o5: 0000000000000000 sp: fffff80004122cd1 ret_pc: 000000000044f8e0
+RPC: <copy_highpage+0x20/0x5c>
+l0: 0000000000000000 l1: 0000000000000402 l2: 0000000000ba06d0 l3: ffffffffffffffff
+l4: 0000000004000000 l5: 0000000000000040 l6: 00000000ffffffff l7: 0000000000000048
+i0: 00000600000690c0 i1: 000006000003a608 i2: 0000000000000402 i3: 0000000000000000
+i4: fffff8007f807940 i5: fffff800019f2000 i6: fffff80004122d81 i7: 00000000005a9a0c
+I7: <folio_copy+0x2c/0x60>
+Call Trace:
+[<00000000005a9a0c>] folio_copy+0x2c/0x60
+[<00000000006233c8>] move_to_new_folio+0xc8/0x300
+[<0000000000624270>] migrate_pages_batch.constprop.0+0xc70/0x17e0
+[<0000000000626778>] migrate_pages_sync+0x58/0x200
+[<00000000006273ec>] migrate_pages+0x46c/0x4c0
+[<00000000005b7df4>] compact_zone+0xc14/0xf40
+[<00000000005b8164>] proactive_compact_node+0x44/0x120
+[<00000000005b872c>] kcompactd+0x16c/0x360
+[<000000000048daa8>] kthread+0x128/0x160
+[<00000000004060c8>] ret_from_fork+0x1c/0x2c
+[<0000000000000000>] 0x0
+--------------------------------------------------------------------------------
+multiple times.
+
 "gcc" produces 32-bit binaries. "gcc -m64" produces 64-bit binaries.
 
-But the machine is not usable for several reasons:
-
-1) After a couple of hours of run time, there is no available memory any more:
-
-$ free
-               total        used        free      shared  buff/cache   available
-Mem:         2056072     1996384       30744          16       86008       59688
-Swap:         514072        6208      507864
-
-2) gdb is broken:
-
-$ gdb --help
-../../gdb/arch-utils.c:753: internal-error: initialize_current_architecture: Selection of initial architecture failed
-A problem internal to GDB has been detected,
-further debugging may prove unreliable.
------ Backtrace -----
-0x7010f43b ???
-0x704eba53 ???
-0x704ebe9b ???
-0x705f884f ???
-0x700c8257 ???
-0x7049c6ab ???
-0x7032d6ff ???
-0x7032e893 ???
-0x7006436b ???
-0xf7247937 __libc_start_call_main
-0xf7247a3b __libc_start_main@@GLIBC_2.34
-0x700641bb ???
----------------------
-
-This is a bug, please report it.  For instructions, see:
-<https://www.gnu.org/software/gdb/bugs/>.
-
-Aborted (core dumped)
-
-Try: Install gdb from source:
-# cd /usr/src/t2-src
-# svn update
-# scripts/Emerge-Pkg -f gdb
-  (takes 05:09:15 to build perl,
-         03:21:51 to build python,
-         13:58:35 to build gdb)
-Did not help.
-
-3) A configure test hangs (not reproducible):
-checking whether chown always updates ctime...
-
-4) After a certain time, all new files have the same time stamp.
--rw-r--r-- 1 bruno bruno    5088 2023-12-03 10:11:42.172000000 +0100 gettime-res.o
--rw-r--r-- 1 bruno bruno    5460 2023-12-03 10:11:44.692000000 +0100 getugroups.o
--rw-r--r-- 1 bruno bruno    9196 2023-12-03 10:11:48.088000000 +0100 getumask.o
--rw-r--r-- 1 bruno bruno    5868 2023-12-03 10:11:55.536000000 +0100 yesno.o
--rw-r--r-- 1 bruno bruno    6692 2023-12-03 10:11:55.536000000 +0100 xvasprintf.o
--rw-r--r-- 1 bruno bruno   20028 2023-12-03 10:11:55.536000000 +0100 xstrtoumax.o
--rw-r--r-- 1 bruno bruno   14048 2023-12-03 10:11:55.536000000 +0100 xstrtoul.o
--rw-r--r-- 1 bruno bruno   19860 2023-12-03 10:11:55.536000000 +0100 xstrtoull.o
--rw-r--r-- 1 bruno bruno   15612 2023-12-03 10:11:55.536000000 +0100 xstrtol.o
-...
-
-5) In 64-bit mode, the compilation of mktime.c crashes:
+In 64-bit mode, the compilation of mktime.c crashes:
 depbase=`echo mktime.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
 gcc -m64 -DHAVE_CONFIG_H -DEXEEXT=\"\" -DEXEEXT=\"\" -DNO_XMALLOC -DEXEEXT=\"\" -I. -I../../gllib -I..  -DGNULIB_STRICT_CHECKING=1 -I/home/bruno/prefix64/include -Wall -fvisibility=hidden -g -O2 -MT mktime.o -MD -MP -MF $depbase.Tpo -c -o mktime.o ../../gllib/mktime.c &&\
 mv -f $depbase.Tpo $depbase.Po

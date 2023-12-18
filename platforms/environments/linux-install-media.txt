@@ -139,7 +139,7 @@ sparc, sparc64
 * Gentoo
   https://www.gentoo.org/downloads/#sparc
 * T2 SDE
-  http://dl.t2sde.org/binary/2023/t2-23.10-sparc6432-minimal-desktop-gcc-glibc.iso
+  http://dl.t2sde.org/binary/2023/t2-23.12-sparc6432-minimal-desktop-gcc-glibc.iso
 
 With musl libc
 ==============
