@@ -14,7 +14,7 @@ Use qemu-8.2.0-rc3 (because it supports 64-bit CPUs and has
 (DL) Download an installation CD-ROM or DVD image
 -------------------------------------------------
 
-Download: http://dl.t2sde.org/binary/2023/t2-23.6-hppa-minimal-desktop-gcc-glibc.iso
+Download: https://dl.t2sde.org/binary/2023/t2-23.6-hppa-minimal-desktop-gcc-glibc.iso
 
 (XK) Extract the kernel from the CD-ROM or DVD image
 ----------------------------------------------------

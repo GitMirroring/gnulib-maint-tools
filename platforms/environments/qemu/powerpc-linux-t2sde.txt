@@ -14,7 +14,7 @@ Use qemu-8.1.2
 (DL) Download an installation CD-ROM or DVD image
 -------------------------------------------------
 
-Download: http://dl.t2sde.org/binary/2023/t2-23.6-ppc-minimal-firefox-gcc-glibc-603.iso
+Download: https://dl.t2sde.org/binary/2023/t2-23.6-ppc-minimal-firefox-gcc-glibc-603.iso
 
 (XK) Extract the kernel from the CD-ROM or DVD image
 ----------------------------------------------------

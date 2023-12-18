@@ -11,7 +11,7 @@ alpha
   https://cdimage.debian.org/cdimage/ports/12.0/alpha/
   -> https://cdimage.debian.org/cdimage/ports/12.0/alpha/debian-12.0.0-alpha-NETINST-1.iso
 * T2 SDE
-  http://dl.t2sde.org/binary/2023/t2-23.6-alpha-minimal-desktop-gcc-glibc.iso
+  https://dl.t2sde.org/binary/2023/t2-23.6-alpha-minimal-desktop-gcc-glibc.iso
 
 arm v5 (soft-float)
 ------
@@ -53,7 +53,7 @@ hppa
   https://cdimage.debian.org/cdimage/ports/12.0/hppa/
   -> https://cdimage.debian.org/cdimage/ports/12.0/hppa/debian-12.0.0-hppa-NETINST-1.iso
 * T2 SDE
-  http://dl.t2sde.org/binary/2023/t2-23.6-hppa-minimal-desktop-gcc-glibc.iso
+  https://dl.t2sde.org/binary/2023/t2-23.6-hppa-minimal-desktop-gcc-glibc.iso
 * Gentoo
   https://www.gentoo.org/downloads/#hppa
 
@@ -69,7 +69,7 @@ m68k
   https://cdimage.debian.org/cdimage/ports/12.0/m68k/
   -> https://cdimage.debian.org/cdimage/ports/12.0/m68k/debian-12.0.0-m68k-NETINST-1.iso
 * T2 SDE
-  http://dl.t2sde.org/binary/2023/t2-23.12-m68k-minimal-desktop-gcc-glibc-68020.iso
+  https://dl.t2sde.org/binary/2023/t2-23.12-m68k-minimal-desktop-gcc-glibc-68020.iso
 
 mips, mips64
 ------------
@@ -99,7 +99,7 @@ powerpc, powerpc64, powerpc64le
 * Gentoo
   https://www.gentoo.org/downloads/#ppc
 * T2 SDE
-  http://dl.t2sde.org/binary/2023/t2-23.6-ppc-minimal-firefox-gcc-glibc-603.iso
+  https://dl.t2sde.org/binary/2023/t2-23.6-ppc-minimal-firefox-gcc-glibc-603.iso
 
 riscv64
 -------
@@ -139,7 +139,7 @@ sparc, sparc64
 * Gentoo
   https://www.gentoo.org/downloads/#sparc
 * T2 SDE
-  http://dl.t2sde.org/binary/2023/t2-23.12-sparc6432-minimal-desktop-gcc-glibc.iso
+  https://dl.t2sde.org/binary/2023/t2-23.12-sparc6432-minimal-desktop-gcc-glibc.iso
 
 With musl libc
 ==============

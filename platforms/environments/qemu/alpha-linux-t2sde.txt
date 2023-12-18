@@ -13,7 +13,7 @@ Use qemu-8.1.2
 (DL) Download an installation CD-ROM or DVD image
 -------------------------------------------------
 
-Download: http://dl.t2sde.org/binary/2023/t2-23.6-alpha-minimal-desktop-gcc-glibc.iso
+Download: https://dl.t2sde.org/binary/2023/t2-23.6-alpha-minimal-desktop-gcc-glibc.iso
 
 (XK) Extract the kernel from the CD-ROM or DVD image
 ----------------------------------------------------
