@@ -5,6 +5,7 @@ End-of-life / end-of-support data for various OS releases
   Debian 9: 2022-07-01 †
   Debian 10: 2024-06-30
   Debian 11: 2026-06-30
+  Debian 12: 2028-06-10
   Reference: https://endoflife.date/debian
 
 * RHEL / CentOS
@@ -24,8 +25,9 @@ End-of-life / end-of-support data for various OS releases
 
 * FreeBSD
   FreeBSD 11.4: 2021-09-30 †
-  FreeBSD 12.4: 2023-12-31
-  FreeBSD 13.2:
+  FreeBSD 12.4: 2023-12-31 †
+  FreeBSD 13.2: 2026-01-31
+  FreeBSD 14.0: 2028-11-30
   Reference: https://en.wikipedia.org/wiki/FreeBSD_version_history
              https://endoflife.date/freebsd
              https://www.freebsd.org/security/#sup
@@ -40,14 +42,15 @@ End-of-life / end-of-support data for various OS releases
 
 * OpenBSD
   OpenBSD 7.1: 2023-04-10 †
-  OpenBSD 7.2: 2023-11
+  OpenBSD 7.2: 2023-10-16 †
   OpenBSD 7.3: 2024-05
+  OpenBSD 7.4: 2024-11
   Reference: https://en.wikipedia.org/wiki/OpenBSD#Releases
              https://endoflife.date/openbsd
 
 * macOS
   macOS 10.15: 2022-09-12 †
-  macOS 11:
+  macOS 11: 2023-09-26 †
   macOS 12:
   macOS 13:
   Reference: https://en.wikipedia.org/wiki/MacOS_version_history
