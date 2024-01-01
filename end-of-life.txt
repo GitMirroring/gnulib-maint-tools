@@ -53,13 +53,14 @@ End-of-life / end-of-support data for various OS releases
   macOS 11: 2023-09-26 †
   macOS 12:
   macOS 13:
+  macOS 14:
   Reference: https://en.wikipedia.org/wiki/MacOS_version_history
              https://endoflife.date/macos
 
 * AIX
   AIX 5.3: 2012-04-30 †
   AIX 6.1: 2017-04-30 †
-  AIX 7.1: 2023-04-30 †
+  AIX 7.1: 2023-07-28 †
   AIX 7.2:
   AIX 7.3:
   Reference: https://en.wikipedia.org/wiki/IBM_AIX#POWER/PowerPC/Power_ISA_releases
@@ -84,10 +85,10 @@ End-of-life / end-of-support data for various OS releases
 
 * Solaris
   Solaris 9:    2014-10 †
-  Solaris 10:   2025-01
+  Solaris 10:   2027-01
   Solaris 11.0: †
   Solaris 11.1: †
   Solaris 11.2: †
-  Solaris 11.3: 2024-01
+  Solaris 11.3: 2027-01
   Solaris 11.4: 2034-11
   Reference: https://en.wikipedia.org/wiki/Oracle_Solaris#Version_history
