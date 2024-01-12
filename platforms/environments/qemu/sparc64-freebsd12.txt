@@ -14,7 +14,7 @@ Use qemu-5.0.0
 (DL) Download an installation CD-ROM or DVD image
 -------------------------------------------------
 
-Download: https://download.freebsd.org/ftp/releases/ISO-IMAGES/12.2/FreeBSD-12.2-RELEASE-sparc64-dvd1.iso.xz
+Download: https://download.freebsd.org/releases/ISO-IMAGES/12.2/FreeBSD-12.2-RELEASE-sparc64-dvd1.iso.xz
 Uncompress it:
 % xz -d FreeBSD-12.2-RELEASE-sparc64-dvd1.iso.xz
 -> FreeBSD-12.2-RELEASE-sparc64-dvd1.iso

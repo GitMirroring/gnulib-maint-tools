@@ -15,7 +15,7 @@ Use qemu-5.0.0
 -------------------------------------------------
 
 Download image from
-https://download.freebsd.org/ftp/releases/ISO-IMAGES/12.2/FreeBSD-12.2-RELEASE-arm-armv7-RPI2.img.xz
+https://download.freebsd.org/releases/ISO-IMAGES/12.2/FreeBSD-12.2-RELEASE-arm-armv7-RPI2.img.xz
 Uncompress it:
 % xz -d FreeBSD-12.2-RELEASE-arm-armv7-RPI2.img.xz
 

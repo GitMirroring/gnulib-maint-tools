@@ -14,7 +14,7 @@ Use qemu-5.0.0
 (DL) Download an installation CD-ROM or DVD image
 -------------------------------------------------
 
-Download: https://download.freebsd.org/ftp/releases/ISO-IMAGES/13.2/FreeBSD-13.2-RELEASE-arm64-aarch64-disc1.iso.xz
+Download: https://download.freebsd.org/releases/ISO-IMAGES/13.2/FreeBSD-13.2-RELEASE-arm64-aarch64-disc1.iso.xz
 Uncompress it:
 % xz -d FreeBSD-13.2-RELEASE-arm64-aarch64-disc1.iso.xz
 -> FreeBSD-13.2-RELEASE-arm64-aarch64-disc1.iso
