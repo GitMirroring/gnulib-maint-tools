@@ -4,7 +4,6 @@
 https://www.qemu.org/docs/master/system/target-arm.html
 https://wiki.qemu.org/Documentation/Platforms/ARM
 https://wiki.freebsd.org/QemuRecipes
-https://wiki.qemu.org/Hosts/BSD
 
 (QV) Choose a QEMU version
 --------------------------

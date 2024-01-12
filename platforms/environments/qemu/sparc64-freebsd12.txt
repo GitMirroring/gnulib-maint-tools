@@ -4,7 +4,6 @@
 https://www.qemu.org/docs/master/system/target-sparc64.html
 https://wiki.qemu.org/Documentation/Platforms/SPARC
 https://wiki.freebsd.org/QemuRecipes
-https://wiki.qemu.org/Hosts/BSD
 
 (QV) Choose a QEMU version
 --------------------------

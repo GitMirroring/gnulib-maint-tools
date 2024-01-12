@@ -3,7 +3,6 @@
 
 https://www.qemu.org/docs/master/system/target-sparc64.html
 https://wiki.qemu.org/Documentation/Platforms/SPARC
-https://wiki.qemu.org/Hosts/BSD
 https://gunkies.org/wiki/Installing_NetBSD_6.1.5_Sparc64_on_Qemu
 
 (QV) Choose a QEMU version
