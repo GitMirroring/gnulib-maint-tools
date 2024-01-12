@@ -1,0 +1,177 @@
+(DR) Collect pointers to documentation and references
+-----------------------------------------------------
+
+https://www.qemu.org/docs/master/system/target-ppc.html
+https://wiki.qemu.org/Documentation/Platforms/PowerPC
+https://wiki.netbsd.org/ports/evbppc/
+https://wiki.netbsd.org/ports/ofppc/
+https://www.reddit.com/r/BSD/comments/a0re4e/tip_to_install_netbsdmacppc_in_qemusystemppc/
+https://chrispinnock.com/stuff/emulation/
+
+(QV) Choose a QEMU version
+--------------------------
+
+Use qemu-8.2.0
+% PATH=$HOME/inst-qemu/8.2.0/bin:$PATH
+
+(DL) Download an installation CD-ROM or DVD image
+-------------------------------------------------
+
+Download: http://cdn.netbsd.org/pub/NetBSD/iso/9.3/NetBSD-9.3-macppc.iso
+
+(XK) Extract the kernel from the CD-ROM or DVD image
+----------------------------------------------------
+
+This is not needed in this case.
+
+(CD) Create an empty disk image to be used by the virtual machine
+-----------------------------------------------------------------
+
+% qemu-img create -f qcow2 netbsd93.qcow2 10G
+
+(MA) Choose the machine arguments
+---------------------------------
+
+% machine_args="-M g3beige -m 512"
+
+(DI) Choose the disk arguments
+------------------------------
+
+% disk_args="-drive file=netbsd93.qcow2,format=qcow2,index=0"
+
+(NW) Choose the network arguments
+---------------------------------
+
+% net_args=""
+This provides an ethernet interface:
+(qemu) info network
+hub 0
+ \ hub0port1: #net160: index=0,type=user,net=10.0.2.0,restrict=off
+ \ hub0port0: tulip.0: index=0,type=nic,model=tulip,macaddr=52:54:00:12:34:56
+But it does not really work from within NetBSD later. Therefore:
+
+% net_args="-netdev type=user,id=net0 -device rtl8139,netdev=net0,mac=52:54:00:12:34:56"
+(qemu) info network
+rtl8139.0: index=0,type=nic,model=rtl8139,macaddr=52:54:00:12:34:56
+ \ net0: index=0,type=user,net=10.0.2.0,restrict=off
+
+(DV) Choose the display/video arguments
+---------------------------------------
+
+Since
+% display_args="-nographic"
+would not react correctly on the arrow keys, use:
+% display_args="-display gtk -monitor stdio"
+
+(B1) Boot from the CD/DVD
+-------------------------
+
+% common_args="$machine_args $disk_args $net_args $display_args"
+% qemu-system-ppc $common_args -cdrom NetBSD-9.3-macppc.iso -prom-env 'boot-device=cd:,ofwboot.xcf'
+
+(IN) Perform the steps of the installer
+---------------------------------------
+
+This is not a typical NetBSD installation, because we need to install a
+bootloader that the OpenBIOS will recognize. This has an impact on the
+partitioning and adds an extra step at the end.
+
+Enter:
+- Terminal type: enter
+- I
+- a: in English
+- e: Utility menu
+- a: Run /bin/sh
+# pdisk /dev/rwd0
+  - i to initialize a new partition map;
+  - p to view the current state;
+  - C (uppercase) to create HFS boot, first block 2p, length 1m, name Boot, type Apple_HFS;
+  - p to view the current state;
+  - c (lowercase) to create NetBSD swap, first block 3p, length 512m, name Swap, bzb b;
+  - p to view the current state;
+  - c (lowercase) to create NetBSD root, first block 4p, length 4p, name Root, bzb a;
+  - p to view the current state;
+  - w to write the map, confirm y;
+  - q to quit pdisk.
+# disklabel wd0
+  The partition with fstype = HFS and size = 1 MiB here is 'd'.
+# exit
+- x: Exit
+- a: Install NetBSD to hard disk
+- b: Yes
+- a: wd0
+- a: Use existing disklabel partitions (because any edit would destroy the Apple partition map)
+- a: (first partition)
+- f: newfs: Yes
+- g: mount: Yes
+- i: mount point: /
+- x: OK
+- x: Partition sizes OK
+- b: Yes
+- b: Installation without X11
+- a: CD-ROM
+- enter
+- a: configure network
+  a: re0
+  Autoconfigure.
+  Host name: ppc-netbsd9
+  DNS domain: MYDOMAINNAME
+  IPv4 address: 10.0.2.15
+  IPv4 netmask: 0xffffff00
+  IPv4 gateway: 10.0.2.2
+  Name server: 10.0.2.3
+  OK? Yes
+  Install in /etc: Yes
+- b: timezone
+  Europe/Berlin
+- d: root password
+  Yes
+  New password: ********
+- g: sshd
+  YES
+- h: ntpd
+  YES
+- i: ntpdate at boot
+  YES
+- o: user
+  name: MY_USER_NAME
+  Yes
+  /bin/sh
+  New password: ********
+- x: Finished configuring
+- enter
+- e: Utility menu
+- a: Run /bin/sh
+# mount /dev/wd0a /mnt
+# chroot /mnt
+# mkdir /tmp/boot
+# cp /usr/mdec/ofwboot.xcf /tmp/boot
+# makefs -t cd9660 /tmp/boot.iso /tmp/boot
+# dd if=/tmp/boot.iso of=/dev/wd0d
+# exit
+# exit
+- x: Exit
+- x: Exit
+# halt
+
+(B2) Boot from the installed disk
+---------------------------------
+
+This does not need a -kernel option, since an OpenBIOS bootloader is installed.
+% qemu-system-ppc $common_args -prom-env 'boot-device=hd:,ofwboot.xcf;1'
+
+(PK) Install packages
+---------------------
+
+The list of packages is at http://www.pkgsrc.se/
+and http://ftp.netbsd.org/pub/pkgsrc/packages/NetBSD/macppc/9.3/All/ .
+See https://www.netbsd.org/docs/guide/en/netbsd.html#chap-boot-pkgsrc
+# chmod 644 .cshrc .profile
+Edit ~/.profile to define PKG_PATH:
+export PKG_PATH=http://ftp.netbsd.org/pub/pkgsrc/packages/NetBSD/`uname -m`/9.3/All
+Logout.
+
+# pkg_add bash
+# pkg_add gmake
+# pkg_add vim
+# pkg_add emacs-nox11

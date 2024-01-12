@@ -1,0 +1,155 @@
+(DR) Collect pointers to documentation and references
+-----------------------------------------------------
+
+https://parisc.wiki.kernel.org/index.php/Qemu
+https://ftp.openbsd.org/pub/OpenBSD/7.4/hppa/INSTALL.hppa
+
+(QV) Choose a QEMU version
+--------------------------
+
+Use qemu-8.0.2
+% PATH=$HOME/inst-qemu/8.0.2/bin:$PATH
+
+(DL) Download an installation CD-ROM or DVD image
+-------------------------------------------------
+
+Download: https://cdn.openbsd.org/pub/OpenBSD/7.4/hppa/install74.iso
+-> OpenBSD-7.4-hppa-install.iso
+
+(XK) Extract the kernel from the CD-ROM or DVD image
+----------------------------------------------------
+
+This is not needed in this case.
+
+(CD) Create an empty disk image to be used by the virtual machine
+-----------------------------------------------------------------
+
+% qemu-img create -f qcow2 openbsd74.qcow2 8G
+
+(MA) Choose the machine arguments
+---------------------------------
+
+% machine_args="-m 256"
+
+(DI) Choose the disk arguments
+------------------------------
+
+% disk_args="-drive file=openbsd74.qcow2,format=qcow2,index=0"
+
+(NW) Choose the network arguments
+---------------------------------
+
+List of available network devices:
+% qemu-system-hppa -device '?'  # OpenBSD will recognize it as
+e1000                           em0
+i82550                          fxp0
+ne2k_isa                        --
+ne2k_pci                        ne0
+pcnet                           --
+rtl8139                         --
+tulip                           dc0, does not autoconfigure
+virtio-net-device               --
+virtio-net-pci                  --
+...
+
+So, choose one of
+e1000                           em0
+i82550                          fxp0
+ne2k_pci                        ne0
+For example:
+% net_args="-netdev type=user,id=net0 -device e1000,netdev=net0,mac=52:54:00:12:34:56"
+(qemu) info network
+e1000.0: index=0,type=nic,model=e1000,macaddr=52:54:00:12:34:56
+ \ net0: index=0,type=user,net=10.0.2.0,restrict=off
+
+(DV) Choose the display/video arguments
+---------------------------------------
+
+% display_args="-nographic"
+
+(B1) Boot from the CD/DVD
+-------------------------
+
+% common_args="$machine_args $disk_args $net_args $display_args"
+% qemu-system-hppa $common_args -cdrom OpenBSD-7.4-hppa-install.iso -boot d
+
+(IN) Perform the steps of the installer
+---------------------------------------
+
+(I)nstall.
+Terminal type: xterm
+Host name: openbsd74
+Root password: ********
+Setup a user?
+  login: MY_USER_NAME
+  full name: MY_FULL_NAME
+  password: ********
+Allow root ssh login: yes
+Partitioning: (E)dit auto layout
+  d e
+  d d
+  d b
+  c a
+      14680064 [= 7 GB]
+  a b
+      enter enter swap
+  p
+  q
+Sets:
+  -game74.tgz
+  -xbase74.tgz
+  -xshare74.tgz
+  -xfont74.tgz
+  -xserv74.tgz
+Continue without verification: yes
+
+Reboot.
+
+(B2) Boot from the installed disk
+---------------------------------
+
+This does not need a -kernel option, since a SeaBIOS bootloader is installed.
+% qemu-system-hppa $common_args
+root device: sd0a
+swap device: enter
+
+This boots fine. Now is the time to switch to a graphic display, if desired:
+
+% display_args="-display gtk -monitor stdio"
+% common_args="$machine_args $disk_args $net_args $display_args"
+% qemu-system-hppa $common_args
+root device: sd0a
+swap device: enter
+
+# mail
+
+(PK) Install packages
+---------------------
+
+There are no binary packages in
+https://cdn.openbsd.org/pub/OpenBSD/7.4/packages/hppa/ nor
+https://ftp.hostserver.de/pub/OpenBSD/7.4/packages/hppa/ .
+
+It is useless to install the ports collection, because the ports collection
+does not work if X11 is not installed, and we did not install X11 (see above).
+
+I cannot build GNU packages, because while running config.status, 'awk' reports
+an error "floating point exception: Unknown error".
+
+Therefore:
+- Install GNU sed-3.02 from source.
+- Install GNU gawk-3.1.0 from source.
+(These old versions don't invoke 'awk' as part of config.status.)
+Now I can install from source:
+- GNU sed-4.9
+- GNU gawk-4.2.0
+- GNU libiconv-1.17 (needed for gnulib's test suite)
+- GNU make-4.4.1 (as 'gmake'; needed for a VPATH build of any package that contains a bison grammar)
+
+
+Notes
+-----
+
+The VM is not 100% reliable:
+- Some gcc compilation commands crash with "internal compiler error" and
+  succeed the next time.
