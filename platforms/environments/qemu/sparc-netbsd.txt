@@ -128,7 +128,7 @@ and http://ftp.netbsd.org/pub/pkgsrc/packages/NetBSD/sparc64/7.1/All/
 See https://www.netbsd.org/docs/guide/en/netbsd.html#chap-boot-pkgsrc
 # chmod 644 .cshrc .profile
 Edit ~/.profile to define PKG_PATH:
-export PKG_PATH=http://ftp.netbsd.org/pub/pkgsrc/packages/NetBSD/`uname -m`/7.1/All
+  export PKG_PATH=http://ftp.netbsd.org/pub/pkgsrc/packages/NetBSD/`uname -m`/7.1/All
 Logout.
 
 # pkg_add bash

@@ -112,8 +112,8 @@ This does not need a -kernel option, since a SeaBIOS bootloader is installed.
 The list of packages is at https://ftp.hostserver.de/pub/OpenBSD/7.3/packages/amd64/
 See https://www.openbsd.org/faq/faq15.html#PkgMgmt
 Edit ~/.profile to define PKG_PATH:
-# PKG_PATH=https://ftp.hostserver.de/pub/OpenBSD/7.3/packages/`uname -m`/
-# export PKG_PATH
+  PKG_PATH=https://ftp.hostserver.de/pub/OpenBSD/7.3/packages/`uname -m`/
+  export PKG_PATH
 Logout.
 
 # pkg_add bzip2
