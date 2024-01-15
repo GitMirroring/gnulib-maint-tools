@@ -106,6 +106,8 @@ This does not need a -kernel option, since a SeaBIOS bootloader is installed.
 
 # mail
 
+Edit /etc/myname, to change the domain to MYDOMAINNAME.
+
 (PK) Install packages
 ---------------------
 

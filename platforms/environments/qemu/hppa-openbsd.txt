@@ -2,6 +2,7 @@
 -----------------------------------------------------
 
 https://parisc.wiki.kernel.org/index.php/Qemu
+https://www.openbsd.org/hppa.html
 https://ftp.openbsd.org/pub/OpenBSD/7.4/hppa/INSTALL.hppa
 
 (QV) Choose a QEMU version
@@ -122,6 +123,8 @@ root device: sd0a
 swap device: enter
 
 # mail
+
+Edit /etc/myname, to change the domain to MYDOMAINNAME.
 
 (PK) Install packages
 ---------------------
