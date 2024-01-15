@@ -133,7 +133,7 @@ This boots fine. Now is the time to switch to a graphic display, if desired:
 
 Login in as root.
 
-Edit ~/.profile to set TERM=xterm (since qemu's 'gtk' display is based on vte):
+Edit /etc/profile to set TERM=xterm (since qemu's 'gtk' display is based on vte):
 # env TERM=xterm vi /etc/profile .cshrc
 In /etc/profile, add
   TERM=xterm

@@ -116,7 +116,7 @@ This does not need a -kernel option, since an OpenBIOS bootloader is installed.
 
 % qemu-system-sparc64 $common_args
 
-Edit ~/.profile: Set TERM to vt100.
+Edit /etc/profile: Set TERM to vt100.
 
 (PK) Install packages
 ---------------------

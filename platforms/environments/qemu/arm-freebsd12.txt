@@ -173,7 +173,7 @@ Invite MY_USER_NAME into other groups? wheel
 login: MY_USER_NAME
 password: ********
 
-Edit ~/.profile to set TERM=xterm (since qemu's 'gtk' display is based on vte):
+Edit /etc/profile to set TERM=xterm (since qemu's 'gtk' display is based on vte):
 # env TERM=xterm vi /etc/profile .cshrc
 In /etc/profile, add
   TERM=xterm
