@@ -1,0 +1,189 @@
+(DR) Collect pointers to documentation and references
+-----------------------------------------------------
+
+https://www.qemu.org/docs/master/system/target-arm.html
+https://wiki.qemu.org/Documentation/Platforms/ARM
+https://www.openbsd.org/arm64.html
+https://ftp.openbsd.org/pub/OpenBSD/7.4/arm64/INSTALL.arm64
+
+(QV) Choose a QEMU version
+--------------------------
+
+Use qemu-8.2.0
+% PATH=$HOME/inst-qemu/8.2.0/bin:$PATH
+
+(DL) Download an installation CD-ROM or DVD image
+-------------------------------------------------
+
+Download: https://cdn.openbsd.org/pub/OpenBSD/7.4/arm64/install74.img
+-> OpenBSD-7.4-arm64-install.img
+
+(XK) Extract the kernel from the CD-ROM or DVD image
+----------------------------------------------------
+
+This is not needed in this case.
+
+(CD) Create an empty disk image to be used by the virtual machine
+-----------------------------------------------------------------
+
+% qemu-img create -f qcow2 openbsd74.qcow2 8G
+
+This is not needed in this case; we have a disk image already.
+
+(MA) Choose the machine arguments
+---------------------------------
+
+% machine_args="-M virt -cpu cortex-a53 -m 1024"
+
+Since QEMU cannot directly boot an OpenBSD kernel, we'll need some
+boot firmware:
+
+  - Either the UEFI firmware that comes bundled with QEMU:
+    % machine_args="$machine_args -bios edk2-aarch64-code.fd"
+
+  - Or some UEFI firmware named 'QEMU_EFI.fd' that is part of some Linux
+    distros, such as in the Ubuntu package 'qemu-efi'.
+    % machine_args="$machine_args -bios QEMU_EFI.fd"
+
+  - Or U-Boot.
+
+(DI) Choose the disk arguments
+------------------------------
+
+We cannot use the "virtual" disk driver here:
+% disk_args="-drive file=openbsd74.qcow2,format=qcow2,if=none,id=hd0 -device virtio-blk-device,drive=hd0"
+because the OpenBSD installer would not recognize the disk at the
+"Available disks" step.
+
+Therefore:
+% disk_args="-drive file=openbsd74.qcow2,format=qcow2,index=0"
+
+(NW) Choose the network arguments
+---------------------------------
+
+There are several possibilities.
+
+% net_args=""
+
+This provides an ethernet interface by default:
+(qemu) info network
+hub 0
+ \ hub0port1: #net176: index=0,type=user,net=10.0.2.0,restrict=off
+ \ hub0port0: virtio-net-pci.0: index=0,type=nic,model=virtio-net-pci,macaddr=52:54:00:12:34:56
+OpenBSD will recognize it as 'vio0'.
+
+% net_args="-netdev type=user,id=net0 -device e1000,netdev=net0,mac=52:54:00:12:34:56"
+
+This provides an ethernet interface too:
+(qemu) info network
+e1000.0: index=0,type=nic,model=e1000,macaddr=52:54:00:12:34:56
+ \ net0: index=0,type=user,net=10.0.2.0,restrict=off
+OpenBSD will recognize it as 'em0'.
+
+(DV) Choose the display/video arguments
+---------------------------------------
+
+% display_args="-nographic"
+
+(B1) Boot from the disk
+-----------------------
+
+% common_args="$machine_args $disk_args $net_args $display_args"
+
+Resize the terminal to 80x24.
+
+% fdisk OpenBSD-7.4-arm64-install.img
+Device                         Boot Start     End Sectors  Size Id Type
+OpenBSD-7.4-arm64-install.img1 *    32768   49151   16384    8M  c W95 FAT32 (LB
+OpenBSD-7.4-arm64-install.img4      49152 1032191  983040  480M a6 OpenBSD
+
+Either of these commands works:
+
+% qemu-system-aarch64 $common_args -cdrom OpenBSD-7.4-arm64-install.img
+
+% qemu-system-aarch64 $common_args -drive file=OpenBSD-7.4-arm64-install.img,format=raw,if=none,id=hd1 -device virtio-blk-device,drive=hd1
+
+% qemu-system-aarch64 $common_args -drive file=OpenBSD-7.4-arm64-install.img,format=raw,index=1
+
+Let's use the first one.
+
+(IN) Perform the steps of the installer
+---------------------------------------
+
+(I)nstall.
+Terminal type: vt220
+Host name: arm64-openbsd74
+Root password: ********
+Setup a user?
+  login: MY_USER_NAME
+  full name: MY_FULL_NAME
+  password: ********
+Allow root ssh login: yes
+Which disk is the root disk? sd0
+Partitioning: (E)dit auto layout
+  d e
+  d d
+  d b
+  c a
+      14680064 [= 7 GB]
+  a b
+      enter enter swap
+  p
+  q
+Location of sets? disk
+Already mounted? no
+Disk with install media? sd1
+Partition with the install sets? a
+Pathname to the sets? 7.4/arm64
+Sets:
+  -game74.tgz
+  -x*
+Continue without verification: yes
+
+Halt.
+
+(B2) Boot from the installed disk
+---------------------------------
+
+This does not need a -kernel option, since an OpenBSD/arm64 BOOTAA64
+bootloader is installed.
+
+% qemu-system-aarch64 $common_args
+
+This boots fine. Now is the time to switch to a graphic display, if desired:
+
+% display_args="-display gtk -monitor stdio"
+% common_args="$machine_args $disk_args $net_args $display_args"
+% qemu-system-aarch64 $common_args
+
+# mail
+# syspatch
+
+If you are not using the graphic display, edit ~/.profile to set TERM=vt220:
+# env TERM=vt220 vi .profile .cshrc
+In .profile, add
+  TERM=vt220
+  export TERM
+In .cshrc, add
+  setenv TERM vt220
+
+Edit /etc/myname, to change the domain to MYDOMAINNAME.
+
+# halt
+
+(PK) Install packages
+---------------------
+
+The list of packages is at https://ftp.hostserver.de/pub/OpenBSD/7.4/packages/aarch64/
+See https://www.openbsd.org/faq/faq15.html#PkgMgmt
+Edit ~/.profile to define PKG_PATH:
+  PKG_PATH=https://ftp.hostserver.de/pub/OpenBSD/7.4/packages/aarch64/
+  export PKG_PATH
+Logout.
+
+# pkg_add bzip2
+# pkg_add gtar
+# pkg_add bash
+# pkg_add gmake
+# pkg_add vim, pick no_x11 variant
+# pkg_add emacs, pick no_x11 variant

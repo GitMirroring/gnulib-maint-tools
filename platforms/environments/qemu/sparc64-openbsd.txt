@@ -1,0 +1,197 @@
+(DR) Collect pointers to documentation and references
+-----------------------------------------------------
+
+https://www.qemu.org/docs/master/system/target-sparc64.html
+https://wiki.qemu.org/Documentation/Platforms/SPARC
+https://www.openbsd.org/sparc64.html
+https://ftp.openbsd.org/pub/OpenBSD/7.4/sparc64/INSTALL.sparc64
+https://chrispinnock.com/stuff/emulation/
+
+(QV) Choose a QEMU version
+--------------------------
+
+Use qemu-8.2.0
+% PATH=$HOME/inst-qemu/8.2.0/bin:$PATH
+
+(DL) Download an installation CD-ROM or DVD image
+-------------------------------------------------
+
+Choose OpenBSD 7.2, because with OpenBSD 7.3 and 7.4 booting
+from the installed disk does not work: it would produce this output:
+--------------------------------------------------------------------------------
+OpenBIOS for Sparc64
+Configuration device id QEMU version 1 machine id 0
+kernel cmdline
+CPUs: 1 x SUNW,UltraSPARC-IIi
+UUID: 00000000-0000-0000-0000-000000000000
+Welcome to OpenBIOS v1.1 built on Mar 7 2023 22:22
+  Type 'help' for detailed information
+Trying disk:a...
+Not a bootable ELF image
+Not a bootable a.out image
+
+Loading FCode image...
+Loaded 6888 bytes
+entry point is 0x4000
+Evaluating FCode...
+OpenBSD IEEE 1275 Bootblock 2.1
+..>> OpenBSD BOOT 1.25
+Trying bsd...
+Booting /pci@1fe,0/pci@1,1/ide@3/ide@0/disk@0:a/bsd
+10068240@0x1000000+7920@0x199a110+150292@0x1c00000+4044012@0x1c24b14
+symbols @ 0xfedca400 488378+165+666912+462908 start=0x1000000
+[ using 1619400 bytes of bsd ELF symbol table ]
+Unimplemented service set-symbol-lookup ([2] -- [0])
+Unhandled Exception 0x0000000000000030
+PC = 0x0000000001139d7c NPC = 0x0000000001139d80
+Stopping execution
+--------------------------------------------------------------------------------
+Reported at <https://marc.info/?l=openbsd-bugs&m=170518672318850>.
+
+Download: https://cdn.openbsd.org/pub/OpenBSD/7.2/sparc64/install72.iso
+-> OpenBSD-7.2-sparc64-install.iso
+
+(XK) Extract the kernel from the CD-ROM or DVD image
+----------------------------------------------------
+
+This is not needed in this case.
+
+(CD) Create an empty disk image to be used by the virtual machine
+-----------------------------------------------------------------
+
+% qemu-img create -f qcow2 openbsd72.qcow2 8G
+
+(MA) Choose the machine arguments
+---------------------------------
+
+% machine_args="-m 512"
+
+(DI) Choose the disk arguments
+------------------------------
+
+% disk_args="-drive file=openbsd72.qcow2,format=qcow2,index=0"
+
+(NW) Choose the network arguments
+---------------------------------
+
+% net_args=""
+This provides an ethernet interface by default:
+(qemu) info network
+hub 0
+ \ hub0port1: user.0: index=0,type=user,net=10.0.2.0,restrict=off
+ \ hub0port0: sunhme.0: index=0,type=nic,model=sunhme,macaddr=52:54:00:12:34:56
+But it leads to "data_access_error: no fault" errors later.
+
+If we were to use a network device on the ISA bus:
+% net_args="-netdev type=user,id=net0 -device ne2k_isa,netdev=net0,mac=52:54:00:12:34:56"
+OpenBSD would not recognize it.
+
+So, we need a network device on the PCI bus. In order to avoid an error
+"PCI: no slot/function available for ne2k_pci, all in use or reserved"
+from QEMU, we need to specify that it sits on the second PCI bus. Cf.
+<https://wiki.qemu.org/Documentation/Platforms/SPARC#All_PCI_devices_are_attached_behind_one_of_the_simba_PCI_bridges>
+
+List of available network devices:
+% qemu-system-sparc64 -device '?'  # OpenBSD will recognize it as
+e1000                              em0
+i82550                             fxp0
+ne2k_pci                           ne0
+pcnet                              pcn0
+rtl8139                            re0
+sunhme                             hme0
+tulip                              dc0, does not autoconfigure
+virtio-net-device                  --
+virtio-net-pci                     --
+...
+
+So, choose one of these, for example:
+% net_args="-netdev type=user,id=net0 -device e1000,bus=pciB,netdev=net0,mac=52:54:00:12:34:56"
+
+(DV) Choose the display/video arguments
+---------------------------------------
+
+% display_args="-nographic"
+
+(B1) Boot from the CD/DVD
+-------------------------
+
+% common_args="$machine_args $disk_args $net_args $display_args"
+
+Resize the terminal to 80x24.
+
+% qemu-system-sparc64 $common_args -cdrom OpenBSD-7.2-sparc64-install.iso -boot d
+
+(IN) Perform the steps of the installer
+---------------------------------------
+
+(I)nstall.
+Terminal type: xterm
+Host name: sparc64-openbsd72
+Root password: ********
+Setup a user?
+  login: MY_USER_NAME
+  full name: MY_FULL_NAME
+  password: ********
+Allow root ssh login: yes
+Partitioning: (E)dit auto layout
+  d e
+  d d
+  d b
+  c a
+      14680064 [= 7 GB]
+  a b
+      enter enter swap
+  p
+  q
+Sets:
+  -game72.tgz
+  -x*
+Continue without verification: yes
+
+Halt.
+
+(B2) Boot from the installed disk
+---------------------------------
+
+This does not need a -kernel option, since an OpenBIOS bootloader is installed.
+
+% qemu-system-sparc64 $common_args
+root device: wd0a
+swap device:enter
+
+This boots fine. Now is the time to switch to a graphic display, if desired:
+
+% display_args="-display gtk -monitor stdio"
+% common_args="$machine_args $disk_args $net_args $display_args"
+% qemu-system-sparc64 $common_args
+root device: wd0a
+swap device:enter
+
+# mail
+
+If you are not using the graphic display, edit ~/.profile to set TERM=vt220:
+# env TERM=vt220 vi .profile .cshrc
+In .profile, add
+  TERM=vt220
+  export TERM
+In .cshrc, add
+  setenv TERM vt220
+
+Edit /etc/myname, to change the domain to MYDOMAINNAME.
+
+(PK) Install packages
+---------------------
+
+The list of packages is at https://ftp.hostserver.de/pub/OpenBSD/7.2/packages/sparc64/
+See https://www.openbsd.org/faq/faq15.html#PkgMgmt
+Edit ~/.profile to define PKG_PATH:
+  PKG_PATH=https://ftp.hostserver.de/pub/OpenBSD/7.2/packages/`uname -m`/
+  export PKG_PATH
+Logout.
+
+# pkg_add bzip2
+# pkg_add gtar
+# pkg_add bash
+# pkg_add gmake
+# pkg_add vim, pick no_x11 variant
+# pkg_add emacs, pick no_x11 variant
