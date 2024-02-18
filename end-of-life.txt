@@ -90,5 +90,5 @@ End-of-life / end-of-support data for various OS releases
   Solaris 11.1: †
   Solaris 11.2: †
   Solaris 11.3: 2027-01
-  Solaris 11.4: 2034-11
+  Solaris 11.4: 2037-11
   Reference: https://en.wikipedia.org/wiki/Oracle_Solaris#Version_history
