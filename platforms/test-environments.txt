@@ -34,7 +34,7 @@ For the following OSes, you can install a virtual machine:
   - OpenBSD
   - Minix
   - Haiku
-  - Solaris 11.4, Solaris 11 OpenIndiana, Solaris 11 OmnioOS
+  - Solaris 11.4, Solaris 11 OpenIndiana, Solaris 11 OmniOS
 
 There is an investment of ca. 2 hours up-front to create the virtual machine,
 and it takes some amount of disk space (typically something like 10 GB for
