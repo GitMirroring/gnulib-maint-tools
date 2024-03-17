@@ -134,3 +134,10 @@ Logout.
 # pkg_add gmake
 # pkg_add vim
 # pkg_add emacs-nox11
+
+
+Notes
+-----
+
+After 1 hour of execution time, sometimes the clock gets stuck in a 2-seconds
+loop; then "sleep 1" never completes.

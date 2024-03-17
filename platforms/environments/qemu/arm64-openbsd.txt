@@ -28,8 +28,6 @@ This is not needed in this case.
 
 % qemu-img create -f qcow2 openbsd74.qcow2 8G
 
-This is not needed in this case; we have a disk image already.
-
 (MA) Choose the machine arguments
 ---------------------------------
 
@@ -185,5 +183,6 @@ Logout.
 # pkg_add gtar
 # pkg_add bash
 # pkg_add gmake
+# pkg_add gdb                        # It installs a program named 'egdb', not 'gdb'.
 # pkg_add vim, pick no_x11 variant
 # pkg_add emacs, pick no_x11 variant

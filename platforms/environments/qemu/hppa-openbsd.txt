@@ -156,3 +156,6 @@ Notes
 The VM is not 100% reliable:
 - Some gcc compilation commands crash with "internal compiler error" and
   succeed the next time.
+- Multithreaded programs produce log messages like
+  "44020/69552 sp=707d4398 inside 78027000-78426fff: not MAP_STACK"
+  and then crash.

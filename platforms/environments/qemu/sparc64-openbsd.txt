@@ -195,3 +195,10 @@ Logout.
 # pkg_add gmake
 # pkg_add vim, pick no_x11 variant
 # pkg_add emacs, pick no_x11 variant
+
+
+Notes
+-----
+
+Sometimes the clock gets stuck in a 42-seconds loop; then "sleep 1" never
+completes.

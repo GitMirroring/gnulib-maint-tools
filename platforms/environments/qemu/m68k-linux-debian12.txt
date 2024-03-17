@@ -183,3 +183,9 @@ $ sudo bash
 # apt install emacs-nox emacs-el
 # apt install g++
 # apt install expect dejagnu
+
+
+Notes
+-----
+
+Don't use 'vi', as it hangs.
