@@ -1,0 +1,8 @@
+if GL_COND_OBJ_MBRTOWC
+lib_SOURCES += mbrtowc.c
+endif
+
+EXTRA_DIST += lc-charset-dispatch.c lc-charset-dispatch.h mbrtowc-impl-utf8.h mbrtowc-impl.h mbtowc-lock.c mbtowc-lock.h windows-initguard.h
+
+EXTRA_lib_SOURCES += lc-charset-dispatch.c mbtowc-lock.c
+

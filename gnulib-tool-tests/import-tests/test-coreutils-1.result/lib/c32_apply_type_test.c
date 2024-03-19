@@ -1,0 +1,1 @@
+/media/develdata/devel/GNULIB/maint-tools/gnulib-tool-tests/gnulib-data/lib/c32_apply_type_test.c

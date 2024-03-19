@@ -1,0 +1,10 @@
+mbrtowc
+mbsinit
+wctob
+setlocale
+localcharset
+
+mbsinit
+mbrtowc
+setlocale
+

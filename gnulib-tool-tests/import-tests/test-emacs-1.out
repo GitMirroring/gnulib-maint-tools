@@ -1,0 +1,984 @@
+Module list with included dependencies (indented):
+    absolute-header
+    access
+    acl-permissions
+  alignasof
+  alloca-opt
+    allocator
+    assert-h
+    at-internal
+    attribute
+  binary-io
+  boot-time
+    builtin-expect
+  byteswap
+  c-ctype
+  c-strcase
+    c99
+  canonicalize-lgpl
+  careadlinkat
+    clock-time
+    cloexec
+  close-stream
+  copy-file-range
+  count-leading-zeros
+  count-one-bits
+  count-trailing-zeros
+  crypto/md5
+  crypto/md5-buffer
+  crypto/sha1-buffer
+  crypto/sha256-buffer
+  crypto/sha512-buffer
+  d-type
+  diffseq
+    dirent
+    dirfd
+  double-slash-root
+  dtoastr
+  dtotimespec
+  dup2
+    eloop-threshold
+  environ
+    errno
+    euidaccess
+  execinfo
+    extensions
+    extern-inline
+  faccessat
+  fchmodat
+  fcntl
+  fcntl-h
+  fdopendir
+  file-has-acl
+  filemode
+  filename
+  filevercmp
+  flexmember
+    fpending
+  fpieee
+  free-posix
+  fstatat
+  fsusage
+  fsync
+  futimens
+    gen-header
+    getdelim
+    getdtablesize
+    getgroups
+  getline
+  getloadavg
+  getopt-gnu
+    getopt-posix
+  getrandom
+    gettext-h
+  gettime
+  gettimeofday
+  gitlog-to-changelog
+    glibc-internal/dynarray
+    glibc-internal/scratch_buffer
+    group-member
+    idx
+  ieee754-h
+  ignore-value
+    include_next
+  intprops
+    inttypes-incomplete
+  largefile
+    lchmod
+    libc-config
+  libgmp
+    limits-h
+  lstat
+    malloc-gnu
+    malloc-posix
+  manywarnings
+  memmem-simple
+  mempcpy
+  memrchr
+  memset_explicit
+  minmax
+  mkostemp
+  mktime
+    mktime-internal
+    multiarch
+  nanosleep
+    nocrash
+  nproc
+  nstrftime
+    open
+    openat-h
+  pathmax
+  pipe2
+  pselect
+  pthread_sigmask
+  qcopy-acl
+    rawmemchr
+  readlink
+  readlinkat
+    realloc-gnu
+    realloc-posix
+  regex
+    root-uid
+  sig2str
+  sigdescr_np
+    signal-h
+    snippet/_Noreturn
+    snippet/arg-nonnull
+    snippet/c++defs
+    snippet/warn-on-use
+  socklen
+    ssize_t
+  stat-time
+  std-gnu11
+  stdbool
+  stdckdint
+  stddef
+    stdint
+  stdio
+    stdlib
+  stpcpy
+    string
+  strnlen
+  strtoimax
+    strtoll
+  symlink
+    sys_random
+    sys_select
+  sys_stat
+  sys_time
+    sys_types
+  tempname
+  time-h
+  time_r
+  time_rz
+  timegm
+  timer-time
+    timespec
+  timespec-add
+  timespec-sub
+    u64
+    unistd
+  unlocked-io
+    unlocked-io-internal
+  update-copyright
+    utimens
+  utimensat
+    vararrays
+    verify
+  vla
+  warnings
+    xalloc-oversized
+  year2038
+File list:
+  build-aux/gitlog-to-changelog
+  build-aux/update-copyright
+  lib/_Noreturn.h
+  lib/access.c
+  lib/acl-errno-valid.c
+  lib/acl-internal.c
+  lib/acl-internal.h
+  lib/acl.h
+  lib/acl_entries.c
+  lib/alloca.in.h
+  lib/allocator.c
+  lib/allocator.h
+  lib/arg-nonnull.h
+  lib/assert.in.h
+  lib/at-func.c
+  lib/attribute.h
+  lib/binary-io.c
+  lib/binary-io.h
+  lib/boot-time-aux.h
+  lib/boot-time.c
+  lib/boot-time.h
+  lib/byteswap.in.h
+  lib/c++defs.h
+  lib/c-ctype.c
+  lib/c-ctype.h
+  lib/c-strcase.h
+  lib/c-strcasecmp.c
+  lib/c-strncasecmp.c
+  lib/canonicalize-lgpl.c
+  lib/careadlinkat.c
+  lib/careadlinkat.h
+  lib/cdefs.h
+  lib/cloexec.c
+  lib/cloexec.h
+  lib/close-stream.c
+  lib/close-stream.h
+  lib/copy-file-range.c
+  lib/count-leading-zeros.c
+  lib/count-leading-zeros.h
+  lib/count-one-bits.c
+  lib/count-one-bits.h
+  lib/count-trailing-zeros.c
+  lib/count-trailing-zeros.h
+  lib/diffseq.h
+  lib/dirent-private.h
+  lib/dirent.in.h
+  lib/dirfd.c
+  lib/dtoastr.c
+  lib/dtotimespec.c
+  lib/dup2.c
+  lib/dynarray.h
+  lib/eloop-threshold.h
+  lib/errno.in.h
+  lib/euidaccess.c
+  lib/execinfo.c
+  lib/execinfo.in.h
+  lib/faccessat.c
+  lib/fchmodat.c
+  lib/fcntl.c
+  lib/fcntl.in.h
+  lib/fdopendir.c
+  lib/file-has-acl.c
+  lib/filemode.c
+  lib/filemode.h
+  lib/filename.h
+  lib/filevercmp.c
+  lib/filevercmp.h
+  lib/flexmember.h
+  lib/fpending.c
+  lib/fpending.h
+  lib/free.c
+  lib/fstatat.c
+  lib/fsusage.c
+  lib/fsusage.h
+  lib/fsync.c
+  lib/ftoastr.c
+  lib/ftoastr.h
+  lib/futimens.c
+  lib/get-permissions.c
+  lib/getdelim.c
+  lib/getdtablesize.c
+  lib/getgroups.c
+  lib/getline.c
+  lib/getloadavg.c
+  lib/getopt-cdefs.in.h
+  lib/getopt-core.h
+  lib/getopt-ext.h
+  lib/getopt-pfx-core.h
+  lib/getopt-pfx-ext.h
+  lib/getopt.c
+  lib/getopt.in.h
+  lib/getopt1.c
+  lib/getopt_int.h
+  lib/getrandom.c
+  lib/gettext.h
+  lib/gettime.c
+  lib/gettimeofday.c
+  lib/gl_openssl.h
+  lib/group-member.c
+  lib/idx.h
+  lib/ieee754.in.h
+  lib/ignore-value.h
+  lib/intprops-internal.h
+  lib/intprops.h
+  lib/inttypes.in.h
+  lib/lchmod.c
+  lib/libc-config.h
+  lib/limits.in.h
+  lib/lstat.c
+  lib/malloc.c
+  lib/malloc/dynarray-skeleton.c
+  lib/malloc/dynarray.h
+  lib/malloc/dynarray_at_failure.c
+  lib/malloc/dynarray_emplace_enlarge.c
+  lib/malloc/dynarray_finalize.c
+  lib/malloc/dynarray_resize.c
+  lib/malloc/dynarray_resize_clear.c
+  lib/malloc/scratch_buffer.h
+  lib/malloc/scratch_buffer_grow.c
+  lib/malloc/scratch_buffer_grow_preserve.c
+  lib/malloc/scratch_buffer_set_array_size.c
+  lib/md5-stream.c
+  lib/md5.c
+  lib/md5.h
+  lib/memmem.c
+  lib/mempcpy.c
+  lib/memrchr.c
+  lib/memset_explicit.c
+  lib/mini-gmp-gnulib.c
+  lib/mini-gmp.c
+  lib/mini-gmp.h
+  lib/minmax.h
+  lib/mkostemp.c
+  lib/mktime-internal.h
+  lib/mktime.c
+  lib/nanosleep.c
+  lib/nproc.c
+  lib/nproc.h
+  lib/nstrftime.c
+  lib/open.c
+  lib/openat-priv.h
+  lib/openat-proc.c
+  lib/openat.h
+  lib/pathmax.h
+  lib/pipe2.c
+  lib/pselect.c
+  lib/pthread_sigmask.c
+  lib/qcopy-acl.c
+  lib/rawmemchr.c
+  lib/rawmemchr.valgrind
+  lib/readlink.c
+  lib/readlinkat.c
+  lib/readutmp.h
+  lib/realloc.c
+  lib/regcomp.c
+  lib/regex.c
+  lib/regex.h
+  lib/regex_internal.c
+  lib/regex_internal.h
+  lib/regexec.c
+  lib/root-uid.h
+  lib/scratch_buffer.h
+  lib/set-permissions.c
+  lib/sha1.c
+  lib/sha1.h
+  lib/sha256.c
+  lib/sha256.h
+  lib/sha512.c
+  lib/sha512.h
+  lib/sig2str.c
+  lib/sig2str.h
+  lib/sigdescr_np.c
+  lib/signal.in.h
+  lib/stat-time.c
+  lib/stat-time.h
+  lib/stdckdint.in.h
+  lib/stddef.in.h
+  lib/stdint.in.h
+  lib/stdio-impl.h
+  lib/stdio-read.c
+  lib/stdio-write.c
+  lib/stdio.in.h
+  lib/stdlib.in.h
+  lib/stpcpy.c
+  lib/str-two-way.h
+  lib/strftime.h
+  lib/string.in.h
+  lib/strnlen.c
+  lib/strtoimax.c
+  lib/strtol.c
+  lib/strtoll.c
+  lib/symlink.c
+  lib/sys_random.in.h
+  lib/sys_select.in.h
+  lib/sys_stat.in.h
+  lib/sys_time.in.h
+  lib/sys_types.in.h
+  lib/tempname.c
+  lib/tempname.h
+  lib/time-internal.h
+  lib/time.in.h
+  lib/time_r.c
+  lib/time_rz.c
+  lib/timegm.c
+  lib/timespec-add.c
+  lib/timespec-sub.c
+  lib/timespec.c
+  lib/timespec.h
+  lib/u64.c
+  lib/u64.h
+  lib/unistd.c
+  lib/unistd.in.h
+  lib/unlocked-io.h
+  lib/utimens.c
+  lib/utimens.h
+  lib/utimensat.c
+  lib/verify.h
+  lib/vla.h
+  lib/warn-on-use.h
+  lib/xalloc-oversized.h
+  m4/00gnulib.m4
+  m4/__inline.m4
+  m4/absolute-header.m4
+  m4/access.m4
+  m4/acl.m4
+  m4/alloca.m4
+  m4/assert_h.m4
+  m4/builtin-expect.m4
+  m4/byteswap.m4
+  m4/c-bool.m4
+  m4/canonicalize.m4
+  m4/clock_time.m4
+  m4/codeset.m4
+  m4/copy-file-range.m4
+  m4/d-type.m4
+  m4/dirent_h.m4
+  m4/dirfd.m4
+  m4/double-slash-root.m4
+  m4/dup2.m4
+  m4/eealloc.m4
+  m4/environ.m4
+  m4/errno_h.m4
+  m4/euidaccess.m4
+  m4/execinfo.m4
+  m4/extensions.m4
+  m4/extern-inline.m4
+  m4/faccessat.m4
+  m4/fchmodat.m4
+  m4/fcntl-o.m4
+  m4/fcntl.m4
+  m4/fcntl_h.m4
+  m4/fdopendir.m4
+  m4/filemode.m4
+  m4/flexmember.m4
+  m4/fpending.m4
+  m4/fpieee.m4
+  m4/free.m4
+  m4/fstatat.m4
+  m4/fsusage.m4
+  m4/fsync.m4
+  m4/futimens.m4
+  m4/getdelim.m4
+  m4/getdtablesize.m4
+  m4/getgroups.m4
+  m4/getline.m4
+  m4/getloadavg.m4
+  m4/getopt.m4
+  m4/getrandom.m4
+  m4/gettime.m4
+  m4/gettimeofday.m4
+  m4/gl-openssl.m4
+  m4/gnulib-common.m4
+  m4/group-member.m4
+  m4/ieee754-h.m4
+  m4/include_next.m4
+  m4/inttypes.m4
+  m4/largefile.m4
+  m4/lchmod.m4
+  m4/libgmp.m4
+  m4/limits-h.m4
+  m4/locale-fr.m4
+  m4/lstat.m4
+  m4/malloc.m4
+  m4/manywarnings-c++.m4
+  m4/manywarnings.m4
+  m4/mbstate_t.m4
+  m4/md5.m4
+  m4/memmem.m4
+  m4/mempcpy.m4
+  m4/memrchr.m4
+  m4/memset_explicit.m4
+  m4/minmax.m4
+  m4/mkostemp.m4
+  m4/mktime.m4
+  m4/mode_t.m4
+  m4/multiarch.m4
+  m4/musl.m4
+  m4/nanosleep.m4
+  m4/nocrash.m4
+  m4/nproc.m4
+  m4/nstrftime.m4
+  m4/off_t.m4
+  m4/open-cloexec.m4
+  m4/open-slash.m4
+  m4/open.m4
+  m4/pathmax.m4
+  m4/pid_t.m4
+  m4/pipe2.m4
+  m4/pselect.m4
+  m4/pthread_sigmask.m4
+  m4/rawmemchr.m4
+  m4/readlink.m4
+  m4/readlinkat.m4
+  m4/readutmp.m4
+  m4/realloc.m4
+  m4/regex.m4
+  m4/sha1.m4
+  m4/sha256.m4
+  m4/sha512.m4
+  m4/sig2str.m4
+  m4/sigdescr_np.m4
+  m4/signal_h.m4
+  m4/socklen.m4
+  m4/ssize_t.m4
+  m4/stat-time.m4
+  m4/std-gnu11.m4
+  m4/stdalign.m4
+  m4/stddef_h.m4
+  m4/stdint.m4
+  m4/stdio_h.m4
+  m4/stdlib_h.m4
+  m4/stpcpy.m4
+  m4/string_h.m4
+  m4/strnlen.m4
+  m4/strtoimax.m4
+  m4/strtoll.m4
+  m4/symlink.m4
+  m4/sys_random_h.m4
+  m4/sys_select_h.m4
+  m4/sys_socket_h.m4
+  m4/sys_stat_h.m4
+  m4/sys_time_h.m4
+  m4/sys_types_h.m4
+  m4/tempname.m4
+  m4/time_h.m4
+  m4/time_r.m4
+  m4/time_rz.m4
+  m4/timegm.m4
+  m4/timer_time.m4
+  m4/timespec.m4
+  m4/tm_gmtoff.m4
+  m4/unistd_h.m4
+  m4/unlocked-io.m4
+  m4/utimens.m4
+  m4/utimensat.m4
+  m4/utimes.m4
+  m4/vararrays.m4
+  m4/warn-on-use.m4
+  m4/warnings.m4
+  m4/wchar_t.m4
+  m4/wint_t.m4
+  m4/xattr.m4
+  m4/zzgnulib.m4
+Replacing file build-aux/gitlog-to-changelog (non-gnulib code backed up in build-aux/gitlog-to-changelog~) !!
+Replacing file build-aux/update-copyright (non-gnulib code backed up in build-aux/update-copyright~) !!
+Replacing file lib/_Noreturn.h (non-gnulib code backed up in lib/_Noreturn.h~) !!
+Copying file lib/access.c
+Replacing file lib/acl-errno-valid.c (non-gnulib code backed up in lib/acl-errno-valid.c~) !!
+Replacing file lib/acl-internal.c (non-gnulib code backed up in lib/acl-internal.c~) !!
+Replacing file lib/acl-internal.h (non-gnulib code backed up in lib/acl-internal.h~) !!
+Replacing file lib/acl.h (non-gnulib code backed up in lib/acl.h~) !!
+Replacing file lib/acl_entries.c (non-gnulib code backed up in lib/acl_entries.c~) !!
+Replacing file lib/alloca.in.h (non-gnulib code backed up in lib/alloca.in.h~) !!
+Replacing file lib/allocator.c (non-gnulib code backed up in lib/allocator.c~) !!
+Replacing file lib/allocator.h (non-gnulib code backed up in lib/allocator.h~) !!
+Replacing file lib/arg-nonnull.h (non-gnulib code backed up in lib/arg-nonnull.h~) !!
+Replacing file lib/assert.in.h (non-gnulib code backed up in lib/assert.in.h~) !!
+Replacing file lib/at-func.c (non-gnulib code backed up in lib/at-func.c~) !!
+Replacing file lib/attribute.h (non-gnulib code backed up in lib/attribute.h~) !!
+Replacing file lib/binary-io.c (non-gnulib code backed up in lib/binary-io.c~) !!
+Replacing file lib/binary-io.h (non-gnulib code backed up in lib/binary-io.h~) !!
+Replacing file lib/boot-time-aux.h (non-gnulib code backed up in lib/boot-time-aux.h~) !!
+Replacing file lib/boot-time.c (non-gnulib code backed up in lib/boot-time.c~) !!
+Replacing file lib/boot-time.h (non-gnulib code backed up in lib/boot-time.h~) !!
+Replacing file lib/byteswap.in.h (non-gnulib code backed up in lib/byteswap.in.h~) !!
+Replacing file lib/c++defs.h (non-gnulib code backed up in lib/c++defs.h~) !!
+Replacing file lib/c-ctype.c (non-gnulib code backed up in lib/c-ctype.c~) !!
+Replacing file lib/c-ctype.h (non-gnulib code backed up in lib/c-ctype.h~) !!
+Replacing file lib/c-strcase.h (non-gnulib code backed up in lib/c-strcase.h~) !!
+Replacing file lib/c-strcasecmp.c (non-gnulib code backed up in lib/c-strcasecmp.c~) !!
+Replacing file lib/c-strncasecmp.c (non-gnulib code backed up in lib/c-strncasecmp.c~) !!
+Replacing file lib/canonicalize-lgpl.c (non-gnulib code backed up in lib/canonicalize-lgpl.c~) !!
+Replacing file lib/careadlinkat.c (non-gnulib code backed up in lib/careadlinkat.c~) !!
+Replacing file lib/careadlinkat.h (non-gnulib code backed up in lib/careadlinkat.h~) !!
+Replacing file lib/cdefs.h (non-gnulib code backed up in lib/cdefs.h~) !!
+Replacing file lib/cloexec.c (non-gnulib code backed up in lib/cloexec.c~) !!
+Replacing file lib/cloexec.h (non-gnulib code backed up in lib/cloexec.h~) !!
+Replacing file lib/close-stream.c (non-gnulib code backed up in lib/close-stream.c~) !!
+Replacing file lib/close-stream.h (non-gnulib code backed up in lib/close-stream.h~) !!
+Replacing file lib/copy-file-range.c (non-gnulib code backed up in lib/copy-file-range.c~) !!
+Replacing file lib/count-leading-zeros.c (non-gnulib code backed up in lib/count-leading-zeros.c~) !!
+Replacing file lib/count-leading-zeros.h (non-gnulib code backed up in lib/count-leading-zeros.h~) !!
+Replacing file lib/count-one-bits.c (non-gnulib code backed up in lib/count-one-bits.c~) !!
+Replacing file lib/count-one-bits.h (non-gnulib code backed up in lib/count-one-bits.h~) !!
+Replacing file lib/count-trailing-zeros.c (non-gnulib code backed up in lib/count-trailing-zeros.c~) !!
+Replacing file lib/count-trailing-zeros.h (non-gnulib code backed up in lib/count-trailing-zeros.h~) !!
+Replacing file lib/diffseq.h (non-gnulib code backed up in lib/diffseq.h~) !!
+Replacing file lib/dirent-private.h (non-gnulib code backed up in lib/dirent-private.h~) !!
+Replacing file lib/dirent.in.h (non-gnulib code backed up in lib/dirent.in.h~) !!
+Replacing file lib/dirfd.c (non-gnulib code backed up in lib/dirfd.c~) !!
+Replacing file lib/dtoastr.c (non-gnulib code backed up in lib/dtoastr.c~) !!
+Replacing file lib/dtotimespec.c (non-gnulib code backed up in lib/dtotimespec.c~) !!
+Replacing file lib/dup2.c (non-gnulib code backed up in lib/dup2.c~) !!
+Replacing file lib/dynarray.h (non-gnulib code backed up in lib/dynarray.h~) !!
+Replacing file lib/eloop-threshold.h (non-gnulib code backed up in lib/eloop-threshold.h~) !!
+Replacing file lib/errno.in.h (non-gnulib code backed up in lib/errno.in.h~) !!
+Replacing file lib/euidaccess.c (non-gnulib code backed up in lib/euidaccess.c~) !!
+Replacing file lib/execinfo.c (non-gnulib code backed up in lib/execinfo.c~) !!
+Replacing file lib/execinfo.in.h (non-gnulib code backed up in lib/execinfo.in.h~) !!
+Replacing file lib/faccessat.c (non-gnulib code backed up in lib/faccessat.c~) !!
+Replacing file lib/fchmodat.c (non-gnulib code backed up in lib/fchmodat.c~) !!
+Replacing file lib/fcntl.c (non-gnulib code backed up in lib/fcntl.c~) !!
+Replacing file lib/fcntl.in.h (non-gnulib code backed up in lib/fcntl.in.h~) !!
+Replacing file lib/fdopendir.c (non-gnulib code backed up in lib/fdopendir.c~) !!
+Replacing file lib/file-has-acl.c (non-gnulib code backed up in lib/file-has-acl.c~) !!
+Replacing file lib/filemode.c (non-gnulib code backed up in lib/filemode.c~) !!
+Replacing file lib/filemode.h (non-gnulib code backed up in lib/filemode.h~) !!
+Replacing file lib/filevercmp.c (non-gnulib code backed up in lib/filevercmp.c~) !!
+Replacing file lib/filevercmp.h (non-gnulib code backed up in lib/filevercmp.h~) !!
+Replacing file lib/flexmember.h (non-gnulib code backed up in lib/flexmember.h~) !!
+Replacing file lib/fpending.c (non-gnulib code backed up in lib/fpending.c~) !!
+Replacing file lib/fpending.h (non-gnulib code backed up in lib/fpending.h~) !!
+Replacing file lib/free.c (non-gnulib code backed up in lib/free.c~) !!
+Replacing file lib/fstatat.c (non-gnulib code backed up in lib/fstatat.c~) !!
+Replacing file lib/fsusage.c (non-gnulib code backed up in lib/fsusage.c~) !!
+Replacing file lib/fsusage.h (non-gnulib code backed up in lib/fsusage.h~) !!
+Replacing file lib/fsync.c (non-gnulib code backed up in lib/fsync.c~) !!
+Replacing file lib/ftoastr.c (non-gnulib code backed up in lib/ftoastr.c~) !!
+Replacing file lib/ftoastr.h (non-gnulib code backed up in lib/ftoastr.h~) !!
+Replacing file lib/futimens.c (non-gnulib code backed up in lib/futimens.c~) !!
+Replacing file lib/get-permissions.c (non-gnulib code backed up in lib/get-permissions.c~) !!
+Replacing file lib/getdelim.c (non-gnulib code backed up in lib/getdelim.c~) !!
+Replacing file lib/getdtablesize.c (non-gnulib code backed up in lib/getdtablesize.c~) !!
+Replacing file lib/getgroups.c (non-gnulib code backed up in lib/getgroups.c~) !!
+Replacing file lib/getline.c (non-gnulib code backed up in lib/getline.c~) !!
+Replacing file lib/getloadavg.c (non-gnulib code backed up in lib/getloadavg.c~) !!
+Replacing file lib/getopt-cdefs.in.h (non-gnulib code backed up in lib/getopt-cdefs.in.h~) !!
+Replacing file lib/getopt-core.h (non-gnulib code backed up in lib/getopt-core.h~) !!
+Replacing file lib/getopt-ext.h (non-gnulib code backed up in lib/getopt-ext.h~) !!
+Replacing file lib/getopt-pfx-core.h (non-gnulib code backed up in lib/getopt-pfx-core.h~) !!
+Replacing file lib/getopt-pfx-ext.h (non-gnulib code backed up in lib/getopt-pfx-ext.h~) !!
+Replacing file lib/getopt.c (non-gnulib code backed up in lib/getopt.c~) !!
+Replacing file lib/getopt.in.h (non-gnulib code backed up in lib/getopt.in.h~) !!
+Replacing file lib/getopt1.c (non-gnulib code backed up in lib/getopt1.c~) !!
+Replacing file lib/getopt_int.h (non-gnulib code backed up in lib/getopt_int.h~) !!
+Replacing file lib/getrandom.c (non-gnulib code backed up in lib/getrandom.c~) !!
+Replacing file lib/gettext.h (non-gnulib code backed up in lib/gettext.h~) !!
+Replacing file lib/gettime.c (non-gnulib code backed up in lib/gettime.c~) !!
+Replacing file lib/gettimeofday.c (non-gnulib code backed up in lib/gettimeofday.c~) !!
+Copying file lib/gl_openssl.h
+Replacing file lib/group-member.c (non-gnulib code backed up in lib/group-member.c~) !!
+Replacing file lib/idx.h (non-gnulib code backed up in lib/idx.h~) !!
+Replacing file lib/ieee754.in.h (non-gnulib code backed up in lib/ieee754.in.h~) !!
+Replacing file lib/ignore-value.h (non-gnulib code backed up in lib/ignore-value.h~) !!
+Replacing file lib/intprops-internal.h (non-gnulib code backed up in lib/intprops-internal.h~) !!
+Replacing file lib/intprops.h (non-gnulib code backed up in lib/intprops.h~) !!
+Replacing file lib/inttypes.in.h (non-gnulib code backed up in lib/inttypes.in.h~) !!
+Replacing file lib/lchmod.c (non-gnulib code backed up in lib/lchmod.c~) !!
+Replacing file lib/libc-config.h (non-gnulib code backed up in lib/libc-config.h~) !!
+Replacing file lib/limits.in.h (non-gnulib code backed up in lib/limits.in.h~) !!
+Replacing file lib/lstat.c (non-gnulib code backed up in lib/lstat.c~) !!
+Replacing file lib/malloc.c (non-gnulib code backed up in lib/malloc.c~) !!
+Replacing file lib/malloc/dynarray-skeleton.c (non-gnulib code backed up in lib/malloc/dynarray-skeleton.c~) !!
+Replacing file lib/malloc/dynarray.h (non-gnulib code backed up in lib/malloc/dynarray.h~) !!
+Replacing file lib/malloc/dynarray_at_failure.c (non-gnulib code backed up in lib/malloc/dynarray_at_failure.c~) !!
+Replacing file lib/malloc/dynarray_emplace_enlarge.c (non-gnulib code backed up in lib/malloc/dynarray_emplace_enlarge.c~) !!
+Replacing file lib/malloc/dynarray_finalize.c (non-gnulib code backed up in lib/malloc/dynarray_finalize.c~) !!
+Replacing file lib/malloc/dynarray_resize.c (non-gnulib code backed up in lib/malloc/dynarray_resize.c~) !!
+Replacing file lib/malloc/dynarray_resize_clear.c (non-gnulib code backed up in lib/malloc/dynarray_resize_clear.c~) !!
+Replacing file lib/md5-stream.c (non-gnulib code backed up in lib/md5-stream.c~) !!
+Replacing file lib/md5.c (non-gnulib code backed up in lib/md5.c~) !!
+Replacing file lib/md5.h (non-gnulib code backed up in lib/md5.h~) !!
+Replacing file lib/memmem.c (non-gnulib code backed up in lib/memmem.c~) !!
+Replacing file lib/mempcpy.c (non-gnulib code backed up in lib/mempcpy.c~) !!
+Replacing file lib/memrchr.c (non-gnulib code backed up in lib/memrchr.c~) !!
+Replacing file lib/memset_explicit.c (non-gnulib code backed up in lib/memset_explicit.c~) !!
+Replacing file lib/mini-gmp-gnulib.c (non-gnulib code backed up in lib/mini-gmp-gnulib.c~) !!
+Replacing file lib/mini-gmp.c (non-gnulib code backed up in lib/mini-gmp.c~) !!
+Replacing file lib/minmax.h (non-gnulib code backed up in lib/minmax.h~) !!
+Replacing file lib/mkostemp.c (non-gnulib code backed up in lib/mkostemp.c~) !!
+Replacing file lib/mktime.c (non-gnulib code backed up in lib/mktime.c~) !!
+Replacing file lib/nanosleep.c (non-gnulib code backed up in lib/nanosleep.c~) !!
+Replacing file lib/nproc.c (non-gnulib code backed up in lib/nproc.c~) !!
+Replacing file lib/nproc.h (non-gnulib code backed up in lib/nproc.h~) !!
+Replacing file lib/nstrftime.c (non-gnulib code backed up in lib/nstrftime.c~) !!
+Replacing file lib/open.c (non-gnulib code backed up in lib/open.c~) !!
+Replacing file lib/openat-priv.h (non-gnulib code backed up in lib/openat-priv.h~) !!
+Replacing file lib/openat-proc.c (non-gnulib code backed up in lib/openat-proc.c~) !!
+Replacing file lib/openat.h (non-gnulib code backed up in lib/openat.h~) !!
+Replacing file lib/pathmax.h (non-gnulib code backed up in lib/pathmax.h~) !!
+Replacing file lib/pipe2.c (non-gnulib code backed up in lib/pipe2.c~) !!
+Replacing file lib/pselect.c (non-gnulib code backed up in lib/pselect.c~) !!
+Replacing file lib/pthread_sigmask.c (non-gnulib code backed up in lib/pthread_sigmask.c~) !!
+Replacing file lib/qcopy-acl.c (non-gnulib code backed up in lib/qcopy-acl.c~) !!
+Replacing file lib/rawmemchr.c (non-gnulib code backed up in lib/rawmemchr.c~) !!
+Replacing file lib/rawmemchr.valgrind (non-gnulib code backed up in lib/rawmemchr.valgrind~) !!
+Replacing file lib/readlink.c (non-gnulib code backed up in lib/readlink.c~) !!
+Replacing file lib/readlinkat.c (non-gnulib code backed up in lib/readlinkat.c~) !!
+Replacing file lib/readutmp.h (non-gnulib code backed up in lib/readutmp.h~) !!
+Replacing file lib/realloc.c (non-gnulib code backed up in lib/realloc.c~) !!
+Replacing file lib/regcomp.c (non-gnulib code backed up in lib/regcomp.c~) !!
+Replacing file lib/regex_internal.c (non-gnulib code backed up in lib/regex_internal.c~) !!
+Replacing file lib/regex_internal.h (non-gnulib code backed up in lib/regex_internal.h~) !!
+Replacing file lib/regexec.c (non-gnulib code backed up in lib/regexec.c~) !!
+Replacing file lib/root-uid.h (non-gnulib code backed up in lib/root-uid.h~) !!
+Replacing file lib/scratch_buffer.h (non-gnulib code backed up in lib/scratch_buffer.h~) !!
+Replacing file lib/set-permissions.c (non-gnulib code backed up in lib/set-permissions.c~) !!
+Replacing file lib/sha1.c (non-gnulib code backed up in lib/sha1.c~) !!
+Replacing file lib/sha1.h (non-gnulib code backed up in lib/sha1.h~) !!
+Replacing file lib/sha256.c (non-gnulib code backed up in lib/sha256.c~) !!
+Replacing file lib/sha256.h (non-gnulib code backed up in lib/sha256.h~) !!
+Replacing file lib/sha512.c (non-gnulib code backed up in lib/sha512.c~) !!
+Replacing file lib/sha512.h (non-gnulib code backed up in lib/sha512.h~) !!
+Replacing file lib/sig2str.c (non-gnulib code backed up in lib/sig2str.c~) !!
+Replacing file lib/sig2str.h (non-gnulib code backed up in lib/sig2str.h~) !!
+Replacing file lib/sigdescr_np.c (non-gnulib code backed up in lib/sigdescr_np.c~) !!
+Replacing file lib/signal.in.h (non-gnulib code backed up in lib/signal.in.h~) !!
+Replacing file lib/stat-time.c (non-gnulib code backed up in lib/stat-time.c~) !!
+Replacing file lib/stat-time.h (non-gnulib code backed up in lib/stat-time.h~) !!
+Replacing file lib/stdckdint.in.h (non-gnulib code backed up in lib/stdckdint.in.h~) !!
+Replacing file lib/stddef.in.h (non-gnulib code backed up in lib/stddef.in.h~) !!
+Replacing file lib/stdint.in.h (non-gnulib code backed up in lib/stdint.in.h~) !!
+Replacing file lib/stdio-impl.h (non-gnulib code backed up in lib/stdio-impl.h~) !!
+Copying file lib/stdio-read.c
+Copying file lib/stdio-write.c
+Replacing file lib/stdio.in.h (non-gnulib code backed up in lib/stdio.in.h~) !!
+Replacing file lib/stdlib.in.h (non-gnulib code backed up in lib/stdlib.in.h~) !!
+Replacing file lib/stpcpy.c (non-gnulib code backed up in lib/stpcpy.c~) !!
+Replacing file lib/str-two-way.h (non-gnulib code backed up in lib/str-two-way.h~) !!
+Replacing file lib/strftime.h (non-gnulib code backed up in lib/strftime.h~) !!
+Replacing file lib/string.in.h (non-gnulib code backed up in lib/string.in.h~) !!
+Replacing file lib/strnlen.c (non-gnulib code backed up in lib/strnlen.c~) !!
+Replacing file lib/strtoimax.c (non-gnulib code backed up in lib/strtoimax.c~) !!
+Replacing file lib/strtol.c (non-gnulib code backed up in lib/strtol.c~) !!
+Replacing file lib/strtoll.c (non-gnulib code backed up in lib/strtoll.c~) !!
+Replacing file lib/symlink.c (non-gnulib code backed up in lib/symlink.c~) !!
+Replacing file lib/sys_random.in.h (non-gnulib code backed up in lib/sys_random.in.h~) !!
+Replacing file lib/sys_select.in.h (non-gnulib code backed up in lib/sys_select.in.h~) !!
+Replacing file lib/sys_stat.in.h (non-gnulib code backed up in lib/sys_stat.in.h~) !!
+Replacing file lib/sys_time.in.h (non-gnulib code backed up in lib/sys_time.in.h~) !!
+Replacing file lib/sys_types.in.h (non-gnulib code backed up in lib/sys_types.in.h~) !!
+Replacing file lib/tempname.c (non-gnulib code backed up in lib/tempname.c~) !!
+Replacing file lib/tempname.h (non-gnulib code backed up in lib/tempname.h~) !!
+Replacing file lib/time-internal.h (non-gnulib code backed up in lib/time-internal.h~) !!
+Replacing file lib/time.in.h (non-gnulib code backed up in lib/time.in.h~) !!
+Replacing file lib/time_r.c (non-gnulib code backed up in lib/time_r.c~) !!
+Replacing file lib/time_rz.c (non-gnulib code backed up in lib/time_rz.c~) !!
+Replacing file lib/timespec-add.c (non-gnulib code backed up in lib/timespec-add.c~) !!
+Replacing file lib/timespec-sub.c (non-gnulib code backed up in lib/timespec-sub.c~) !!
+Replacing file lib/timespec.c (non-gnulib code backed up in lib/timespec.c~) !!
+Replacing file lib/timespec.h (non-gnulib code backed up in lib/timespec.h~) !!
+Replacing file lib/u64.c (non-gnulib code backed up in lib/u64.c~) !!
+Replacing file lib/u64.h (non-gnulib code backed up in lib/u64.h~) !!
+Replacing file lib/unistd.c (non-gnulib code backed up in lib/unistd.c~) !!
+Replacing file lib/unistd.in.h (non-gnulib code backed up in lib/unistd.in.h~) !!
+Replacing file lib/unlocked-io.h (non-gnulib code backed up in lib/unlocked-io.h~) !!
+Replacing file lib/utimens.c (non-gnulib code backed up in lib/utimens.c~) !!
+Replacing file lib/utimens.h (non-gnulib code backed up in lib/utimens.h~) !!
+Replacing file lib/utimensat.c (non-gnulib code backed up in lib/utimensat.c~) !!
+Replacing file lib/verify.h (non-gnulib code backed up in lib/verify.h~) !!
+Replacing file lib/vla.h (non-gnulib code backed up in lib/vla.h~) !!
+Replacing file lib/warn-on-use.h (non-gnulib code backed up in lib/warn-on-use.h~) !!
+Replacing file lib/xalloc-oversized.h (non-gnulib code backed up in lib/xalloc-oversized.h~) !!
+Replacing file m4/00gnulib.m4 (non-gnulib code backed up in m4/00gnulib.m4~) !!
+Replacing file m4/__inline.m4 (non-gnulib code backed up in m4/__inline.m4~) !!
+Replacing file m4/absolute-header.m4 (non-gnulib code backed up in m4/absolute-header.m4~) !!
+Copying file m4/access.m4
+Replacing file m4/acl.m4 (non-gnulib code backed up in m4/acl.m4~) !!
+Replacing file m4/alloca.m4 (non-gnulib code backed up in m4/alloca.m4~) !!
+Replacing file m4/assert_h.m4 (non-gnulib code backed up in m4/assert_h.m4~) !!
+Replacing file m4/builtin-expect.m4 (non-gnulib code backed up in m4/builtin-expect.m4~) !!
+Replacing file m4/byteswap.m4 (non-gnulib code backed up in m4/byteswap.m4~) !!
+Replacing file m4/c-bool.m4 (non-gnulib code backed up in m4/c-bool.m4~) !!
+Replacing file m4/canonicalize.m4 (non-gnulib code backed up in m4/canonicalize.m4~) !!
+Replacing file m4/clock_time.m4 (non-gnulib code backed up in m4/clock_time.m4~) !!
+Replacing file m4/codeset.m4 (non-gnulib code backed up in m4/codeset.m4~) !!
+Replacing file m4/copy-file-range.m4 (non-gnulib code backed up in m4/copy-file-range.m4~) !!
+Replacing file m4/d-type.m4 (non-gnulib code backed up in m4/d-type.m4~) !!
+Replacing file m4/dirent_h.m4 (non-gnulib code backed up in m4/dirent_h.m4~) !!
+Replacing file m4/dirfd.m4 (non-gnulib code backed up in m4/dirfd.m4~) !!
+Replacing file m4/double-slash-root.m4 (non-gnulib code backed up in m4/double-slash-root.m4~) !!
+Replacing file m4/dup2.m4 (non-gnulib code backed up in m4/dup2.m4~) !!
+Replacing file m4/eealloc.m4 (non-gnulib code backed up in m4/eealloc.m4~) !!
+Replacing file m4/environ.m4 (non-gnulib code backed up in m4/environ.m4~) !!
+Replacing file m4/errno_h.m4 (non-gnulib code backed up in m4/errno_h.m4~) !!
+Replacing file m4/euidaccess.m4 (non-gnulib code backed up in m4/euidaccess.m4~) !!
+Replacing file m4/execinfo.m4 (non-gnulib code backed up in m4/execinfo.m4~) !!
+Replacing file m4/extensions.m4 (non-gnulib code backed up in m4/extensions.m4~) !!
+Replacing file m4/extern-inline.m4 (non-gnulib code backed up in m4/extern-inline.m4~) !!
+Replacing file m4/faccessat.m4 (non-gnulib code backed up in m4/faccessat.m4~) !!
+Replacing file m4/fchmodat.m4 (non-gnulib code backed up in m4/fchmodat.m4~) !!
+Copying file m4/fcntl-o.m4
+Replacing file m4/fcntl.m4 (non-gnulib code backed up in m4/fcntl.m4~) !!
+Replacing file m4/fcntl_h.m4 (non-gnulib code backed up in m4/fcntl_h.m4~) !!
+Replacing file m4/fdopendir.m4 (non-gnulib code backed up in m4/fdopendir.m4~) !!
+Replacing file m4/filemode.m4 (non-gnulib code backed up in m4/filemode.m4~) !!
+Replacing file m4/flexmember.m4 (non-gnulib code backed up in m4/flexmember.m4~) !!
+Replacing file m4/fpending.m4 (non-gnulib code backed up in m4/fpending.m4~) !!
+Replacing file m4/fpieee.m4 (non-gnulib code backed up in m4/fpieee.m4~) !!
+Replacing file m4/free.m4 (non-gnulib code backed up in m4/free.m4~) !!
+Replacing file m4/fstatat.m4 (non-gnulib code backed up in m4/fstatat.m4~) !!
+Replacing file m4/fsusage.m4 (non-gnulib code backed up in m4/fsusage.m4~) !!
+Replacing file m4/fsync.m4 (non-gnulib code backed up in m4/fsync.m4~) !!
+Replacing file m4/futimens.m4 (non-gnulib code backed up in m4/futimens.m4~) !!
+Replacing file m4/getdelim.m4 (non-gnulib code backed up in m4/getdelim.m4~) !!
+Replacing file m4/getdtablesize.m4 (non-gnulib code backed up in m4/getdtablesize.m4~) !!
+Replacing file m4/getgroups.m4 (non-gnulib code backed up in m4/getgroups.m4~) !!
+Replacing file m4/getline.m4 (non-gnulib code backed up in m4/getline.m4~) !!
+Replacing file m4/getloadavg.m4 (non-gnulib code backed up in m4/getloadavg.m4~) !!
+Replacing file m4/getopt.m4 (non-gnulib code backed up in m4/getopt.m4~) !!
+Replacing file m4/getrandom.m4 (non-gnulib code backed up in m4/getrandom.m4~) !!
+Replacing file m4/gettime.m4 (non-gnulib code backed up in m4/gettime.m4~) !!
+Replacing file m4/gettimeofday.m4 (non-gnulib code backed up in m4/gettimeofday.m4~) !!
+Copying file m4/gl-openssl.m4
+Replacing file m4/gnulib-common.m4 (non-gnulib code backed up in m4/gnulib-common.m4~) !!
+Copying file m4/gnulib-tool.m4
+Replacing file m4/group-member.m4 (non-gnulib code backed up in m4/group-member.m4~) !!
+Replacing file m4/ieee754-h.m4 (non-gnulib code backed up in m4/ieee754-h.m4~) !!
+Replacing file m4/include_next.m4 (non-gnulib code backed up in m4/include_next.m4~) !!
+Replacing file m4/inttypes.m4 (non-gnulib code backed up in m4/inttypes.m4~) !!
+Replacing file m4/largefile.m4 (non-gnulib code backed up in m4/largefile.m4~) !!
+Replacing file m4/lchmod.m4 (non-gnulib code backed up in m4/lchmod.m4~) !!
+Replacing file m4/libgmp.m4 (non-gnulib code backed up in m4/libgmp.m4~) !!
+Replacing file m4/limits-h.m4 (non-gnulib code backed up in m4/limits-h.m4~) !!
+Copying file m4/locale-fr.m4
+Replacing file m4/lstat.m4 (non-gnulib code backed up in m4/lstat.m4~) !!
+Replacing file m4/malloc.m4 (non-gnulib code backed up in m4/malloc.m4~) !!
+Copying file m4/manywarnings-c++.m4
+Replacing file m4/manywarnings.m4 (non-gnulib code backed up in m4/manywarnings.m4~) !!
+Replacing file m4/mbstate_t.m4 (non-gnulib code backed up in m4/mbstate_t.m4~) !!
+Replacing file m4/md5.m4 (non-gnulib code backed up in m4/md5.m4~) !!
+Replacing file m4/memmem.m4 (non-gnulib code backed up in m4/memmem.m4~) !!
+Replacing file m4/mempcpy.m4 (non-gnulib code backed up in m4/mempcpy.m4~) !!
+Replacing file m4/memrchr.m4 (non-gnulib code backed up in m4/memrchr.m4~) !!
+Replacing file m4/memset_explicit.m4 (non-gnulib code backed up in m4/memset_explicit.m4~) !!
+Replacing file m4/minmax.m4 (non-gnulib code backed up in m4/minmax.m4~) !!
+Replacing file m4/mkostemp.m4 (non-gnulib code backed up in m4/mkostemp.m4~) !!
+Replacing file m4/mktime.m4 (non-gnulib code backed up in m4/mktime.m4~) !!
+Replacing file m4/mode_t.m4 (non-gnulib code backed up in m4/mode_t.m4~) !!
+Replacing file m4/multiarch.m4 (non-gnulib code backed up in m4/multiarch.m4~) !!
+Replacing file m4/musl.m4 (non-gnulib code backed up in m4/musl.m4~) !!
+Replacing file m4/nanosleep.m4 (non-gnulib code backed up in m4/nanosleep.m4~) !!
+Replacing file m4/nocrash.m4 (non-gnulib code backed up in m4/nocrash.m4~) !!
+Replacing file m4/nproc.m4 (non-gnulib code backed up in m4/nproc.m4~) !!
+Replacing file m4/nstrftime.m4 (non-gnulib code backed up in m4/nstrftime.m4~) !!
+Replacing file m4/off_t.m4 (non-gnulib code backed up in m4/off_t.m4~) !!
+Replacing file m4/open-cloexec.m4 (non-gnulib code backed up in m4/open-cloexec.m4~) !!
+Replacing file m4/open-slash.m4 (non-gnulib code backed up in m4/open-slash.m4~) !!
+Replacing file m4/open.m4 (non-gnulib code backed up in m4/open.m4~) !!
+Replacing file m4/pathmax.m4 (non-gnulib code backed up in m4/pathmax.m4~) !!
+Replacing file m4/pid_t.m4 (non-gnulib code backed up in m4/pid_t.m4~) !!
+Replacing file m4/pipe2.m4 (non-gnulib code backed up in m4/pipe2.m4~) !!
+Replacing file m4/pselect.m4 (non-gnulib code backed up in m4/pselect.m4~) !!
+Replacing file m4/pthread_sigmask.m4 (non-gnulib code backed up in m4/pthread_sigmask.m4~) !!
+Replacing file m4/rawmemchr.m4 (non-gnulib code backed up in m4/rawmemchr.m4~) !!
+Replacing file m4/readlink.m4 (non-gnulib code backed up in m4/readlink.m4~) !!
+Replacing file m4/readlinkat.m4 (non-gnulib code backed up in m4/readlinkat.m4~) !!
+Replacing file m4/readutmp.m4 (non-gnulib code backed up in m4/readutmp.m4~) !!
+Replacing file m4/realloc.m4 (non-gnulib code backed up in m4/realloc.m4~) !!
+Replacing file m4/regex.m4 (non-gnulib code backed up in m4/regex.m4~) !!
+Replacing file m4/sha1.m4 (non-gnulib code backed up in m4/sha1.m4~) !!
+Replacing file m4/sha256.m4 (non-gnulib code backed up in m4/sha256.m4~) !!
+Replacing file m4/sha512.m4 (non-gnulib code backed up in m4/sha512.m4~) !!
+Replacing file m4/sig2str.m4 (non-gnulib code backed up in m4/sig2str.m4~) !!
+Replacing file m4/sigdescr_np.m4 (non-gnulib code backed up in m4/sigdescr_np.m4~) !!
+Replacing file m4/signal_h.m4 (non-gnulib code backed up in m4/signal_h.m4~) !!
+Replacing file m4/socklen.m4 (non-gnulib code backed up in m4/socklen.m4~) !!
+Replacing file m4/ssize_t.m4 (non-gnulib code backed up in m4/ssize_t.m4~) !!
+Replacing file m4/stat-time.m4 (non-gnulib code backed up in m4/stat-time.m4~) !!
+Replacing file m4/std-gnu11.m4 (non-gnulib code backed up in m4/std-gnu11.m4~) !!
+Replacing file m4/stdalign.m4 (non-gnulib code backed up in m4/stdalign.m4~) !!
+Replacing file m4/stddef_h.m4 (non-gnulib code backed up in m4/stddef_h.m4~) !!
+Replacing file m4/stdint.m4 (non-gnulib code backed up in m4/stdint.m4~) !!
+Replacing file m4/stdio_h.m4 (non-gnulib code backed up in m4/stdio_h.m4~) !!
+Replacing file m4/stdlib_h.m4 (non-gnulib code backed up in m4/stdlib_h.m4~) !!
+Replacing file m4/stpcpy.m4 (non-gnulib code backed up in m4/stpcpy.m4~) !!
+Replacing file m4/string_h.m4 (non-gnulib code backed up in m4/string_h.m4~) !!
+Replacing file m4/strnlen.m4 (non-gnulib code backed up in m4/strnlen.m4~) !!
+Replacing file m4/strtoimax.m4 (non-gnulib code backed up in m4/strtoimax.m4~) !!
+Replacing file m4/strtoll.m4 (non-gnulib code backed up in m4/strtoll.m4~) !!
+Replacing file m4/symlink.m4 (non-gnulib code backed up in m4/symlink.m4~) !!
+Replacing file m4/sys_random_h.m4 (non-gnulib code backed up in m4/sys_random_h.m4~) !!
+Replacing file m4/sys_select_h.m4 (non-gnulib code backed up in m4/sys_select_h.m4~) !!
+Replacing file m4/sys_socket_h.m4 (non-gnulib code backed up in m4/sys_socket_h.m4~) !!
+Replacing file m4/sys_stat_h.m4 (non-gnulib code backed up in m4/sys_stat_h.m4~) !!
+Replacing file m4/sys_time_h.m4 (non-gnulib code backed up in m4/sys_time_h.m4~) !!
+Replacing file m4/sys_types_h.m4 (non-gnulib code backed up in m4/sys_types_h.m4~) !!
+Replacing file m4/tempname.m4 (non-gnulib code backed up in m4/tempname.m4~) !!
+Replacing file m4/time_h.m4 (non-gnulib code backed up in m4/time_h.m4~) !!
+Replacing file m4/time_r.m4 (non-gnulib code backed up in m4/time_r.m4~) !!
+Replacing file m4/time_rz.m4 (non-gnulib code backed up in m4/time_rz.m4~) !!
+Replacing file m4/timegm.m4 (non-gnulib code backed up in m4/timegm.m4~) !!
+Replacing file m4/timer_time.m4 (non-gnulib code backed up in m4/timer_time.m4~) !!
+Replacing file m4/timespec.m4 (non-gnulib code backed up in m4/timespec.m4~) !!
+Replacing file m4/tm_gmtoff.m4 (non-gnulib code backed up in m4/tm_gmtoff.m4~) !!
+Replacing file m4/unistd_h.m4 (non-gnulib code backed up in m4/unistd_h.m4~) !!
+Replacing file m4/unlocked-io.m4 (non-gnulib code backed up in m4/unlocked-io.m4~) !!
+Replacing file m4/utimens.m4 (non-gnulib code backed up in m4/utimens.m4~) !!
+Replacing file m4/utimensat.m4 (non-gnulib code backed up in m4/utimensat.m4~) !!
+Replacing file m4/utimes.m4 (non-gnulib code backed up in m4/utimes.m4~) !!
+Replacing file m4/vararrays.m4 (non-gnulib code backed up in m4/vararrays.m4~) !!
+Copying file m4/warn-on-use.m4
+Replacing file m4/warnings.m4 (non-gnulib code backed up in m4/warnings.m4~) !!
+Replacing file m4/wchar_t.m4 (non-gnulib code backed up in m4/wchar_t.m4~) !!
+Copying file m4/wint_t.m4
+Replacing file m4/xattr.m4 (non-gnulib code backed up in m4/xattr.m4~) !!
+Replacing file m4/zzgnulib.m4 (non-gnulib code backed up in m4/zzgnulib.m4~) !!
+Creating m4/gnulib-cache.m4
+Updating m4/gnulib-comp.m4 (backup in m4/gnulib-comp.m4~)
+Updating lib/gnulib.mk.in (backup in lib/gnulib.mk.in~)
+Finished.
+
+You may need to add #include directives for the following .h files.
+  #include <alloca.h>
+  #include <byteswap.h>
+  #include <dirent.h>
+  #include <execinfo.h>
+  #include <fcntl.h>
+  #include <getopt.h>
+  #include <gmp.h>
+  #include <ieee754.h>
+  #include <inttypes.h>
+  #include <regex.h>
+  #include <signal.h>
+  #include <stdckdint.h>
+  #include <stddef.h>
+  #include <stdio.h>
+  #include <stdlib.h>
+  #include <string.h>
+  #include <sys/random.h>
+  #include <sys/select.h>
+  #include <sys/stat.h>
+  #include <sys/time.h>
+  #include <time.h>
+  #include <unistd.h>
+  #include "acl.h"
+  #include "binary-io.h"
+  #include "boot-time.h"
+  #include "c-ctype.h"
+  #include "c-strcase.h"
+  #include "careadlinkat.h"
+  #include "close-stream.h"
+  #include "count-leading-zeros.h"
+  #include "count-one-bits.h"
+  #include "count-trailing-zeros.h"
+  #include "diffseq.h"
+  #include "filemode.h"
+  #include "filename.h"
+  #include "filevercmp.h"
+  #include "flexmember.h"
+  #include "fsusage.h"
+  #include "ftoastr.h"
+  #include "ignore-value.h"
+  #include "intprops.h"
+  #include "md5.h"
+  #include "minmax.h"
+  #include "nproc.h"
+  #include "pathmax.h"
+  #include "sha1.h"
+  #include "sha256.h"
+  #include "sha512.h"
+  #include "sig2str.h"
+  #include "stat-time.h"
+  #include "strftime.h"
+  #include "tempname.h"
+  #include "timespec.h"
+  #include "unlocked-io.h"
+  #include <sys/types.h>
+  #if HAVE_SYS_SOCKET_H
+  # include <sys/socket.h>
+  #elif HAVE_WS2TCPIP_H
+  # include <ws2tcpip.h>
+  #endif
+
+You may need to use the following Makefile variables when linking.
+Use them in <program>_LDADD when linking a program, or
+in <library>_a_LDFLAGS or <library>_la_LDFLAGS when linking a library.
+  $(CLOCK_TIME_LIB)
+  $(EUIDACCESS_LIBGEN)
+  $(FILE_HAS_ACL_LIB)
+  $(GETLOADAVG_LIBS)
+  $(GETRANDOM_LIB)
+  $(LIBTHREAD)
+  $(LIB_ACL)
+  $(LIB_CRYPTO)
+  $(LIB_EXECINFO)
+  $(LTLIBGMP) when linking with libtool, $(LIBGMP) otherwise
+  $(LTLIBINTL) when linking with libtool, $(LIBINTL) otherwise
+  $(MBRTOWC_LIB)
+  $(NANOSLEEP_LIB)
+  $(PTHREAD_SIGMASK_LIB)
+  $(QCOPY_ACL_LIB)
+  $(SELECT_LIB)
+  $(TIMER_TIME_LIB)
+
+Don't forget to
+  - "include gnulib.mk.in" from within "lib/Makefile.am",
+  - mention "-I m4" in ACLOCAL_AMFLAGS in Makefile.am
+    or add an AC_CONFIG_MACRO_DIRS([m4]) invocation in ./configure.ac,
+  - mention "m4/gnulib-cache.m4" in EXTRA_DIST in Makefile.am,
+  - invoke gl_EARLY in ./configure.ac, right after AC_PROG_CC,
+  - invoke gl_INIT in ./configure.ac.

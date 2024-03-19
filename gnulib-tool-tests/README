@@ -1,0 +1,18 @@
+This directory contains unit tests for gnulib-tool.
+
+Before using it, set the environment variables
+  - GNULIB_SRCDIR     - points to the directory that contains gnulib-tool
+  - GNULIB_TOOL_IMPL  - determines the implementation of gnulib-tool.
+
+The directory gnulib-data contains a particular version of gnulib, namely
+commit 35245921a8f0eace93bef05814525673078b58c7 from the stable-202401 branch,
+*without* the gnulib-tool program.
+
+The tests themselves are shell scripts named 'test-*.sh' (which makes it
+easy to run a single test), in one of the these directories:
+  - info-tests        Tests which only produce output on stdout.
+  - import-tests      Tests which add files to a given package.
+  - create-tests      Tests which create a directory.
+
+Each of the directories also has a 'test-all.sh' script, that runs all
+the enabled tests in that directory.

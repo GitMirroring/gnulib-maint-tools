@@ -1,0 +1,1 @@
+/media/develdata/devel/GNULIB/maint-tools/gnulib-tool-tests/gnulib-data/m4/inet_pton.m4

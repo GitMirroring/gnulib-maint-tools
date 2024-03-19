@@ -1,0 +1,4 @@
+TESTS += test-string
+check_PROGRAMS += test-string
+EXTRA_DIST += test-string.c
+

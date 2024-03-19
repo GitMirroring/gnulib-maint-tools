@@ -1,0 +1,1 @@
+--create-testdir --single-configure --with-c++-tests --without-privileged-tests

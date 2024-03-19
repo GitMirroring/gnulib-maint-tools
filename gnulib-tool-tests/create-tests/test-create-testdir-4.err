@@ -1,0 +1,7 @@
+configure.ac:8: installing 'build-aux/compile'
+configure.ac:4: installing 'build-aux/install-sh'
+configure.ac:4: installing 'build-aux/missing'
+Makefile.am:5: warning: AM_GNU_GETTEXT used but 'po' not in SUBDIRS
+gllib/Makefile.am: installing 'build-aux/depcomp'
+configure.ac: installing 'build-aux/ylwrap'
+parallel-tests: installing 'build-aux/test-driver'

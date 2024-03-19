@@ -1,0 +1,9 @@
+tests/test-sqrt.c
+tests/test-sqrt.h
+tests/signature.h
+tests/macros.h
+tests/randomd.c
+
+m4/00gnulib.m4
+m4/zzgnulib.m4
+m4/gnulib-common.m4

@@ -1,0 +1,34 @@
+Module list with included dependencies (indented):
+  autobuild
+  git-version-gen
+  gitlog-to-changelog
+    gnumakefile
+  maintainer-makefile
+  update-copyright
+    useless-if-before-free
+    vc-list-files
+File list:
+  build-aux/git-version-gen
+  build-aux/gitlog-to-changelog
+  build-aux/update-copyright
+  build-aux/useless-if-before-free
+  build-aux/vc-list-files
+  lib/dummy.c
+  m4/00gnulib.m4
+  m4/autobuild.m4
+  m4/gnulib-common.m4
+  m4/zzgnulib.m4
+  top/GNUmakefile
+  top/maint.mk
+Updating file gl/m4/gnulib-common.m4 (backup in gl/m4/gnulib-common.m4~)
+Finished.
+
+You may need to add #include directives for the following .h files.
+
+Don't forget to
+  - add "gl/Makefile" to AC_CONFIG_FILES in ./configure.ac,
+  - mention "gl" in SUBDIRS in Makefile.am,
+  - mention "-I gl/m4" in ACLOCAL_AMFLAGS in Makefile.am
+    or add an AC_CONFIG_MACRO_DIRS([gl/m4]) invocation in ./configure.ac,
+  - invoke gl_EARLY in ./configure.ac, right after AC_PROG_CC,
+  - invoke gl_INIT in ./configure.ac.

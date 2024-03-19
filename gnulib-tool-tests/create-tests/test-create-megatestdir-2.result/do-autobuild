@@ -1,0 +1,18 @@
+#!/bin/sh
+CVSDATE=20240317
+: ${MAKE=make}
+test -d logs || mkdir logs
+for module in fopen fopen-gnu ALL; do
+  echo "Working on module $module..."
+  safemodule=`echo $module | sed -e 's|/|-|g'`
+  (echo "To: gnulib@autobuild.josefsson.org"
+   echo
+   set -x
+   : autobuild project... $module
+   : autobuild revision... cvs-$CVSDATE-000000
+   : autobuild timestamp... `date "+%Y%m%d-%H%M%S"`
+   : autobuild hostname... `hostname`
+   cd $module && ./configure $CONFIGURE_OPTIONS && $MAKE && $MAKE check && $MAKE distclean
+   echo rc=$?
+  ) 2>&1 | { if test -n "$AUTOBUILD_SUBST"; then sed -e "$AUTOBUILD_SUBST"; else cat; fi; } > logs/$safemodule
+done

@@ -1,0 +1,1 @@
+/media/develdata/devel/GNULIB/maint-tools/gnulib-tool-tests/gnulib-data/m4/memcoll.m4

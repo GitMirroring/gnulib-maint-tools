@@ -1,0 +1,1 @@
+--create-megatestdir --single-configure fopen fopen-gnu
