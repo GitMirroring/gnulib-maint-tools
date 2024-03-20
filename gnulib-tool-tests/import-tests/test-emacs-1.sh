@@ -78,8 +78,6 @@ do_import_test emacs-20240101 . "--conditional-dependencies --import --no-change
   filevercmp
   flexmember
   fpieee
-
-
   free-posix
   fstatat
   fsusage
