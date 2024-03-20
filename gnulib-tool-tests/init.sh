@@ -76,6 +76,11 @@ do_create_test ()
   tmp=tmp$$
   $GNULIB_SRCDIR/gnulib-tool --gnulib-dir=../gnulib-data --dir=$tmp-result `cat ${0%.sh}.args` >$tmp-out 2>$tmp-err
   rc=$?
+  # Remove .deps dirs, since we cannot check them in as part of the expected result.
+  deps_dir=`find $tmp-result -name .deps -type d -print`
+  if test -n "$deps_dir"; then
+    rmdir $deps_dir
+  fi
   if test $rc != 0; then
     cat $tmp-err >&2
     echo "FAIL: gnulib-tool exited with code $rc." >&2
