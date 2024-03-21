@@ -299,7 +299,6 @@ etc/emacs.tmpdesktop
 
 # Microsoft-related builds and installations.
 *.in-h
-_*
 !m4/_*.m4
 /bin/
 /BIN/
