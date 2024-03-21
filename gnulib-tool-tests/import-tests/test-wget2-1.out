@@ -2015,6 +2015,15 @@ Creating m4/gnulib-cache.m4
 Creating m4/gnulib-comp.m4
 Creating lib/gnulib.mk
 Updating .gitignore (backup in .gitignore~)
+Creating build-aux/.gitignore
+Creating lib/.gitignore
+Creating lib/glthread/.gitignore
+Creating lib/malloc/.gitignore
+Creating lib/unicase/.gitignore
+Creating lib/unictype/.gitignore
+Creating lib/unistr/.gitignore
+Creating lib/uniwidth/.gitignore
+Creating m4/.gitignore
 Finished.
 
 You may need to add #include directives for the following .h files.
