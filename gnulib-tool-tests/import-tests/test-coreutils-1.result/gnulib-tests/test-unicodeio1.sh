@@ -1,1 +1,5 @@
-/media/develdata/devel/GNULIB/maint-tools/gnulib-tool-tests/gnulib-data/tests/test-unicodeio1.sh
+#!/bin/sh
+
+# Test in the C locale.
+LC_ALL=C \
+${CHECKER} ./test-unicodeio${EXEEXT} 1

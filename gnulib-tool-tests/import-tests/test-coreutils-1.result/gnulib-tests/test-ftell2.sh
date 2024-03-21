@@ -1,1 +1,3 @@
-/media/develdata/devel/GNULIB/maint-tools/gnulib-tool-tests/gnulib-data/tests/test-ftell2.sh
+#!/bin/sh
+
+exec ${CHECKER} ./test-ftell${EXEEXT} 1 2 < "$srcdir/test-ftell2.sh"

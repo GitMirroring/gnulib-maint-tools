@@ -1,1 +1,3 @@
-/media/develdata/devel/GNULIB/maint-tools/gnulib-tool-tests/gnulib-data/lib/same-inode.c
+#include <config.h>
+#define SAME_INODE_INLINE _GL_EXTERN_INLINE
+#include "same-inode.h"

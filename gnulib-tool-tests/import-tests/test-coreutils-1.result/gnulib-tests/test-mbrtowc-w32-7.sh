@@ -1,1 +1,4 @@
-/media/develdata/devel/GNULIB/maint-tools/gnulib-tool-tests/gnulib-data/tests/test-mbrtowc-w32-7.sh
+#!/bin/sh
+
+# Test a CP936 locale.
+${CHECKER} ./test-mbrtowc-w32${EXEEXT} Chinese_China 936

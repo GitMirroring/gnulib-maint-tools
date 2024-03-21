@@ -1,1 +1,3 @@
-/media/develdata/devel/GNULIB/maint-tools/gnulib-tool-tests/gnulib-data/tests/test-fseek2.sh
+#!/bin/sh
+
+exec ${CHECKER} ./test-fseek${EXEEXT} 1 2 < "$srcdir/test-fseek2.sh"

@@ -1,1 +1,3 @@
-/media/develdata/devel/GNULIB/maint-tools/gnulib-tool-tests/gnulib-data/tests/test-ftruncate.sh
+#!/bin/sh
+
+exec ${CHECKER} ./test-ftruncate${EXEEXT} "$srcdir/test-ftruncate.sh"

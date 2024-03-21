@@ -19,7 +19,6 @@
 /THANKS-to-translators
 /aclocal.m4
 /autom4te.cache
-/build-aux/.gitignore
 /build-aux/ar-lib
 /build-aux/compile
 /build-aux/config.guess

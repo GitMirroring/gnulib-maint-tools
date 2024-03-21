@@ -4901,6 +4901,22 @@ Creating m4/gnulib-comp.m4
 Creating lib/gnulib.mk
 Creating gnulib-tests/gnulib.mk
 Updating .gitignore (backup in .gitignore~)
+Creating build-aux/.gitignore
+Creating doc/.gitignore
+Creating gnulib-tests/.gitignore
+Creating gnulib-tests/glthread/.gitignore
+Creating gnulib-tests/unicase/.gitignore
+Creating gnulib-tests/unictype/.gitignore
+Creating gnulib-tests/unistr/.gitignore
+Creating gnulib-tests/uniwidth/.gitignore
+Creating lib/.gitignore
+Creating lib/glthread/.gitignore
+Creating lib/malloc/.gitignore
+Creating lib/unicase/.gitignore
+Creating lib/unictype/.gitignore
+Creating lib/unistr/.gitignore
+Creating lib/uniwidth/.gitignore
+Creating m4/.gitignore
 Finished.
 
 You may need to add #include directives for the following .h files.

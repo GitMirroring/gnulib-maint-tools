@@ -1,1 +1,8 @@
-/media/develdata/devel/GNULIB/maint-tools/gnulib-tool-tests/gnulib-data/m4/savewd.m4
+# Save and restore the working directory, possibly using a child process.
+
+dnl Copyright (C) 2004, 2009-2024 Free Software Foundation, Inc.
+dnl This file is free software; the Free Software Foundation
+dnl gives unlimited permission to copy and/or distribute it,
+dnl with or without modifications, as long as this notice is preserved.
+
+AC_DEFUN([gl_SAVEWD], [:])

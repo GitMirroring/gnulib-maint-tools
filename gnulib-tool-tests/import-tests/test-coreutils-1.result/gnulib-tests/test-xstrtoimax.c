@@ -1,1 +1,4 @@
-/media/develdata/devel/GNULIB/maint-tools/gnulib-tool-tests/gnulib-data/tests/test-xstrtoimax.c
+#define __xstrtol xstrtoimax
+#define __strtol_t intmax_t
+#define __spec PRIdMAX
+#include "test-xstrtol.c"

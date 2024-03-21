@@ -1,1 +1,4 @@
-/media/develdata/devel/GNULIB/maint-tools/gnulib-tool-tests/gnulib-data/tests/test-c32rtomb-w32-8.sh
+#!/bin/sh
+
+# Test a GB18030 locale.
+${CHECKER} ./test-c32rtomb-w32${EXEEXT} Chinese_China 54936

@@ -1,1 +1,4 @@
-/media/develdata/devel/GNULIB/maint-tools/gnulib-tool-tests/gnulib-data/tests/test-wcrtomb-w32-5.sh
+#!/bin/sh
+
+# Test a CP932 locale.
+${CHECKER} ./test-wcrtomb-w32${EXEEXT} Japanese_Japan 932

@@ -1,1 +1,4 @@
-/media/develdata/devel/GNULIB/maint-tools/gnulib-tool-tests/gnulib-data/tests/test-fnmatch-w32-2.sh
+#!/bin/sh
+
+# Test a CP1252 locale.
+${CHECKER} ./test-fnmatch-w32${EXEEXT} French_France 1252

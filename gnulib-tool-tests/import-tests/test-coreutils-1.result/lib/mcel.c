@@ -1,1 +1,3 @@
-/media/develdata/devel/GNULIB/maint-tools/gnulib-tool-tests/gnulib-data/lib/mcel.c
+#include <config.h>
+#define MCEL_INLINE _GL_EXTERN_INLINE
+#include "mcel.h"

@@ -1,1 +1,4 @@
-/media/develdata/devel/GNULIB/maint-tools/gnulib-tool-tests/gnulib-data/tests/test-xstrtoul.c
+#define __xstrtol xstrtoul
+#define __strtol_t unsigned long int
+#define __spec "lu"
+#include "test-xstrtol.c"

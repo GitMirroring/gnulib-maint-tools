@@ -1,1 +1,3 @@
-/media/develdata/devel/GNULIB/maint-tools/gnulib-tool-tests/gnulib-data/tests/test-fseeko2.sh
+#!/bin/sh
+
+exec ${CHECKER} ./test-fseeko${EXEEXT} 1 2 < "$srcdir/test-fseeko2.sh"

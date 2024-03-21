@@ -1,1 +1,7 @@
-/media/develdata/devel/GNULIB/maint-tools/gnulib-tool-tests/gnulib-data/tests/test-getcwd.sh
+#!/bin/sh
+
+. "${srcdir=.}/init.sh"; path_prepend_ .
+
+${CHECKER} test-getcwd
+
+Exit $?
