@@ -8,9 +8,6 @@ unit-tests/*
 examples/*
 !examples/*.*
 
-m4/*
-!m4/wget_manywarnings.m4
-
 *.Makefile.in
 *.bak
 *.dll
@@ -28,14 +25,10 @@ m4/*
 */.deps
 */.libs
 */Makefile
-*~
 .depend
 .manywarnings
 /ABOUT-NLS
-/GNUmakefile
 /INSTALL
-/build-aux
-/maint.mk
 Makefile
 Makefile.in
 aclocal.m4
@@ -47,7 +40,6 @@ config.cache
 config.guess
 config.h
 config.h.in
-config.rpath
 config.status
 config.sub
 configure
@@ -67,7 +59,6 @@ git_push
 include/wget/wgetver.h
 install-sh
 lcov
-lib
 libtool
 libwget.pc
 libwget/css_tokenizer.c
@@ -81,3 +72,5 @@ src/wget2_noinstall
 stamp-h1
 test-driver
 wget2-*
+/GNUmakefile
+/maint.mk

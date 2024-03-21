@@ -47,7 +47,6 @@ makefile
 /config.status
 /configure.lineno
 /conftest*
-lib/gnulib.mk
 src/config.h
 src/epaths.h
 src/emacs-module.h
@@ -68,37 +67,6 @@ java/org/gnu/emacs/R.java
 
 # Built by `config.status'.
 java/AndroidManifest.xml
-
-# C-level sources built by 'make'.
-lib/alloca.h
-lib/assert.h
-lib/byteswap.h
-lib/dirent.h
-lib/errno.h
-lib/execinfo.h
-lib/fcntl.h
-lib/getopt.h
-lib/getopt-cdefs.h
-lib/gmp.h
-lib/ieee754.h
-lib/inttypes.h
-lib/libgnu.a
-lib/limits.h
-lib/malloc/*.gl.h
-lib/signal.h
-lib/std*.h
-lib/math.h
-!lib/std*.in.h
-!lib/stdio-impl.h
-!lib/_Noreturn.h
-lib/string.h
-lib/sys/
-lib/time.h
-lib/unistd.h
-src/buildobj.h
-src/globals.h
-src/lisp.mk
-src/verbose.mk
 
 # Stuff built during cross compilation
 cross/lib/*
@@ -313,7 +281,6 @@ gnustmp*
 # Version control and locks.
 *.orig
 *.swp
-*~
 .#*
 \#*\#
 ChangeLog
@@ -333,13 +300,11 @@ etc/emacs.tmpdesktop
 # Microsoft-related builds and installations.
 *.in-h
 _*
-!lib/_Noreturn.h
 !m4/_*.m4
 /bin/
 /BIN/
 /data/
 etc/icons/
-lib/cxxdefs.h
 lib/SYS/
 /libexec/
 /lock/
