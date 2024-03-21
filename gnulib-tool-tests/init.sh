@@ -128,6 +128,8 @@ do_import_test ()
   (cd "$1" && tar cf - .) | (cd $tmp-result && tar xf -)
   (cd $tmp-result/"$2" && $GNULIB_SRCDIR/gnulib-tool --gnulib-dir="$gnulib_dir" $3) >$tmp-out 2>$tmp-err
   rc=$?
+  # Remove autom4te.cache directory, since it may depend on the Autoconf version or M4 version.
+  rm -rf $tmp-result/"$2"/autom4te.cache
   if test $rc != 0; then
     cat $tmp-err >&2
     echo "FAIL: gnulib-tool exited with code $rc." >&2
