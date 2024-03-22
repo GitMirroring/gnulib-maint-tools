@@ -292,7 +292,7 @@ gl_MODULES([
   warnings
   year2038
 ])
-gl_AVOID([ btowc chmod close crypto/af_alg dup fchdir fstat iswblank iswctype iswdigit iswxdigit langinfo lock mbrtowc mbsinit memchr mkdir msvc-inval msvc-nothrow nl_langinfo openat-die opendir pthread-h raise save-cwd select setenv sigprocmask stat stdarg threadlib tzset unsetenv utime utime-h wchar wcrtomb wctype wctype-h])
+gl_AVOID([btowc chmod close crypto/af_alg dup fchdir fstat iswblank iswctype iswdigit iswxdigit langinfo lock mbrtowc mbsinit memchr mkdir msvc-inval msvc-nothrow nl_langinfo openat-die opendir pthread-h raise save-cwd select setenv sigprocmask stat stdarg threadlib tzset unsetenv utime utime-h wchar wcrtomb wctype wctype-h])
 gl_SOURCE_BASE([lib])
 gl_M4_BASE([m4])
 gl_PO_BASE([])

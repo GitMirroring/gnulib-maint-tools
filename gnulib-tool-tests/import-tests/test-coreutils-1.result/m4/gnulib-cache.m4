@@ -617,7 +617,7 @@ gl_MODULES([
   year2038-recommended
   yesno
 ])
-gl_AVOID([ canonicalize-lgpl dummy mbuiter mbuiterf])
+gl_AVOID([canonicalize-lgpl dummy mbuiter mbuiterf])
 gl_SOURCE_BASE([lib])
 gl_M4_BASE([m4])
 gl_PO_BASE([])
