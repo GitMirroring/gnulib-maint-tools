@@ -88,7 +88,7 @@ do_create_test ()
   fi
   expected_result=${0%.sh}.result
   # Exclude files whose contents depends on the GNU Autoconf version, GNU Automake version, or file time stamps.
-  if LC_ALL=C diff -r -q --exclude=aclocal.m4 --exclude=configure --exclude=config.h.in --exclude=Makefile.in --exclude=do-autobuild $expected_result $tmp-result; then
+  if LC_ALL=C diff -r -q --exclude=aclocal.m4 --exclude=configure --exclude=config.h.in --exclude=Makefile.in --exclude=compile --exclude=depcomp --exclude=missing --exclude=test-driver --exclude=do-autobuild $expected_result $tmp-result; then
     :
   else
     echo "FAIL: gnulib-tool's result has unexpected differences." >&2
