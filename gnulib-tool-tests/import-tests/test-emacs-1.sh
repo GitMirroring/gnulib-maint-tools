@@ -1,5 +1,9 @@
 #!/bin/sh
 . ../init.sh
+case `autoconf --version | sed -e 's/^[^0-9]*//' -e 1q` in
+  2.72) ;;
+  *) echo "Skipping test: Autoconf version 2.72 is needed for this test." >&2; exit 77 ;;
+esac
 do_import_test emacs-20240101 . "--conditional-dependencies --import --no-changelog --no-vc-files --gnu-make --makefile-name=gnulib.mk.in `echo '
   --avoid=btowc
   --avoid=chmod

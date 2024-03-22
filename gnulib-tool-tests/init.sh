@@ -34,12 +34,12 @@ run_test_group ()
 {
   fail=0
   for f in $1; do
-    if ./$f; then
-      echo "PASS: $f"
-    else
-      echo "FAIL: $f"
-      fail=1
-    fi
+    ./$f
+    case $? in
+      0)  echo "PASS: $f" ;;
+      77) echo "SKIP: $f" ;;
+      *)  echo "FAIL: $f"; fail=1 ;;
+    esac
   done
   exit $fail
 }
