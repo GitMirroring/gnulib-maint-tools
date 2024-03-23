@@ -71,10 +71,13 @@ do_info_test ()
   exit 0
 }
 
+# do_create_test GNULIB_TOOL_ARGS
+# runs a test that creates a directory.
+# GNULIB_TOOL_ARGS   arguments to pass to gnulib-tool
 do_create_test ()
 {
   tmp=tmp$$
-  $GNULIB_SRCDIR/gnulib-tool --gnulib-dir=../gnulib-data --dir=$tmp-result `cat ${0%.sh}.args` >$tmp-out 2>$tmp-err
+  $GNULIB_SRCDIR/gnulib-tool --gnulib-dir=../gnulib-data --dir=$tmp-result $1 >$tmp-out 2>$tmp-err
   rc=$?
   # Remove .deps dirs, since we cannot check them in as part of the expected result.
   deps_dir=`find $tmp-result -name .deps -type d -print`
