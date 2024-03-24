@@ -8681,8 +8681,6 @@ checking whether the compiler supports GNU C++... yes
 checking whether /home/bruno/inst-clang/17.0.4/bin/clang++ -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -L/usr/lib/gcc/x86_64-linux-gnu/11 -Wl,-rpath,/home/bruno/inst-clang/17.0.4/lib -fsanitize=address,undefined,signed-integer-overflow,shift,integer-divide-by-zero accepts -g... yes
 configure: autobuild project... dummy
 configure: autobuild revision... 0
-configure: autobuild hostname... nimes
-configure: autobuild timestamp... 20240319T164603Z
 checking for /home/bruno/inst-clang/17.0.4/bin/clang -Wl,-rpath,/home/bruno/inst-clang/17.0.4/lib -fsanitize=address,undefined,signed-integer-overflow,shift,integer-divide-by-zero option to enable large file support... none needed
 checking for /home/bruno/inst-clang/17.0.4/bin/clang -Wl,-rpath,/home/bruno/inst-clang/17.0.4/lib -fsanitize=address,undefined,signed-integer-overflow,shift,integer-divide-by-zero option for timestamps after 2038... none needed
 checking for /home/bruno/inst-clang/17.0.4/bin/clang -Wl,-rpath,/home/bruno/inst-clang/17.0.4/lib -fsanitize=address,undefined,signed-integer-overflow,shift,integer-divide-by-zero option to enable large file support... (cached) none needed
@@ -11489,7 +11487,7 @@ sed -e 1h -e '1s,.*,/* DO NOT EDIT! GENERATED AUTOMATICALLY! */,' -e 1G \
       -e 's|@''NEXT_OMP_H''@|<omp.h>|g' \
       ./omp.in.h > omp.h-t
 mv omp.h-t omp.h
-make[1]: Entering directory '/media/develdata/devel/GNULIB/maint-tools/gnulib-tool-tests/create-tests/test-create-testdir-4.result/gllib'
+make[1]: Entering directory '//test-create-testdir-4.result/gllib'
 bison -d   ./parse-datetime.y \
 && test ':' = 'bison' || { \
   sed -e 's|".*/parse-datetime\.y"|"parse-datetime.y"|' \
@@ -11503,7 +11501,7 @@ bison -d   ./parse-datetime.y \
   && mv parse-datetime.c-tmp ./parse-datetime.c \
   && mv parse-datetime-gen.h-tmp ./parse-datetime-gen.h; \
 }
-make[1]: Leaving directory '/media/develdata/devel/GNULIB/maint-tools/gnulib-tool-tests/create-tests/test-create-testdir-4.result/gllib'
+make[1]: Leaving directory '//test-create-testdir-4.result/gllib'
 sed -e 1h -e '1s,.*,/* DO NOT EDIT! GENERATED AUTOMATICALLY! */,' -e 1G \
       -e 's|@''GUARD_PREFIX''@|GL|g' \
       -e 's|@''HAVE_POLL_H''@|1|g' \
@@ -13274,8 +13272,8 @@ sed -e 1h -e '1s,.*,/* DO NOT EDIT! GENERATED AUTOMATICALLY! */,' -e 1G \
       ./wctype.in.h > wctype.h-t
 mv wctype.h-t wctype.h
 Making distclean in gllib
-make[1]: Entering directory '/media/develdata/devel/GNULIB/maint-tools/gnulib-tool-tests/create-tests/test-create-testdir-4.result/gllib'
-make[2]: Entering directory '/media/develdata/devel/GNULIB/maint-tools/gnulib-tool-tests/create-tests/test-create-testdir-4.result/gllib'
+make[1]: Entering directory '//test-create-testdir-4.result/gllib'
+make[2]: Entering directory '//test-create-testdir-4.result/gllib'
 test -z "git-merge-changelog" || rm -f git-merge-changelog
 test -z "configmake.h configmake.h-t" || rm -f configmake.h configmake.h-t
 test -z "libgnu.a" || rm -f libgnu.a
@@ -13335,7 +13333,7 @@ test -z "" || rm -f
 test '.' = . || rm -f ../GNUmakefile
 rm -f  ./.deps/asnprintf.Po ./.deps/asprintf.Po ./.deps/c32srtombs-state.Po ./.deps/dprintf.Po ./.deps/fopen.Po ./.deps/fprintf.Po ./.deps/mbsrtoc32s-state.Po ./.deps/mbsrtowcs-state.Po ./.deps/mktime.Po ./.deps/obstack_printf.Po ./.deps/printf.Po ./.deps/printf-args.Po ./.deps/printf-parse.Po ./.deps/snprintf.Po ./.deps/sprintf.Po ./.deps/strerror_r.Po ./.deps/vasnprintf.Po ./.deps/vasprintf.Po ./.deps/vdprintf.Po ./.deps/vfprintf.Po ./.deps/vprintf.Po ./.deps/vsnprintf.Po ./.deps/vsprintf.Po ./.deps/wcsstr.Po
 rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
-make[2]: Leaving directory '/media/develdata/devel/GNULIB/maint-tools/gnulib-tool-tests/create-tests/test-create-testdir-4.result/gllib'
+make[2]: Leaving directory '//test-create-testdir-4.result/gllib'
 rm -f ./.deps/_Exit.Po
 rm -f ./.deps/accept.Po
 rm -f ./.deps/accept4.Po
@@ -14867,17 +14865,17 @@ rm -f uniwidth/.deps/u8-strwidth.Po
 rm -f uniwidth/.deps/u8-width.Po
 rm -f uniwidth/.deps/width.Po
 rm -f Makefile
-make[1]: Leaving directory '/media/develdata/devel/GNULIB/maint-tools/gnulib-tool-tests/create-tests/test-create-testdir-4.result/gllib'
+make[1]: Leaving directory '//test-create-testdir-4.result/gllib'
 Making distclean in glm4
-make[1]: Entering directory '/media/develdata/devel/GNULIB/maint-tools/gnulib-tool-tests/create-tests/test-create-testdir-4.result/glm4'
+make[1]: Entering directory '//test-create-testdir-4.result/glm4'
 test -z "" || rm -f 
 test . = "." || test -z "" || rm -f 
 rm -f Makefile
-make[1]: Leaving directory '/media/develdata/devel/GNULIB/maint-tools/gnulib-tool-tests/create-tests/test-create-testdir-4.result/glm4'
+make[1]: Leaving directory '//test-create-testdir-4.result/glm4'
 Making distclean in gltests
-make[1]: Entering directory '/media/develdata/devel/GNULIB/maint-tools/gnulib-tool-tests/create-tests/test-create-testdir-4.result/gltests'
+make[1]: Entering directory '//test-create-testdir-4.result/gltests'
 Making distclean in .
-make[2]: Entering directory '/media/develdata/devel/GNULIB/maint-tools/gnulib-tool-tests/create-tests/test-create-testdir-4.result/gltests'
+make[2]: Entering directory '//test-create-testdir-4.result/gltests'
 test -z "" || rm -f 
 rm -rf SunWS_cache
 test -z "libtests.a" || rm -f libtests.a
@@ -14928,7 +14926,7 @@ rm -f uniwidth/.deps/.dirstamp
 rm -f uniwidth/.dirstamp
 test -z "" || rm -f 
 rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
-make[2]: Leaving directory '/media/develdata/devel/GNULIB/maint-tools/gnulib-tool-tests/create-tests/test-create-testdir-4.result/gltests'
+make[2]: Leaving directory '//test-create-testdir-4.result/gltests'
 rm -f ./.deps/bench_md5-bench-md5.Po
 rm -f ./.deps/bench_sha1-bench-sha1.Po
 rm -f ./.deps/bench_sha224-bench-sha224.Po
@@ -16400,14 +16398,14 @@ rm -f uniwidth/.deps/test-u8-width.Po
 rm -f uniwidth/.deps/test-uc_width.Po
 rm -f uniwidth/.deps/test-uc_width2.Po
 rm -f Makefile
-make[1]: Leaving directory '/media/develdata/devel/GNULIB/maint-tools/gnulib-tool-tests/create-tests/test-create-testdir-4.result/gltests'
-make[1]: Entering directory '/media/develdata/devel/GNULIB/maint-tools/gnulib-tool-tests/create-tests/test-create-testdir-4.result'
+make[1]: Leaving directory '//test-create-testdir-4.result/gltests'
+make[1]: Entering directory '//test-create-testdir-4.result'
 test -z "csharpcomp.sh csharpexec.sh javacomp.sh javaexec.sh ldd.sh" || rm -f csharpcomp.sh csharpexec.sh javacomp.sh javaexec.sh ldd.sh
 test . = "." || test -z "" || rm -f 
 rm -f config.h stamp-h1
 rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
 rm -f cscope.out cscope.in.out cscope.po.out cscope.files
-make[1]: Leaving directory '/media/develdata/devel/GNULIB/maint-tools/gnulib-tool-tests/create-tests/test-create-testdir-4.result'
+make[1]: Leaving directory '//test-create-testdir-4.result'
 rm -f config.status config.cache config.log configure.lineno config.status.lineno
 rm -f Makefile
 patching file build-aux/test-driver
