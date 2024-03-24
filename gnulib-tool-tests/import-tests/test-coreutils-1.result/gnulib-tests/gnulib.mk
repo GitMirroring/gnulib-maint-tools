@@ -52,7 +52,7 @@ AM_CPPFLAGS = \
   -I.. -I$(srcdir)/.. \
   -I../lib -I$(srcdir)/../lib
 
-LDADD = libtests.a ../lib/libgnu.a libtests.a ../lib/libgnu.a libtests.a $(LIBTESTS_LIBDEPS)
+LDADD = libtests.a ../lib/libcoreutils.a libtests.a ../lib/libcoreutils.a libtests.a $(LIBTESTS_LIBDEPS)
 
 libtests_a_SOURCES =
 libtests_a_LIBADD = $(gltests_LIBOBJS)
@@ -925,6 +925,14 @@ test_faccessat_LDADD = $(LDADD) $(EUIDACCESS_LIBGEN) @LIBINTL@
 EXTRA_DIST += test-faccessat.c signature.h macros.h
 
 ## end   gnulib module faccessat-tests
+
+## begin gnulib module fadvise-tests
+
+TESTS += test-fadvise
+check_PROGRAMS += test-fadvise
+EXTRA_DIST += test-fadvise.c
+
+## end   gnulib module fadvise-tests
 
 ## begin gnulib module fchdir-tests
 
@@ -1826,6 +1834,7 @@ EXTRA_DIST += test-limits-h.c
 
 TESTS += test-link
 check_PROGRAMS += test-link
+test_link_LDADD = $(LDADD) @LIBINTL@
 EXTRA_DIST += test-link.h test-link.c signature.h macros.h
 
 ## end   gnulib module link-tests
@@ -2468,6 +2477,14 @@ EXTRA_DIST += test-random_r.c signature.h macros.h
 
 ## end   gnulib module random_r-tests
 
+## begin gnulib module randread-tests
+
+TESTS += test-rand-isaac
+check_PROGRAMS += test-rand-isaac
+EXTRA_DIST += test-rand-isaac.c macros.h
+
+## end   gnulib module randread-tests
+
 ## begin gnulib module rawmemchr-tests
 
 TESTS += test-rawmemchr
@@ -2564,6 +2581,7 @@ EXTRA_DIST += test-remove.c signature.h macros.h
 
 TESTS += test-rename
 check_PROGRAMS += test-rename
+test_rename_LDADD = $(LDADD) @LIBINTL@
 EXTRA_DIST += test-rename.h test-rename.c signature.h macros.h
 
 ## end   gnulib module rename-tests
@@ -2948,6 +2966,22 @@ EXTRA_DIST += test-strsignal.c signature.h macros.h
 
 ## end   gnulib module strsignal-tests
 
+## begin gnulib module strtod-tests
+
+TESTS += test-strtod
+check_PROGRAMS += test-strtod
+
+TESTS += test-strtod1.sh
+TESTS_ENVIRONMENT += \
+  LOCALE_FR='@LOCALE_FR@' \
+  LOCALE_FR_UTF8='@LOCALE_FR_UTF8@' \
+  LC_NUMERIC_IMPLEMENTED='@LC_NUMERIC_IMPLEMENTED@'
+check_PROGRAMS += test-strtod1
+test_strtod1_LDADD = $(LDADD) $(SETLOCALE_LIB)
+EXTRA_DIST += test-strtod.c test-strtod1.sh test-strtod1.c signature.h minus-zero.h macros.h
+
+## end   gnulib module strtod-tests
+
 ## begin gnulib module strtoimax-tests
 
 TESTS += test-strtoimax
@@ -2955,6 +2989,22 @@ check_PROGRAMS += test-strtoimax
 EXTRA_DIST += test-strtoimax.c signature.h macros.h
 
 ## end   gnulib module strtoimax-tests
+
+## begin gnulib module strtold-tests
+
+TESTS += test-strtold
+check_PROGRAMS += test-strtold
+
+TESTS += test-strtold1.sh
+TESTS_ENVIRONMENT += \
+  LOCALE_FR='@LOCALE_FR@' \
+  LOCALE_FR_UTF8='@LOCALE_FR_UTF8@' \
+  LC_NUMERIC_IMPLEMENTED='@LC_NUMERIC_IMPLEMENTED@'
+check_PROGRAMS += test-strtold1
+test_strtold1_LDADD = $(LDADD) $(SETLOCALE_LIB)
+EXTRA_DIST += test-strtold.c test-strtold1.sh test-strtold1.c signature.h minus-zero.h macros.h
+
+## end   gnulib module strtold-tests
 
 ## begin gnulib module strtoll-tests
 

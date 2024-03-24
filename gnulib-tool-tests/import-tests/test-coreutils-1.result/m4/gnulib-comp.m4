@@ -104,6 +104,7 @@ AC_DEFUN([gl_EARLY],
   # Code from module btoc32-tests:
   # Code from module btowc:
   # Code from module btowc-tests:
+  # Code from module buffer-lcm:
   # Code from module builtin-expect:
   # Code from module byteswap:
   # Code from module byteswap-tests:
@@ -115,6 +116,8 @@ AC_DEFUN([gl_EARLY],
   # Code from module c-strcaseeq:
   # Code from module c-strcasestr:
   # Code from module c-strcasestr-tests:
+  # Code from module c-strtod:
+  # Code from module c-strtold:
   # Code from module c32_apply_type_test:
   # Code from module c32_apply_type_test-tests:
   # Code from module c32_get_type_test:
@@ -167,6 +170,8 @@ AC_DEFUN([gl_EARLY],
   # Code from module chown:
   # Code from module chown-tests:
   # Code from module chownat:
+  # Code from module cl-strtod:
+  # Code from module cl-strtold:
   # Code from module clock-time:
   # Code from module cloexec:
   # Code from module cloexec-tests:
@@ -250,6 +255,8 @@ AC_DEFUN([gl_EARLY],
   # Code from module extern-inline:
   # Code from module faccessat:
   # Code from module faccessat-tests:
+  # Code from module fadvise:
+  # Code from module fadvise-tests:
   # Code from module fchdir:
   # Code from module fchdir-tests:
   # Code from module fchmodat:
@@ -265,6 +272,7 @@ AC_DEFUN([gl_EARLY],
   # Code from module fcntl-safer-tests:
   # Code from module fcntl-tests:
   # Code from module fd-hook:
+  # Code from module fd-reopen:
   # Code from module fd-safer-flag:
   # Code from module fdatasync:
   # Code from module fdatasync-tests:
@@ -422,6 +430,7 @@ AC_DEFUN([gl_EARLY],
   # Code from module hash-triple:
   # Code from module hash-triple-simple:
   # Code from module havelib:
+  # Code from module heap:
   # Code from module host-os:
   # Code from module hostent:
   # Code from module human:
@@ -667,10 +676,14 @@ AC_DEFUN([gl_EARLY],
   # Code from module quotearg-simple-tests:
   # Code from module raise:
   # Code from module raise-tests:
+  # Code from module randint:
   # Code from module random:
   # Code from module random-tests:
   # Code from module random_r:
   # Code from module random_r-tests:
+  # Code from module randperm:
+  # Code from module randread:
+  # Code from module randread-tests:
   # Code from module rawmemchr:
   # Code from module rawmemchr-tests:
   # Code from module read:
@@ -705,6 +718,7 @@ AC_DEFUN([gl_EARLY],
   # Code from module rewinddir:
   # Code from module rmdir:
   # Code from module rmdir-tests:
+  # Code from module root-dev-ino:
   # Code from module root-uid:
   # Code from module rpmatch:
   # Code from module safe-read:
@@ -744,8 +758,10 @@ AC_DEFUN([gl_EARLY],
   # Code from module sigprocmask:
   # Code from module sigprocmask-tests:
   # Code from module size_max:
+  # Code from module skipchars:
   # Code from module sleep:
   # Code from module sleep-tests:
+  # Code from module smack:
   # Code from module snan:
   # Code from module snippet/_Noreturn:
   # Code from module snippet/arg-nonnull:
@@ -798,11 +814,16 @@ AC_DEFUN([gl_EARLY],
   # Code from module strnlen:
   # Code from module strnlen-tests:
   # Code from module strnlen1:
+  # Code from module strnumcmp:
   # Code from module strsignal:
   # Code from module strsignal-tests:
   # Code from module strstr-simple:
+  # Code from module strtod:
+  # Code from module strtod-tests:
   # Code from module strtoimax:
   # Code from module strtoimax-tests:
+  # Code from module strtold:
+  # Code from module strtold-tests:
   # Code from module strtoll:
   # Code from module strtoll-tests:
   # Code from module strtoull:
@@ -835,6 +856,7 @@ AC_DEFUN([gl_EARLY],
   # Code from module sys_utsname-tests:
   # Code from module sys_wait:
   # Code from module sys_wait-tests:
+  # Code from module targetdir:
   # Code from module tempname:
   # Code from module termios:
   # Code from module termios-tests:
@@ -1006,6 +1028,8 @@ AC_DEFUN([gl_EARLY],
   # Code from module xalloc-die-tests:
   # Code from module xalloc-oversized:
   # Code from module xbinary-io:
+  # Code from module xdectoint:
+  # Code from module xfts:
   # Code from module xgetcwd:
   # Code from module xgetgroups:
   # Code from module xgethostname:
@@ -1093,6 +1117,8 @@ AC_DEFUN([gl_INIT],
   gl_BYTESWAP
   gl_CONDITIONAL_HEADER([byteswap.h])
   AC_PROG_MKDIR_P
+  gl_C_STRTOD
+  gl_C_STRTOLD
   gl_UCHAR_MODULE_INDICATOR([c32_apply_type_test])
   gl_UCHAR_MODULE_INDICATOR([c32_get_type_test])
   AC_REQUIRE([gl_UCHAR_H])
@@ -1217,6 +1243,8 @@ AC_DEFUN([gl_INIT],
                  [test $REPLACE_CHOWN = 1 && test $ac_cv_func_fchown = no])
   gl_UNISTD_MODULE_INDICATOR([chown])
   gl_MODULE_INDICATOR([chownat]) dnl for lib/openat.h
+  AC_REQUIRE([AC_C_RESTRICT])
+  AC_REQUIRE([AC_C_RESTRICT])
   gl_CLOCK_TIME
   gl_MODULE_INDICATOR_FOR_TESTS([cloexec])
   gl_FUNC_CLOSE
@@ -1311,6 +1339,7 @@ AC_DEFUN([gl_INIT],
   ])
   gl_MODULE_INDICATOR([faccessat])
   gl_UNISTD_MODULE_INDICATOR([faccessat])
+  AC_CHECK_FUNCS_ONCE([posix_fadvise])
   gl_FUNC_FCHDIR
   gl_CONDITIONAL([GL_COND_OBJ_FCHDIR],
                  [test $HAVE_FCHDIR = 0 || test $REPLACE_FCHDIR = 1])
@@ -2238,6 +2267,26 @@ AC_DEFUN([gl_INIT],
   ])
   gl_SIGNAL_MODULE_INDICATOR([sigprocmask])
   gl_SIZE_MAX
+  # Check whether libsmack is available
+  LIB_SMACK=
+  AC_ARG_ENABLE([libsmack],
+    AS_HELP_STRING([--disable-libsmack], [disable libsmack support]))
+  if test "X$enable_libsmack" != "Xno"; then
+    AC_CHECK_LIB([smack], [smack_new_label_from_self],
+      [AC_CHECK_LIB([smack], [smack_new_label_from_path],
+        [AC_CHECK_HEADER([sys/smack.h],
+          [LIB_SMACK=-lsmack
+           AC_DEFINE([HAVE_SMACK], [1], [libsmack usability])]
+        )])])
+    if test "X$LIB_SMACK" = "X"; then
+      if test "X$enable_libsmack" = "Xyes"; then
+        AC_MSG_ERROR([libsmack library was not found or not usable])
+      fi
+    fi
+  else
+    AC_MSG_WARN([libsmack support disabled by user])
+  fi
+  AC_SUBST([LIB_SMACK])
   gl_FUNC_SNPRINTF
   gl_STDIO_MODULE_INDICATOR([snprintf])
   gl_MODULE_INDICATOR([snprintf])
@@ -2357,6 +2406,13 @@ AC_DEFUN([gl_INIT],
     AC_LIBOBJ([strstr])
   fi
   gl_STRING_MODULE_INDICATOR([strstr])
+  gl_FUNC_STRTOD
+  gl_CONDITIONAL([GL_COND_OBJ_STRTOD],
+                 [test $HAVE_STRTOD = 0 || test $REPLACE_STRTOD = 1])
+  AM_COND_IF([GL_COND_OBJ_STRTOD], [
+    gl_PREREQ_STRTOD
+  ])
+  gl_STDLIB_MODULE_INDICATOR([strtod])
   gl_FUNC_STRTOIMAX
   gl_CONDITIONAL([GL_COND_OBJ_STRTOIMAX],
                  [test $HAVE_DECL_STRTOIMAX = 0 || test $REPLACE_STRTOIMAX = 1])
@@ -2364,6 +2420,13 @@ AC_DEFUN([gl_INIT],
     gl_PREREQ_STRTOIMAX
   ])
   gl_INTTYPES_MODULE_INDICATOR([strtoimax])
+  gl_FUNC_STRTOLD
+  gl_CONDITIONAL([GL_COND_OBJ_STRTOLD],
+                 [test $HAVE_STRTOLD = 0 || test $REPLACE_STRTOLD = 1])
+  AM_COND_IF([GL_COND_OBJ_STRTOLD], [
+    gl_PREREQ_STRTOLD
+  ])
+  gl_STDLIB_MODULE_INDICATOR([strtold])
   gl_FUNC_STRTOLL
   gl_CONDITIONAL([GL_COND_OBJ_STRTOLL],
                  [test $HAVE_STRTOLL = 0 || test $REPLACE_STRTOLL = 1])
@@ -3026,6 +3089,10 @@ changequote([, ])dnl
   gl_FUNC_MMAP_ANON
   AC_CHECK_HEADERS_ONCE([sys/mman.h])
   AC_CHECK_FUNCS_ONCE([mprotect])
+  gt_LOCALE_FR
+  gt_LOCALE_FR_UTF8
+  gt_LOCALE_FR
+  gt_LOCALE_FR_UTF8
   AC_CHECK_FUNCS_ONCE([shutdown])
   gl_THREAD
   AC_CHECK_HEADERS([sys/single_threaded.h])
@@ -3118,10 +3185,10 @@ changequote([, ])dnl
     AC_SUBST([gltests_LIBOBJDEPS], [$gltests_libobjdeps])
   ])
   AC_REQUIRE([gl_CC_GNULIB_WARNINGS])
-  LIBGNU_LIBDEPS="$gl_libdeps"
-  AC_SUBST([LIBGNU_LIBDEPS])
-  LIBGNU_LTLIBDEPS="$gl_ltlibdeps"
-  AC_SUBST([LIBGNU_LTLIBDEPS])
+  LIBCOREUTILS_LIBDEPS="$gl_libdeps"
+  AC_SUBST([LIBCOREUTILS_LIBDEPS])
+  LIBCOREUTILS_LTLIBDEPS="$gl_ltlibdeps"
+  AC_SUBST([LIBCOREUTILS_LTLIBDEPS])
   LIBTESTS_LIBDEPS="$gltests_libdeps"
   AC_SUBST([LIBTESTS_LIBDEPS])
 ])
@@ -3251,6 +3318,8 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/boot-time-aux.h
   lib/btoc32.c
   lib/btowc.c
+  lib/buffer-lcm.c
+  lib/buffer-lcm.h
   lib/byteswap.in.h
   lib/c++defs.h
   lib/c-ctype.c
@@ -3260,6 +3329,9 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/c-strcasecmp.c
   lib/c-strcaseeq.h
   lib/c-strncasecmp.c
+  lib/c-strtod.c
+  lib/c-strtod.h
+  lib/c-strtold.c
   lib/c32_apply_type_test.c
   lib/c32_get_type_test.c
   lib/c32is-impl.h
@@ -3292,6 +3364,9 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/chmodat.c
   lib/chown.c
   lib/chownat.c
+  lib/cl-strtod.c
+  lib/cl-strtod.h
+  lib/cl-strtold.c
   lib/cloexec.c
   lib/cloexec.h
   lib/close-stream.c
@@ -3341,6 +3416,8 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/exitfail.h
   lib/explicit_bzero.c
   lib/faccessat.c
+  lib/fadvise.c
+  lib/fadvise.h
   lib/fchdir.c
   lib/fchmodat.c
   lib/fchown-stub.c
@@ -3352,6 +3429,8 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/fcntl.in.h
   lib/fd-hook.c
   lib/fd-hook.h
+  lib/fd-reopen.c
+  lib/fd-reopen.h
   lib/fd-safer-flag.c
   lib/fd-safer.c
   lib/fdatasync.c
@@ -3475,6 +3554,8 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/hash-triple.h
   lib/hash.c
   lib/hash.h
+  lib/heap.c
+  lib/heap.h
   lib/human.c
   lib/human.h
   lib/i-ring.c
@@ -3695,6 +3776,14 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/quotearg.c
   lib/quotearg.h
   lib/raise.c
+  lib/rand-isaac.c
+  lib/rand-isaac.h
+  lib/randint.c
+  lib/randint.h
+  lib/randperm.c
+  lib/randperm.h
+  lib/randread.c
+  lib/randread.h
   lib/rawmemchr.c
   lib/rawmemchr.valgrind
   lib/read-file.c
@@ -3724,6 +3813,8 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/renameatu.h
   lib/rewinddir.c
   lib/rmdir.c
+  lib/root-dev-ino.c
+  lib/root-dev-ino.h
   lib/root-uid.h
   lib/rpmatch.c
   lib/safe-read.c
@@ -3780,9 +3871,12 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/signbitl.c
   lib/sigprocmask.c
   lib/size_max.h
+  lib/skipchars.c
+  lib/skipchars.h
   lib/sm3-stream.c
   lib/sm3.c
   lib/sm3.h
+  lib/smack.h
   lib/snprintf.c
   lib/sockets.c
   lib/sockets.h
@@ -3815,14 +3909,20 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/strerror.c
   lib/strftime.h
   lib/string.in.h
+  lib/strintcmp.c
   lib/stripslash.c
   lib/strnlen.c
   lib/strnlen1.c
   lib/strnlen1.h
+  lib/strnumcmp-in.h
+  lib/strnumcmp.c
+  lib/strnumcmp.h
   lib/strsignal.c
   lib/strstr.c
+  lib/strtod.c
   lib/strtoimax.c
   lib/strtol.c
+  lib/strtold.c
   lib/strtoll.c
   lib/strtoul.c
   lib/strtoull.c
@@ -3842,6 +3942,8 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/sys_uio.in.h
   lib/sys_utsname.in.h
   lib/sys_wait.in.h
+  lib/targetdir.c
+  lib/targetdir.h
   lib/tempname.c
   lib/tempname.h
   lib/termios.in.h
@@ -3985,6 +4087,12 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/xasprintf.c
   lib/xbinary-io.c
   lib/xbinary-io.h
+  lib/xdectoimax.c
+  lib/xdectoint.c
+  lib/xdectoint.h
+  lib/xdectoumax.c
+  lib/xfts.c
+  lib/xfts.h
   lib/xgetaname-impl.h
   lib/xgetcwd.c
   lib/xgetcwd.h
@@ -4040,6 +4148,7 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/builtin-expect.m4
   m4/byteswap.m4
   m4/c-bool.m4
+  m4/c-strtod.m4
   m4/c32rtomb.m4
   m4/calloc.m4
   m4/canon-host.m4
@@ -4184,6 +4293,7 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/lchmod.m4
   m4/lchown.m4
   m4/lcmessage.m4
+  m4/ldexp.m4
   m4/ldexpl.m4
   m4/lib-ignore.m4
   m4/lib-ld.m4
@@ -4368,7 +4478,9 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/strnlen.m4
   m4/strsignal.m4
   m4/strstr.m4
+  m4/strtod.m4
   m4/strtoimax.m4
+  m4/strtold.m4
   m4/strtoll.m4
   m4/strtoull.m4
   m4/strtoumax.m4
@@ -4599,6 +4711,7 @@ AC_DEFUN([gl_FILE_LIST], [
   tests/test-exclude8.sh
   tests/test-explicit_bzero.c
   tests/test-faccessat.c
+  tests/test-fadvise.c
   tests/test-fchdir.c
   tests/test-fchmodat.c
   tests/test-fchownat.c
@@ -4884,6 +4997,7 @@ AC_DEFUN([gl_FILE_LIST], [
   tests/test-quotearg-simple.c
   tests/test-quotearg.h
   tests/test-raise.c
+  tests/test-rand-isaac.c
   tests/test-random-mt.c
   tests/test-random.c
   tests/test-random_r.c
@@ -4955,7 +5069,13 @@ AC_DEFUN([gl_FILE_LIST], [
   tests/test-string.c
   tests/test-strnlen.c
   tests/test-strsignal.c
+  tests/test-strtod.c
+  tests/test-strtod1.c
+  tests/test-strtod1.sh
   tests/test-strtoimax.c
+  tests/test-strtold.c
+  tests/test-strtold1.c
+  tests/test-strtold1.sh
   tests/test-strtoll.c
   tests/test-strtoull.c
   tests/test-strtoumax.c

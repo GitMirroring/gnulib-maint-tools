@@ -60,6 +60,7 @@ Module list with included dependencies (indented):
     btoc32-tests
     btowc
     btowc-tests
+  buffer-lcm
     builtin-expect
   byteswap
     byteswap-tests
@@ -71,6 +72,8 @@ Module list with included dependencies (indented):
     c-strcaseeq
     c-strcasestr
     c-strcasestr-tests
+    c-strtod
+    c-strtold
     c32_apply_type_test
     c32_apply_type_test-tests
     c32_get_type_test
@@ -123,6 +126,8 @@ Module list with included dependencies (indented):
   chown
     chown-tests
   chownat
+  cl-strtod
+  cl-strtold
     clock-time
     cloexec
     cloexec-tests
@@ -206,6 +211,8 @@ Module list with included dependencies (indented):
     extern-inline
   faccessat
     faccessat-tests
+  fadvise
+    fadvise-tests
   fchdir
     fchdir-tests
   fchmodat
@@ -221,6 +228,7 @@ Module list with included dependencies (indented):
     fcntl-safer-tests
     fcntl-tests
     fd-hook
+  fd-reopen
     fd-safer-flag
   fdatasync
     fdatasync-tests
@@ -374,6 +382,7 @@ Module list with included dependencies (indented):
   hash-triple
     hash-triple-simple
     havelib
+  heap
   host-os
     hostent
   human
@@ -614,10 +623,14 @@ Module list with included dependencies (indented):
     quotearg-simple-tests
     raise
     raise-tests
+  randint
     random
     random-tests
     random_r
     random_r-tests
+  randperm
+    randread
+    randread-tests
   rawmemchr
     rawmemchr-tests
     read
@@ -652,6 +665,7 @@ Module list with included dependencies (indented):
     rewinddir
   rmdir
     rmdir-tests
+  root-dev-ino
     root-uid
     rpmatch
   safe-read
@@ -691,8 +705,10 @@ Module list with included dependencies (indented):
     sigprocmask
     sigprocmask-tests
     size_max
+  skipchars
     sleep
     sleep-tests
+  smack
     snan
     snippet/_Noreturn
     snippet/arg-nonnull
@@ -741,11 +757,16 @@ Module list with included dependencies (indented):
   strnlen
     strnlen-tests
     strnlen1
+  strnumcmp
   strsignal
     strsignal-tests
     strstr-simple
+    strtod
+    strtod-tests
   strtoimax
     strtoimax-tests
+    strtold
+    strtold-tests
     strtoll
     strtoll-tests
     strtoull
@@ -778,6 +799,7 @@ Module list with included dependencies (indented):
     sys_utsname-tests
   sys_wait
     sys_wait-tests
+  targetdir
   tempname
   termios
     termios-tests
@@ -948,6 +970,8 @@ Module list with included dependencies (indented):
     xalloc-die-tests
     xalloc-oversized
   xbinary-io
+  xdectoint
+  xfts
   xgetcwd
   xgetgroups
   xgethostname
@@ -1044,6 +1068,8 @@ File list:
   lib/boot-time-aux.h
   lib/btoc32.c
   lib/btowc.c
+  lib/buffer-lcm.c
+  lib/buffer-lcm.h
   lib/byteswap.in.h
   lib/c++defs.h
   lib/c-ctype.c
@@ -1053,6 +1079,9 @@ File list:
   lib/c-strcasecmp.c
   lib/c-strcaseeq.h
   lib/c-strncasecmp.c
+  lib/c-strtod.c
+  lib/c-strtod.h
+  lib/c-strtold.c
   lib/c32_apply_type_test.c
   lib/c32_get_type_test.c
   lib/c32is-impl.h
@@ -1085,6 +1114,9 @@ File list:
   lib/chmodat.c
   lib/chown.c
   lib/chownat.c
+  lib/cl-strtod.c
+  lib/cl-strtod.h
+  lib/cl-strtold.c
   lib/cloexec.c
   lib/cloexec.h
   lib/close-stream.c
@@ -1134,6 +1166,8 @@ File list:
   lib/exitfail.h
   lib/explicit_bzero.c
   lib/faccessat.c
+  lib/fadvise.c
+  lib/fadvise.h
   lib/fchdir.c
   lib/fchmodat.c
   lib/fchown-stub.c
@@ -1145,6 +1179,8 @@ File list:
   lib/fcntl.in.h
   lib/fd-hook.c
   lib/fd-hook.h
+  lib/fd-reopen.c
+  lib/fd-reopen.h
   lib/fd-safer-flag.c
   lib/fd-safer.c
   lib/fdatasync.c
@@ -1268,6 +1304,8 @@ File list:
   lib/hash-triple.h
   lib/hash.c
   lib/hash.h
+  lib/heap.c
+  lib/heap.h
   lib/human.c
   lib/human.h
   lib/i-ring.c
@@ -1488,6 +1526,14 @@ File list:
   lib/quotearg.c
   lib/quotearg.h
   lib/raise.c
+  lib/rand-isaac.c
+  lib/rand-isaac.h
+  lib/randint.c
+  lib/randint.h
+  lib/randperm.c
+  lib/randperm.h
+  lib/randread.c
+  lib/randread.h
   lib/rawmemchr.c
   lib/rawmemchr.valgrind
   lib/read-file.c
@@ -1517,6 +1563,8 @@ File list:
   lib/renameatu.h
   lib/rewinddir.c
   lib/rmdir.c
+  lib/root-dev-ino.c
+  lib/root-dev-ino.h
   lib/root-uid.h
   lib/rpmatch.c
   lib/safe-read.c
@@ -1573,9 +1621,12 @@ File list:
   lib/signbitl.c
   lib/sigprocmask.c
   lib/size_max.h
+  lib/skipchars.c
+  lib/skipchars.h
   lib/sm3-stream.c
   lib/sm3.c
   lib/sm3.h
+  lib/smack.h
   lib/snprintf.c
   lib/sockets.c
   lib/sockets.h
@@ -1608,14 +1659,20 @@ File list:
   lib/strerror.c
   lib/strftime.h
   lib/string.in.h
+  lib/strintcmp.c
   lib/stripslash.c
   lib/strnlen.c
   lib/strnlen1.c
   lib/strnlen1.h
+  lib/strnumcmp-in.h
+  lib/strnumcmp.c
+  lib/strnumcmp.h
   lib/strsignal.c
   lib/strstr.c
+  lib/strtod.c
   lib/strtoimax.c
   lib/strtol.c
+  lib/strtold.c
   lib/strtoll.c
   lib/strtoul.c
   lib/strtoull.c
@@ -1635,6 +1692,8 @@ File list:
   lib/sys_uio.in.h
   lib/sys_utsname.in.h
   lib/sys_wait.in.h
+  lib/targetdir.c
+  lib/targetdir.h
   lib/tempname.c
   lib/tempname.h
   lib/termios.in.h
@@ -1778,6 +1837,12 @@ File list:
   lib/xasprintf.c
   lib/xbinary-io.c
   lib/xbinary-io.h
+  lib/xdectoimax.c
+  lib/xdectoint.c
+  lib/xdectoint.h
+  lib/xdectoumax.c
+  lib/xfts.c
+  lib/xfts.h
   lib/xgetaname-impl.h
   lib/xgetcwd.c
   lib/xgetcwd.h
@@ -1833,6 +1898,7 @@ File list:
   m4/builtin-expect.m4
   m4/byteswap.m4
   m4/c-bool.m4
+  m4/c-strtod.m4
   m4/c32rtomb.m4
   m4/calloc.m4
   m4/canon-host.m4
@@ -1977,6 +2043,7 @@ File list:
   m4/lchmod.m4
   m4/lchown.m4
   m4/lcmessage.m4
+  m4/ldexp.m4
   m4/ldexpl.m4
   m4/lib-ignore.m4
   m4/lib-ld.m4
@@ -2161,7 +2228,9 @@ File list:
   m4/strnlen.m4
   m4/strsignal.m4
   m4/strstr.m4
+  m4/strtod.m4
   m4/strtoimax.m4
+  m4/strtold.m4
   m4/strtoll.m4
   m4/strtoull.m4
   m4/strtoumax.m4
@@ -2392,6 +2461,7 @@ File list:
   tests/test-exclude8.sh
   tests/test-explicit_bzero.c
   tests/test-faccessat.c
+  tests/test-fadvise.c
   tests/test-fchdir.c
   tests/test-fchmodat.c
   tests/test-fchownat.c
@@ -2677,6 +2747,7 @@ File list:
   tests/test-quotearg-simple.c
   tests/test-quotearg.h
   tests/test-raise.c
+  tests/test-rand-isaac.c
   tests/test-random-mt.c
   tests/test-random.c
   tests/test-random_r.c
@@ -2748,7 +2819,13 @@ File list:
   tests/test-string.c
   tests/test-strnlen.c
   tests/test-strsignal.c
+  tests/test-strtod.c
+  tests/test-strtod1.c
+  tests/test-strtod1.sh
   tests/test-strtoimax.c
+  tests/test-strtold.c
+  tests/test-strtold1.c
+  tests/test-strtold1.sh
   tests/test-strtoll.c
   tests/test-strtoull.c
   tests/test-strtoumax.c
@@ -3135,6 +3212,7 @@ Copying file gnulib-tests/test-exclude7.sh
 Copying file gnulib-tests/test-exclude8.sh
 Copying file gnulib-tests/test-explicit_bzero.c
 Copying file gnulib-tests/test-faccessat.c
+Copying file gnulib-tests/test-fadvise.c
 Copying file gnulib-tests/test-fchdir.c
 Copying file gnulib-tests/test-fchmodat.c
 Copying file gnulib-tests/test-fchownat.c
@@ -3420,6 +3498,7 @@ Copying file gnulib-tests/test-qsort_r.c
 Copying file gnulib-tests/test-quotearg-simple.c
 Copying file gnulib-tests/test-quotearg.h
 Copying file gnulib-tests/test-raise.c
+Copying file gnulib-tests/test-rand-isaac.c
 Copying file gnulib-tests/test-random-mt.c
 Copying file gnulib-tests/test-random.c
 Copying file gnulib-tests/test-random_r.c
@@ -3491,7 +3570,13 @@ Copying file gnulib-tests/test-strerror_r.c
 Copying file gnulib-tests/test-string.c
 Copying file gnulib-tests/test-strnlen.c
 Copying file gnulib-tests/test-strsignal.c
+Copying file gnulib-tests/test-strtod.c
+Copying file gnulib-tests/test-strtod1.c
+Copying file gnulib-tests/test-strtod1.sh
 Copying file gnulib-tests/test-strtoimax.c
+Copying file gnulib-tests/test-strtold.c
+Copying file gnulib-tests/test-strtold1.c
+Copying file gnulib-tests/test-strtold1.sh
 Copying file gnulib-tests/test-strtoll.c
 Copying file gnulib-tests/test-strtoull.c
 Copying file gnulib-tests/test-strtoumax.c
@@ -3687,6 +3772,8 @@ Copying file lib/bitrotate.h
 Copying file lib/boot-time-aux.h
 Copying file lib/btoc32.c
 Copying file lib/btowc.c
+Copying file lib/buffer-lcm.c
+Copying file lib/buffer-lcm.h
 Copying file lib/byteswap.in.h
 Copying file lib/c++defs.h
 Copying file lib/c-ctype.c
@@ -3696,6 +3783,9 @@ Copying file lib/c-strcase.h
 Copying file lib/c-strcasecmp.c
 Copying file lib/c-strcaseeq.h
 Copying file lib/c-strncasecmp.c
+Copying file lib/c-strtod.c
+Copying file lib/c-strtod.h
+Copying file lib/c-strtold.c
 Copying file lib/c32_apply_type_test.c
 Copying file lib/c32_get_type_test.c
 Copying file lib/c32is-impl.h
@@ -3728,6 +3818,9 @@ Copying file lib/chmod.c
 Copying file lib/chmodat.c
 Copying file lib/chown.c
 Copying file lib/chownat.c
+Copying file lib/cl-strtod.c
+Copying file lib/cl-strtod.h
+Copying file lib/cl-strtold.c
 Copying file lib/cloexec.c
 Copying file lib/cloexec.h
 Copying file lib/close-stream.c
@@ -3777,6 +3870,8 @@ Copying file lib/exitfail.c
 Copying file lib/exitfail.h
 Copying file lib/explicit_bzero.c
 Copying file lib/faccessat.c
+Copying file lib/fadvise.c
+Copying file lib/fadvise.h
 Copying file lib/fchdir.c
 Copying file lib/fchmodat.c
 Copying file lib/fchown-stub.c
@@ -3788,6 +3883,8 @@ Copying file lib/fcntl.c
 Copying file lib/fcntl.in.h
 Copying file lib/fd-hook.c
 Copying file lib/fd-hook.h
+Copying file lib/fd-reopen.c
+Copying file lib/fd-reopen.h
 Copying file lib/fd-safer-flag.c
 Copying file lib/fd-safer.c
 Copying file lib/fdatasync.c
@@ -3911,6 +4008,8 @@ Copying file lib/hash-triple.c
 Copying file lib/hash-triple.h
 Copying file lib/hash.c
 Copying file lib/hash.h
+Copying file lib/heap.c
+Copying file lib/heap.h
 Copying file lib/human.c
 Copying file lib/human.h
 Copying file lib/i-ring.c
@@ -4131,6 +4230,14 @@ Copying file lib/quote.h
 Copying file lib/quotearg.c
 Copying file lib/quotearg.h
 Copying file lib/raise.c
+Copying file lib/rand-isaac.c
+Copying file lib/rand-isaac.h
+Copying file lib/randint.c
+Copying file lib/randint.h
+Copying file lib/randperm.c
+Copying file lib/randperm.h
+Copying file lib/randread.c
+Copying file lib/randread.h
 Copying file lib/rawmemchr.c
 Copying file lib/rawmemchr.valgrind
 Copying file lib/read-file.c
@@ -4160,6 +4267,8 @@ Copying file lib/renameatu.c
 Copying file lib/renameatu.h
 Copying file lib/rewinddir.c
 Copying file lib/rmdir.c
+Copying file lib/root-dev-ino.c
+Copying file lib/root-dev-ino.h
 Copying file lib/root-uid.h
 Copying file lib/rpmatch.c
 Copying file lib/safe-read.c
@@ -4216,9 +4325,12 @@ Copying file lib/signbitf.c
 Copying file lib/signbitl.c
 Copying file lib/sigprocmask.c
 Copying file lib/size_max.h
+Copying file lib/skipchars.c
+Copying file lib/skipchars.h
 Copying file lib/sm3-stream.c
 Copying file lib/sm3.c
 Copying file lib/sm3.h
+Copying file lib/smack.h
 Copying file lib/snprintf.c
 Copying file lib/sockets.c
 Copying file lib/sockets.h
@@ -4251,14 +4363,20 @@ Copying file lib/strerror-override.h
 Copying file lib/strerror.c
 Copying file lib/strftime.h
 Copying file lib/string.in.h
+Copying file lib/strintcmp.c
 Copying file lib/stripslash.c
 Copying file lib/strnlen.c
 Copying file lib/strnlen1.c
 Copying file lib/strnlen1.h
+Copying file lib/strnumcmp-in.h
+Copying file lib/strnumcmp.c
+Copying file lib/strnumcmp.h
 Copying file lib/strsignal.c
 Copying file lib/strstr.c
+Copying file lib/strtod.c
 Copying file lib/strtoimax.c
 Copying file lib/strtol.c
+Copying file lib/strtold.c
 Copying file lib/strtoll.c
 Copying file lib/strtoul.c
 Copying file lib/strtoull.c
@@ -4278,6 +4396,8 @@ Copying file lib/sys_types.in.h
 Copying file lib/sys_uio.in.h
 Copying file lib/sys_utsname.in.h
 Copying file lib/sys_wait.in.h
+Copying file lib/targetdir.c
+Copying file lib/targetdir.h
 Copying file lib/tempname.c
 Copying file lib/tempname.h
 Copying file lib/termios.in.h
@@ -4421,6 +4541,12 @@ Copying file lib/xalloc.h
 Copying file lib/xasprintf.c
 Copying file lib/xbinary-io.c
 Copying file lib/xbinary-io.h
+Copying file lib/xdectoimax.c
+Copying file lib/xdectoint.c
+Copying file lib/xdectoint.h
+Copying file lib/xdectoumax.c
+Copying file lib/xfts.c
+Copying file lib/xfts.h
 Copying file lib/xgetaname-impl.h
 Copying file lib/xgetcwd.c
 Copying file lib/xgetcwd.h
@@ -4476,6 +4602,7 @@ Copying file m4/build-to-host.m4
 Copying file m4/builtin-expect.m4
 Copying file m4/byteswap.m4
 Copying file m4/c-bool.m4
+Copying file m4/c-strtod.m4
 Copying file m4/c32rtomb.m4
 Copying file m4/calloc.m4
 Copying file m4/canon-host.m4
@@ -4621,6 +4748,7 @@ Copying file m4/largefile.m4
 Copying file m4/lchmod.m4
 Copying file m4/lchown.m4
 Copying file m4/lcmessage.m4
+Copying file m4/ldexp.m4
 Copying file m4/ldexpl.m4
 Copying file m4/lib-ignore.m4
 Copying file m4/lib-ld.m4
@@ -4805,7 +4933,9 @@ Copying file m4/string_h.m4
 Copying file m4/strnlen.m4
 Copying file m4/strsignal.m4
 Copying file m4/strstr.m4
+Copying file m4/strtod.m4
 Copying file m4/strtoimax.m4
+Copying file m4/strtold.m4
 Copying file m4/strtoll.m4
 Copying file m4/strtoull.m4
 Copying file m4/strtoumax.m4
@@ -4960,9 +5090,11 @@ You may need to add #include directives for the following .h files.
   #include "backupfile.h"
   #include "base32.h"
   #include "base64.h"
+  #include "buffer-lcm.h"
   #include "c-strcase.h"
   #include "canon-host.h"
   #include "canonicalize.h"
+  #include "cl-strtod.h"
   #include "closein.h"
   #include "closeout.h"
   #include "configmake.h"
@@ -4972,7 +5104,9 @@ You may need to add #include directives for the following .h files.
   #include "dirname.h"
   #include "exclude.h"
   #include "exitfail.h"
+  #include "fadvise.h"
   #include "fcntl-safer.h"
+  #include "fd-reopen.h"
   #include "file-type.h"
   #include "filemode.h"
   #include "filenamecat.h"
@@ -4989,6 +5123,7 @@ You may need to add #include directives for the following .h files.
   #include "hard-locale.h"
   #include "hash-triple.h"
   #include "hash.h"
+  #include "heap.h"
   #include "human.h"
   #include "idcache.h"
   #include "idx.h"
@@ -5021,11 +5156,14 @@ You may need to add #include directives for the following .h files.
   #include "propername.h"
   #include "quote.h"
   #include "quotearg.h"
+  #include "randint.h"
+  #include "randperm.h"
   #include "read-file.h"
   #include "readtokens.h"
   #include "readtokens0.h"
   #include "readutmp.h"
   #include "renameatu.h"
+  #include "root-dev-ino.h"
   #include "safe-read.h"
   #include "same.h"
   #include "save-cwd.h"
@@ -5036,13 +5174,17 @@ You may need to add #include directives for the following .h files.
   #include "sha256.h"
   #include "sha512.h"
   #include "sig2str.h"
+  #include "skipchars.h"
   #include "sm3.h"
+  #include "smack.h"
   #include "stat-macros.h"
   #include "stat-size.h"
   #include "stat-time.h"
   #include "stdio-safer.h"
   #include "stdlib-safer.h"
   #include "strftime.h"
+  #include "strnumcmp.h"
+  #include "targetdir.h"
   #include "tempname.h"
   #include "timespec.h"
   #include "tmpdir.h"
@@ -5059,6 +5201,8 @@ You may need to add #include directives for the following .h files.
   #include "write-any-file.h"
   #include "xalloc.h"
   #include "xbinary-io.h"
+  #include "xdectoint.h"
+  #include "xfts.h"
   #include "xgetcwd.h"
   #include "xgethostname.h"
   #include "xmemcoll.h"

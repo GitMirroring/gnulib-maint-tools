@@ -1,6 +1,20 @@
 #!/bin/sh
 . ../init.sh
-do_import_test coreutils-20240101 . "--tests-base=gnulib-tests --with-tests --makefile-name=gnulib.mk --automake-subdir --import `echo '
+do_import_test coreutils-20240101 . "`echo '
+  --no-changelog
+  --aux-dir=build-aux
+  --doc-base=doc
+  --lib=libcoreutils
+  --m4-base=m4/
+  --source-base=lib/
+  --tests-base=tests
+  --local-dir=gl
+
+  --tests-base=gnulib-tests
+  --with-tests
+  --makefile-name=gnulib.mk
+  --automake-subdir
+  --import
   --avoid=canonicalize-lgpl
   --avoid=dummy
   --avoid=mbuiter

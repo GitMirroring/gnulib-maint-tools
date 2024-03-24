@@ -28,7 +28,8 @@
 
 # Specification in the form of a command-line invocation:
 # gnulib-tool --import \
-#  --lib=libgnu \
+#  --local-dir=gl \
+#  --lib=libcoreutils \
 #  --source-base=lib \
 #  --m4-base=m4 \
 #  --doc-base=doc \
@@ -330,7 +331,7 @@
 #  yesno
 
 # Specification in the form of a few gnulib-tool.m4 macro invocations:
-gl_LOCAL_DIR([])
+gl_LOCAL_DIR([gl])
 gl_MODULES([
   acl
   alignalloc
@@ -624,7 +625,7 @@ gl_PO_BASE([])
 gl_DOC_BASE([doc])
 gl_TESTS_BASE([gnulib-tests])
 gl_WITH_TESTS
-gl_LIB([libgnu])
+gl_LIB([libcoreutils])
 gl_MAKEFILE_NAME([gnulib.mk])
 gl_AUTOMAKE_SUBDIR
 gl_MACRO_PREFIX([gl])
