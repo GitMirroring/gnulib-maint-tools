@@ -84,20 +84,19 @@ do_create_test ()
   if test -n "$deps_dir"; then
     rmdir $deps_dir
   fi
-  expected_result=${0%.sh}.result
-  expected_result_base=`basename "$expected_result"`
-  # Canonicalize the absolute file name of $tmp-result, that 'make' may print
-  # in its "Entering directory" and "Leaving directory" traces. Also, remove
-  # "configure: autobuild hostname..." and "configure: autobuild timestamp..."
-  # lines.
-  mv $tmp-out $tmp-out~
-  sed -e "s|'[^']*/$tmp-result|'//$expected_result_base|g" -e '/^configure: autobuild [ht]/d' < $tmp-out~ > $tmp-out
-  rm -f $tmp-out~
   if test $rc != 0; then
     cat $tmp-err >&2
     echo "FAIL: gnulib-tool exited with code $rc." >&2
     exit 1
   fi
+  # Remove the output of "./configure" ... "make distclean" from the output,
+  # since it contains many machine-dependent details (absolute file names,
+  # compiler command and options, configure test results, host name, time stamp
+  # etc.).
+  mv $tmp-out $tmp-out~
+  sed -e '/^checking for/,/^rm -f config.status/d' -e '/^rm -f Makefile/d' < $tmp-out~ > $tmp-out
+  rm -f $tmp-out~
+  expected_result=${0%.sh}.result
   # Exclude files whose contents depends on the GNU Autoconf version, GNU Automake version, or file time stamps.
   if LC_ALL=C diff -r -q --exclude=aclocal.m4 --exclude=configure --exclude=config.h.in --exclude=Makefile.in --exclude=compile --exclude=depcomp --exclude=missing --exclude=test-driver --exclude=do-autobuild $expected_result $tmp-result; then
     :
