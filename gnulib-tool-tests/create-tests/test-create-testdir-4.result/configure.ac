@@ -22,8 +22,6 @@ m4_pattern_allow([^gl_LTLIBOBJS$])dnl a variable
 gl_USE_SYSTEM_EXTENSIONS
 gl_PROG_AR_RANLIB
 
-AM_PROG_CC_C_O
-
 gl_ANSI_CXX
 AB_INIT
 gl_SET_LARGEFILE_SOURCE

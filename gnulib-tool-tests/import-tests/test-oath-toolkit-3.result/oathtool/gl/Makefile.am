@@ -48,6 +48,7 @@ SUBDIRS =
 noinst_HEADERS =
 noinst_LIBRARIES =
 noinst_LTLIBRARIES =
+pkgdata_DATA =
 EXTRA_DIST =
 BUILT_SOURCES =
 SUFFIXES =

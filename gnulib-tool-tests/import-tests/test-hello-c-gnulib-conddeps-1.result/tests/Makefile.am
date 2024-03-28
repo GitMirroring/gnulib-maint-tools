@@ -34,6 +34,7 @@ EXTRA_PROGRAMS =
 noinst_HEADERS =
 noinst_LIBRARIES =
 check_LIBRARIES = libtests.a
+pkgdata_DATA =
 EXTRA_DIST =
 BUILT_SOURCES =
 SUFFIXES =
