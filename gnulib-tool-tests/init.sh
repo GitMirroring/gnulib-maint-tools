@@ -97,8 +97,16 @@ do_create_test ()
   sed -e '/^checking for/,/^rm -f config.status/d' -e '/^rm -f Makefile/d' < $tmp-out~ > $tmp-out
   rm -f $tmp-out~
   expected_result=${0%.sh}.result
-  # Exclude files whose contents depends on the GNU Autoconf version, GNU Automake version, or file time stamps.
-  if LC_ALL=C diff -r -q --exclude=aclocal.m4 --exclude=configure --exclude=config.h.in --exclude=Makefile.in --exclude=compile --exclude=depcomp --exclude=missing --exclude=test-driver --exclude=do-autobuild $expected_result $tmp-result; then
+  # Exclude files whose contents depends on the GNU Autoconf version,
+  # GNU Automake version, GNU gperf version, GNU bison version, or
+  # file time stamps.
+  if LC_ALL=C diff -r -q \
+                   --exclude=aclocal.m4 --exclude=configure --exclude=config.h.in \
+                   --exclude=Makefile.in --exclude=compile --exclude=depcomp --exclude=missing --exclude=test-driver \
+                   --exclude='iconv_open-*.h' --exclude=locale-languages.h --exclude=special-casing-table.h --exclude='*_byname.h' --exclude=composition-table.h \
+                   --exclude=parse-datetime-gen.h --exclude=parse-datetime.c \
+                   --exclude=do-autobuild \
+                   $expected_result $tmp-result; then
     :
   else
     echo "FAIL: gnulib-tool's result has unexpected differences." >&2
