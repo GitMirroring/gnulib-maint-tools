@@ -21,6 +21,7 @@ File list:
   top/GNUmakefile
   top/maint.mk
 Updating file gl/m4/gnulib-common.m4 (backup in gl/m4/gnulib-common.m4~)
+Updating gl/Makefile.am (backup in gl/Makefile.am~)
 Finished.
 
 You may need to add #include directives for the following .h files.
