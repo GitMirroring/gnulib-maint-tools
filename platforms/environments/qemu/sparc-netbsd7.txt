@@ -1,0 +1,137 @@
+(DR) Collect pointers to documentation and references
+-----------------------------------------------------
+
+https://www.qemu.org/docs/master/system/target-sparc.html
+https://wiki.qemu.org/Documentation/Platforms/SPARC
+
+(QV) Choose a QEMU version
+--------------------------
+
+Use qemu-2.12.0
+% PATH=$HOME/inst-qemu/2.12.0/bin:$PATH
+
+(DL) Download an installation CD-ROM or DVD image
+-------------------------------------------------
+
+Download: originally https://cdn.netbsd.org/pub/NetBSD/iso/7.1/NetBSD-7.1-sparc.iso
+now: http://archive.netbsd.org/pub/NetBSD-archive/NetBSD-7.1/iso/NetBSD-7.1-sparc.iso
+     https://ftp.uni-hannover.de/netbsd/iso/7.1/NetBSD-7.1-sparc.iso
+     https://mirror.dimensiondata.com/mirrors/NetBSD/iso/7.1/NetBSD-7.1-sparc.iso
+
+(XK) Extract the kernel from the CD-ROM or DVD image
+----------------------------------------------------
+
+This is not needed in this case.
+
+(CD) Create an empty disk image to be used by the virtual machine
+-----------------------------------------------------------------
+
+% qemu-img create -f qcow2 netbsd71.qcow2 10G
+
+(MA) Choose the machine arguments
+---------------------------------
+
+% machine_args="-m 256"
+
+(DI) Choose the disk arguments
+------------------------------
+
+% disk_args="-drive file=netbsd71.qcow2,format=qcow2,index=0"
+
+(NW) Choose the network arguments
+---------------------------------
+
+% net_args=""
+This provides an ethernet interface:
+(qemu) info network
+hub 0
+ \ hub0port1: user.0: index=0,type=user,net=10.0.2.0,restrict=off
+ \ hub0port0: lance.0: index=0,type=nic,model=lance,macaddr=52:54:00:12:34:56
+
+(DV) Choose the display/video arguments
+---------------------------------------
+
+% display_args="-nographic"
+
+(B1) Boot from the CD/DVD
+-------------------------
+
+% common_args="$machine_args $disk_args $net_args $display_args"
+% qemu-system-sparc $common_args -cdrom NetBSD-7.1-sparc.iso -boot d
+
+(IN) Perform the steps of the installer
+---------------------------------------
+
+Enter:
+- 1) cdrom
+- CD-ROM [/dev/cd0a]:
+- Path to instfs.tgz
+- [vt100] xterm
+- (I)install/Upgrade: I
+- a: in English
+- a: to hard disk
+- b: Yes
+- a: sd0
+- a: Set sizes
+- /: 9983 MB, swap: 256 MB, x
+- Partition sizes OK
+- disk name
+- b: Yes
+- b: Installation without X11
+- a: CD-ROM
+- enter
+- a: configure network
+  le0
+  Host name: sparc-netbsd7
+  DNS domain: MYDOMAINNAME
+  IPv4 address: 10.0.2.15
+  IPv4 netmask: 0xffffff00
+  IPv4 gateway: 10.0.2.2
+  Name server: 10.0.2.3
+  Install in /etc: Yes
+- b: timezone
+  Europe/Berlin
+- d: root password
+  Yes
+  New password: ********
+- g: sshd
+  YES
+- h: ntpd
+  YES
+- i: ntpdate at boot
+  YES
+- o: user
+  name: MY_USER_NAME
+  Yes
+  /bin/sh
+  New password: ********
+- x: Finished configuring
+
+(B2) Boot from the installed disk
+---------------------------------
+
+This does not need a -kernel option, since an OpenBIOS bootloader is installed.
+% qemu-system-sparc $common_args
+
+This boots fine. Now is the time to switch to a graphic display, if desired:
+
+% display_args="-display gtk -monitor stdio"
+% common_args="$machine_args $disk_args $net_args $display_args"
+% qemu-system-sparc $common_args
+
+(PK) Install packages
+---------------------
+
+The list of packages is at http://www.pkgsrc.se/
+and http://ftp.netbsd.org/pub/pkgsrc/packages/NetBSD/sparc/7.1/All/
+(no longer available).
+See https://www.netbsd.org/docs/guide/en/netbsd.html#chap-boot-pkgsrc
+# chmod 644 .cshrc .profile
+Edit ~/.profile to define PKG_PATH:
+  export PKG_PATH=http://ftp.netbsd.org/pub/pkgsrc/packages/NetBSD/`uname -m`/7.1/All
+Logout.
+
+# pkg_add bash
+# pkg_add gmake
+# pkg_add vim
+# pkg_add emacs-nox11

@@ -1,0 +1,187 @@
+(DR) Collect pointers to documentation and references
+-----------------------------------------------------
+
+https://www.qemu.org/docs/master/system/target-arm.html
+https://wiki.qemu.org/Documentation/Platforms/ARM
+https://wiki.netbsd.org/ports/evbarm/qemu_arm/
+https://chrispinnock.com/stuff/emulation/
+
+(QV) Choose a QEMU version
+--------------------------
+
+Use qemu-8.2.0
+% PATH=$HOME/inst-qemu/8.2.0/bin:$PATH
+
+(DL) Download an installation CD-ROM or DVD image
+-------------------------------------------------
+
+Download: https://cdn.netbsd.org/pub/NetBSD/iso/10.0/NetBSD-10.0-evbarm-aarch64.iso
+
+(XK) Extract the kernel from the CD-ROM or DVD image
+----------------------------------------------------
+
+This is not needed in this case.
+
+(CD) Create an empty disk image to be used by the virtual machine
+-----------------------------------------------------------------
+
+% qemu-img create -f qcow2 netbsd10.qcow2 10G
+
+(MA) Choose the machine arguments
+---------------------------------
+
+% machine_args="-M virt -cpu cortex-a53 -m 1024"
+
+Since QEMU cannot directly boot a NetBSD kernel, we'll need some
+boot firmware:
+
+  - Either the UEFI firmware that comes bundled with QEMU:
+    % machine_args="$machine_args -bios edk2-aarch64-code.fd"
+
+  - Or some UEFI firmware named 'QEMU_EFI.fd' that is part of some Linux
+    distros, such as in the Ubuntu package 'qemu-efi'.
+    % machine_args="$machine_args -bios QEMU_EFI.fd"
+
+  - Or U-Boot.
+
+(DI) Choose the disk arguments
+------------------------------
+
+% disk_args="-drive file=netbsd10.qcow2,format=qcow2,if=none,id=hd0 -device virtio-blk-device,drive=hd0"
+
+(NW) Choose the network arguments
+---------------------------------
+
+There are several possibilities.
+
+% net_args=""
+
+This provides an ethernet interface by default:
+(qemu) info network
+hub 0
+ \ hub0port1: #net176: index=0,type=user,net=10.0.2.0,restrict=off
+ \ hub0port0: virtio-net-pci.0: index=0,type=nic,model=virtio-net-pci,macaddr=52:54:00:12:34:56
+NetBSD will recognize it as 'vioif0'.
+
+% net_args="-netdev type=user,id=net0 -device virtio-net-device,netdev=net0,mac=52:54:00:12:34:56"
+
+This provides an ethernet interface too:
+(qemu) info network
+virtio-net-device.0: index=0,type=nic,model=virtio-net-device,macaddr=52:54:00:12:34:56
+ \ net0: index=0,type=user,net=10.0.2.0,restrict=off
+NetBSD will recognize it as 'vioif0'.
+
+% net_args="-netdev type=user,id=net0 -device e1000,netdev=net0,mac=52:54:00:12:34:56"
+
+This provides an ethernet interface too:
+(qemu) info network
+e1000.0: index=0,type=nic,model=e1000,macaddr=52:54:00:12:34:56
+ \ net0: index=0,type=user,net=10.0.2.0,restrict=off
+NetBSD will recognize it as 'wm0'.
+
+(DV) Choose the display/video arguments
+---------------------------------------
+
+% display_args="-nographic"
+
+(B1) Boot from the CD/DVD
+-------------------------
+
+% common_args="$machine_args $disk_args $net_args $display_args"
+
+Resize the terminal to 80x24.
+
+% qemu-system-aarch64 $common_args -cdrom NetBSD-10.0-evbarm-aarch64.iso
+
+(IN) Perform the steps of the installer
+---------------------------------------
+
+- 1: Install NetBSD
+- a: in English
+- a: to hard disk
+- b: Yes
+- a: ld4
+- a: Guid Partition Table
+- a: Set sizes
+- /boot: 16 MB = 32768 sec, /: 9199 MB = 18839552 sec, swap: 1024 MB = 2097152 sec, /tmp: 0, x
+- x: Partition sizes OK
+- b: Yes
+- b: Installation without X11
+- a: CD-ROM
+  Doesn't recognize the CD device!
+- f: Back
+- b: HTTP
+- a: vioif0
+  enter
+  Autoconfiguration: Yes
+  Host name: arm64-netbsd10
+  DNS domain: MYDOMAINNAME
+  Check values:
+    Nameserver: 10.0.2.3
+    Host IP: 10.0.2.15
+    Netmask: 255.255.255.0
+    IPv4 Gateway: 10.0.2.2
+  OK? Yes
+- Download location:
+  Host: cdn.NetBSD.org
+  Base directory: pub/NetBSD/NetBSD-10.0
+  Binary set directory: /evbarm-aarch64/binary/sets
+  Source set directory: /source/sets
+  File extension: .tar.xz
+  x: Get distribution
+- Install network configuration in /etc: Yes
+- enter
+- root password: ********
+- a: enter random characters
+- b: timezone
+  Europe/Berlin
+- g: sshd
+  YES
+- h: ntpd
+  YES
+- i: ntpdate at boot
+  YES
+- o: Add a user
+  user: MY_USER_NAME, group wheel, /bin/sh
+  password: ********
+- x: Finished configuring
+- d: Reboot
+
+(B2) Boot from the installed disk
+---------------------------------
+
+This does not need a -kernel option, since a NetBSD efiboot bootloader is installed.
+% qemu-system-aarch64 $common_args
+
+This boots fine. Now is the time to switch to a graphic display, if desired:
+
+% display_args="-display gtk -monitor stdio"
+% common_args="$machine_args $disk_args $net_args $display_args"
+% qemu-system-aarch64 $common_args
+
+Login as root.
+
+Edit /etc/profile to set TERM=vt220:
+# env TERM=vt220 vi /etc/profile .cshrc
+In /etc/profile, add
+  TERM=vt220
+  export TERM
+In .cshrc, add
+  setenv TERM vt220
+
+# halt
+
+(PK) Install packages
+---------------------
+
+The list of packages is at http://www.pkgsrc.se/
+and https://cdn.netbsd.org/pub/pkgsrc/packages/NetBSD/aarch64/10.0/All/.
+See https://www.netbsd.org/docs/guide/en/netbsd.html#chap-boot-pkgsrc
+Edit ~/.profile to define PKG_PATH:
+  export PKG_PATH=https://cdn.netbsd.org/pub/pkgsrc/packages/NetBSD/aarch64/10.0/All
+Logout.
+
+# pkg_add bash
+# pkg_add gmake
+# pkg_add vim
+# pkg_add emacs-nox11

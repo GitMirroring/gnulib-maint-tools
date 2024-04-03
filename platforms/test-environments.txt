@@ -158,8 +158,12 @@ As examples, find in the environments/ directory:
   * qemu/arm64-alpine-3.13.txt
   * qemu/arm64-alpine-3.19.txt
   * qemu/arm64-freebsd132.txt
+  * qemu/arm64-netbsd9.txt
+  * qemu/arm64-netbsd10.txt
   * qemu/hppa-linux-debian12.txt
   * qemu/hppa-linux-t2sde.txt
+  * qemu/hppa-netbsd9.txt
+  * qemu/hppa-netbsd10.txt
   * qemu/m68k-linux-debian12.txt
   * qemu/m68k-linux-t2sde.txt
   * qemu/mipseb-linux-debian8.txt
@@ -178,11 +182,13 @@ As examples, find in the environments/ directory:
   * qemu/s390x-linux-debian8.txt
   * qemu/s390x-linux-opensuse.txt
   * qemu/s390x-alpine.txt
-  * qemu/sparc-netbsd.txt
+  * qemu/sparc-netbsd7.txt
+  * qemu/sparc-netbsd10.txt
   * qemu/sparc64-linux-debian9.txt
   * qemu/sparc64-linux-t2sde.txt
   * qemu/sparc64-freebsd12.txt
-  * qemu/sparc64-netbsd.txt
+  * qemu/sparc64-netbsd8.txt
+  * qemu/sparc64-netbsd10.txt
 
 Download locations:
   * GNU/Linux and Linux:

@@ -1,0 +1,152 @@
+(DR) Collect pointers to documentation and references
+-----------------------------------------------------
+
+https://www.qemu.org/docs/master/system/target-sparc64.html
+https://wiki.qemu.org/Documentation/Platforms/SPARC
+https://gunkies.org/wiki/Installing_NetBSD_6.1.5_Sparc64_on_Qemu
+
+(QV) Choose a QEMU version
+--------------------------
+
+Use qemu-8.2.0
+% PATH=$HOME/inst-qemu/8.2.0/bin:$PATH
+
+(DL) Download an installation CD-ROM or DVD image
+-------------------------------------------------
+
+Download: https://cdn.netbsd.org/pub/NetBSD/iso/10.0/NetBSD-10.0-sparc64.iso
+
+(XK) Extract the kernel from the CD-ROM or DVD image
+----------------------------------------------------
+
+This is not needed in this case.
+
+(CD) Create an empty disk image to be used by the virtual machine
+-----------------------------------------------------------------
+
+% qemu-img create -f qcow2 netbsd10.qcow2 10G
+
+(MA) Choose the machine arguments
+---------------------------------
+
+% machine_args="-m 512"
+
+(DI) Choose the disk arguments
+------------------------------
+
+% disk_args="-drive file=netbsd10.qcow2,format=qcow2,index=0"
+
+(NW) Choose the network arguments
+---------------------------------
+
+% net_args=""
+This provides an ethernet interface:
+(qemu) info network
+hub 0
+ \ hub0port1: user.0: index=0,type=user,net=10.0.2.0,restrict=off
+ \ hub0port0: sunhme.0: index=0,type=nic,model=sunhme,macaddr=52:54:00:12:34:56
+
+(DV) Choose the display/video arguments
+---------------------------------------
+
+% display_args="-nographic"
+
+(B1) Boot from the CD/DVD
+-------------------------
+
+% common_args="$machine_args $disk_args $net_args $display_args"
+
+Resize the terminal to 80x24.
+
+% qemu-system-sparc64 $common_args -cdrom NetBSD-10.0-sparc64.iso -boot d
+
+(IN) Perform the steps of the installer
+---------------------------------------
+
+Enter:
+- Terminal type: xterm
+- a: in English
+- a: to hard disk
+- b: Yes
+- a: wd0
+- a: Set sizes
+- /: 9727 MB, swap: 512 MB, /tmp: 0, x
+- Partition sizes OK
+- disk name
+- b: Yes
+- b: Installation without X11
+- a: CD-ROM
+- enter
+- root password: ********
+- a: enter random characters
+- a: configure network
+  hme0
+  Autoconfiguration: Yes
+  Host name: sparc64-netbsd10
+  DNS domain: MYDOMAINNAME
+  Check values:
+    Nameserver: 10.0.2.3
+    Host IP: 10.0.2.15
+    Netmask: 255.255.255.0
+    IPv4 Gateway: 10.0.2.2
+  a: Yes
+  Install in /etc: Yes
+- b: timezone
+  Europe/Berlin
+- g: sshd
+  YES
+- h: ntpd
+  YES
+- i: ntpdate at boot
+  YES
+- o: user
+  name: MY_USER_NAME
+  Yes
+  /bin/sh
+  New password: ********
+- x: Finished configuring
+- x: Exit
+# halt
+
+(B2) Boot from the installed disk
+---------------------------------
+
+This does not need a -kernel option, since an OpenBIOS and NetBSD OpenFirmware bootloader is installed.
+
+% qemu-system-sparc64 $common_args
+
+Login as root.
+
+Edit /etc/profile to set TERM=vt220:
+# env TERM=vt220 vi /etc/profile .cshrc
+In /etc/profile, add
+  TERM=vt220
+  export TERM
+In .cshrc, add
+  setenv TERM vt220
+
+# halt
+
+(PK) Install packages
+---------------------
+
+There are no binary packages in
+https://cdn.netbsd.org/pub/pkgsrc/packages/NetBSD/sparc64/10.0/All/ .
+
+
+Notes
+-----
+
+After 1 hour of execution time, sometimes the clock gets stuck in a 2-seconds
+loop; then "sleep 1" never completes.
+
+gcc version 10.5.0 (nb3 20231008) produces
+  internal compiler error: Floating point exception
+for some input files:
+  c-nstrftime.c des.c md4.c md5.c sha1.c sha256.c sha512.c sm3.c fprintftime.c
+  nstrftime.c parse-datetime.c mktime.c test-hard-locale.c
+The workaround is to compile these compilation units with -O0.
+
+gcc version 10.5.0 (nb3 20231008) miscompiles
+  hypotl.c
+The workaround is to compile these compilation units with -O0.

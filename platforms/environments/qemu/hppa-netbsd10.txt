@@ -1,0 +1,167 @@
+(DR) Collect pointers to documentation and references
+-----------------------------------------------------
+
+https://parisc.wiki.kernel.org/index.php/Qemu
+https://wiki.netbsd.org/ports/hppa/qemu_hppa/
+
+(QV) Choose a QEMU version
+--------------------------
+
+Use qemu-8.2.0 with hppa patches from Helge Deller
+% PATH=$HOME/inst-qemu/8.2.0+-hppa/bin:$PATH
+
+(DL) Download an installation CD-ROM or DVD image
+-------------------------------------------------
+
+Download: https://cdn.netbsd.org/pub/NetBSD/iso/10.0/NetBSD-10.0-hppa.iso
+
+(XK) Extract the kernel from the CD-ROM or DVD image
+----------------------------------------------------
+
+This is not needed in this case.
+
+(CD) Create an empty disk image to be used by the virtual machine
+-----------------------------------------------------------------
+
+% qemu-img create -f qcow2 netbsd10.qcow2 10G
+
+(MA) Choose the machine arguments
+---------------------------------
+
+% machine_args="-m 256"
+
+(DI) Choose the disk arguments
+------------------------------
+
+% disk_args="-drive file=netbsd10.qcow2,format=qcow2,index=0"
+
+(NW) Choose the network arguments
+---------------------------------
+
+% net_args=""
+This provides an ethernet interface:
+(qemu) info network
+hub 0
+ \ hub0port1: #net160: index=0,type=user,net=10.0.2.0,restrict=off
+ \ hub0port0: tulip.0: index=0,type=nic,model=tulip,macaddr=52:54:00:12:34:56
+But it does not really work from within NetBSD later. Therefore:
+
+% net_args="-netdev type=user,id=net0 -device rtl8139,netdev=net0,mac=52:54:00:12:34:56"
+(qemu) info network
+rtl8139.0: index=0,type=nic,model=rtl8139,macaddr=52:54:00:12:34:56
+ \ net0: index=0,type=user,net=10.0.2.0,restrict=off
+
+(DV) Choose the display/video arguments
+---------------------------------------
+
+% display_args="-nographic"
+
+(B1) Boot from the CD/DVD
+-------------------------
+
+% common_args="$machine_args $disk_args $net_args $display_args"
+
+Resize the terminal to 80x24.
+
+% qemu-system-hppa $common_args -cdrom NetBSD-10.0-hppa.iso -boot d
+
+(IN) Perform the steps of the installer
+---------------------------------------
+
+Enter:
+- a: in English
+- a: to hard disk
+- b: Yes
+- a: sd0
+- a: Set sizes
+- /: 2048 MB = 4194304 sec, swap: 256 MB = 524288 sec, /usr: 7936 MB = 16252928 sec, x
+- x: Partition sizes OK
+- b: Yes
+Ignore messages like this:
+--------------------------------------------------------------------------------
+[ 504.5268850] esiop0: unhandled scsi interrupt, sist=0x80 sstat1=0x0 DSA=0x1 DS
+--------------------------------------------------------------------------------
+- b: Installation without X11
+- a: CD-ROM
+  Verify that there were no errors in the unpacking processes.
+- enter
+- root password: ********
+- a: enter random characters
+- a: configure network
+  a: re0
+  Autoconfigure.
+  Host name: hppa-netbsd10
+  DNS domain: MYDOMAINNAME
+  Check values:
+    Nameserver: 10.0.2.3
+    Host IP: 10.0.2.15
+    Netmask: 255.255.255.0
+    IPv4 Gateway: 10.0.2.2
+  OK? Yes
+  Install in /etc: Yes
+- b: timezone
+  Europe/Berlin
+- g: sshd
+  NO because the key generation may later fail with errors like
+  ------------------------------------------------------------------------------
+  assertion "(*wnumtop) == 0" failed: file "/usr/src/crypto/external/bsd/openssl/dist/crypto/bn/bn_div.c", line 439, function "bn_div_fixed_top"
+  ------------------------------------------------------------------------------
+- h: ntpd
+  YES
+- i: ntpdate at boot
+  YES
+- o: user
+  name: MY_USER_NAME
+  Yes
+  /bin/sh
+  New password: ********
+- x: Finished configuring
+- enter
+- x: Exit
+# halt
+
+(B2) Boot from the installed disk
+---------------------------------
+
+This does not need a -kernel option, since a NetBSD LIF/FFS/LFS bootloader is installed.
+% qemu-system-hppa $common_args
+
+This boots fine. Now is the time to switch to a graphic display, if desired:
+
+% display_args="-display gtk -monitor stdio"
+% common_args="$machine_args $disk_args $net_args $display_args"
+% qemu-system-hppa $common_args
+
+Login as root.
+
+Move the /home directory to the partition that has more room than /:
+# mv /home /usr/home
+# ln -s usr/home /home
+
+Edit /etc/profile to set TERM=vt220:
+# env TERM=vt220 vi /etc/profile .cshrc
+In /etc/profile, add
+  TERM=vt220
+  export TERM
+In .cshrc, add
+  setenv TERM vt220
+
+# halt
+
+(PK) Install packages
+---------------------
+
+There are no binary packages in
+https://cdn.netbsd.org/pub/pkgsrc/packages/NetBSD/hppa/ .
+
+
+Notes
+-----
+
+After 1 hour of execution time, sometimes the clock gets stuck in a 2-seconds
+loop; then "sleep 1" never completes.
+
+The VM is not 100% reliable:
+- Some gcc compilation commands crash with "internal compiler error" and
+  succeed the next time.
+- Some gnulib unit tests, e.g. test-dynarray, may spuriously fail.
