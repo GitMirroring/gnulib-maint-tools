@@ -14,4 +14,5 @@ run_test_group '
   test-oath-toolkit-5.sh
   test-coreutils-1.sh
   test-emacs-1.sh
+  test-pspp-1.sh
 '
