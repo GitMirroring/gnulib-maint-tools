@@ -1,0 +1,35 @@
+#!/bin/sh
+. ../init.sh
+do_import_test gettext-20240101 libtextstyle "`echo '
+  --lib=libtextstyle
+  --source-base=lib
+  --m4-base=gnulib-m4
+  --tests-base=tests
+  --macro-prefix=lts
+  --makefile-name=Makefile.gnulib
+  --libtool
+  --local-dir=gnulib-local
+  --local-dir=../gnulib-local
+  --import
+  ostream
+  fd-ostream
+  file-ostream
+  html-ostream
+  iconv-ostream
+  memory-ostream
+  term-ostream
+  styled-ostream
+  html-styled-ostream
+  noop-styled-ostream
+  term-styled-ostream
+  attribute
+  filename
+  isatty
+  largefile
+  manywarnings
+  vasprintf-posix
+  xalloc
+  xconcat-filename
+  memory-ostream-tests
+  term-ostream-tests
+'`"

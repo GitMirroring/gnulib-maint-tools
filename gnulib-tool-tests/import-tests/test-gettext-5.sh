@@ -1,0 +1,32 @@
+#!/bin/sh
+. ../init.sh
+do_import_test gettext-20240101 . "`echo '
+  --dir=gettext-tools
+  --macro-prefix=grgl
+  --lib=libgrep
+  --source-base=libgrep
+  --m4-base=libgrep/gnulib-m4
+  --witness-c-macro=IN_GETTEXT_TOOLS_LIBGREP
+  --makefile-name=Makefile.gnulib
+  --local-dir=gnulib-local
+  --import
+  --avoid=alloca-opt
+  --avoid=extensions
+  --avoid=gettext-h
+  --avoid=include_next
+  --avoid=localcharset
+  --avoid=malloc-posix
+  --avoid=mbrtowc
+  --avoid=mbsinit
+  --avoid=multiarch
+  --avoid=setlocale-null
+  --avoid=ssize_t
+  --avoid=streq
+  --avoid=verify
+  --avoid=windows-mutex
+  --avoid=windows-once
+  --avoid=windows-recmutex
+  --avoid=windows-rwlock
+  mbrlen
+  regex
+'`"

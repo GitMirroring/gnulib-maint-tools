@@ -1,0 +1,1403 @@
+Module list with included dependencies (indented):
+    absolute-header
+    alignasof
+    alignof
+    alloca-opt
+    array-list
+    assert-h
+  attribute
+    basename-lgpl
+    binary-io
+    c-ctype
+    c-strcase
+    c99
+    calloc-gnu
+    calloc-posix
+    cloexec
+    close
+    concat-filename
+    double-slash-root
+    dup2
+    errno
+    error
+    error-h
+    exitfail
+    extensions
+    extern-inline
+    fabs
+    fatal-signal
+    fcntl
+    fcntl-h
+    fd-hook
+  fd-ostream
+  file-ostream
+  filename
+    float
+    fpieee
+    fpucw
+    free-posix
+    frexp-nolibm
+    frexpl-nolibm
+    fstat
+    fsync
+    full-write
+    gen-header
+    get_ppid_of
+    get_progname_of
+    getdtablesize
+    gethostname
+    getprogname
+    gettext-h
+    gettimeofday
+    havelib
+  html-ostream
+  html-styled-ostream
+    ialloc
+    iconv
+  iconv-ostream
+    idx
+    include_next
+    inline
+    intprops
+    inttypes-incomplete
+  isatty
+    isinf
+    isnan
+    isnand
+    isnand-nolibm
+    isnanf
+    isnanf-nolibm
+    isnanl
+    isnanl-nolibm
+  largefile
+    libcroco
+    libglib
+    libxml
+    limits-h
+    list
+    lock
+    log10
+    malloc-gnu
+    malloc-posix
+    malloca
+  manywarnings
+    math
+    mbszero
+    mem-hash-map
+    memchr
+  memory-ostream
+  memory-ostream-tests
+    minmax
+    moo
+    msvc-inval
+    msvc-nothrow
+    multiarch
+    no-c++
+    nocrash
+  noop-styled-ostream
+    obstack
+    open
+  ostream
+    pathmax
+    pow
+    printf-frexp
+    printf-frexpl
+    printf-safe
+    raise
+    read
+    realloc-gnu
+    realloc-posix
+    reallocarray
+    safe-read
+    safe-write
+    same-inode
+    sigaction
+    signal-h
+    signbit
+    sigprocmask
+    size_max
+    snippet/_Noreturn
+    snippet/arg-nonnull
+    snippet/c++defs
+    snippet/warn-on-use
+    snprintf
+    snprintf-posix
+    socketlib
+    sockets
+    socklen
+    ssize_t
+    stat
+    stat-time
+    std-gnu11
+    stdarg
+    stdbool
+    stdckdint
+    stddef
+    stdint
+    stdio
+    stdlib
+    stpcpy
+    strerror
+    strerror-override
+    string
+  styled-ostream
+    sys_socket
+    sys_stat
+    sys_time
+    sys_types
+    sys_uio
+  term-ostream
+  term-ostream-tests
+    term-style-control
+  term-styled-ostream
+    terminfo
+    terminfo-h
+    thread-optim
+    threadlib
+    time-h
+    unistd
+    unistr/base
+    unistr/u8-mbtouc
+    unitypes
+    vararrays
+    vasnprintf
+    vasprintf
+  vasprintf-posix
+    vsnprintf
+    warnings
+    wchar
+    windows-mutex
+    windows-once
+    windows-recmutex
+    windows-rwlock
+    write
+  xalloc
+    xalloc-die
+    xalloc-oversized
+  xconcat-filename
+    xgethostname
+    xlist
+    xsize
+    xvasprintf
+File list:
+  build-aux/config.rpath
+  build-aux/moopp
+  lib/_Noreturn.h
+  lib/alignof.h
+  lib/alloca.in.h
+  lib/arg-nonnull.h
+  lib/asnprintf.c
+  lib/asprintf.c
+  lib/assert.in.h
+  lib/attribute.h
+  lib/basename-lgpl.c
+  lib/basename-lgpl.h
+  lib/binary-io.c
+  lib/binary-io.h
+  lib/c++defs.h
+  lib/c-ctype.c
+  lib/c-ctype.h
+  lib/c-strcase.h
+  lib/c-strcasecmp.c
+  lib/c-strncasecmp.c
+  lib/calloc.c
+  lib/cloexec.c
+  lib/cloexec.h
+  lib/close.c
+  lib/concat-filename.c
+  lib/concat-filename.h
+  lib/dup2.c
+  lib/errno.in.h
+  lib/error.c
+  lib/error.in.h
+  lib/exitfail.c
+  lib/exitfail.h
+  lib/fatal-signal.c
+  lib/fatal-signal.h
+  lib/fcntl.c
+  lib/fcntl.in.h
+  lib/fd-hook.c
+  lib/fd-hook.h
+  lib/fd-ostream.oo.c
+  lib/fd-ostream.oo.h
+  lib/file-ostream.oo.c
+  lib/file-ostream.oo.h
+  lib/filename.h
+  lib/float+.h
+  lib/float.c
+  lib/float.in.h
+  lib/fpucw.h
+  lib/free.c
+  lib/frexp.c
+  lib/frexpl.c
+  lib/fstat.c
+  lib/fsync.c
+  lib/full-write.c
+  lib/full-write.h
+  lib/get_ppid_of.c
+  lib/get_ppid_of.h
+  lib/get_progname_of.c
+  lib/get_progname_of.h
+  lib/getdtablesize.c
+  lib/gethostname.c
+  lib/getprogname.c
+  lib/getprogname.h
+  lib/gettext.h
+  lib/gettimeofday.c
+  lib/gl_array_list.c
+  lib/gl_array_list.h
+  lib/gl_list.c
+  lib/gl_list.h
+  lib/gl_xlist.c
+  lib/gl_xlist.h
+  lib/glib.in.h
+  lib/glib/ghash.c
+  lib/glib/ghash.in.h
+  lib/glib/glist.c
+  lib/glib/glist.in.h
+  lib/glib/gmacros.in.h
+  lib/glib/gmessages.c
+  lib/glib/gprimes.c
+  lib/glib/gprimes.in.h
+  lib/glib/gprintfint.in.h
+  lib/glib/gstrfuncs.c
+  lib/glib/gstrfuncs.in.h
+  lib/glib/gstring.c
+  lib/glib/gstring.in.h
+  lib/glib/gtypes.in.h
+  lib/glibconfig.in.h
+  lib/glthread/lock.c
+  lib/glthread/lock.h
+  lib/glthread/threadlib.c
+  lib/html-ostream.oo.c
+  lib/html-ostream.oo.h
+  lib/html-styled-ostream.oo.c
+  lib/html-styled-ostream.oo.h
+  lib/ialloc.c
+  lib/ialloc.h
+  lib/iconv-ostream.oo.c
+  lib/iconv-ostream.oo.h
+  lib/idx.h
+  lib/intprops-internal.h
+  lib/intprops.h
+  lib/inttypes.in.h
+  lib/isatty.c
+  lib/isinf.c
+  lib/isnan.c
+  lib/isnand-nolibm.h
+  lib/isnand.c
+  lib/isnanf-nolibm.h
+  lib/isnanf.c
+  lib/isnanl-nolibm.h
+  lib/isnanl.c
+  lib/itold.c
+  lib/libcroco/cr-additional-sel.c
+  lib/libcroco/cr-additional-sel.h
+  lib/libcroco/cr-attr-sel.c
+  lib/libcroco/cr-attr-sel.h
+  lib/libcroco/cr-cascade.c
+  lib/libcroco/cr-cascade.h
+  lib/libcroco/cr-declaration.c
+  lib/libcroco/cr-declaration.h
+  lib/libcroco/cr-doc-handler.c
+  lib/libcroco/cr-doc-handler.h
+  lib/libcroco/cr-enc-handler.c
+  lib/libcroco/cr-enc-handler.h
+  lib/libcroco/cr-fonts.c
+  lib/libcroco/cr-fonts.h
+  lib/libcroco/cr-input.c
+  lib/libcroco/cr-input.h
+  lib/libcroco/cr-num.c
+  lib/libcroco/cr-num.h
+  lib/libcroco/cr-om-parser.c
+  lib/libcroco/cr-om-parser.h
+  lib/libcroco/cr-parser.c
+  lib/libcroco/cr-parser.h
+  lib/libcroco/cr-parsing-location.c
+  lib/libcroco/cr-parsing-location.h
+  lib/libcroco/cr-prop-list.c
+  lib/libcroco/cr-prop-list.h
+  lib/libcroco/cr-pseudo.c
+  lib/libcroco/cr-pseudo.h
+  lib/libcroco/cr-rgb.c
+  lib/libcroco/cr-rgb.h
+  lib/libcroco/cr-sel-eng.c
+  lib/libcroco/cr-sel-eng.h
+  lib/libcroco/cr-selector.c
+  lib/libcroco/cr-selector.h
+  lib/libcroco/cr-simple-sel.c
+  lib/libcroco/cr-simple-sel.h
+  lib/libcroco/cr-statement.c
+  lib/libcroco/cr-statement.h
+  lib/libcroco/cr-string.c
+  lib/libcroco/cr-string.h
+  lib/libcroco/cr-style.c
+  lib/libcroco/cr-style.h
+  lib/libcroco/cr-stylesheet.c
+  lib/libcroco/cr-stylesheet.h
+  lib/libcroco/cr-term.c
+  lib/libcroco/cr-term.h
+  lib/libcroco/cr-tknzr.c
+  lib/libcroco/cr-tknzr.h
+  lib/libcroco/cr-token.c
+  lib/libcroco/cr-token.h
+  lib/libcroco/cr-utils.c
+  lib/libcroco/cr-utils.h
+  lib/libcroco/libcroco-config.h
+  lib/libcroco/libcroco.h
+  lib/libxml/COPYING
+  lib/libxml/DOCBparser.c
+  lib/libxml/DOCBparser.in.h
+  lib/libxml/HTMLparser.c
+  lib/libxml/HTMLparser.in.h
+  lib/libxml/HTMLtree.c
+  lib/libxml/HTMLtree.in.h
+  lib/libxml/SAX.c
+  lib/libxml/SAX.in.h
+  lib/libxml/SAX2.c
+  lib/libxml/SAX2.in.h
+  lib/libxml/buf.c
+  lib/libxml/buf.h
+  lib/libxml/c14n.c
+  lib/libxml/c14n.in.h
+  lib/libxml/catalog.c
+  lib/libxml/catalog.in.h
+  lib/libxml/chvalid.c
+  lib/libxml/chvalid.in.h
+  lib/libxml/debugXML.c
+  lib/libxml/debugXML.in.h
+  lib/libxml/dict.c
+  lib/libxml/dict.in.h
+  lib/libxml/elfgcchack.h
+  lib/libxml/enc.h
+  lib/libxml/encoding.c
+  lib/libxml/encoding.in.h
+  lib/libxml/entities.c
+  lib/libxml/entities.in.h
+  lib/libxml/error.c
+  lib/libxml/globals.c
+  lib/libxml/globals.in.h
+  lib/libxml/hash.c
+  lib/libxml/hash.in.h
+  lib/libxml/legacy.c
+  lib/libxml/libxml.h
+  lib/libxml/list.c
+  lib/libxml/list.in.h
+  lib/libxml/nanoftp.c
+  lib/libxml/nanoftp.in.h
+  lib/libxml/nanohttp.c
+  lib/libxml/nanohttp.in.h
+  lib/libxml/parser.c
+  lib/libxml/parser.in.h
+  lib/libxml/parserInternals.c
+  lib/libxml/parserInternals.in.h
+  lib/libxml/pattern.c
+  lib/libxml/pattern.in.h
+  lib/libxml/relaxng.c
+  lib/libxml/relaxng.in.h
+  lib/libxml/save.h
+  lib/libxml/schemasInternals.in.h
+  lib/libxml/schematron.c
+  lib/libxml/schematron.in.h
+  lib/libxml/threads.c
+  lib/libxml/threads.in.h
+  lib/libxml/timsort.h
+  lib/libxml/tree.c
+  lib/libxml/tree.in.h
+  lib/libxml/trionan.c
+  lib/libxml/uri.c
+  lib/libxml/uri.in.h
+  lib/libxml/valid.c
+  lib/libxml/valid.in.h
+  lib/libxml/xinclude.c
+  lib/libxml/xinclude.in.h
+  lib/libxml/xlink.c
+  lib/libxml/xlink.in.h
+  lib/libxml/xmlIO.c
+  lib/libxml/xmlIO.in.h
+  lib/libxml/xmlautomata.in.h
+  lib/libxml/xmlerror.in.h
+  lib/libxml/xmlexports.in.h
+  lib/libxml/xmlmemory.c
+  lib/libxml/xmlmemory.in.h
+  lib/libxml/xmlmodule.c
+  lib/libxml/xmlmodule.in.h
+  lib/libxml/xmlreader.c
+  lib/libxml/xmlreader.in.h
+  lib/libxml/xmlregexp.c
+  lib/libxml/xmlregexp.in.h
+  lib/libxml/xmlsave.c
+  lib/libxml/xmlsave.in.h
+  lib/libxml/xmlschemas.c
+  lib/libxml/xmlschemas.in.h
+  lib/libxml/xmlschemastypes.c
+  lib/libxml/xmlschemastypes.in.h
+  lib/libxml/xmlstring.c
+  lib/libxml/xmlstring.in.h
+  lib/libxml/xmlunicode.c
+  lib/libxml/xmlunicode.in.h
+  lib/libxml/xmlversion.in.h
+  lib/libxml/xmlwriter.c
+  lib/libxml/xmlwriter.in.h
+  lib/libxml/xpath.c
+  lib/libxml/xpath.in.h
+  lib/libxml/xpathInternals.in.h
+  lib/libxml/xpointer.c
+  lib/libxml/xpointer.in.h
+  lib/limits.in.h
+  lib/log10.c
+  lib/malloc.c
+  lib/malloca.c
+  lib/malloca.h
+  lib/math.c
+  lib/math.in.h
+  lib/mbszero.c
+  lib/mem-hash-map.c
+  lib/mem-hash-map.h
+  lib/memchr.c
+  lib/memchr.valgrind
+  lib/memory-ostream.oo.c
+  lib/memory-ostream.oo.h
+  lib/minmax.h
+  lib/moo.h
+  lib/msvc-inval.c
+  lib/msvc-inval.h
+  lib/msvc-nothrow.c
+  lib/msvc-nothrow.h
+  lib/noop-styled-ostream.oo.c
+  lib/noop-styled-ostream.oo.h
+  lib/obstack.c
+  lib/obstack.in.h
+  lib/open.c
+  lib/ostream.oo.c
+  lib/ostream.oo.h
+  lib/pathmax.h
+  lib/printf-args.c
+  lib/printf-args.h
+  lib/printf-frexp.c
+  lib/printf-frexp.h
+  lib/printf-frexpl.c
+  lib/printf-frexpl.h
+  lib/printf-parse.c
+  lib/printf-parse.h
+  lib/raise.c
+  lib/read.c
+  lib/realloc.c
+  lib/reallocarray.c
+  lib/safe-read.c
+  lib/safe-read.h
+  lib/safe-write.c
+  lib/safe-write.h
+  lib/same-inode.c
+  lib/same-inode.h
+  lib/sig-handler.c
+  lib/sig-handler.h
+  lib/sigaction.c
+  lib/signal.in.h
+  lib/signbitd.c
+  lib/signbitf.c
+  lib/signbitl.c
+  lib/sigprocmask.c
+  lib/size_max.h
+  lib/snprintf.c
+  lib/sockets.c
+  lib/sockets.h
+  lib/stat-time.c
+  lib/stat-time.h
+  lib/stat-w32.c
+  lib/stat-w32.h
+  lib/stat.c
+  lib/stdarg.in.h
+  lib/stdckdint.in.h
+  lib/stddef.in.h
+  lib/stdint.in.h
+  lib/stdio-read.c
+  lib/stdio-write.c
+  lib/stdio.in.h
+  lib/stdlib.in.h
+  lib/stpcpy.c
+  lib/strerror-override.c
+  lib/strerror-override.h
+  lib/strerror.c
+  lib/string.in.h
+  lib/styled-ostream.oo.c
+  lib/styled-ostream.oo.h
+  lib/sys-limits.h
+  lib/sys_socket.c
+  lib/sys_socket.in.h
+  lib/sys_stat.in.h
+  lib/sys_time.in.h
+  lib/sys_types.in.h
+  lib/sys_uio.in.h
+  lib/term-ostream.oo.c
+  lib/term-ostream.oo.h
+  lib/term-style-control.c
+  lib/term-style-control.h
+  lib/term-styled-ostream.oo.c
+  lib/term-styled-ostream.oo.h
+  lib/terminfo.h
+  lib/thread-optim.h
+  lib/time.in.h
+  lib/tparm.c
+  lib/tputs.c
+  lib/unistd.c
+  lib/unistd.in.h
+  lib/unistr.in.h
+  lib/unistr/u8-mbtouc-aux.c
+  lib/unistr/u8-mbtouc.c
+  lib/unitypes.in.h
+  lib/vasnprintf.c
+  lib/vasnprintf.h
+  lib/vasprintf.c
+  lib/verify.h
+  lib/vsnprintf.c
+  lib/w32sock.h
+  lib/warn-on-use.h
+  lib/wchar.in.h
+  lib/windows-initguard.h
+  lib/windows-mutex.c
+  lib/windows-mutex.h
+  lib/windows-once.c
+  lib/windows-once.h
+  lib/windows-recmutex.c
+  lib/windows-recmutex.h
+  lib/windows-rwlock.c
+  lib/windows-rwlock.h
+  lib/write.c
+  lib/xalloc-die.c
+  lib/xalloc-oversized.h
+  lib/xalloc.h
+  lib/xasprintf.c
+  lib/xconcat-filename.c
+  lib/xgetaname-impl.h
+  lib/xgethostname.c
+  lib/xgethostname.h
+  lib/xmalloc.c
+  lib/xsize.c
+  lib/xsize.h
+  lib/xvasprintf.c
+  lib/xvasprintf.h
+  m4/00gnulib.m4
+  m4/absolute-header.m4
+  m4/alloca.m4
+  m4/assert_h.m4
+  m4/c-bool.m4
+  m4/calloc.m4
+  m4/check-math-lib.m4
+  m4/close.m4
+  m4/codeset.m4
+  m4/curses.m4
+  m4/double-slash-root.m4
+  m4/dup2.m4
+  m4/eealloc.m4
+  m4/errno_h.m4
+  m4/error.m4
+  m4/error_h.m4
+  m4/exponentd.m4
+  m4/exponentf.m4
+  m4/exponentl.m4
+  m4/extensions.m4
+  m4/extern-inline.m4
+  m4/fabs.m4
+  m4/fatal-signal.m4
+  m4/fcntl-o.m4
+  m4/fcntl.m4
+  m4/fcntl_h.m4
+  m4/float_h.m4
+  m4/fpieee.m4
+  m4/free.m4
+  m4/frexp.m4
+  m4/frexpl.m4
+  m4/fstat.m4
+  m4/fsync.m4
+  m4/getdtablesize.m4
+  m4/gethostname.m4
+  m4/getprogname.m4
+  m4/gettimeofday.m4
+  m4/gnulib-common.m4
+  m4/host-cpu-c-abi.m4
+  m4/iconv.m4
+  m4/include_next.m4
+  m4/inline.m4
+  m4/intmax_t.m4
+  m4/inttypes.m4
+  m4/inttypes_h.m4
+  m4/isatty.m4
+  m4/isinf.m4
+  m4/isnan.m4
+  m4/isnand.m4
+  m4/isnanf.m4
+  m4/isnanl.m4
+  m4/largefile.m4
+  m4/ldexpl.m4
+  m4/lib-ld.m4
+  m4/lib-link.m4
+  m4/lib-prefix.m4
+  m4/libcroco.m4
+  m4/libglib.m4
+  m4/libunistring-base.m4
+  m4/libxml.m4
+  m4/limits-h.m4
+  m4/locale-fr.m4
+  m4/locale-ja.m4
+  m4/locale-zh.m4
+  m4/lock.m4
+  m4/log10.m4
+  m4/malloc.m4
+  m4/malloca.m4
+  m4/manywarnings-c++.m4
+  m4/manywarnings.m4
+  m4/math_h.m4
+  m4/mathfunc.m4
+  m4/mbrtowc.m4
+  m4/mbstate_t.m4
+  m4/memchr.m4
+  m4/minmax.m4
+  m4/mmap-anon.m4
+  m4/mode_t.m4
+  m4/moo.m4
+  m4/msvc-inval.m4
+  m4/msvc-nothrow.m4
+  m4/multiarch.m4
+  m4/musl.m4
+  m4/no-c++.m4
+  m4/nocrash.m4
+  m4/obstack.m4
+  m4/off_t.m4
+  m4/open-cloexec.m4
+  m4/open-slash.m4
+  m4/open.m4
+  m4/pathmax.m4
+  m4/pid_t.m4
+  m4/pow.m4
+  m4/printf-frexp.m4
+  m4/printf-frexpl.m4
+  m4/printf.m4
+  m4/pthread_rwlock_rdlock.m4
+  m4/raise.m4
+  m4/read.m4
+  m4/realloc.m4
+  m4/reallocarray.m4
+  m4/safe-read.m4
+  m4/safe-write.m4
+  m4/sig_atomic_t.m4
+  m4/sigaction.m4
+  m4/signal_h.m4
+  m4/signalblocking.m4
+  m4/signbit.m4
+  m4/size_max.m4
+  m4/snprintf-posix.m4
+  m4/snprintf.m4
+  m4/socketlib.m4
+  m4/sockets.m4
+  m4/socklen.m4
+  m4/sockpfaf.m4
+  m4/ssize_t.m4
+  m4/stat-time.m4
+  m4/stat.m4
+  m4/std-gnu11.m4
+  m4/stdalign.m4
+  m4/stdarg.m4
+  m4/stddef_h.m4
+  m4/stdint.m4
+  m4/stdint_h.m4
+  m4/stdio_h.m4
+  m4/stdlib_h.m4
+  m4/stpcpy.m4
+  m4/strerror.m4
+  m4/string_h.m4
+  m4/sys_socket_h.m4
+  m4/sys_stat_h.m4
+  m4/sys_time_h.m4
+  m4/sys_types_h.m4
+  m4/sys_uio_h.m4
+  m4/tcgetattr.m4
+  m4/term-ostream.m4
+  m4/terminfo.m4
+  m4/threadlib.m4
+  m4/time_h.m4
+  m4/unistd_h.m4
+  m4/vararrays.m4
+  m4/vasnprintf.m4
+  m4/vasprintf-posix.m4
+  m4/vasprintf.m4
+  m4/vsnprintf.m4
+  m4/warn-on-use.m4
+  m4/warnings.m4
+  m4/wchar_h.m4
+  m4/wchar_t.m4
+  m4/wint_t.m4
+  m4/write.m4
+  m4/xalloc.m4
+  m4/xsize.m4
+  m4/xvasprintf.m4
+  m4/zzgnulib.m4
+  tests/test-memory-ostream.c
+  tests/test-term-ostream-xterm-16color.out
+  tests/test-term-ostream-xterm-256color.out
+  tests/test-term-ostream-xterm-88color.out
+  tests/test-term-ostream-xterm-8bit.out
+  tests/test-term-ostream-xterm-aix51.out
+  tests/test-term-ostream-xterm-basic-italic.out
+  tests/test-term-ostream-xterm-basic.out
+  tests/test-term-ostream-xterm-freebsd-italic.out
+  tests/test-term-ostream-xterm-freebsd101.out
+  tests/test-term-ostream-xterm-irix65.out
+  tests/test-term-ostream-xterm-linux-debian.out
+  tests/test-term-ostream-xterm-linux-mandriva.out
+  tests/test-term-ostream-xterm-mingw.out
+  tests/test-term-ostream-xterm-netbsd3.out
+  tests/test-term-ostream-xterm-osf51.out
+  tests/test-term-ostream-xterm-r6.out
+  tests/test-term-ostream-xterm-solaris10.out
+  tests/test-term-ostream-xterm-xf86-v32.out
+  tests/test-term-ostream-xterm.sh
+  tests/test-term-ostream.c
+  lib/_Noreturn.h -> tests/_Noreturn.h
+  lib/arg-nonnull.h -> tests/arg-nonnull.h
+  lib/c++defs.h -> tests/c++defs.h
+  lib/dummy.c -> tests/dummy.c
+  lib/warn-on-use.h -> tests/warn-on-use.h
+Creating directory ./gnulib-m4
+Creating directory ./build-aux
+Creating directory ./lib/glib
+Creating directory ./lib/glthread
+Creating directory ./lib/libcroco
+Creating directory ./lib/libxml
+Creating directory ./lib/unistr
+Copying file build-aux/config.rpath
+Copying file build-aux/moopp
+Copying file gnulib-m4/00gnulib.m4
+Copying file gnulib-m4/absolute-header.m4
+Copying file gnulib-m4/alloca.m4
+Copying file gnulib-m4/assert_h.m4
+Copying file gnulib-m4/c-bool.m4
+Copying file gnulib-m4/calloc.m4
+Copying file gnulib-m4/check-math-lib.m4
+Copying file gnulib-m4/close.m4
+Copying file gnulib-m4/codeset.m4
+Copying file gnulib-m4/curses.m4
+Copying file gnulib-m4/double-slash-root.m4
+Copying file gnulib-m4/dup2.m4
+Copying file gnulib-m4/eealloc.m4
+Copying file gnulib-m4/errno_h.m4
+Copying file gnulib-m4/error.m4
+Copying file gnulib-m4/error_h.m4
+Copying file gnulib-m4/exponentd.m4
+Copying file gnulib-m4/exponentf.m4
+Copying file gnulib-m4/exponentl.m4
+Copying file gnulib-m4/extensions.m4
+Copying file gnulib-m4/extern-inline.m4
+Copying file gnulib-m4/fabs.m4
+Copying file gnulib-m4/fatal-signal.m4
+Copying file gnulib-m4/fcntl-o.m4
+Copying file gnulib-m4/fcntl.m4
+Copying file gnulib-m4/fcntl_h.m4
+Copying file gnulib-m4/float_h.m4
+Copying file gnulib-m4/fpieee.m4
+Copying file gnulib-m4/free.m4
+Copying file gnulib-m4/frexp.m4
+Copying file gnulib-m4/frexpl.m4
+Copying file gnulib-m4/fstat.m4
+Copying file gnulib-m4/fsync.m4
+Copying file gnulib-m4/getdtablesize.m4
+Copying file gnulib-m4/gethostname.m4
+Copying file gnulib-m4/getprogname.m4
+Copying file gnulib-m4/gettimeofday.m4
+Copying file gnulib-m4/gnulib-common.m4
+Copying file gnulib-m4/gnulib-tool.m4
+Copying file gnulib-m4/host-cpu-c-abi.m4
+Copying file gnulib-m4/iconv.m4
+Copying file gnulib-m4/include_next.m4
+Copying file gnulib-m4/inline.m4
+Copying file gnulib-m4/intmax_t.m4
+Copying file gnulib-m4/inttypes.m4
+Copying file gnulib-m4/inttypes_h.m4
+Copying file gnulib-m4/isatty.m4
+Copying file gnulib-m4/isinf.m4
+Copying file gnulib-m4/isnan.m4
+Copying file gnulib-m4/isnand.m4
+Copying file gnulib-m4/isnanf.m4
+Copying file gnulib-m4/isnanl.m4
+Copying file gnulib-m4/largefile.m4
+Copying file gnulib-m4/ldexpl.m4
+Copying file gnulib-m4/lib-ld.m4
+Copying file gnulib-m4/lib-link.m4
+Copying file gnulib-m4/lib-prefix.m4
+Copying file gnulib-m4/libcroco.m4
+Copying file gnulib-m4/libglib.m4
+Copying file gnulib-m4/libunistring-base.m4
+Copying file gnulib-m4/libxml.m4
+Copying file gnulib-m4/limits-h.m4
+Copying file gnulib-m4/locale-fr.m4
+Copying file gnulib-m4/locale-ja.m4
+Copying file gnulib-m4/locale-zh.m4
+Copying file gnulib-m4/lock.m4
+Copying file gnulib-m4/log10.m4
+Copying file gnulib-m4/malloc.m4
+Copying file gnulib-m4/malloca.m4
+Copying file gnulib-m4/manywarnings-c++.m4
+Copying file gnulib-m4/manywarnings.m4
+Copying file gnulib-m4/math_h.m4
+Copying file gnulib-m4/mathfunc.m4
+Copying file gnulib-m4/mbrtowc.m4
+Copying file gnulib-m4/mbstate_t.m4
+Copying file gnulib-m4/memchr.m4
+Copying file gnulib-m4/minmax.m4
+Copying file gnulib-m4/mmap-anon.m4
+Copying file gnulib-m4/mode_t.m4
+Copying file gnulib-m4/moo.m4
+Copying file gnulib-m4/msvc-inval.m4
+Copying file gnulib-m4/msvc-nothrow.m4
+Copying file gnulib-m4/multiarch.m4
+Copying file gnulib-m4/musl.m4
+Copying file gnulib-m4/no-c++.m4
+Copying file gnulib-m4/nocrash.m4
+Copying file gnulib-m4/obstack.m4
+Copying file gnulib-m4/off_t.m4
+Copying file gnulib-m4/open-cloexec.m4
+Copying file gnulib-m4/open-slash.m4
+Copying file gnulib-m4/open.m4
+Copying file gnulib-m4/pathmax.m4
+Copying file gnulib-m4/pid_t.m4
+Copying file gnulib-m4/pow.m4
+Copying file gnulib-m4/printf-frexp.m4
+Copying file gnulib-m4/printf-frexpl.m4
+Copying file gnulib-m4/printf.m4
+Copying file gnulib-m4/pthread_rwlock_rdlock.m4
+Copying file gnulib-m4/raise.m4
+Copying file gnulib-m4/read.m4
+Copying file gnulib-m4/realloc.m4
+Copying file gnulib-m4/reallocarray.m4
+Copying file gnulib-m4/safe-read.m4
+Copying file gnulib-m4/safe-write.m4
+Copying file gnulib-m4/sig_atomic_t.m4
+Copying file gnulib-m4/sigaction.m4
+Copying file gnulib-m4/signal_h.m4
+Copying file gnulib-m4/signalblocking.m4
+Copying file gnulib-m4/signbit.m4
+Copying file gnulib-m4/size_max.m4
+Copying file gnulib-m4/snprintf-posix.m4
+Copying file gnulib-m4/snprintf.m4
+Copying file gnulib-m4/socketlib.m4
+Copying file gnulib-m4/sockets.m4
+Copying file gnulib-m4/socklen.m4
+Copying file gnulib-m4/sockpfaf.m4
+Copying file gnulib-m4/ssize_t.m4
+Copying file gnulib-m4/stat-time.m4
+Copying file gnulib-m4/stat.m4
+Copying file gnulib-m4/std-gnu11.m4
+Copying file gnulib-m4/stdalign.m4
+Copying file gnulib-m4/stdarg.m4
+Copying file gnulib-m4/stddef_h.m4
+Copying file gnulib-m4/stdint.m4
+Copying file gnulib-m4/stdint_h.m4
+Copying file gnulib-m4/stdio_h.m4
+Copying file gnulib-m4/stdlib_h.m4
+Copying file gnulib-m4/stpcpy.m4
+Copying file gnulib-m4/strerror.m4
+Copying file gnulib-m4/string_h.m4
+Copying file gnulib-m4/sys_socket_h.m4
+Copying file gnulib-m4/sys_stat_h.m4
+Copying file gnulib-m4/sys_time_h.m4
+Copying file gnulib-m4/sys_types_h.m4
+Copying file gnulib-m4/sys_uio_h.m4
+Copying file gnulib-m4/tcgetattr.m4
+Copying file gnulib-m4/term-ostream.m4
+Copying file gnulib-m4/terminfo.m4
+Copying file gnulib-m4/threadlib.m4
+Copying file gnulib-m4/time_h.m4
+Copying file gnulib-m4/unistd_h.m4
+Copying file gnulib-m4/vararrays.m4
+Copying file gnulib-m4/vasnprintf.m4
+Copying file gnulib-m4/vasprintf-posix.m4
+Copying file gnulib-m4/vasprintf.m4
+Copying file gnulib-m4/vsnprintf.m4
+Copying file gnulib-m4/warn-on-use.m4
+Copying file gnulib-m4/warnings.m4
+Copying file gnulib-m4/wchar_h.m4
+Copying file gnulib-m4/wchar_t.m4
+Copying file gnulib-m4/wint_t.m4
+Copying file gnulib-m4/write.m4
+Copying file gnulib-m4/xalloc.m4
+Copying file gnulib-m4/xsize.m4
+Copying file gnulib-m4/xvasprintf.m4
+Copying file gnulib-m4/zzgnulib.m4
+Copying file lib/_Noreturn.h
+Copying file lib/alignof.h
+Copying file lib/alloca.in.h
+Copying file lib/arg-nonnull.h
+Copying file lib/asnprintf.c
+Copying file lib/asprintf.c
+Copying file lib/assert.in.h
+Copying file lib/attribute.h
+Copying file lib/basename-lgpl.c
+Copying file lib/basename-lgpl.h
+Copying file lib/binary-io.c
+Copying file lib/binary-io.h
+Copying file lib/c++defs.h
+Copying file lib/c-ctype.c
+Copying file lib/c-ctype.h
+Copying file lib/c-strcase.h
+Copying file lib/c-strcasecmp.c
+Copying file lib/c-strncasecmp.c
+Copying file lib/calloc.c
+Copying file lib/cloexec.c
+Copying file lib/cloexec.h
+Copying file lib/close.c
+Copying file lib/concat-filename.c
+Copying file lib/concat-filename.h
+Copying file lib/dup2.c
+Copying file lib/errno.in.h
+Copying file lib/error.c
+Copying file lib/error.in.h
+Copying file lib/exitfail.c
+Copying file lib/exitfail.h
+Copying file lib/fatal-signal.c
+Copying file lib/fatal-signal.h
+Copying file lib/fcntl.c
+Copying file lib/fcntl.in.h
+Copying file lib/fd-hook.c
+Copying file lib/fd-hook.h
+Copying file lib/fd-ostream.oo.c
+Copying file lib/fd-ostream.oo.h
+Copying file lib/file-ostream.oo.c
+Copying file lib/file-ostream.oo.h
+Copying file lib/filename.h
+Copying file lib/float+.h
+Copying file lib/float.c
+Copying file lib/float.in.h
+Copying file lib/fpucw.h
+Copying file lib/free.c
+Copying file lib/frexp.c
+Copying file lib/frexpl.c
+Copying file lib/fstat.c
+Copying file lib/fsync.c
+Copying file lib/full-write.c
+Copying file lib/full-write.h
+Copying file lib/get_ppid_of.c
+Copying file lib/get_ppid_of.h
+Copying file lib/get_progname_of.c
+Copying file lib/get_progname_of.h
+Copying file lib/getdtablesize.c
+Copying file lib/gethostname.c
+Copying file lib/getprogname.c
+Copying file lib/getprogname.h
+Copying file lib/gettext.h
+Copying file lib/gettimeofday.c
+Copying file lib/gl_array_list.c
+Copying file lib/gl_array_list.h
+Copying file lib/gl_list.c
+Copying file lib/gl_list.h
+Copying file lib/gl_xlist.c
+Copying file lib/gl_xlist.h
+Copying file lib/glib.in.h
+Copying file lib/glib/ghash.c
+Copying file lib/glib/ghash.in.h
+Copying file lib/glib/glist.c
+Copying file lib/glib/glist.in.h
+Copying file lib/glib/gmacros.in.h
+Copying file lib/glib/gmessages.c
+Copying file lib/glib/gprimes.c
+Copying file lib/glib/gprimes.in.h
+Copying file lib/glib/gprintfint.in.h
+Copying file lib/glib/gstrfuncs.c
+Copying file lib/glib/gstrfuncs.in.h
+Copying file lib/glib/gstring.c
+Copying file lib/glib/gstring.in.h
+Copying file lib/glib/gtypes.in.h
+Copying file lib/glibconfig.in.h
+Copying file lib/glthread/lock.c
+Copying file lib/glthread/lock.h
+Copying file lib/glthread/threadlib.c
+Copying file lib/html-ostream.oo.c
+Copying file lib/html-ostream.oo.h
+Copying file lib/html-styled-ostream.oo.c
+Copying file lib/html-styled-ostream.oo.h
+Copying file lib/ialloc.c
+Copying file lib/ialloc.h
+Copying file lib/iconv-ostream.oo.c
+Copying file lib/iconv-ostream.oo.h
+Copying file lib/idx.h
+Copying file lib/intprops-internal.h
+Copying file lib/intprops.h
+Copying file lib/inttypes.in.h
+Copying file lib/isatty.c
+Copying file lib/isinf.c
+Copying file lib/isnan.c
+Copying file lib/isnand-nolibm.h
+Copying file lib/isnand.c
+Copying file lib/isnanf-nolibm.h
+Copying file lib/isnanf.c
+Copying file lib/isnanl-nolibm.h
+Copying file lib/isnanl.c
+Copying file lib/itold.c
+Copying file lib/libcroco/cr-additional-sel.c
+Copying file lib/libcroco/cr-additional-sel.h
+Copying file lib/libcroco/cr-attr-sel.c
+Copying file lib/libcroco/cr-attr-sel.h
+Copying file lib/libcroco/cr-cascade.c
+Copying file lib/libcroco/cr-cascade.h
+Copying file lib/libcroco/cr-declaration.c
+Copying file lib/libcroco/cr-declaration.h
+Copying file lib/libcroco/cr-doc-handler.c
+Copying file lib/libcroco/cr-doc-handler.h
+Copying file lib/libcroco/cr-enc-handler.c
+Copying file lib/libcroco/cr-enc-handler.h
+Copying file lib/libcroco/cr-fonts.c
+Copying file lib/libcroco/cr-fonts.h
+Copying file lib/libcroco/cr-input.c
+Copying file lib/libcroco/cr-input.h
+Copying file lib/libcroco/cr-num.c
+Copying file lib/libcroco/cr-num.h
+Copying file lib/libcroco/cr-om-parser.c
+Copying file lib/libcroco/cr-om-parser.h
+Copying file lib/libcroco/cr-parser.c
+Copying file lib/libcroco/cr-parser.h
+Copying file lib/libcroco/cr-parsing-location.c
+Copying file lib/libcroco/cr-parsing-location.h
+Copying file lib/libcroco/cr-prop-list.c
+Copying file lib/libcroco/cr-prop-list.h
+Copying file lib/libcroco/cr-pseudo.c
+Copying file lib/libcroco/cr-pseudo.h
+Copying file lib/libcroco/cr-rgb.c
+Copying file lib/libcroco/cr-rgb.h
+Copying file lib/libcroco/cr-sel-eng.c
+Copying file lib/libcroco/cr-sel-eng.h
+Copying file lib/libcroco/cr-selector.c
+Copying file lib/libcroco/cr-selector.h
+Copying file lib/libcroco/cr-simple-sel.c
+Copying file lib/libcroco/cr-simple-sel.h
+Copying file lib/libcroco/cr-statement.c
+Copying file lib/libcroco/cr-statement.h
+Copying file lib/libcroco/cr-string.c
+Copying file lib/libcroco/cr-string.h
+Copying file lib/libcroco/cr-style.c
+Copying file lib/libcroco/cr-style.h
+Copying file lib/libcroco/cr-stylesheet.c
+Copying file lib/libcroco/cr-stylesheet.h
+Copying file lib/libcroco/cr-term.c
+Copying file lib/libcroco/cr-term.h
+Copying file lib/libcroco/cr-tknzr.c
+Copying file lib/libcroco/cr-tknzr.h
+Copying file lib/libcroco/cr-token.c
+Copying file lib/libcroco/cr-token.h
+Copying file lib/libcroco/cr-utils.c
+Copying file lib/libcroco/cr-utils.h
+Copying file lib/libcroco/libcroco-config.h
+Copying file lib/libcroco/libcroco.h
+Copying file lib/libxml/COPYING
+Copying file lib/libxml/DOCBparser.c
+Copying file lib/libxml/DOCBparser.in.h
+Copying file lib/libxml/HTMLparser.c
+Copying file lib/libxml/HTMLparser.in.h
+Copying file lib/libxml/HTMLtree.c
+Copying file lib/libxml/HTMLtree.in.h
+Copying file lib/libxml/SAX.c
+Copying file lib/libxml/SAX.in.h
+Copying file lib/libxml/SAX2.c
+Copying file lib/libxml/SAX2.in.h
+Copying file lib/libxml/buf.c
+Copying file lib/libxml/buf.h
+Copying file lib/libxml/c14n.c
+Copying file lib/libxml/c14n.in.h
+Copying file lib/libxml/catalog.c
+Copying file lib/libxml/catalog.in.h
+Copying file lib/libxml/chvalid.c
+Copying file lib/libxml/chvalid.in.h
+Copying file lib/libxml/debugXML.c
+Copying file lib/libxml/debugXML.in.h
+Copying file lib/libxml/dict.c
+Copying file lib/libxml/dict.in.h
+Copying file lib/libxml/elfgcchack.h
+Copying file lib/libxml/enc.h
+Copying file lib/libxml/encoding.c
+Copying file lib/libxml/encoding.in.h
+Copying file lib/libxml/entities.c
+Copying file lib/libxml/entities.in.h
+Copying file lib/libxml/error.c
+Copying file lib/libxml/globals.c
+Copying file lib/libxml/globals.in.h
+Copying file lib/libxml/hash.c
+Copying file lib/libxml/hash.in.h
+Copying file lib/libxml/legacy.c
+Copying file lib/libxml/libxml.h
+Copying file lib/libxml/list.c
+Copying file lib/libxml/list.in.h
+Copying file lib/libxml/nanoftp.c
+Copying file lib/libxml/nanoftp.in.h
+Copying file lib/libxml/nanohttp.c
+Copying file lib/libxml/nanohttp.in.h
+Copying file lib/libxml/parser.c
+Copying file lib/libxml/parser.in.h
+Copying file lib/libxml/parserInternals.c
+Copying file lib/libxml/parserInternals.in.h
+Copying file lib/libxml/pattern.c
+Copying file lib/libxml/pattern.in.h
+Copying file lib/libxml/relaxng.c
+Copying file lib/libxml/relaxng.in.h
+Copying file lib/libxml/save.h
+Copying file lib/libxml/schemasInternals.in.h
+Copying file lib/libxml/schematron.c
+Copying file lib/libxml/schematron.in.h
+Copying file lib/libxml/threads.c
+Copying file lib/libxml/threads.in.h
+Copying file lib/libxml/timsort.h
+Copying file lib/libxml/tree.c
+Copying file lib/libxml/tree.in.h
+Copying file lib/libxml/trionan.c
+Copying file lib/libxml/uri.c
+Copying file lib/libxml/uri.in.h
+Copying file lib/libxml/valid.c
+Copying file lib/libxml/valid.in.h
+Copying file lib/libxml/xinclude.c
+Copying file lib/libxml/xinclude.in.h
+Copying file lib/libxml/xlink.c
+Copying file lib/libxml/xlink.in.h
+Copying file lib/libxml/xmlIO.c
+Copying file lib/libxml/xmlIO.in.h
+Copying file lib/libxml/xmlautomata.in.h
+Copying file lib/libxml/xmlerror.in.h
+Copying file lib/libxml/xmlexports.in.h
+Copying file lib/libxml/xmlmemory.c
+Copying file lib/libxml/xmlmemory.in.h
+Copying file lib/libxml/xmlmodule.c
+Copying file lib/libxml/xmlmodule.in.h
+Copying file lib/libxml/xmlreader.c
+Copying file lib/libxml/xmlreader.in.h
+Copying file lib/libxml/xmlregexp.c
+Copying file lib/libxml/xmlregexp.in.h
+Copying file lib/libxml/xmlsave.c
+Copying file lib/libxml/xmlsave.in.h
+Copying file lib/libxml/xmlschemas.c
+Copying file lib/libxml/xmlschemas.in.h
+Copying file lib/libxml/xmlschemastypes.c
+Copying file lib/libxml/xmlschemastypes.in.h
+Copying file lib/libxml/xmlstring.c
+Copying file lib/libxml/xmlstring.in.h
+Copying file lib/libxml/xmlunicode.c
+Copying file lib/libxml/xmlunicode.in.h
+Copying file lib/libxml/xmlversion.in.h
+Copying file lib/libxml/xmlwriter.c
+Copying file lib/libxml/xmlwriter.in.h
+Copying file lib/libxml/xpath.c
+Copying file lib/libxml/xpath.in.h
+Copying file lib/libxml/xpathInternals.in.h
+Copying file lib/libxml/xpointer.c
+Copying file lib/libxml/xpointer.in.h
+Copying file lib/limits.in.h
+Copying file lib/log10.c
+Copying file lib/malloc.c
+Copying file lib/malloca.c
+Copying file lib/malloca.h
+Copying file lib/math.c
+Copying file lib/math.in.h
+Copying file lib/mbszero.c
+Copying file lib/mem-hash-map.c
+Copying file lib/mem-hash-map.h
+Copying file lib/memchr.c
+Copying file lib/memchr.valgrind
+Copying file lib/memory-ostream.oo.c
+Copying file lib/memory-ostream.oo.h
+Copying file lib/minmax.h
+Copying file lib/moo.h
+Copying file lib/msvc-inval.c
+Copying file lib/msvc-inval.h
+Copying file lib/msvc-nothrow.c
+Copying file lib/msvc-nothrow.h
+Copying file lib/noop-styled-ostream.oo.c
+Copying file lib/noop-styled-ostream.oo.h
+Copying file lib/obstack.c
+Copying file lib/obstack.in.h
+Copying file lib/open.c
+Copying file lib/ostream.oo.c
+Copying file lib/ostream.oo.h
+Copying file lib/pathmax.h
+Copying file lib/printf-args.c
+Copying file lib/printf-args.h
+Copying file lib/printf-frexp.c
+Copying file lib/printf-frexp.h
+Copying file lib/printf-frexpl.c
+Copying file lib/printf-frexpl.h
+Copying file lib/printf-parse.c
+Copying file lib/printf-parse.h
+Copying file lib/raise.c
+Copying file lib/read.c
+Copying file lib/realloc.c
+Copying file lib/reallocarray.c
+Copying file lib/safe-read.c
+Copying file lib/safe-read.h
+Copying file lib/safe-write.c
+Copying file lib/safe-write.h
+Copying file lib/same-inode.c
+Copying file lib/same-inode.h
+Copying file lib/sig-handler.c
+Copying file lib/sig-handler.h
+Copying file lib/sigaction.c
+Copying file lib/signal.in.h
+Copying file lib/signbitd.c
+Copying file lib/signbitf.c
+Copying file lib/signbitl.c
+Copying file lib/sigprocmask.c
+Copying file lib/size_max.h
+Copying file lib/snprintf.c
+Copying file lib/sockets.c
+Copying file lib/sockets.h
+Copying file lib/stat-time.c
+Copying file lib/stat-time.h
+Copying file lib/stat-w32.c
+Copying file lib/stat-w32.h
+Copying file lib/stat.c
+Copying file lib/stdarg.in.h
+Copying file lib/stdckdint.in.h
+Copying file lib/stddef.in.h
+Copying file lib/stdint.in.h
+Copying file lib/stdio-read.c
+Copying file lib/stdio-write.c
+Copying file lib/stdio.in.h
+Copying file lib/stdlib.in.h
+Copying file lib/stpcpy.c
+Copying file lib/strerror-override.c
+Copying file lib/strerror-override.h
+Copying file lib/strerror.c
+Copying file lib/string.in.h
+Copying file lib/styled-ostream.oo.c
+Copying file lib/styled-ostream.oo.h
+Copying file lib/sys-limits.h
+Copying file lib/sys_socket.c
+Copying file lib/sys_socket.in.h
+Copying file lib/sys_stat.in.h
+Copying file lib/sys_time.in.h
+Copying file lib/sys_types.in.h
+Copying file lib/sys_uio.in.h
+Copying file lib/term-ostream.oo.c
+Copying file lib/term-ostream.oo.h
+Copying file lib/term-style-control.c
+Copying file lib/term-style-control.h
+Copying file lib/term-styled-ostream.oo.c
+Copying file lib/term-styled-ostream.oo.h
+Copying file lib/terminfo.h
+Copying file lib/thread-optim.h
+Copying file lib/time.in.h
+Copying file lib/tparm.c
+Copying file lib/tputs.c
+Copying file lib/unistd.c
+Copying file lib/unistd.in.h
+Copying file lib/unistr.in.h
+Copying file lib/unistr/u8-mbtouc-aux.c
+Copying file lib/unistr/u8-mbtouc.c
+Copying file lib/unitypes.in.h
+Copying file lib/vasnprintf.c
+Copying file lib/vasnprintf.h
+Copying file lib/vasprintf.c
+Copying file lib/verify.h
+Copying file lib/vsnprintf.c
+Copying file lib/w32sock.h
+Copying file lib/warn-on-use.h
+Copying file lib/wchar.in.h
+Copying file lib/windows-initguard.h
+Copying file lib/windows-mutex.c
+Copying file lib/windows-mutex.h
+Copying file lib/windows-once.c
+Copying file lib/windows-once.h
+Copying file lib/windows-recmutex.c
+Copying file lib/windows-recmutex.h
+Copying file lib/windows-rwlock.c
+Copying file lib/windows-rwlock.h
+Copying file lib/write.c
+Copying file lib/xalloc-die.c
+Copying file lib/xalloc-oversized.h
+Copying file lib/xalloc.h
+Copying file lib/xasprintf.c
+Copying file lib/xconcat-filename.c
+Copying file lib/xgetaname-impl.h
+Copying file lib/xgethostname.c
+Copying file lib/xgethostname.h
+Copying file lib/xmalloc.c
+Copying file lib/xsize.c
+Copying file lib/xsize.h
+Copying file lib/xvasprintf.c
+Copying file lib/xvasprintf.h
+Copying file tests/_Noreturn.h
+Copying file tests/arg-nonnull.h
+Copying file tests/c++defs.h
+Copying file tests/dummy.c
+Copying file tests/test-memory-ostream.c
+Copying file tests/test-term-ostream-xterm-16color.out
+Copying file tests/test-term-ostream-xterm-256color.out
+Copying file tests/test-term-ostream-xterm-88color.out
+Copying file tests/test-term-ostream-xterm-8bit.out
+Copying file tests/test-term-ostream-xterm-aix51.out
+Copying file tests/test-term-ostream-xterm-basic-italic.out
+Copying file tests/test-term-ostream-xterm-basic.out
+Copying file tests/test-term-ostream-xterm-freebsd-italic.out
+Copying file tests/test-term-ostream-xterm-freebsd101.out
+Copying file tests/test-term-ostream-xterm-irix65.out
+Copying file tests/test-term-ostream-xterm-linux-debian.out
+Copying file tests/test-term-ostream-xterm-linux-mandriva.out
+Copying file tests/test-term-ostream-xterm-mingw.out
+Copying file tests/test-term-ostream-xterm-netbsd3.out
+Copying file tests/test-term-ostream-xterm-osf51.out
+Copying file tests/test-term-ostream-xterm-r6.out
+Copying file tests/test-term-ostream-xterm-solaris10.out
+Copying file tests/test-term-ostream-xterm-xf86-v32.out
+Copying file tests/test-term-ostream-xterm.sh
+Copying file tests/test-term-ostream.c
+Copying file tests/warn-on-use.h
+Creating gnulib-m4/gnulib-cache.m4
+Creating gnulib-m4/gnulib-comp.m4
+Creating lib/Makefile.gnulib
+Creating tests/Makefile.gnulib
+Creating build-aux/.gitignore
+Creating gnulib-m4/.gitignore
+Creating lib/.gitignore
+Creating lib/glib/.gitignore
+Creating lib/glthread/.gitignore
+Creating lib/libcroco/.gitignore
+Creating lib/libxml/.gitignore
+Creating lib/unistr/.gitignore
+Creating tests/.gitignore
+Finished.
+
+You may need to add #include directives for the following .h files.
+  #include <unistd.h>
+  #include "attribute.h"
+  #include "concat-filename.h"
+  #include "fd-ostream.h"
+  #include "file-ostream.h"
+  #include "filename.h"
+  #include "html-ostream.h"
+  #include "html-styled-ostream.h"
+  #include "iconv-ostream.h"
+  #include "memory-ostream.h"
+  #include "noop-styled-ostream.h"
+  #include "ostream.h"
+  #include "styled-ostream.h"
+  #include "term-ostream.h"
+  #include "term-styled-ostream.h"
+  #include "vasprintf.h"
+  #include "xalloc.h"
+
+You may need to use the following Makefile variables when linking.
+Use them in <program>_LDADD when linking a program, or
+in <library>_a_LDFLAGS or <library>_la_LDFLAGS when linking a library.
+  $(FABS_LIBM)
+  $(GETHOSTNAME_LIB)
+  $(ISNAND_LIBM)
+  $(ISNANF_LIBM)
+  $(ISNANL_LIBM)
+  $(LIBSOCKET)
+  $(LIBTHREAD)
+  $(LOG10_LIBM)
+  $(LTLIBICONV) when linking with libtool, $(LIBICONV) otherwise
+  $(LTLIBINTL) when linking with libtool, $(LIBINTL) otherwise
+  $(POW_LIBM)
+
+Don't forget to
+  - "include Makefile.gnulib" from within "lib/Makefile.am",
+  - "include Makefile.gnulib" from within "tests/Makefile.am",
+  - mention "-I gnulib-m4" in ACLOCAL_AMFLAGS in Makefile.am
+    or add an AC_CONFIG_MACRO_DIRS([gnulib-m4]) invocation in ./configure.ac,
+  - mention "gnulib-m4/gnulib-cache.m4" in EXTRA_DIST in Makefile.am,
+  - invoke lts_EARLY in ./configure.ac, right after AC_PROG_CC,
+  - invoke lts_INIT in ./configure.ac.

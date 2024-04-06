@@ -1,0 +1,1103 @@
+Module list with included dependencies (indented):
+    absolute-header
+    alignasof
+    alignof
+    alloca-opt
+    assert-h
+  attribute
+  basename-lgpl
+    builtin-expect
+  c-ctype
+  c-strcase
+    c-strcaseeq
+  c-strstr
+    c32iscntrl
+    c32width
+    c99
+    calloc-gnu
+    calloc-posix
+    cloexec
+  close
+    concat-filename
+    diffseq
+    double-slash-root
+    dup2
+    errno
+  error
+    error-h
+  error-progname
+    exitfail
+    extensions
+    extern-inline
+    fcntl
+    fcntl-h
+    fd-hook
+  fdopen
+  filename
+    float
+  fopen
+  free-posix
+    fstat
+  fstrcmp
+    fsync
+    full-write
+  fwriteerror
+  gcd
+    gen-header
+    getdelim
+    getdtablesize
+  getline
+    getprogname
+  gettext-h
+    gperf
+    hard-locale
+    havelib
+    ialloc
+  iconv
+    iconv-h
+    iconv_open
+    idx
+    include_next
+    inline
+    intprops
+    inttypes-incomplete
+    largefile
+  libtextstyle-dummy
+  libunistring-optional
+    limits-h
+    linked-list
+    list
+    localcharset
+    locale
+    lock
+    malloc-gnu
+    malloc-posix
+    malloca
+  markup
+    mbrtoc32
+    mbrtowc
+    mbsinit
+    mbswidth
+    mbszero
+  mem-hash-map
+    memchr
+    memmem
+    memmem-simple
+    memrchr
+  minmax
+    msvc-inval
+    msvc-nothrow
+    multiarch
+    obstack
+  open
+    pathmax
+    raise
+    rawmemchr
+    realloc-gnu
+  realloc-posix
+    reallocarray
+  relocatable-lib
+    safe-write
+    setlocale-null
+    signal-h
+  sigpipe
+    sigprocmask
+    size_max
+    snippet/_Noreturn
+    snippet/arg-nonnull
+    snippet/c++defs
+    snippet/warn-on-use
+    ssize_t
+    stat
+    stat-time
+    std-gnu11
+    stdarg
+  stdbool
+    stdckdint
+    stddef
+    stdint
+  stdio
+  stdlib
+  stpcpy
+  stpncpy
+  strchrnul
+    streq
+  strerror
+    strerror-override
+  strerror_r-posix
+    striconv
+    striconveh
+    striconveha
+    string
+  string-desc
+    strstr
+    strstr-simple
+    sys_stat
+    sys_types
+    threadlib
+    time-h
+    tls
+    uchar
+    uniconv/base
+    uniconv/u8-conv-from-enc
+    unictype/base
+    unictype/ctype-alpha
+    unictype/ctype-cntrl
+  unictype/ctype-space
+    unilbrk/base
+    unilbrk/tables
+    unilbrk/u8-possible-linebreaks
+    unilbrk/u8-width-linebreaks
+    unilbrk/ulc-common
+  unilbrk/ulc-width-linebreaks
+    unistd
+    unistr/base
+  unistr/u16-mbtouc
+    unistr/u8-check
+    unistr/u8-mblen
+  unistr/u8-mbtouc
+    unistr/u8-mbtouc-unsafe
+  unistr/u8-mbtoucr
+    unistr/u8-next
+    unistr/u8-prev
+    unistr/u8-strmbtouc
+  unistr/u8-uctomb
+    unitypes
+    uniwidth/base
+  uniwidth/width
+  unlocked-io
+    unlocked-io-internal
+    vararrays
+    vasnprintf
+  vasprintf
+    wchar
+    wctype-h
+    wcwidth
+    windows-mutex
+    windows-once
+    windows-recmutex
+    windows-rwlock
+    windows-tls
+    write
+  xalloc
+    xalloc-die
+    xalloc-oversized
+  xconcat-filename
+  xerror
+    xlist
+  xmalloca
+    xsize
+  xstriconv
+  xvasprintf
+File list:
+  build-aux/config.rpath
+  doc/relocatable.texi
+  lib/_Noreturn.h
+  lib/alignof.h
+  lib/alloca.in.h
+  lib/arg-nonnull.h
+  lib/asnprintf.c
+  lib/asprintf.c
+  lib/assert.in.h
+  lib/attribute.h
+  lib/basename-lgpl.c
+  lib/basename-lgpl.h
+  lib/c++defs.h
+  lib/c-ctype.c
+  lib/c-ctype.h
+  lib/c-strcase.h
+  lib/c-strcasecmp.c
+  lib/c-strcaseeq.h
+  lib/c-strncasecmp.c
+  lib/c-strstr.c
+  lib/c-strstr.h
+  lib/c32is-impl.h
+  lib/c32iscntrl.c
+  lib/c32width.c
+  lib/calloc.c
+  lib/cloexec.c
+  lib/cloexec.h
+  lib/close.c
+  lib/concat-filename.c
+  lib/concat-filename.h
+  lib/diffseq.h
+  lib/dup2.c
+  lib/errno.in.h
+  lib/error-progname.c
+  lib/error-progname.h
+  lib/error.c
+  lib/error.in.h
+  lib/exitfail.c
+  lib/exitfail.h
+  lib/fcntl.c
+  lib/fcntl.in.h
+  lib/fd-hook.c
+  lib/fd-hook.h
+  lib/fdopen.c
+  lib/filename.h
+  lib/float+.h
+  lib/float.c
+  lib/float.in.h
+  lib/fopen.c
+  lib/free.c
+  lib/fstat.c
+  lib/fstrcmp.c
+  lib/fstrcmp.h
+  lib/fsync.c
+  lib/full-write.c
+  lib/full-write.h
+  lib/fwriteerror.c
+  lib/fwriteerror.h
+  lib/gcd.c
+  lib/gcd.h
+  lib/getdelim.c
+  lib/getdtablesize.c
+  lib/getline.c
+  lib/getprogname.c
+  lib/getprogname.h
+  lib/gettext.h
+  lib/gl_anylinked_list1.h
+  lib/gl_anylinked_list2.h
+  lib/gl_linked_list.c
+  lib/gl_linked_list.h
+  lib/gl_list.c
+  lib/gl_list.h
+  lib/gl_xlist.c
+  lib/gl_xlist.h
+  lib/glthread/lock.c
+  lib/glthread/lock.h
+  lib/glthread/threadlib.c
+  lib/glthread/tls.c
+  lib/glthread/tls.h
+  lib/hard-locale.c
+  lib/hard-locale.h
+  lib/ialloc.c
+  lib/ialloc.h
+  lib/iconv.c
+  lib/iconv.in.h
+  lib/iconv_close.c
+  lib/iconv_open-aix.gperf
+  lib/iconv_open-hpux.gperf
+  lib/iconv_open-irix.gperf
+  lib/iconv_open-osf.gperf
+  lib/iconv_open-solaris.gperf
+  lib/iconv_open-zos.gperf
+  lib/iconv_open.c
+  lib/iconveh.h
+  lib/idx.h
+  lib/intprops-internal.h
+  lib/intprops.h
+  lib/inttypes.in.h
+  lib/itold.c
+  lib/lc-charset-dispatch.c
+  lib/lc-charset-dispatch.h
+  lib/libunistring.valgrind
+  lib/limits.in.h
+  lib/localcharset.c
+  lib/localcharset.h
+  lib/locale.in.h
+  lib/malloc.c
+  lib/malloca.c
+  lib/malloca.h
+  lib/markup.c
+  lib/markup.h
+  lib/mbrtoc32.c
+  lib/mbrtowc-impl-utf8.h
+  lib/mbrtowc-impl.h
+  lib/mbrtowc.c
+  lib/mbsinit.c
+  lib/mbswidth.c
+  lib/mbswidth.h
+  lib/mbszero.c
+  lib/mbtowc-lock.c
+  lib/mbtowc-lock.h
+  lib/mem-hash-map.c
+  lib/mem-hash-map.h
+  lib/memchr.c
+  lib/memchr.valgrind
+  lib/memmem.c
+  lib/memrchr.c
+  lib/minmax.h
+  lib/msvc-inval.c
+  lib/msvc-inval.h
+  lib/msvc-nothrow.c
+  lib/msvc-nothrow.h
+  lib/obstack.c
+  lib/obstack.in.h
+  lib/open.c
+  lib/pathmax.h
+  lib/printf-args.c
+  lib/printf-args.h
+  lib/printf-parse.c
+  lib/printf-parse.h
+  lib/raise.c
+  lib/rawmemchr.c
+  lib/rawmemchr.valgrind
+  lib/realloc.c
+  lib/reallocarray.c
+  lib/relocatable.c
+  lib/relocatable.h
+  lib/relocatable.valgrind
+  lib/safe-read.c
+  lib/safe-write.c
+  lib/safe-write.h
+  lib/setlocale-lock.c
+  lib/setlocale_null.c
+  lib/setlocale_null.h
+  lib/signal.in.h
+  lib/sigprocmask.c
+  lib/size_max.h
+  lib/stat-time.c
+  lib/stat-time.h
+  lib/stat-w32.c
+  lib/stat-w32.h
+  lib/stat.c
+  lib/stdarg.in.h
+  lib/stdckdint.in.h
+  lib/stddef.in.h
+  lib/stdint.in.h
+  lib/stdio-read.c
+  lib/stdio-write.c
+  lib/stdio.in.h
+  lib/stdlib.in.h
+  lib/stpcpy.c
+  lib/stpncpy.c
+  lib/str-two-way.h
+  lib/strchrnul.c
+  lib/strchrnul.valgrind
+  lib/streq.h
+  lib/strerror-override.c
+  lib/strerror-override.h
+  lib/strerror.c
+  lib/strerror_r.c
+  lib/striconv.c
+  lib/striconv.h
+  lib/striconveh.c
+  lib/striconveh.h
+  lib/striconveha.c
+  lib/striconveha.h
+  lib/string-desc-contains.c
+  lib/string-desc.c
+  lib/string-desc.h
+  lib/string.in.h
+  lib/strstr.c
+  lib/sys-limits.h
+  lib/sys_stat.in.h
+  lib/sys_types.in.h
+  lib/textstyle.in.h
+  lib/time.in.h
+  lib/uchar.in.h
+  lib/uniconv.in.h
+  lib/uniconv/u8-conv-from-enc.c
+  lib/unictype.in.h
+  lib/unictype/bitmap.h
+  lib/unictype/ctype_alpha.c
+  lib/unictype/ctype_alpha.h
+  lib/unictype/ctype_cntrl.c
+  lib/unictype/ctype_cntrl.h
+  lib/unictype/ctype_space.c
+  lib/unictype/ctype_space.h
+  lib/unilbrk.in.h
+  lib/unilbrk/internal.h
+  lib/unilbrk/lbrkprop1.h
+  lib/unilbrk/lbrkprop2.h
+  lib/unilbrk/lbrktables.c
+  lib/unilbrk/lbrktables.h
+  lib/unilbrk/u8-possible-linebreaks.c
+  lib/unilbrk/u8-width-linebreaks.c
+  lib/unilbrk/ulc-common.c
+  lib/unilbrk/ulc-common.h
+  lib/unilbrk/ulc-width-linebreaks.c
+  lib/unistd.c
+  lib/unistd.in.h
+  lib/unistr.in.h
+  lib/unistr/u16-mbtouc-aux.c
+  lib/unistr/u16-mbtouc.c
+  lib/unistr/u8-check.c
+  lib/unistr/u8-mblen.c
+  lib/unistr/u8-mbtouc-aux.c
+  lib/unistr/u8-mbtouc-unsafe-aux.c
+  lib/unistr/u8-mbtouc-unsafe.c
+  lib/unistr/u8-mbtouc.c
+  lib/unistr/u8-mbtoucr.c
+  lib/unistr/u8-next.c
+  lib/unistr/u8-prev.c
+  lib/unistr/u8-strmbtouc.c
+  lib/unistr/u8-uctomb-aux.c
+  lib/unistr/u8-uctomb.c
+  lib/unitypes.in.h
+  lib/uniwidth.in.h
+  lib/uniwidth/cjk.h
+  lib/uniwidth/width.c
+  lib/uniwidth/width0.h
+  lib/uniwidth/width2.h
+  lib/unlocked-io.h
+  lib/vasnprintf.c
+  lib/vasnprintf.h
+  lib/vasprintf.c
+  lib/verify.h
+  lib/warn-on-use.h
+  lib/wchar.in.h
+  lib/wctype-h.c
+  lib/wctype.in.h
+  lib/wcwidth.c
+  lib/windows-initguard.h
+  lib/windows-mutex.c
+  lib/windows-mutex.h
+  lib/windows-once.c
+  lib/windows-once.h
+  lib/windows-recmutex.c
+  lib/windows-recmutex.h
+  lib/windows-rwlock.c
+  lib/windows-rwlock.h
+  lib/windows-tls.c
+  lib/windows-tls.h
+  lib/write.c
+  lib/xalloc-die.c
+  lib/xalloc-oversized.h
+  lib/xalloc.h
+  lib/xasprintf.c
+  lib/xconcat-filename.c
+  lib/xerror.c
+  lib/xerror.h
+  lib/xmalloc.c
+  lib/xmalloca.c
+  lib/xmalloca.h
+  lib/xsize.c
+  lib/xsize.h
+  lib/xstriconv.c
+  lib/xstriconv.h
+  lib/xvasprintf.c
+  lib/xvasprintf.h
+  m4/00gnulib.m4
+  m4/absolute-header.m4
+  m4/alloca.m4
+  m4/asm-underscore.m4
+  m4/assert_h.m4
+  m4/builtin-expect.m4
+  m4/c-bool.m4
+  m4/calloc.m4
+  m4/close.m4
+  m4/codeset.m4
+  m4/double-slash-root.m4
+  m4/dup2.m4
+  m4/eealloc.m4
+  m4/errno_h.m4
+  m4/error.m4
+  m4/error_h.m4
+  m4/exponentd.m4
+  m4/extensions.m4
+  m4/extern-inline.m4
+  m4/fclose.m4
+  m4/fcntl-o.m4
+  m4/fcntl.m4
+  m4/fcntl_h.m4
+  m4/fdopen.m4
+  m4/fflush.m4
+  m4/float_h.m4
+  m4/fopen.m4
+  m4/free.m4
+  m4/fstat.m4
+  m4/fsync.m4
+  m4/getdelim.m4
+  m4/getdtablesize.m4
+  m4/getline.m4
+  m4/getprogname.m4
+  m4/gnulib-common.m4
+  m4/host-cpu-c-abi.m4
+  m4/iconv.m4
+  m4/iconv_h.m4
+  m4/iconv_open.m4
+  m4/include_next.m4
+  m4/inline.m4
+  m4/intmax_t.m4
+  m4/inttypes.m4
+  m4/inttypes_h.m4
+  m4/largefile.m4
+  m4/lib-ld.m4
+  m4/lib-link.m4
+  m4/lib-prefix.m4
+  m4/libunistring-base.m4
+  m4/libunistring-optional.m4
+  m4/libunistring.m4
+  m4/limits-h.m4
+  m4/localcharset.m4
+  m4/locale-fr.m4
+  m4/locale-ja.m4
+  m4/locale-zh.m4
+  m4/locale_h.m4
+  m4/lock.m4
+  m4/malloc.m4
+  m4/malloca.m4
+  m4/math_h.m4
+  m4/mbrtoc32.m4
+  m4/mbrtowc.m4
+  m4/mbsinit.m4
+  m4/mbstate_t.m4
+  m4/mbswidth.m4
+  m4/memchr.m4
+  m4/memmem.m4
+  m4/memrchr.m4
+  m4/minmax.m4
+  m4/mmap-anon.m4
+  m4/mode_t.m4
+  m4/msvc-inval.m4
+  m4/msvc-nothrow.m4
+  m4/multiarch.m4
+  m4/musl.m4
+  m4/obstack.m4
+  m4/off_t.m4
+  m4/open-cloexec.m4
+  m4/open-slash.m4
+  m4/open.m4
+  m4/pathmax.m4
+  m4/pid_t.m4
+  m4/printf.m4
+  m4/pthread_rwlock_rdlock.m4
+  m4/raise.m4
+  m4/rawmemchr.m4
+  m4/realloc.m4
+  m4/reallocarray.m4
+  m4/relocatable-lib.m4
+  m4/safe-read.m4
+  m4/safe-write.m4
+  m4/setlocale_null.m4
+  m4/signal_h.m4
+  m4/signalblocking.m4
+  m4/sigpipe.m4
+  m4/size_max.m4
+  m4/ssize_t.m4
+  m4/stat-time.m4
+  m4/stat.m4
+  m4/std-gnu11.m4
+  m4/stdalign.m4
+  m4/stdarg.m4
+  m4/stddef_h.m4
+  m4/stdint.m4
+  m4/stdint_h.m4
+  m4/stdio_h.m4
+  m4/stdlib_h.m4
+  m4/stpcpy.m4
+  m4/stpncpy.m4
+  m4/strchrnul.m4
+  m4/strerror.m4
+  m4/strerror_r.m4
+  m4/string_h.m4
+  m4/strstr.m4
+  m4/sys_socket_h.m4
+  m4/sys_stat_h.m4
+  m4/sys_types_h.m4
+  m4/threadlib.m4
+  m4/time_h.m4
+  m4/tls.m4
+  m4/uchar_h.m4
+  m4/unictype_h.m4
+  m4/unistd_h.m4
+  m4/unlocked-io.m4
+  m4/vararrays.m4
+  m4/vasnprintf.m4
+  m4/vasprintf.m4
+  m4/visibility.m4
+  m4/warn-on-use.m4
+  m4/wchar_h.m4
+  m4/wchar_t.m4
+  m4/wctype_h.m4
+  m4/wcwidth.m4
+  m4/wint_t.m4
+  m4/write.m4
+  m4/xalloc.m4
+  m4/xsize.m4
+  m4/xvasprintf.m4
+  m4/zzgnulib.m4
+Creating directory gettext-tools/libgettextpo/gnulib-m4
+Creating directory gettext-tools/../build-aux
+Creating directory gettext-tools/libgettextpo/glthread
+Creating directory gettext-tools/libgettextpo/uniconv
+Creating directory gettext-tools/libgettextpo/unictype
+Creating directory gettext-tools/libgettextpo/unilbrk
+Creating directory gettext-tools/libgettextpo/unistr
+Creating directory gettext-tools/libgettextpo/uniwidth
+Copying file ../build-aux/config.rpath
+Copying file doc/relocatable.texi
+Copying file libgettextpo/_Noreturn.h
+Copying file libgettextpo/alignof.h
+Copying file libgettextpo/alloca.in.h
+Copying file libgettextpo/arg-nonnull.h
+Copying file libgettextpo/asnprintf.c
+Copying file libgettextpo/asprintf.c
+Copying file libgettextpo/assert.in.h
+Copying file libgettextpo/attribute.h
+Copying file libgettextpo/basename-lgpl.c
+Copying file libgettextpo/basename-lgpl.h
+Copying file libgettextpo/c++defs.h
+Copying file libgettextpo/c-ctype.c
+Copying file libgettextpo/c-ctype.h
+Copying file libgettextpo/c-strcase.h
+Copying file libgettextpo/c-strcasecmp.c
+Copying file libgettextpo/c-strcaseeq.h
+Copying file libgettextpo/c-strncasecmp.c
+Copying file libgettextpo/c-strstr.c
+Copying file libgettextpo/c-strstr.h
+Copying file libgettextpo/c32is-impl.h
+Copying file libgettextpo/c32iscntrl.c
+Copying file libgettextpo/c32width.c
+Copying file libgettextpo/calloc.c
+Copying file libgettextpo/cloexec.c
+Copying file libgettextpo/cloexec.h
+Copying file libgettextpo/close.c
+Copying file libgettextpo/concat-filename.c
+Copying file libgettextpo/concat-filename.h
+Copying file libgettextpo/diffseq.h
+Copying file libgettextpo/dup2.c
+Copying file libgettextpo/errno.in.h
+Copying file libgettextpo/error-progname.c
+Copying file libgettextpo/error-progname.h
+Copying file libgettextpo/error.c
+Copying file libgettextpo/error.in.h
+Copying file libgettextpo/exitfail.c
+Copying file libgettextpo/exitfail.h
+Copying file libgettextpo/fcntl.c
+Copying file libgettextpo/fcntl.in.h
+Copying file libgettextpo/fd-hook.c
+Copying file libgettextpo/fd-hook.h
+Copying file libgettextpo/fdopen.c
+Copying file libgettextpo/filename.h
+Copying file libgettextpo/float+.h
+Copying file libgettextpo/float.c
+Copying file libgettextpo/float.in.h
+Copying file libgettextpo/fopen.c
+Copying file libgettextpo/free.c
+Copying file libgettextpo/fstat.c
+Copying file libgettextpo/fstrcmp.c
+Copying file libgettextpo/fstrcmp.h
+Copying file libgettextpo/fsync.c
+Copying file libgettextpo/full-write.c
+Copying file libgettextpo/full-write.h
+Copying file libgettextpo/fwriteerror.c
+Copying file libgettextpo/fwriteerror.h
+Copying file libgettextpo/gcd.c
+Copying file libgettextpo/gcd.h
+Copying file libgettextpo/getdelim.c
+Copying file libgettextpo/getdtablesize.c
+Copying file libgettextpo/getline.c
+Copying file libgettextpo/getprogname.c
+Copying file libgettextpo/getprogname.h
+Copying file libgettextpo/gettext.h
+Copying file libgettextpo/gl_anylinked_list1.h
+Copying file libgettextpo/gl_anylinked_list2.h
+Copying file libgettextpo/gl_linked_list.c
+Copying file libgettextpo/gl_linked_list.h
+Copying file libgettextpo/gl_list.c
+Copying file libgettextpo/gl_list.h
+Copying file libgettextpo/gl_xlist.c
+Copying file libgettextpo/gl_xlist.h
+Copying file libgettextpo/glthread/lock.c
+Copying file libgettextpo/glthread/lock.h
+Copying file libgettextpo/glthread/threadlib.c
+Copying file libgettextpo/glthread/tls.c
+Copying file libgettextpo/glthread/tls.h
+Copying file libgettextpo/gnulib-m4/00gnulib.m4
+Copying file libgettextpo/gnulib-m4/absolute-header.m4
+Copying file libgettextpo/gnulib-m4/alloca.m4
+Copying file libgettextpo/gnulib-m4/asm-underscore.m4
+Copying file libgettextpo/gnulib-m4/assert_h.m4
+Copying file libgettextpo/gnulib-m4/builtin-expect.m4
+Copying file libgettextpo/gnulib-m4/c-bool.m4
+Copying file libgettextpo/gnulib-m4/calloc.m4
+Copying file libgettextpo/gnulib-m4/close.m4
+Copying file libgettextpo/gnulib-m4/codeset.m4
+Copying file libgettextpo/gnulib-m4/double-slash-root.m4
+Copying file libgettextpo/gnulib-m4/dup2.m4
+Copying file libgettextpo/gnulib-m4/eealloc.m4
+Copying file libgettextpo/gnulib-m4/errno_h.m4
+Copying file libgettextpo/gnulib-m4/error.m4
+Copying file libgettextpo/gnulib-m4/error_h.m4
+Copying file libgettextpo/gnulib-m4/exponentd.m4
+Copying file libgettextpo/gnulib-m4/extensions.m4
+Copying file libgettextpo/gnulib-m4/extern-inline.m4
+Copying file libgettextpo/gnulib-m4/fclose.m4
+Copying file libgettextpo/gnulib-m4/fcntl-o.m4
+Copying file libgettextpo/gnulib-m4/fcntl.m4
+Copying file libgettextpo/gnulib-m4/fcntl_h.m4
+Copying file libgettextpo/gnulib-m4/fdopen.m4
+Copying file libgettextpo/gnulib-m4/fflush.m4
+Copying file libgettextpo/gnulib-m4/float_h.m4
+Copying file libgettextpo/gnulib-m4/fopen.m4
+Copying file libgettextpo/gnulib-m4/free.m4
+Copying file libgettextpo/gnulib-m4/fstat.m4
+Copying file libgettextpo/gnulib-m4/fsync.m4
+Copying file libgettextpo/gnulib-m4/getdelim.m4
+Copying file libgettextpo/gnulib-m4/getdtablesize.m4
+Copying file libgettextpo/gnulib-m4/getline.m4
+Copying file libgettextpo/gnulib-m4/getprogname.m4
+Copying file libgettextpo/gnulib-m4/gnulib-common.m4
+Copying file libgettextpo/gnulib-m4/gnulib-tool.m4
+Copying file libgettextpo/gnulib-m4/host-cpu-c-abi.m4
+Copying file libgettextpo/gnulib-m4/iconv.m4
+Copying file libgettextpo/gnulib-m4/iconv_h.m4
+Copying file libgettextpo/gnulib-m4/iconv_open.m4
+Copying file libgettextpo/gnulib-m4/include_next.m4
+Copying file libgettextpo/gnulib-m4/inline.m4
+Copying file libgettextpo/gnulib-m4/intmax_t.m4
+Copying file libgettextpo/gnulib-m4/inttypes.m4
+Copying file libgettextpo/gnulib-m4/inttypes_h.m4
+Copying file libgettextpo/gnulib-m4/largefile.m4
+Copying file libgettextpo/gnulib-m4/lib-ld.m4
+Copying file libgettextpo/gnulib-m4/lib-link.m4
+Copying file libgettextpo/gnulib-m4/lib-prefix.m4
+Copying file libgettextpo/gnulib-m4/libunistring-base.m4
+Copying file libgettextpo/gnulib-m4/libunistring-optional.m4
+Copying file libgettextpo/gnulib-m4/libunistring.m4
+Copying file libgettextpo/gnulib-m4/limits-h.m4
+Copying file libgettextpo/gnulib-m4/localcharset.m4
+Copying file libgettextpo/gnulib-m4/locale-fr.m4
+Copying file libgettextpo/gnulib-m4/locale-ja.m4
+Copying file libgettextpo/gnulib-m4/locale-zh.m4
+Copying file libgettextpo/gnulib-m4/locale_h.m4
+Copying file libgettextpo/gnulib-m4/lock.m4
+Copying file libgettextpo/gnulib-m4/malloc.m4
+Copying file libgettextpo/gnulib-m4/malloca.m4
+Copying file libgettextpo/gnulib-m4/math_h.m4
+Copying file libgettextpo/gnulib-m4/mbrtoc32.m4
+Copying file libgettextpo/gnulib-m4/mbrtowc.m4
+Copying file libgettextpo/gnulib-m4/mbsinit.m4
+Copying file libgettextpo/gnulib-m4/mbstate_t.m4
+Copying file libgettextpo/gnulib-m4/mbswidth.m4
+Copying file libgettextpo/gnulib-m4/memchr.m4
+Copying file libgettextpo/gnulib-m4/memmem.m4
+Copying file libgettextpo/gnulib-m4/memrchr.m4
+Copying file libgettextpo/gnulib-m4/minmax.m4
+Copying file libgettextpo/gnulib-m4/mmap-anon.m4
+Copying file libgettextpo/gnulib-m4/mode_t.m4
+Copying file libgettextpo/gnulib-m4/msvc-inval.m4
+Copying file libgettextpo/gnulib-m4/msvc-nothrow.m4
+Copying file libgettextpo/gnulib-m4/multiarch.m4
+Copying file libgettextpo/gnulib-m4/musl.m4
+Copying file libgettextpo/gnulib-m4/obstack.m4
+Copying file libgettextpo/gnulib-m4/off_t.m4
+Copying file libgettextpo/gnulib-m4/open-cloexec.m4
+Copying file libgettextpo/gnulib-m4/open-slash.m4
+Copying file libgettextpo/gnulib-m4/open.m4
+Copying file libgettextpo/gnulib-m4/pathmax.m4
+Copying file libgettextpo/gnulib-m4/pid_t.m4
+Copying file libgettextpo/gnulib-m4/printf.m4
+Copying file libgettextpo/gnulib-m4/pthread_rwlock_rdlock.m4
+Copying file libgettextpo/gnulib-m4/raise.m4
+Copying file libgettextpo/gnulib-m4/rawmemchr.m4
+Copying file libgettextpo/gnulib-m4/realloc.m4
+Copying file libgettextpo/gnulib-m4/reallocarray.m4
+Copying file libgettextpo/gnulib-m4/relocatable-lib.m4
+Copying file libgettextpo/gnulib-m4/safe-read.m4
+Copying file libgettextpo/gnulib-m4/safe-write.m4
+Copying file libgettextpo/gnulib-m4/setlocale_null.m4
+Copying file libgettextpo/gnulib-m4/signal_h.m4
+Copying file libgettextpo/gnulib-m4/signalblocking.m4
+Copying file libgettextpo/gnulib-m4/sigpipe.m4
+Copying file libgettextpo/gnulib-m4/size_max.m4
+Copying file libgettextpo/gnulib-m4/ssize_t.m4
+Copying file libgettextpo/gnulib-m4/stat-time.m4
+Copying file libgettextpo/gnulib-m4/stat.m4
+Copying file libgettextpo/gnulib-m4/std-gnu11.m4
+Copying file libgettextpo/gnulib-m4/stdalign.m4
+Copying file libgettextpo/gnulib-m4/stdarg.m4
+Copying file libgettextpo/gnulib-m4/stddef_h.m4
+Copying file libgettextpo/gnulib-m4/stdint.m4
+Copying file libgettextpo/gnulib-m4/stdint_h.m4
+Copying file libgettextpo/gnulib-m4/stdio_h.m4
+Copying file libgettextpo/gnulib-m4/stdlib_h.m4
+Copying file libgettextpo/gnulib-m4/stpcpy.m4
+Copying file libgettextpo/gnulib-m4/stpncpy.m4
+Copying file libgettextpo/gnulib-m4/strchrnul.m4
+Copying file libgettextpo/gnulib-m4/strerror.m4
+Copying file libgettextpo/gnulib-m4/strerror_r.m4
+Copying file libgettextpo/gnulib-m4/string_h.m4
+Copying file libgettextpo/gnulib-m4/strstr.m4
+Copying file libgettextpo/gnulib-m4/sys_socket_h.m4
+Copying file libgettextpo/gnulib-m4/sys_stat_h.m4
+Copying file libgettextpo/gnulib-m4/sys_types_h.m4
+Copying file libgettextpo/gnulib-m4/threadlib.m4
+Copying file libgettextpo/gnulib-m4/time_h.m4
+Copying file libgettextpo/gnulib-m4/tls.m4
+Copying file libgettextpo/gnulib-m4/uchar_h.m4
+Copying file libgettextpo/gnulib-m4/unictype_h.m4
+Copying file libgettextpo/gnulib-m4/unistd_h.m4
+Copying file libgettextpo/gnulib-m4/unlocked-io.m4
+Copying file libgettextpo/gnulib-m4/vararrays.m4
+Copying file libgettextpo/gnulib-m4/vasnprintf.m4
+Copying file libgettextpo/gnulib-m4/vasprintf.m4
+Copying file libgettextpo/gnulib-m4/visibility.m4
+Copying file libgettextpo/gnulib-m4/warn-on-use.m4
+Copying file libgettextpo/gnulib-m4/wchar_h.m4
+Copying file libgettextpo/gnulib-m4/wchar_t.m4
+Copying file libgettextpo/gnulib-m4/wctype_h.m4
+Copying file libgettextpo/gnulib-m4/wcwidth.m4
+Copying file libgettextpo/gnulib-m4/wint_t.m4
+Copying file libgettextpo/gnulib-m4/write.m4
+Copying file libgettextpo/gnulib-m4/xalloc.m4
+Copying file libgettextpo/gnulib-m4/xsize.m4
+Copying file libgettextpo/gnulib-m4/xvasprintf.m4
+Copying file libgettextpo/gnulib-m4/zzgnulib.m4
+Copying file libgettextpo/hard-locale.c
+Copying file libgettextpo/hard-locale.h
+Copying file libgettextpo/ialloc.c
+Copying file libgettextpo/ialloc.h
+Copying file libgettextpo/iconv.c
+Copying file libgettextpo/iconv.in.h
+Copying file libgettextpo/iconv_close.c
+Copying file libgettextpo/iconv_open-aix.gperf
+Copying file libgettextpo/iconv_open-hpux.gperf
+Copying file libgettextpo/iconv_open-irix.gperf
+Copying file libgettextpo/iconv_open-osf.gperf
+Copying file libgettextpo/iconv_open-solaris.gperf
+Copying file libgettextpo/iconv_open-zos.gperf
+Copying file libgettextpo/iconv_open.c
+Copying file libgettextpo/iconveh.h
+Copying file libgettextpo/idx.h
+Copying file libgettextpo/intprops-internal.h
+Copying file libgettextpo/intprops.h
+Copying file libgettextpo/inttypes.in.h
+Copying file libgettextpo/itold.c
+Copying file libgettextpo/lc-charset-dispatch.c
+Copying file libgettextpo/lc-charset-dispatch.h
+Copying file libgettextpo/libunistring.valgrind
+Copying file libgettextpo/limits.in.h
+Copying file libgettextpo/localcharset.c
+Copying file libgettextpo/localcharset.h
+Copying file libgettextpo/locale.in.h
+Copying file libgettextpo/malloc.c
+Copying file libgettextpo/malloca.c
+Copying file libgettextpo/malloca.h
+Copying file libgettextpo/markup.c
+Copying file libgettextpo/markup.h
+Copying file libgettextpo/mbrtoc32.c
+Copying file libgettextpo/mbrtowc-impl-utf8.h
+Copying file libgettextpo/mbrtowc-impl.h
+Copying file libgettextpo/mbrtowc.c
+Copying file libgettextpo/mbsinit.c
+Copying file libgettextpo/mbswidth.c
+Copying file libgettextpo/mbswidth.h
+Copying file libgettextpo/mbszero.c
+Copying file libgettextpo/mbtowc-lock.c
+Copying file libgettextpo/mbtowc-lock.h
+Copying file libgettextpo/mem-hash-map.c
+Copying file libgettextpo/mem-hash-map.h
+Copying file libgettextpo/memchr.c
+Copying file libgettextpo/memchr.valgrind
+Copying file libgettextpo/memmem.c
+Copying file libgettextpo/memrchr.c
+Copying file libgettextpo/minmax.h
+Copying file libgettextpo/msvc-inval.c
+Copying file libgettextpo/msvc-inval.h
+Copying file libgettextpo/msvc-nothrow.c
+Copying file libgettextpo/msvc-nothrow.h
+Copying file libgettextpo/obstack.c
+Copying file libgettextpo/obstack.in.h
+Copying file libgettextpo/open.c
+Copying file libgettextpo/pathmax.h
+Copying file libgettextpo/printf-args.c
+Copying file libgettextpo/printf-args.h
+Copying file libgettextpo/printf-parse.c
+Copying file libgettextpo/printf-parse.h
+Copying file libgettextpo/raise.c
+Copying file libgettextpo/rawmemchr.c
+Copying file libgettextpo/rawmemchr.valgrind
+Copying file libgettextpo/realloc.c
+Copying file libgettextpo/reallocarray.c
+Copying file libgettextpo/relocatable.c
+Copying file libgettextpo/relocatable.h
+Copying file libgettextpo/relocatable.valgrind
+Copying file libgettextpo/safe-read.c
+Copying file libgettextpo/safe-write.c
+Copying file libgettextpo/safe-write.h
+Copying file libgettextpo/setlocale-lock.c
+Copying file libgettextpo/setlocale_null.c
+Copying file libgettextpo/setlocale_null.h
+Copying file libgettextpo/signal.in.h
+Copying file libgettextpo/sigprocmask.c
+Copying file libgettextpo/size_max.h
+Copying file libgettextpo/stat-time.c
+Copying file libgettextpo/stat-time.h
+Copying file libgettextpo/stat-w32.c
+Copying file libgettextpo/stat-w32.h
+Copying file libgettextpo/stat.c
+Copying file libgettextpo/stdarg.in.h
+Copying file libgettextpo/stdckdint.in.h
+Copying file libgettextpo/stddef.in.h
+Copying file libgettextpo/stdint.in.h
+Copying file libgettextpo/stdio-read.c
+Copying file libgettextpo/stdio-write.c
+Copying file libgettextpo/stdio.in.h
+Copying file libgettextpo/stdlib.in.h
+Copying file libgettextpo/stpcpy.c
+Copying file libgettextpo/stpncpy.c
+Copying file libgettextpo/str-two-way.h
+Copying file libgettextpo/strchrnul.c
+Copying file libgettextpo/strchrnul.valgrind
+Copying file libgettextpo/streq.h
+Copying file libgettextpo/strerror-override.c
+Copying file libgettextpo/strerror-override.h
+Copying file libgettextpo/strerror.c
+Copying file libgettextpo/strerror_r.c
+Copying file libgettextpo/striconv.c
+Copying file libgettextpo/striconv.h
+Copying file libgettextpo/striconveh.c
+Copying file libgettextpo/striconveh.h
+Copying file libgettextpo/striconveha.c
+Copying file libgettextpo/striconveha.h
+Copying file libgettextpo/string-desc-contains.c
+Copying file libgettextpo/string-desc.c
+Copying file libgettextpo/string-desc.h
+Copying file libgettextpo/string.in.h
+Copying file libgettextpo/strstr.c
+Copying file libgettextpo/sys-limits.h
+Copying file libgettextpo/sys_stat.in.h
+Copying file libgettextpo/sys_types.in.h
+Copying file libgettextpo/textstyle.in.h
+Copying file libgettextpo/time.in.h
+Copying file libgettextpo/uchar.in.h
+Copying file libgettextpo/uniconv.in.h
+Copying file libgettextpo/uniconv/u8-conv-from-enc.c
+Copying file libgettextpo/unictype.in.h
+Copying file libgettextpo/unictype/bitmap.h
+Copying file libgettextpo/unictype/ctype_alpha.c
+Copying file libgettextpo/unictype/ctype_alpha.h
+Copying file libgettextpo/unictype/ctype_cntrl.c
+Copying file libgettextpo/unictype/ctype_cntrl.h
+Copying file libgettextpo/unictype/ctype_space.c
+Copying file libgettextpo/unictype/ctype_space.h
+Copying file libgettextpo/unilbrk.in.h
+Copying file libgettextpo/unilbrk/internal.h
+Copying file libgettextpo/unilbrk/lbrkprop1.h
+Copying file libgettextpo/unilbrk/lbrkprop2.h
+Copying file libgettextpo/unilbrk/lbrktables.c
+Copying file libgettextpo/unilbrk/lbrktables.h
+Copying file libgettextpo/unilbrk/u8-possible-linebreaks.c
+Copying file libgettextpo/unilbrk/u8-width-linebreaks.c
+Copying file libgettextpo/unilbrk/ulc-common.c
+Copying file libgettextpo/unilbrk/ulc-common.h
+Copying file libgettextpo/unilbrk/ulc-width-linebreaks.c
+Copying file libgettextpo/unistd.c
+Copying file libgettextpo/unistd.in.h
+Copying file libgettextpo/unistr.in.h
+Copying file libgettextpo/unistr/u16-mbtouc-aux.c
+Copying file libgettextpo/unistr/u16-mbtouc.c
+Copying file libgettextpo/unistr/u8-check.c
+Copying file libgettextpo/unistr/u8-mblen.c
+Copying file libgettextpo/unistr/u8-mbtouc-aux.c
+Copying file libgettextpo/unistr/u8-mbtouc-unsafe-aux.c
+Copying file libgettextpo/unistr/u8-mbtouc-unsafe.c
+Copying file libgettextpo/unistr/u8-mbtouc.c
+Copying file libgettextpo/unistr/u8-mbtoucr.c
+Copying file libgettextpo/unistr/u8-next.c
+Copying file libgettextpo/unistr/u8-prev.c
+Copying file libgettextpo/unistr/u8-strmbtouc.c
+Copying file libgettextpo/unistr/u8-uctomb-aux.c
+Copying file libgettextpo/unistr/u8-uctomb.c
+Copying file libgettextpo/unitypes.in.h
+Copying file libgettextpo/uniwidth.in.h
+Copying file libgettextpo/uniwidth/cjk.h
+Copying file libgettextpo/uniwidth/width.c
+Copying file libgettextpo/uniwidth/width0.h
+Copying file libgettextpo/uniwidth/width2.h
+Copying file libgettextpo/unlocked-io.h
+Copying file libgettextpo/vasnprintf.c
+Copying file libgettextpo/vasnprintf.h
+Copying file libgettextpo/vasprintf.c
+Copying file libgettextpo/verify.h
+Copying file libgettextpo/warn-on-use.h
+Copying file libgettextpo/wchar.in.h
+Copying file libgettextpo/wctype-h.c
+Copying file libgettextpo/wctype.in.h
+Copying file libgettextpo/wcwidth.c
+Copying file libgettextpo/windows-initguard.h
+Copying file libgettextpo/windows-mutex.c
+Copying file libgettextpo/windows-mutex.h
+Copying file libgettextpo/windows-once.c
+Copying file libgettextpo/windows-once.h
+Copying file libgettextpo/windows-recmutex.c
+Copying file libgettextpo/windows-recmutex.h
+Copying file libgettextpo/windows-rwlock.c
+Copying file libgettextpo/windows-rwlock.h
+Copying file libgettextpo/windows-tls.c
+Copying file libgettextpo/windows-tls.h
+Copying file libgettextpo/write.c
+Copying file libgettextpo/xalloc-die.c
+Copying file libgettextpo/xalloc-oversized.h
+Copying file libgettextpo/xalloc.h
+Copying file libgettextpo/xasprintf.c
+Copying file libgettextpo/xconcat-filename.c
+Copying file libgettextpo/xerror.c
+Copying file libgettextpo/xerror.h
+Copying file libgettextpo/xmalloc.c
+Copying file libgettextpo/xmalloca.c
+Copying file libgettextpo/xmalloca.h
+Copying file libgettextpo/xsize.c
+Copying file libgettextpo/xsize.h
+Copying file libgettextpo/xstriconv.c
+Copying file libgettextpo/xstriconv.h
+Copying file libgettextpo/xvasprintf.c
+Copying file libgettextpo/xvasprintf.h
+Creating libgettextpo/gnulib-m4/gnulib-cache.m4
+Creating libgettextpo/gnulib-m4/gnulib-comp.m4
+Creating libgettextpo/Makefile.gnulib
+Finished.
+
+You may need to add #include directives for the following .h files.
+  #include <error.h>
+  #include <fcntl.h>
+  #include <signal.h>
+  #include <stdio.h>
+  #include <stdlib.h>
+  #include <string.h>
+  #include <textstyle.h>
+  #include <unistd.h>
+  #include "attribute.h"
+  #include "basename-lgpl.h"
+  #include "c-ctype.h"
+  #include "c-strcase.h"
+  #include "c-strstr.h"
+  #include "concat-filename.h"
+  #include "error-progname.h"
+  #include "filename.h"
+  #include "fstrcmp.h"
+  #include "fwriteerror.h"
+  #include "gcd.h"
+  #include "gettext.h"
+  #include "markup.h"
+  #include "mem-hash-map.h"
+  #include "minmax.h"
+  #include "relocatable.h"
+  #include "string-desc.h"
+  #include "unictype.h"
+  #include "unilbrk.h"
+  #include "unistr.h"
+  #include "uniwidth.h"
+  #include "unlocked-io.h"
+  #include "xalloc.h"
+  #include "xerror.h"
+  #include "xmalloca.h"
+  #include "xstriconv.h"
+  #include "xvasprintf.h"
+  #if HAVE_ICONV
+  # include <iconv.h>
+  #endif
+
+You may need to use the following Makefile variables when linking.
+Use them in <program>_LDADD when linking a program, or
+in <library>_a_LDFLAGS or <library>_la_LDFLAGS when linking a library.
+  $(HARD_LOCALE_LIB)
+  $(LIBTHREAD)
+  $(LTLIBC32CONV) when linking with libtool, $(LIBC32CONV) otherwise
+  $(LTLIBICONV) when linking with libtool, $(LIBICONV) otherwise
+  $(LTLIBINTL) when linking with libtool, $(LIBINTL) otherwise
+  $(LTLIBUNISTRING) when linking with libtool, $(LIBUNISTRING) otherwise
+  $(MBRTOWC_LIB)
+  $(SETLOCALE_NULL_LIB)
+
+Don't forget to
+  - "include Makefile.gnulib" from within "libgettextpo/Makefile.am",
+  - mention "-I libgettextpo/gnulib-m4" in ACLOCAL_AMFLAGS in Makefile.am
+    or add an AC_CONFIG_MACRO_DIRS([libgettextpo/gnulib-m4]) invocation in gettext-tools/configure.ac,
+  - mention "libgettextpo/gnulib-m4/gnulib-cache.m4" in EXTRA_DIST in Makefile.am,
+  - invoke gtpo_EARLY in gettext-tools/configure.ac, right after AC_PROG_CC,
+  - invoke gtpo_INIT in gettext-tools/configure.ac.

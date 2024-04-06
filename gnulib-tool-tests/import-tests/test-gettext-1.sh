@@ -1,0 +1,40 @@
+#!/bin/sh
+. ../init.sh
+do_import_test gettext-20240101 . "`echo '
+  --dir=gettext-runtime
+  --lib=libgrt
+  --source-base=gnulib-lib
+  --m4-base=gnulib-m4
+  --no-libtool
+  --local-dir=gnulib-local
+  --import
+  atexit
+  attribute
+  basename-lgpl
+  binary-io
+  closeout
+  error
+  getopt-gnu
+  gettext-h
+  havelib
+  memmove
+  noreturn
+  progname
+  propername
+  relocatable-prog
+  setlocale
+  sigpipe
+  stdbool
+  stdio
+  stdlib
+  strtoul
+  unistd
+  unlocked-io
+  xalloc
+  gettext-runtime-misc
+  ansi-c++-opt
+  csharpcomp-script
+  java
+  javacomp-script
+  manywarnings
+'`"

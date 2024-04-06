@@ -1,0 +1,31 @@
+#!/bin/sh
+. ../init.sh
+do_import_test gettext-20240101 . "`echo '
+  --dir=gettext-runtime/intl
+  --source-base=gnulib-lib
+  --m4-base=gnulib-m4
+  --lgpl=2
+  --libtool
+  --local-dir=gnulib-local
+  --import
+  gettext-runtime-intl-misc
+  attribute
+  bison
+  filename
+  flexmember
+  getcwd-lgpl
+  havelib
+  iconv
+  lib-symbol-visibility
+  localcharset
+  localename
+  lock
+  manywarnings
+  tsearch
+  vasnprintf-posix
+  vasnwprintf-posix
+  wgetcwd-lgpl
+  locale
+  localename
+  setlocale-null
+'`"

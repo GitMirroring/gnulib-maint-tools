@@ -1,0 +1,537 @@
+Module list with included dependencies (indented):
+    absolute-header
+    alloca-opt
+    assert-h
+  attribute
+  bison
+    c99
+    errno
+    extensions
+    extern-inline
+  filename
+  flexmember
+    float
+    fpieee
+    fpucw
+    free-posix
+    frexp-nolibm
+    frexpl-nolibm
+    gen-header
+  getcwd-lgpl
+  gettext-runtime-intl-misc
+    hard-locale
+  havelib
+  iconv
+    include_next
+    inttypes-incomplete
+    isnand-nolibm
+    isnanf-nolibm
+    isnanl-nolibm
+    langinfo
+  lib-symbol-visibility
+    limits-h
+  localcharset
+  locale
+  localename
+  lock
+  manywarnings
+    math
+    mbrtowc
+    mbsinit
+    mbszero
+    memchr
+    multiarch
+    nocrash
+    printf-frexp
+    printf-frexpl
+    printf-safe
+    search
+  setlocale-null
+    signbit
+    size_max
+    snippet/_Noreturn
+    snippet/arg-nonnull
+    snippet/c++defs
+    snippet/warn-on-use
+    ssize_t
+    std-gnu11
+    stdbool
+    stddef
+    stdint
+    stdio
+    stdlib
+    streq
+    string
+    sys_types
+    thread-optim
+    threadlib
+  tsearch
+    unistd
+    vasnprintf
+  vasnprintf-posix
+    vasnwprintf
+  vasnwprintf-posix
+    warnings
+    wchar
+  wgetcwd-lgpl
+    windows-mutex
+    windows-once
+    windows-recmutex
+    windows-rwlock
+    wmemcpy
+    wmemset
+    xsize
+Notice from module lib-symbol-visibility:
+  The value of $(CFLAG_VISIBILITY) needs to be added to the CFLAGS for the
+  compilation of all sources that make up the library.
+File list:
+  build-aux/config.rpath
+  lib/_Noreturn.h
+  lib/alloca.in.h
+  lib/arg-nonnull.h
+  lib/asnprintf.c
+  lib/asnwprintf.c
+  lib/assert.in.h
+  lib/attribute.h
+  lib/c++defs.h
+  lib/errno.in.h
+  lib/filename.h
+  lib/flexmember.h
+  lib/float+.h
+  lib/float.c
+  lib/float.in.h
+  lib/fpucw.h
+  lib/free.c
+  lib/frexp.c
+  lib/frexpl.c
+  lib/getcwd-lgpl.c
+  lib/glthread/lock.c
+  lib/glthread/lock.h
+  lib/glthread/threadlib.c
+  lib/hard-locale.c
+  lib/hard-locale.h
+  lib/inttypes.in.h
+  lib/isnan.c
+  lib/isnand-nolibm.h
+  lib/isnand.c
+  lib/isnanf-nolibm.h
+  lib/isnanf.c
+  lib/isnanl-nolibm.h
+  lib/isnanl.c
+  lib/itold.c
+  lib/langinfo.in.h
+  lib/lc-charset-dispatch.c
+  lib/lc-charset-dispatch.h
+  lib/limits.in.h
+  lib/localcharset.c
+  lib/localcharset.h
+  lib/locale.in.h
+  lib/localename-table.c
+  lib/localename-table.h
+  lib/localename.c
+  lib/localename.h
+  lib/math.c
+  lib/math.in.h
+  lib/mbrtowc-impl-utf8.h
+  lib/mbrtowc-impl.h
+  lib/mbrtowc.c
+  lib/mbsinit.c
+  lib/mbszero.c
+  lib/mbtowc-lock.c
+  lib/mbtowc-lock.h
+  lib/memchr.c
+  lib/memchr.valgrind
+  lib/printf-args.c
+  lib/printf-args.h
+  lib/printf-frexp.c
+  lib/printf-frexp.h
+  lib/printf-frexpl.c
+  lib/printf-frexpl.h
+  lib/printf-parse.c
+  lib/printf-parse.h
+  lib/search.in.h
+  lib/setlocale-lock.c
+  lib/setlocale_null.c
+  lib/setlocale_null.h
+  lib/signbitd.c
+  lib/signbitf.c
+  lib/signbitl.c
+  lib/size_max.h
+  lib/stddef.in.h
+  lib/stdint.in.h
+  lib/stdio-read.c
+  lib/stdio-write.c
+  lib/stdio.in.h
+  lib/stdlib.in.h
+  lib/streq.h
+  lib/string.in.h
+  lib/sys_types.in.h
+  lib/thread-optim.h
+  lib/tsearch.c
+  lib/unistd.c
+  lib/unistd.in.h
+  lib/vasnprintf.c
+  lib/vasnprintf.h
+  lib/vasnwprintf.c
+  lib/vasnwprintf.h
+  lib/verify.h
+  lib/warn-on-use.h
+  lib/wchar.in.h
+  lib/wgetcwd-lgpl.c
+  lib/windows-initguard.h
+  lib/windows-mutex.c
+  lib/windows-mutex.h
+  lib/windows-once.c
+  lib/windows-once.h
+  lib/windows-recmutex.c
+  lib/windows-recmutex.h
+  lib/windows-rwlock.c
+  lib/windows-rwlock.h
+  lib/wmemcpy-impl.h
+  lib/wmemcpy.c
+  lib/wmemset-impl.h
+  lib/wmemset.c
+  lib/wprintf-parse.c
+  lib/wprintf-parse.h
+  lib/xsize.c
+  lib/xsize.h
+  m4/00gnulib.m4
+  m4/absolute-header.m4
+  m4/alloca.m4
+  m4/assert_h.m4
+  m4/bison.m4
+  m4/c-bool.m4
+  m4/codeset.m4
+  m4/errno_h.m4
+  m4/exponentd.m4
+  m4/exponentf.m4
+  m4/exponentl.m4
+  m4/extensions.m4
+  m4/extern-inline.m4
+  m4/flexmember.m4
+  m4/float_h.m4
+  m4/fpieee.m4
+  m4/free.m4
+  m4/frexp.m4
+  m4/frexpl.m4
+  m4/getcwd.m4
+  m4/gnulib-common.m4
+  m4/host-cpu-c-abi.m4
+  m4/iconv.m4
+  m4/include_next.m4
+  m4/intl-thread-locale.m4
+  m4/intlmacosx.m4
+  m4/intmax_t.m4
+  m4/inttypes.m4
+  m4/inttypes_h.m4
+  m4/isnand.m4
+  m4/isnanf.m4
+  m4/isnanl.m4
+  m4/langinfo_h.m4
+  m4/lcmessage.m4
+  m4/ldexpl.m4
+  m4/lib-ld.m4
+  m4/lib-link.m4
+  m4/lib-prefix.m4
+  m4/limits-h.m4
+  m4/localcharset.m4
+  m4/locale-fr.m4
+  m4/locale-ja.m4
+  m4/locale-zh.m4
+  m4/locale_h.m4
+  m4/localename.m4
+  m4/lock.m4
+  m4/manywarnings-c++.m4
+  m4/manywarnings.m4
+  m4/math_h.m4
+  m4/mbrtowc.m4
+  m4/mbsinit.m4
+  m4/mbstate_t.m4
+  m4/memchr.m4
+  m4/mmap-anon.m4
+  m4/multiarch.m4
+  m4/musl.m4
+  m4/nocrash.m4
+  m4/off_t.m4
+  m4/pid_t.m4
+  m4/printf-frexp.m4
+  m4/printf-frexpl.m4
+  m4/printf.m4
+  m4/pthread_rwlock_rdlock.m4
+  m4/search_h.m4
+  m4/setlocale_null.m4
+  m4/signbit.m4
+  m4/size_max.m4
+  m4/ssize_t.m4
+  m4/std-gnu11.m4
+  m4/stddef_h.m4
+  m4/stdint.m4
+  m4/stdint_h.m4
+  m4/stdio_h.m4
+  m4/stdlib_h.m4
+  m4/string_h.m4
+  m4/sys_types_h.m4
+  m4/threadlib.m4
+  m4/tsearch.m4
+  m4/unistd_h.m4
+  m4/vasnprintf-posix.m4
+  m4/vasnprintf.m4
+  m4/vasnwprintf-posix.m4
+  m4/visibility.m4
+  m4/warn-on-use.m4
+  m4/warnings.m4
+  m4/wchar_h.m4
+  m4/wchar_t.m4
+  m4/wint_t.m4
+  m4/wmemcpy.m4
+  m4/wmemset.m4
+  m4/xsize.m4
+  m4/zzgnulib.m4
+Creating directory gettext-runtime/intl/gnulib-lib
+Creating directory gettext-runtime/intl/gnulib-m4
+Creating directory gettext-runtime/intl/../../build-aux
+Creating directory gettext-runtime/intl/gnulib-lib/glthread
+Copying file ../../build-aux/config.rpath
+Copying file gnulib-lib/_Noreturn.h
+Copying file gnulib-lib/alloca.in.h
+Copying file gnulib-lib/arg-nonnull.h
+Copying file gnulib-lib/asnprintf.c
+Copying file gnulib-lib/asnwprintf.c
+Copying file gnulib-lib/assert.in.h
+Copying file gnulib-lib/attribute.h
+Copying file gnulib-lib/c++defs.h
+Copying file gnulib-lib/errno.in.h
+Copying file gnulib-lib/filename.h
+Copying file gnulib-lib/flexmember.h
+Copying file gnulib-lib/float+.h
+Copying file gnulib-lib/float.c
+Copying file gnulib-lib/float.in.h
+Copying file gnulib-lib/fpucw.h
+Copying file gnulib-lib/free.c
+Copying file gnulib-lib/frexp.c
+Copying file gnulib-lib/frexpl.c
+Copying file gnulib-lib/getcwd-lgpl.c
+Copying file gnulib-lib/glthread/lock.c
+Copying file gnulib-lib/glthread/lock.h
+Copying file gnulib-lib/glthread/threadlib.c
+Copying file gnulib-lib/hard-locale.c
+Copying file gnulib-lib/hard-locale.h
+Copying file gnulib-lib/inttypes.in.h
+Copying file gnulib-lib/isnan.c
+Copying file gnulib-lib/isnand-nolibm.h
+Copying file gnulib-lib/isnand.c
+Copying file gnulib-lib/isnanf-nolibm.h
+Copying file gnulib-lib/isnanf.c
+Copying file gnulib-lib/isnanl-nolibm.h
+Copying file gnulib-lib/isnanl.c
+Copying file gnulib-lib/itold.c
+Copying file gnulib-lib/langinfo.in.h
+Copying file gnulib-lib/lc-charset-dispatch.c
+Copying file gnulib-lib/lc-charset-dispatch.h
+Copying file gnulib-lib/limits.in.h
+Copying file gnulib-lib/localcharset.c
+Copying file gnulib-lib/localcharset.h
+Copying file gnulib-lib/locale.in.h
+Copying file gnulib-lib/localename-table.c
+Copying file gnulib-lib/localename-table.h
+Copying file gnulib-lib/localename.c
+Copying file gnulib-lib/localename.h
+Copying file gnulib-lib/math.c
+Copying file gnulib-lib/math.in.h
+Copying file gnulib-lib/mbrtowc-impl-utf8.h
+Copying file gnulib-lib/mbrtowc-impl.h
+Copying file gnulib-lib/mbrtowc.c
+Copying file gnulib-lib/mbsinit.c
+Copying file gnulib-lib/mbszero.c
+Copying file gnulib-lib/mbtowc-lock.c
+Copying file gnulib-lib/mbtowc-lock.h
+Copying file gnulib-lib/memchr.c
+Copying file gnulib-lib/memchr.valgrind
+Copying file gnulib-lib/printf-args.c
+Copying file gnulib-lib/printf-args.h
+Copying file gnulib-lib/printf-frexp.c
+Copying file gnulib-lib/printf-frexp.h
+Copying file gnulib-lib/printf-frexpl.c
+Copying file gnulib-lib/printf-frexpl.h
+Copying file gnulib-lib/printf-parse.c
+Copying file gnulib-lib/printf-parse.h
+Copying file gnulib-lib/search.in.h
+Copying file gnulib-lib/setlocale-lock.c
+Copying file gnulib-lib/setlocale_null.c
+Copying file gnulib-lib/setlocale_null.h
+Copying file gnulib-lib/signbitd.c
+Copying file gnulib-lib/signbitf.c
+Copying file gnulib-lib/signbitl.c
+Copying file gnulib-lib/size_max.h
+Copying file gnulib-lib/stddef.in.h
+Copying file gnulib-lib/stdint.in.h
+Copying file gnulib-lib/stdio-read.c
+Copying file gnulib-lib/stdio-write.c
+Copying file gnulib-lib/stdio.in.h
+Copying file gnulib-lib/stdlib.in.h
+Copying file gnulib-lib/streq.h
+Copying file gnulib-lib/string.in.h
+Copying file gnulib-lib/sys_types.in.h
+Copying file gnulib-lib/thread-optim.h
+Copying file gnulib-lib/tsearch.c
+Copying file gnulib-lib/unistd.c
+Copying file gnulib-lib/unistd.in.h
+Copying file gnulib-lib/vasnprintf.c
+Copying file gnulib-lib/vasnprintf.h
+Copying file gnulib-lib/vasnwprintf.c
+Copying file gnulib-lib/vasnwprintf.h
+Copying file gnulib-lib/verify.h
+Copying file gnulib-lib/warn-on-use.h
+Copying file gnulib-lib/wchar.in.h
+Copying file gnulib-lib/wgetcwd-lgpl.c
+Copying file gnulib-lib/windows-initguard.h
+Copying file gnulib-lib/windows-mutex.c
+Copying file gnulib-lib/windows-mutex.h
+Copying file gnulib-lib/windows-once.c
+Copying file gnulib-lib/windows-once.h
+Copying file gnulib-lib/windows-recmutex.c
+Copying file gnulib-lib/windows-recmutex.h
+Copying file gnulib-lib/windows-rwlock.c
+Copying file gnulib-lib/windows-rwlock.h
+Copying file gnulib-lib/wmemcpy-impl.h
+Copying file gnulib-lib/wmemcpy.c
+Copying file gnulib-lib/wmemset-impl.h
+Copying file gnulib-lib/wmemset.c
+Copying file gnulib-lib/wprintf-parse.c
+Copying file gnulib-lib/wprintf-parse.h
+Copying file gnulib-lib/xsize.c
+Copying file gnulib-lib/xsize.h
+Copying file gnulib-m4/00gnulib.m4
+Copying file gnulib-m4/absolute-header.m4
+Copying file gnulib-m4/alloca.m4
+Copying file gnulib-m4/assert_h.m4
+Copying file gnulib-m4/bison.m4
+Copying file gnulib-m4/c-bool.m4
+Copying file gnulib-m4/codeset.m4
+Copying file gnulib-m4/errno_h.m4
+Copying file gnulib-m4/exponentd.m4
+Copying file gnulib-m4/exponentf.m4
+Copying file gnulib-m4/exponentl.m4
+Copying file gnulib-m4/extensions.m4
+Copying file gnulib-m4/extern-inline.m4
+Copying file gnulib-m4/flexmember.m4
+Copying file gnulib-m4/float_h.m4
+Copying file gnulib-m4/fpieee.m4
+Copying file gnulib-m4/free.m4
+Copying file gnulib-m4/frexp.m4
+Copying file gnulib-m4/frexpl.m4
+Copying file gnulib-m4/getcwd.m4
+Copying file gnulib-m4/gnulib-common.m4
+Copying file gnulib-m4/gnulib-tool.m4
+Copying file gnulib-m4/host-cpu-c-abi.m4
+Copying file gnulib-m4/iconv.m4
+Copying file gnulib-m4/include_next.m4
+Copying file gnulib-m4/intl-thread-locale.m4
+Copying file gnulib-m4/intlmacosx.m4
+Copying file gnulib-m4/intmax_t.m4
+Copying file gnulib-m4/inttypes.m4
+Copying file gnulib-m4/inttypes_h.m4
+Copying file gnulib-m4/isnand.m4
+Copying file gnulib-m4/isnanf.m4
+Copying file gnulib-m4/isnanl.m4
+Copying file gnulib-m4/langinfo_h.m4
+Copying file gnulib-m4/lcmessage.m4
+Copying file gnulib-m4/ldexpl.m4
+Copying file gnulib-m4/lib-ld.m4
+Copying file gnulib-m4/lib-link.m4
+Copying file gnulib-m4/lib-prefix.m4
+Copying file gnulib-m4/limits-h.m4
+Copying file gnulib-m4/localcharset.m4
+Copying file gnulib-m4/locale-fr.m4
+Copying file gnulib-m4/locale-ja.m4
+Copying file gnulib-m4/locale-zh.m4
+Copying file gnulib-m4/locale_h.m4
+Copying file gnulib-m4/localename.m4
+Copying file gnulib-m4/lock.m4
+Copying file gnulib-m4/manywarnings-c++.m4
+Copying file gnulib-m4/manywarnings.m4
+Copying file gnulib-m4/math_h.m4
+Copying file gnulib-m4/mbrtowc.m4
+Copying file gnulib-m4/mbsinit.m4
+Copying file gnulib-m4/mbstate_t.m4
+Copying file gnulib-m4/memchr.m4
+Copying file gnulib-m4/mmap-anon.m4
+Copying file gnulib-m4/multiarch.m4
+Copying file gnulib-m4/musl.m4
+Copying file gnulib-m4/nocrash.m4
+Copying file gnulib-m4/off_t.m4
+Copying file gnulib-m4/pid_t.m4
+Copying file gnulib-m4/printf-frexp.m4
+Copying file gnulib-m4/printf-frexpl.m4
+Copying file gnulib-m4/printf.m4
+Copying file gnulib-m4/pthread_rwlock_rdlock.m4
+Copying file gnulib-m4/search_h.m4
+Copying file gnulib-m4/setlocale_null.m4
+Copying file gnulib-m4/signbit.m4
+Copying file gnulib-m4/size_max.m4
+Copying file gnulib-m4/ssize_t.m4
+Copying file gnulib-m4/std-gnu11.m4
+Copying file gnulib-m4/stddef_h.m4
+Copying file gnulib-m4/stdint.m4
+Copying file gnulib-m4/stdint_h.m4
+Copying file gnulib-m4/stdio_h.m4
+Copying file gnulib-m4/stdlib_h.m4
+Copying file gnulib-m4/string_h.m4
+Copying file gnulib-m4/sys_types_h.m4
+Copying file gnulib-m4/threadlib.m4
+Copying file gnulib-m4/tsearch.m4
+Copying file gnulib-m4/unistd_h.m4
+Copying file gnulib-m4/vasnprintf-posix.m4
+Copying file gnulib-m4/vasnprintf.m4
+Copying file gnulib-m4/vasnwprintf-posix.m4
+Copying file gnulib-m4/visibility.m4
+Copying file gnulib-m4/warn-on-use.m4
+Copying file gnulib-m4/warnings.m4
+Copying file gnulib-m4/wchar_h.m4
+Copying file gnulib-m4/wchar_t.m4
+Copying file gnulib-m4/wint_t.m4
+Copying file gnulib-m4/wmemcpy.m4
+Copying file gnulib-m4/wmemset.m4
+Copying file gnulib-m4/xsize.m4
+Copying file gnulib-m4/zzgnulib.m4
+Creating gnulib-m4/gnulib-cache.m4
+Creating gnulib-m4/gnulib-comp.m4
+Creating gnulib-lib/Makefile.am
+Finished.
+
+You may need to add #include directives for the following .h files.
+  #include <locale.h>
+  #include <search.h>
+  #include <unistd.h>
+  #include <wchar.h>
+  #include "attribute.h"
+  #include "filename.h"
+  #include "flexmember.h"
+  #include "glthread/lock.h"
+  #include "localcharset.h"
+  #include "localename.h"
+  #include "setlocale_null.h" or #include <locale.h>
+  #include "vasnprintf.h"
+  #include "vasnwprintf.h"
+  #if HAVE_ICONV
+  # include <iconv.h>
+  #endif
+
+You may need to use the following Makefile variables when linking.
+Use them in <program>_LDADD when linking a program, or
+in <library>_a_LDFLAGS or <library>_la_LDFLAGS when linking a library.
+  $(HARD_LOCALE_LIB)
+  $(LIBTHREAD)
+  $(LTLIBICONV) when linking with libtool, $(LIBICONV) otherwise
+  $(MBRTOWC_LIB)
+  $(SETLOCALE_NULL_LIB)
+  @INTL_MACOSX_LIBS@
+
+Don't forget to
+  - add "gnulib-lib/Makefile" to AC_CONFIG_FILES in gettext-runtime/intl/configure.ac,
+  - mention "gnulib-lib" in SUBDIRS in Makefile.am,
+  - mention "-I gnulib-m4" in ACLOCAL_AMFLAGS in Makefile.am
+    or add an AC_CONFIG_MACRO_DIRS([gnulib-m4]) invocation in gettext-runtime/intl/configure.ac,
+  - mention "gnulib-m4/gnulib-cache.m4" in EXTRA_DIST in Makefile.am,
+  - invoke gl_EARLY in gettext-runtime/intl/configure.ac, right after AC_PROG_CC,
+  - invoke gl_INIT in gettext-runtime/intl/configure.ac.

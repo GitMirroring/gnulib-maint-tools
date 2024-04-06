@@ -1,0 +1,83 @@
+Module list with included dependencies (indented):
+    extern-inline
+    gen-header
+    pthread_sigmask
+    signal-h
+    snippet/arg-nonnull
+    snippet/c++defs
+    snippet/warn-on-use
+  thread
+    threadlib
+    windows-thread
+    windows-tls
+File list:
+  lib/arg-nonnull.h
+  lib/c++defs.h
+  lib/glthread/thread.c
+  lib/glthread/thread.h
+  lib/glthread/threadlib.c
+  lib/pthread_sigmask.c
+  lib/signal.in.h
+  lib/warn-on-use.h
+  lib/windows-thread.c
+  lib/windows-thread.h
+  lib/windows-tls.c
+  lib/windows-tls.h
+  m4/00gnulib.m4
+  m4/extern-inline.m4
+  m4/gnulib-common.m4
+  m4/pid_t.m4
+  m4/pthread_sigmask.m4
+  m4/signal_h.m4
+  m4/thread.m4
+  m4/threadlib.m4
+  m4/warn-on-use.m4
+  m4/zzgnulib.m4
+Creating directory gettext-tools/tests/gnulib-m4
+Creating directory gettext-tools/../build-aux
+Creating directory gettext-tools/tests/gnulib-lib/glthread
+Copying file tests/gnulib-lib/arg-nonnull.h
+Copying file tests/gnulib-lib/c++defs.h
+Copying file tests/gnulib-lib/glthread/thread.c
+Copying file tests/gnulib-lib/glthread/thread.h
+Copying file tests/gnulib-lib/glthread/threadlib.c
+Copying file tests/gnulib-lib/pthread_sigmask.c
+Copying file tests/gnulib-lib/signal.in.h
+Copying file tests/gnulib-lib/warn-on-use.h
+Copying file tests/gnulib-lib/windows-thread.c
+Copying file tests/gnulib-lib/windows-thread.h
+Copying file tests/gnulib-lib/windows-tls.c
+Copying file tests/gnulib-lib/windows-tls.h
+Copying file tests/gnulib-m4/00gnulib.m4
+Copying file tests/gnulib-m4/extern-inline.m4
+Copying file tests/gnulib-m4/gnulib-common.m4
+Copying file tests/gnulib-m4/gnulib-tool.m4
+Copying file tests/gnulib-m4/pid_t.m4
+Copying file tests/gnulib-m4/pthread_sigmask.m4
+Copying file tests/gnulib-m4/signal_h.m4
+Copying file tests/gnulib-m4/thread.m4
+Copying file tests/gnulib-m4/threadlib.m4
+Copying file tests/gnulib-m4/warn-on-use.m4
+Copying file tests/gnulib-m4/zzgnulib.m4
+Creating tests/gnulib-m4/gnulib-cache.m4
+Creating tests/gnulib-m4/gnulib-comp.m4
+Creating tests/gnulib-lib/Makefile.gnulib
+Finished.
+
+You may need to add #include directives for the following .h files.
+  #include "glthread/thread.h"
+
+You may need to use the following Makefile variables when linking.
+Use them in <program>_LDADD when linking a program, or
+in <library>_a_LDFLAGS or <library>_la_LDFLAGS when linking a library.
+  $(LIBMULTITHREAD)
+  $(LIBTHREAD)
+  $(PTHREAD_SIGMASK_LIB)
+
+Don't forget to
+  - "include Makefile.gnulib" from within "tests/gnulib-lib/Makefile.am",
+  - mention "-I tests/gnulib-m4" in ACLOCAL_AMFLAGS in Makefile.am
+    or add an AC_CONFIG_MACRO_DIRS([tests/gnulib-m4]) invocation in gettext-tools/configure.ac,
+  - mention "tests/gnulib-m4/gnulib-cache.m4" in EXTRA_DIST in Makefile.am,
+  - invoke gttgl_EARLY in gettext-tools/configure.ac, right after AC_PROG_CC,
+  - invoke gttgl_INIT in gettext-tools/configure.ac.
