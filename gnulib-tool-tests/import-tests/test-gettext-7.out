@@ -33,6 +33,7 @@ File list:
   m4/threadlib.m4
   m4/warn-on-use.m4
   m4/zzgnulib.m4
+Creating directory gettext-tools/tests/gnulib-lib
 Creating directory gettext-tools/tests/gnulib-m4
 Creating directory gettext-tools/../build-aux
 Creating directory gettext-tools/tests/gnulib-lib/glthread

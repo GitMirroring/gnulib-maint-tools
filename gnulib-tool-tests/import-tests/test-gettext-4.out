@@ -2512,7 +2512,10 @@ File list:
   lib/wctomb.c -> tests/wctomb.c
   lib/windows-thread.c -> tests/windows-thread.c
   lib/windows-thread.h -> tests/windows-thread.h
+Creating directory gettext-tools/gnulib-lib
 Creating directory gettext-tools/gnulib-m4
+Creating directory gettext-tools/doc
+Creating directory gettext-tools/gnulib-tests
 Creating directory gettext-tools/../build-aux
 Creating directory gettext-tools/gnulib-lib/glthread
 Creating directory gettext-tools/gnulib-lib/libxml

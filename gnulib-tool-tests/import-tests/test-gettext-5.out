@@ -151,6 +151,7 @@ File list:
   m4/wctype_h.m4
   m4/wint_t.m4
   m4/zzgnulib.m4
+Creating directory gettext-tools/libgrep
 Creating directory gettext-tools/libgrep/gnulib-m4
 Creating directory gettext-tools/../build-aux
 Creating directory gettext-tools/libgrep/glthread

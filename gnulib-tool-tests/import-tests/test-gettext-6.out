@@ -609,7 +609,9 @@ File list:
   m4/xsize.m4
   m4/xvasprintf.m4
   m4/zzgnulib.m4
+Creating directory gettext-tools/libgettextpo
 Creating directory gettext-tools/libgettextpo/gnulib-m4
+Creating directory gettext-tools/doc
 Creating directory gettext-tools/../build-aux
 Creating directory gettext-tools/libgettextpo/glthread
 Creating directory gettext-tools/libgettextpo/uniconv

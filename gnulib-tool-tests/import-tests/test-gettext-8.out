@@ -758,7 +758,9 @@ File list:
   lib/c++defs.h -> tests/c++defs.h
   lib/dummy.c -> tests/dummy.c
   lib/warn-on-use.h -> tests/warn-on-use.h
+Creating directory ./lib
 Creating directory ./gnulib-m4
+Creating directory ./tests
 Creating directory ./build-aux
 Creating directory ./lib/glib
 Creating directory ./lib/glthread

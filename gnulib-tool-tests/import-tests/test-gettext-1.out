@@ -622,6 +622,7 @@ File list:
   m4/zzgnulib.m4
 Creating directory gettext-runtime/gnulib-lib
 Creating directory gettext-runtime/gnulib-m4
+Creating directory gettext-runtime/doc
 Creating directory gettext-runtime/../build-aux
 Creating directory gettext-runtime/gnulib-lib/glthread
 Creating directory gettext-runtime/gnulib-lib/malloc
