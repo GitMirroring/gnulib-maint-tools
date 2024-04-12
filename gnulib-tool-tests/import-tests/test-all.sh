@@ -6,6 +6,76 @@ run_test_group '
   test-hello-c-gnulib-automakesubdir-withtests-1.sh
   test-hello-c-gnulib-conddeps-1.sh
   test-hello-c-gnulib-nonrecursive-1.sh
+  test-cache-1-1.sh
+  test-cache-1-2.sh
+  test-cache-1-3.sh
+  test-cache-1-4.sh
+  test-cache-1-5.sh
+  test-cache-1-6.sh
+  test-cache-1-7.sh
+  test-cache-1-8.sh
+  test-cache-1-9.sh
+  test-cache-1-10.sh
+  test-cache-1-11.sh
+  test-cache-1-12.sh
+  test-cache-1-13.sh
+  test-cache-1-14.sh
+  test-cache-1-15.sh
+  test-cache-1-16.sh
+  test-cache-1-17.sh
+  test-cache-1-18.sh
+  test-cache-1-19.sh
+  test-cache-1-20.sh
+  test-cache-1-21.sh
+  test-cache-1-22.sh
+  test-cache-1-23.sh
+  test-cache-1-24.sh
+  test-cache-1-25.sh
+  test-cache-1-26.sh
+  test-cache-1-27.sh
+  test-cache-1-28.sh
+  test-cache-1-29.sh
+  test-cache-1-30.sh
+  test-cache-1-31.sh
+  test-cache-1-32.sh
+  test-cache-1-33.sh
+  test-cache-1-34.sh
+  test-cache-2-1.sh
+  test-cache-2-2.sh
+  test-cache-2-3.sh
+  test-cache-2-4.sh
+  test-cache-2-5.sh
+  test-cache-2-6.sh
+  test-cache-2-7.sh
+  test-cache-2-8.sh
+  test-cache-2-9.sh
+  test-cache-2-10.sh
+  test-cache-2-11.sh
+  test-cache-2-12.sh
+  test-cache-2-13.sh
+  test-cache-2-14.sh
+  test-cache-2-15.sh
+  test-cache-2-16.sh
+  test-cache-2-17.sh
+  test-cache-2-18.sh
+  test-cache-2-19.sh
+  test-cache-2-20.sh
+  test-cache-2-21.sh
+  test-cache-2-22.sh
+  test-cache-2-23.sh
+  test-cache-2-24.sh
+  test-cache-2-25.sh
+  test-cache-2-27.sh
+  test-cache-2-28.sh
+  test-cache-2-29.sh
+  test-cache-2-30.sh
+  test-cache-2-31.sh
+  test-cache-2-32.sh
+  test-cache-2-33.sh
+  test-cache-2-34.sh
+  test-cache-3-1.sh
+  test-cache-3-26.sh
+  test-cache-3-27.sh
   test-wget2-1.sh
   test-oath-toolkit-1.sh
   test-oath-toolkit-2.sh

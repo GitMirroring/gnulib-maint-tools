@@ -1,0 +1,20 @@
+#!/bin/sh
+# Simulates a command
+#   wget --no-verbose --mirror --level=1 -nd -A.po -P . https://translationproject.org/latest/PO_DOMAIN/
+# without making network accesses.
+
+domain=
+for arg
+do
+  case "$arg" in
+    -*) ;;
+    .) ;;
+    *) domain=`echo "$arg" | sed -e 's|/$||' -e 's|^.*/||'` ;;
+  esac
+done
+if test -n "$domain" && test -d "$MOCK_TP/$domain"; then
+  cp "$MOCK_TP/$domain"/*.po .
+else
+  echo "ERROR 404: Not Found." 1>&2
+  exit 8
+fi

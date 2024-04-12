@@ -1,0 +1,27 @@
+# Specification in the form of a few gnulib-tool.m4 macro invocations:
+gl_LOCAL_DIR([gl])
+gl_MODULES([
+  unistd
+])
+gl_WITH_OBSOLETE
+gl_WITH_CXX_TESTS
+gl_WITH_LONGRUNNING_TESTS
+gl_WITH_PRIVILEGED_TESTS
+gl_WITH_UNPORTABLE_TESTS
+gl_WITH_ALL_TESTS
+gl_AVOID([timevar])
+gl_SOURCE_BASE([lib])
+gl_M4_BASE([m4])
+gl_PO_BASE([po])
+gl_DOC_BASE([doc])
+gl_TESTS_BASE([tests])
+gl_WITH_TESTS
+gl_LIB([libgnu])
+gl_LGPL
+gl_MAKEFILE_NAME([Makefile.gnulib])
+gl_AUTOMAKE_SUBDIR
+gl_LIBTOOL
+gl_MACRO_PREFIX([gl])
+gl_PO_DOMAIN([prog])
+gl_WITNESS_C_MACRO([IN_PROG])
+gl_VC_FILES([true])

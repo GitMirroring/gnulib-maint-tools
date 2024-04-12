@@ -1,0 +1,28 @@
+Module list with included dependencies (indented):
+File list:
+  lib/dummy.c
+  m4/00gnulib.m4
+  m4/gnulib-common.m4
+  m4/zzgnulib.m4
+Creating directory ./lib
+Copying file lib/dummy.c
+Copying file m4/00gnulib.m4
+Copying file m4/gnulib-common.m4
+Copying file m4/gnulib-tool.m4
+Copying file m4/zzgnulib.m4
+Updating m4/gnulib-cache.m4 (backup in m4/gnulib-cache.m4~)
+Creating m4/gnulib-comp.m4
+Creating lib/Makefile.am
+Finished.
+
+You may need to add #include directives for the following .h files.
+
+Don't forget to
+  - add "lib/Makefile" to AC_CONFIG_FILES in ./configure.ac,
+  - mention "lib" in SUBDIRS in Makefile.am,
+  - mention "tests" in SUBDIRS in Makefile.am,
+  - mention "-I m4" in ACLOCAL_AMFLAGS in Makefile.am
+    or add an AC_CONFIG_MACRO_DIRS([m4]) invocation in ./configure.ac,
+  - mention "m4/gnulib-cache.m4" in EXTRA_DIST in Makefile.am,
+  - invoke gl_EARLY in ./configure.ac, right after AC_PROG_CC,
+  - invoke gl_INIT in ./configure.ac.

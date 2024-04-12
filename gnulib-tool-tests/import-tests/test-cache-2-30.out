@@ -1,0 +1,263 @@
+Module list with included dependencies (indented):
+    absolute-header
+    alignasof
+    alignasof-tests
+    ansi-c++-opt
+    assert-h
+    assert-h-c++-tests
+    assert-h-tests
+    c99
+    extensions
+    extern-inline
+    gen-header
+    include_next
+    intprops
+    intprops-tests
+    inttypes
+    inttypes-c++-tests
+    inttypes-incomplete
+    inttypes-tests
+    limits-h
+    limits-h-c++-tests
+    limits-h-tests
+    multiarch
+    snippet/_Noreturn
+    snippet/arg-nonnull
+    snippet/c++defs
+    snippet/warn-on-use
+    ssize_t
+    std-gnu11
+    stdbool
+    stdbool-c++-tests
+    stdbool-tests
+    stddef
+    stddef-c++-tests
+    stddef-tests
+    stdint
+    stdint-c++-tests
+    stdint-tests
+    stdlib
+    stdlib-c++-tests
+    stdlib-tests
+    sys_types
+    sys_types-c++-tests
+    sys_types-tests
+    test-framework-sh
+    test-framework-sh-tests
+  unistd
+    unistd-c++-tests
+    unistd-tests
+    verify
+    verify-tests
+    wchar
+    wchar-c++-tests
+    wchar-tests
+File list:
+  lib/arg-nonnull.h
+  lib/c++defs.h
+  lib/stddef.in.h
+  lib/sys_types.in.h
+  lib/unistd.c
+  lib/unistd.in.h
+  lib/warn-on-use.h
+  m4/00gnulib.m4
+  m4/absolute-header.m4
+  m4/ansi-c++.m4
+  m4/assert_h.m4
+  m4/c-bool.m4
+  m4/codeset.m4
+  m4/extensions.m4
+  m4/extern-inline.m4
+  m4/gnulib-common.m4
+  m4/include_next.m4
+  m4/inttypes.m4
+  m4/limits-h.m4
+  m4/locale-fr.m4
+  m4/multiarch.m4
+  m4/off_t.m4
+  m4/pid_t.m4
+  m4/ssize_t.m4
+  m4/std-gnu11.m4
+  m4/stdalign.m4
+  m4/stddef_h.m4
+  m4/stdint.m4
+  m4/stdlib_h.m4
+  m4/sys_types_h.m4
+  m4/unistd_h.m4
+  m4/warn-on-use.m4
+  m4/wchar_h.m4
+  m4/wchar_t.m4
+  m4/wint_t.m4
+  m4/zzgnulib.m4
+  tests/init.sh
+  tests/macros.h
+  tests/signature.h
+  tests/test-alignasof.c
+  tests/test-assert-h-c++.cc
+  tests/test-assert-h-c++2.cc
+  tests/test-assert.c
+  tests/test-init.sh
+  tests/test-intprops.c
+  tests/test-inttypes-c++.cc
+  tests/test-inttypes-c++2.cc
+  tests/test-inttypes.c
+  tests/test-limits-h-c++.cc
+  tests/test-limits-h-c++2.cc
+  tests/test-limits-h.c
+  tests/test-stdbool-c++.cc
+  tests/test-stdbool-c++2.cc
+  tests/test-stdbool.c
+  tests/test-stddef-c++.cc
+  tests/test-stddef-c++2.cc
+  tests/test-stddef.c
+  tests/test-stdint-c++.cc
+  tests/test-stdint-c++2.cc
+  tests/test-stdint.c
+  tests/test-stdlib-c++.cc
+  tests/test-stdlib-c++2.cc
+  tests/test-stdlib.c
+  tests/test-sys_types-c++.cc
+  tests/test-sys_types.c
+  tests/test-sys_wait.h
+  tests/test-unistd-c++.cc
+  tests/test-unistd.c
+  tests/test-verify-try.c
+  tests/test-verify.c
+  tests/test-verify.sh
+  tests/test-wchar-c++.cc
+  tests/test-wchar-c++2.cc
+  tests/test-wchar-c++3.cc
+  tests/test-wchar.c
+  lib/_Noreturn.h -> tests/_Noreturn.h
+  lib/arg-nonnull.h -> tests/arg-nonnull.h
+  lib/assert.in.h -> tests/assert.in.h
+  lib/c++defs.h -> tests/c++defs.h
+  lib/dummy.c -> tests/dummy.c
+  lib/intprops-internal.h -> tests/intprops-internal.h
+  lib/intprops.h -> tests/intprops.h
+  lib/inttypes.in.h -> tests/inttypes.in.h
+  lib/limits.in.h -> tests/limits.in.h
+  lib/stdint.in.h -> tests/stdint.in.h
+  lib/stdlib.in.h -> tests/stdlib.in.h
+  lib/verify.h -> tests/verify.h
+  lib/warn-on-use.h -> tests/warn-on-use.h
+  lib/wchar.in.h -> tests/wchar.in.h
+Creating directory ./lib
+Creating directory ./po
+Creating directory ./tests
+Creating directory ./support
+Copying file lib/arg-nonnull.h
+Copying file lib/c++defs.h
+Copying file lib/stddef.in.h
+Copying file lib/sys_types.in.h
+Copying file lib/unistd.c
+Copying file lib/unistd.in.h
+Copying file lib/warn-on-use.h
+Copying file m4/00gnulib.m4
+Copying file m4/absolute-header.m4
+Copying file m4/ansi-c++.m4
+Copying file m4/assert_h.m4
+Copying file m4/c-bool.m4
+Copying file m4/codeset.m4
+Copying file m4/extensions.m4
+Copying file m4/extern-inline.m4
+Copying file m4/gnulib-common.m4
+Copying file m4/gnulib-tool.m4
+Copying file m4/include_next.m4
+Copying file m4/inttypes.m4
+Copying file m4/limits-h.m4
+Copying file m4/locale-fr.m4
+Copying file m4/multiarch.m4
+Copying file m4/off_t.m4
+Copying file m4/pid_t.m4
+Copying file m4/ssize_t.m4
+Copying file m4/std-gnu11.m4
+Copying file m4/stdalign.m4
+Copying file m4/stddef_h.m4
+Copying file m4/stdint.m4
+Copying file m4/stdlib_h.m4
+Copying file m4/sys_types_h.m4
+Copying file m4/unistd_h.m4
+Copying file m4/warn-on-use.m4
+Copying file m4/wchar_h.m4
+Copying file m4/wchar_t.m4
+Copying file m4/wint_t.m4
+Copying file m4/zzgnulib.m4
+Copying file tests/_Noreturn.h
+Copying file tests/arg-nonnull.h
+Copying file tests/assert.in.h
+Copying file tests/c++defs.h
+Copying file tests/dummy.c
+Copying file tests/init.sh
+Copying file tests/intprops-internal.h
+Copying file tests/intprops.h
+Copying file tests/inttypes.in.h
+Copying file tests/limits.in.h
+Copying file tests/macros.h
+Copying file tests/signature.h
+Copying file tests/stdint.in.h
+Copying file tests/stdlib.in.h
+Copying file tests/test-alignasof.c
+Copying file tests/test-assert-h-c++.cc
+Copying file tests/test-assert-h-c++2.cc
+Copying file tests/test-assert.c
+Copying file tests/test-init.sh
+Copying file tests/test-intprops.c
+Copying file tests/test-inttypes-c++.cc
+Copying file tests/test-inttypes-c++2.cc
+Copying file tests/test-inttypes.c
+Copying file tests/test-limits-h-c++.cc
+Copying file tests/test-limits-h-c++2.cc
+Copying file tests/test-limits-h.c
+Copying file tests/test-stdbool-c++.cc
+Copying file tests/test-stdbool-c++2.cc
+Copying file tests/test-stdbool.c
+Copying file tests/test-stddef-c++.cc
+Copying file tests/test-stddef-c++2.cc
+Copying file tests/test-stddef.c
+Copying file tests/test-stdint-c++.cc
+Copying file tests/test-stdint-c++2.cc
+Copying file tests/test-stdint.c
+Copying file tests/test-stdlib-c++.cc
+Copying file tests/test-stdlib-c++2.cc
+Copying file tests/test-stdlib.c
+Copying file tests/test-sys_types-c++.cc
+Copying file tests/test-sys_types.c
+Copying file tests/test-sys_wait.h
+Copying file tests/test-unistd-c++.cc
+Copying file tests/test-unistd.c
+Copying file tests/test-verify-try.c
+Copying file tests/test-verify.c
+Copying file tests/test-verify.sh
+Copying file tests/test-wchar-c++.cc
+Copying file tests/test-wchar-c++2.cc
+Copying file tests/test-wchar-c++3.cc
+Copying file tests/test-wchar.c
+Copying file tests/verify.h
+Copying file tests/warn-on-use.h
+Copying file tests/wchar.in.h
+Creating po/Makefile.in.in
+Creating po/remove-potcdate.sin
+Creating po/Makevars
+Creating po/POTFILES.in
+Fetching gnulib PO files from https://translationproject.org/latest/
+Creating po/LINGUAS
+Updating m4/gnulib-cache.m4 (backup in m4/gnulib-cache.m4~)
+Creating m4/gnulib-comp.m4
+Creating lib/Makefile.gnulib
+Creating tests/Makefile.gnulib
+Finished.
+
+You may need to add #include directives for the following .h files.
+  #include <unistd.h>
+
+Don't forget to
+  - "include Makefile.gnulib" from within "lib/Makefile.am",
+  - add "po/Makefile.in" to AC_CONFIG_FILES in ./configure.ac,
+  - "include Makefile.gnulib" from within "tests/Makefile.am",
+  - mention "po" in SUBDIRS in Makefile.am,
+  - mention "-I m4" in ACLOCAL_AMFLAGS in Makefile.am
+    or add an AC_CONFIG_MACRO_DIRS([m4]) invocation in ./configure.ac,
+  - mention "m4/gnulib-cache.m4" in EXTRA_DIST in Makefile.am,
+  - invoke hl_EARLY in ./configure.ac, right after AC_PROG_CC,
+  - invoke hl_INIT in ./configure.ac.

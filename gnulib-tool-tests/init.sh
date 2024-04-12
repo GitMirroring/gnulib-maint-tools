@@ -142,9 +142,14 @@ do_import_test ()
 {
   tmp=tmp$$
   gnulib_dir=`cd ../gnulib-data && pwd`
+  mock_bin_dir=`cd mock-bin && pwd`
+  mock_tp_dir=`cd mock-tp && pwd`
   mkdir $tmp-result
   (cd "$1" && tar cf - .) | (cd $tmp-result && tar xf -)
-  (cd $tmp-result/"$2" && $GNULIB_SRCDIR/gnulib-tool --gnulib-dir="$gnulib_dir" $3) >$tmp-out 2>$tmp-err
+  (cd $tmp-result/"$2" \
+   && env PATH="$mock_bin_dir:$PATH" MOCK_TP="$mock_tp_dir" \
+      $GNULIB_SRCDIR/gnulib-tool --gnulib-dir="$gnulib_dir" $3
+  ) >$tmp-out 2>$tmp-err
   rc=$?
   # Remove empty build-aux dirs, since we cannot check them in as part of the expected result.
   build_aux_dir=`find $tmp-result -name build-aux -type d -empty -print`

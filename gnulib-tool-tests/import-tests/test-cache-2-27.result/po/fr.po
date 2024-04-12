@@ -1,0 +1,1202 @@
+# Messages français pour GNU concernant gnulib.
+# Copyright © 1996-, 2008, 2011 Free Software Foundation, Inc.
+# This file is distributed under the same license as the gnulib package.
+#
+# Michel Robitaille <robitail@IRO.UMontreal.CA>, 1996-.
+# Nicolas Provost <nprovost@quadriv.com>, 2008.
+# David Prévot <david@tilapin.org>, 2011.
+# Stéphane Aulery <lkppo@free.fr>, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnulib-4.0.0.2567\n"
+"Report-Msgid-Bugs-To: bug-gnulib@gnu.org\n"
+"POT-Creation-Date: 2019-05-18 19:06+0200\n"
+"PO-Revision-Date: 2019-05-21 20:15+0200\n"
+"Last-Translator: Stéphane Aulery <lkppo@free.fr>\n"
+"Language-Team: French <traduc@traduc.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 1.2\n"
+
+#: lib/argmatch.c:134
+#, c-format
+msgid "invalid argument %s for %s"
+msgstr "argument %s non valable pour %s"
+
+#: lib/argmatch.c:135
+#, c-format
+msgid "ambiguous argument %s for %s"
+msgstr "argument %s ambigu pour %s"
+
+#: lib/argmatch.c:154
+msgid "Valid arguments are:"
+msgstr "Les arguments valables sont :"
+
+#: lib/argp-help.c:148
+#, c-format
+msgid "ARGP_HELP_FMT: %s value is less than or equal to %s"
+msgstr "ARGP_HELP_FMT : la valeur %s est inférieure ou égale à %s"
+
+#: lib/argp-help.c:224
+#, c-format
+msgid "%.*s: ARGP_HELP_FMT parameter requires a value"
+msgstr "%.*s : le paramètre ARGP_HELP_FMT nécessite une valeur"
+
+#: lib/argp-help.c:234
+#, c-format
+msgid "%.*s: Unknown ARGP_HELP_FMT parameter"
+msgstr "%.*s : paramètre ARGP_HELP_FMT inconnu"
+
+#: lib/argp-help.c:247
+#, c-format
+msgid "Garbage in ARGP_HELP_FMT: %s"
+msgstr "Problème dans ARGP_HELP_FMT : %s"
+
+#: lib/argp-help.c:1228
+msgid "Mandatory or optional arguments to long options are also mandatory or optional for any corresponding short options."
+msgstr "Les arguments obligatoires pour la forme longue des options le sont aussi pour les formes courtes associées."
+
+#: lib/argp-help.c:1617
+msgid "Usage:"
+msgstr "Utilisation :"
+
+#: lib/argp-help.c:1621
+msgid "  or: "
+msgstr "  ou : "
+
+#: lib/argp-help.c:1633
+msgid " [OPTION...]"
+msgstr " [OPTION...]"
+
+#: lib/argp-help.c:1660
+#, c-format
+msgid "Try '%s --help' or '%s --usage' for more information.\n"
+msgstr "Essayez « %s --help » ou « %s --usage » pour obtenir plus de renseignements.\n"
+
+#: lib/argp-help.c:1688
+#, c-format
+msgid "Report bugs to %s.\n"
+msgstr "Signalez toute anomalie à %s.\n"
+
+#: lib/argp-help.c:1889 lib/error.c:195
+msgid "Unknown system error"
+msgstr "Erreur système inconnue"
+
+#: lib/argp-parse.c:81
+msgid "give this help list"
+msgstr "affiche cette aide"
+
+#: lib/argp-parse.c:82
+msgid "give a short usage message"
+msgstr "donne un court message d'utilisation"
+
+#: lib/argp-parse.c:83
+msgid "NAME"
+msgstr "NOM"
+
+#: lib/argp-parse.c:84
+msgid "set the program name"
+msgstr "définit le nom du programme"
+
+#: lib/argp-parse.c:85
+msgid "SECS"
+msgstr "SECS"
+
+#: lib/argp-parse.c:86
+msgid "hang for SECS seconds (default 3600)"
+msgstr "suspension pendant SECS secondes (par défaut 3600)"
+
+#: lib/argp-parse.c:143
+msgid "print program version"
+msgstr "affiche la version du programme"
+
+#: lib/argp-parse.c:160
+msgid "(PROGRAM ERROR) No version known!?"
+msgstr "(Erreur du programme) pas de version connue !"
+
+#: lib/argp-parse.c:613
+#, c-format
+msgid "%s: Too many arguments\n"
+msgstr "%s : trop d'arguments\n"
+
+#: lib/argp-parse.c:759
+msgid "(PROGRAM ERROR) Option should have been recognized!?"
+msgstr "(Erreur du programme) l'option aurait dû être reconnue !"
+
+#: lib/bitset/stats.c:177
+#, c-format
+msgid "%u bitset_allocs, %u freed (%.2f%%).\n"
+msgstr "%u bitset_allocs, %u libérés (%.2f%%).\n"
+
+#: lib/bitset/stats.c:180
+#, c-format
+msgid "%u bitset_sets, %u cached (%.2f%%)\n"
+msgstr "%u bitset_sets, %u cachés (%.2f%%).\n"
+
+#: lib/bitset/stats.c:183
+#, c-format
+msgid "%u bitset_resets, %u cached (%.2f%%)\n"
+msgstr "%u bitset_resets, %u cachés (%.2f%%)\n"
+
+#: lib/bitset/stats.c:186
+#, c-format
+msgid "%u bitset_tests, %u cached (%.2f%%)\n"
+msgstr "%u bitset_tests, %u cachés (%.2f%%)\n"
+
+#: lib/bitset/stats.c:190
+#, c-format
+msgid "%u bitset_lists\n"
+msgstr "%u bitset_lists\n"
+
+#: lib/bitset/stats.c:192
+msgid "count log histogram\n"
+msgstr "histogramme par comptage\n"
+
+#: lib/bitset/stats.c:195
+msgid "size log histogram\n"
+msgstr "histogramme par taille\n"
+
+#: lib/bitset/stats.c:198
+msgid "density histogram\n"
+msgstr "histogramme par densité\n"
+
+#: lib/bitset/stats.c:210
+#, c-format
+msgid ""
+"Bitset statistics:\n"
+"\n"
+msgstr ""
+"Statistiques de bitset :\n"
+"\n"
+
+#: lib/bitset/stats.c:213
+#, c-format
+msgid "Accumulated runs = %u\n"
+msgstr "Lancement cumulés = %u\n"
+
+#: lib/bitset/stats.c:255 lib/bitset/stats.c:260
+msgid "cannot read stats file"
+msgstr "impossible de lire les permissions du fichier"
+
+#: lib/bitset/stats.c:257
+#, c-format
+msgid "bad stats file size\n"
+msgstr "taille du fichier de permission erroné\n"
+
+#: lib/bitset/stats.c:281 lib/bitset/stats.c:283
+msgid "cannot write stats file"
+msgstr "impossible d'écrire les permissions du fichier"
+
+#: lib/bitset/stats.c:286
+msgid "cannot open stats file for writing"
+msgstr "impossible d'ouvrir les permissions du fichier en écriture"
+
+#: lib/c-stack.c:211 lib/c-stack.c:304
+msgid "program error"
+msgstr "erreur du programme"
+
+#: lib/c-stack.c:212 lib/c-stack.c:305
+msgid "stack overflow"
+msgstr "dépassement de pile"
+
+#: lib/clean-temp.c:322
+msgid "cannot find a temporary directory, try setting $TMPDIR"
+msgstr "impossible de trouver un répertoire temporaire, essayez de définir $TMPDIR"
+
+#: lib/clean-temp.c:336
+#, c-format
+msgid "cannot create a temporary directory using template \"%s\""
+msgstr "impossible de créer un répertoire temporaire en utilisant le modèle « %s »."
+
+#: lib/clean-temp.c:432
+#, c-format
+msgid "cannot remove temporary file %s"
+msgstr "impossible de supprimer le ficher temporaire %s"
+
+#: lib/clean-temp.c:447
+#, c-format
+msgid "cannot remove temporary directory %s"
+msgstr "impossible de supprimer le répertoire temporaire %s"
+
+#: lib/closein.c:100
+msgid "error closing file"
+msgstr "erreur de fermeture de fichier"
+
+#: lib/closeout.c:122
+msgid "write error"
+msgstr "erreur d'écriture"
+
+#: lib/copy-acl.c:54 lib/copy-file.c:198
+#, c-format
+msgid "preserving permissions for %s"
+msgstr "conservation des permissions de %s"
+
+#: lib/copy-file.c:175
+#, c-format
+msgid "error while opening %s for reading"
+msgstr "erreur à l'ouverture de %s en lecture"
+
+#: lib/copy-file.c:179
+#, c-format
+msgid "cannot open backup file %s for writing"
+msgstr "impossible d'ouvrir le fichier de sauvegarde %s en écriture"
+
+#: lib/copy-file.c:183
+#, c-format
+msgid "error reading %s"
+msgstr "erreur de lecture de %s"
+
+#: lib/copy-file.c:187
+#, c-format
+msgid "error writing %s"
+msgstr "erreur d'écriture de %s"
+
+#: lib/copy-file.c:191
+#, c-format
+msgid "error after reading %s"
+msgstr "erreur après la lecture de %s"
+
+#: lib/csharpcomp.c:202 lib/javaversion.c:78
+msgid "fdopen() failed"
+msgstr "échec de fdopen()"
+
+#: lib/csharpcomp.c:443
+msgid "C# compiler not found, try installing mono"
+msgstr "compilateur C# non trouvé, essayez d'installer mono"
+
+#: lib/csharpexec.c:255
+msgid "C# virtual machine not found, try installing mono"
+msgstr "machine virtuelle C# non trouvée, essayez d'installer mono"
+
+#: lib/dfa.c:970
+msgid "unbalanced ["
+msgstr "[ non appairée"
+
+#: lib/dfa.c:1091
+msgid "invalid character class"
+msgstr "nom de classe de caractères non valable"
+
+#: lib/dfa.c:1217
+msgid "character class syntax is [[:space:]], not [:space:]"
+msgstr "la syntaxe de la classe de caractères est [[:space:]], et non [:space:]"
+
+#: lib/dfa.c:1284
+msgid "unfinished \\ escape"
+msgstr "espace \\ non terminé"
+
+#: lib/dfa.c:1445
+msgid "invalid content of \\{\\}"
+msgstr "le contenu de \\{\\} n'est pas valable"
+
+#: lib/dfa.c:1448
+msgid "regular expression too big"
+msgstr "expression rationnelle trop grande"
+
+#: lib/dfa.c:1863
+msgid "unbalanced ("
+msgstr "( non appairée"
+
+#: lib/dfa.c:1981
+msgid "no syntax specified"
+msgstr "pas de syntaxe spécifiée"
+
+#: lib/dfa.c:1992
+msgid "unbalanced )"
+msgstr ") non appairée"
+
+#: lib/execute.c:185 lib/execute.c:258 lib/spawn-pipe.c:235
+#: lib/spawn-pipe.c:349 lib/wait-process.c:290 lib/wait-process.c:364
+#, c-format
+msgid "%s subprocess failed"
+msgstr "échec de sous-processus %s"
+
+#: lib/file-type.c:40
+msgid "regular empty file"
+msgstr "fichier régulier vide"
+
+#: lib/file-type.c:40
+msgid "regular file"
+msgstr "fichier régulier"
+
+#: lib/file-type.c:43
+msgid "directory"
+msgstr "répertoire"
+
+#: lib/file-type.c:46
+msgid "symbolic link"
+msgstr "lien symbolique"
+
+#: lib/file-type.c:52
+msgid "message queue"
+msgstr "file de messages"
+
+#: lib/file-type.c:55
+msgid "semaphore"
+msgstr "sémaphore"
+
+#: lib/file-type.c:58
+msgid "shared memory object"
+msgstr "objet de mémoire partagée"
+
+#: lib/file-type.c:61
+msgid "typed memory object"
+msgstr "objet mémoire typé"
+
+#: lib/file-type.c:66
+msgid "block special file"
+msgstr "fichier spécial de blocs"
+
+#: lib/file-type.c:69
+msgid "character special file"
+msgstr "fichier spécial de caractères"
+
+#: lib/file-type.c:72
+msgid "contiguous data"
+msgstr "données contiguës"
+
+#: lib/file-type.c:75
+msgid "fifo"
+msgstr "PEPS (FIFO)"
+
+#: lib/file-type.c:78
+msgid "door"
+msgstr "porte"
+
+#: lib/file-type.c:81
+msgid "multiplexed block special file"
+msgstr "fichier spécial de blocs multipléxé"
+
+#: lib/file-type.c:84
+msgid "multiplexed character special file"
+msgstr "fichier spécial de caractères mulipléxé"
+
+#: lib/file-type.c:87
+msgid "multiplexed file"
+msgstr "fichier multipléxé"
+
+#: lib/file-type.c:90
+msgid "named file"
+msgstr "fichier nommé"
+
+#: lib/file-type.c:93
+msgid "network special file"
+msgstr "fichier spécial de réseau"
+
+#: lib/file-type.c:96
+msgid "migrated file with data"
+msgstr "fichier migré avec ses données"
+
+#: lib/file-type.c:99
+msgid "migrated file without data"
+msgstr "fichier migré sans ses données"
+
+#: lib/file-type.c:102
+msgid "port"
+msgstr "port"
+
+#: lib/file-type.c:105
+msgid "socket"
+msgstr "socket"
+
+#: lib/file-type.c:108
+msgid "whiteout"
+msgstr "sans"
+
+#: lib/file-type.c:110
+msgid "weird file"
+msgstr "fichier bizarre"
+
+#: lib/gai_strerror.c:57
+msgid "Address family for hostname not supported"
+msgstr "Famille d'adresses du nom d'hôte non pris en charge"
+
+#: lib/gai_strerror.c:58
+msgid "Temporary failure in name resolution"
+msgstr "Échec temporaire lors de la résolution de noms"
+
+#: lib/gai_strerror.c:59
+msgid "Bad value for ai_flags"
+msgstr "Mauvaise valeur pour ai_flags"
+
+#: lib/gai_strerror.c:60
+msgid "Non-recoverable failure in name resolution"
+msgstr "Échec définitif lors de la résolution de noms"
+
+#: lib/gai_strerror.c:61
+msgid "ai_family not supported"
+msgstr "ai_family non pris en charge"
+
+#: lib/gai_strerror.c:62
+msgid "Memory allocation failure"
+msgstr "Échec d'allocation mémoire"
+
+#: lib/gai_strerror.c:63
+msgid "No address associated with hostname"
+msgstr "Aucune adresse associée au nom d'hôte"
+
+#: lib/gai_strerror.c:64
+msgid "Name or service not known"
+msgstr "Nom ou service inconnu"
+
+#: lib/gai_strerror.c:65
+msgid "Servname not supported for ai_socktype"
+msgstr "Nom de serveur non pris en charge pour ai_socktype"
+
+#: lib/gai_strerror.c:66
+msgid "ai_socktype not supported"
+msgstr "ai_socktype non pris en charge"
+
+#: lib/gai_strerror.c:67
+msgid "System error"
+msgstr "Erreur système"
+
+#: lib/gai_strerror.c:68
+msgid "Argument buffer too small"
+msgstr "Mémoire tampon d'argument trop petite"
+
+#: lib/gai_strerror.c:70
+msgid "Processing request in progress"
+msgstr "Traitement de la requête en cours"
+
+#: lib/gai_strerror.c:71
+msgid "Request canceled"
+msgstr "Requête annulée"
+
+#: lib/gai_strerror.c:72
+msgid "Request not canceled"
+msgstr "Requête non annulée"
+
+#: lib/gai_strerror.c:73
+msgid "All requests done"
+msgstr "Requêtes toutes traitées"
+
+#: lib/gai_strerror.c:74
+msgid "Interrupted by a signal"
+msgstr "Interruption par un signal"
+
+#: lib/gai_strerror.c:75
+msgid "Parameter string not correctly encoded"
+msgstr "Chaîne de paramètre mal encodé"
+
+#: lib/gai_strerror.c:87
+msgid "Unknown error"
+msgstr "Erreur inconnue"
+
+#: lib/getopt.c:278
+#, c-format
+msgid "%s: option '%s%s' is ambiguous\n"
+msgstr "%s : l'option « %s%s » est ambiguë\n"
+
+#: lib/getopt.c:284
+#, c-format
+msgid "%s: option '%s%s' is ambiguous; possibilities:"
+msgstr "%s : l'option « %s%s » est ambiguë, possibilités :"
+
+#: lib/getopt.c:319
+#, c-format
+msgid "%s: unrecognized option '%s%s'\n"
+msgstr "%s : option « %s%s » non reconnue\n"
+
+#: lib/getopt.c:345
+#, c-format
+msgid "%s: option '%s%s' doesn't allow an argument\n"
+msgstr "%s : l'option « %s%s » ne prend pas d'argument\n"
+
+#: lib/getopt.c:360
+#, c-format
+msgid "%s: option '%s%s' requires an argument\n"
+msgstr "%s : l'option « %s%s » nécessite un argument\n"
+
+#: lib/getopt.c:621
+#, c-format
+msgid "%s: invalid option -- '%c'\n"
+msgstr "%s : option non valable -- « %c »\n"
+
+#: lib/getopt.c:636 lib/getopt.c:682
+#, c-format
+msgid "%s: option requires an argument -- '%c'\n"
+msgstr "%s : l'option nécessite un argument -- « %c »\n"
+
+#: lib/javacomp.c:150 lib/javacomp.c:174 lib/javacomp.c:200
+msgid "invalid source_version argument to compile_java_class"
+msgstr "argument source_version non valable pour compile_java_class"
+
+#: lib/javacomp.c:221 lib/javacomp.c:252
+msgid "invalid target_version argument to compile_java_class"
+msgstr "argument target_version non valable pour compile_java_class"
+
+#: lib/javacomp.c:579
+#, c-format
+msgid "failed to create \"%s\""
+msgstr "échec de création de « %s »"
+
+#: lib/javacomp.c:586
+#, c-format
+msgid "error while writing \"%s\" file"
+msgstr "erreur lors de l'écriture du fichier « %s »"
+
+#: lib/javacomp.c:2436
+msgid "Java compiler not found, try installing gcj or set $JAVAC"
+msgstr "compilateur Java non trouvé, essayez d'installer gcj ou de définir $JAVAC"
+
+#: lib/javaexec.c:417
+msgid "Java virtual machine not found, try installing gij or set $JAVA"
+msgstr "machine virtuelle Java non trouvée, essayez d'installer gij ou de définir $JAVAC"
+
+#: lib/javaversion.c:86
+#, c-format
+msgid "%s subprocess I/O error"
+msgstr "erreur d'entrée sortie du sous-processus %s"
+
+#: lib/mkdir-p.c:162
+#, c-format
+msgid "cannot stat %s"
+msgstr "impossible de lire les permissions de %s"
+
+#: lib/mkdir-p.c:190
+#, c-format
+msgid "cannot change permissions of %s"
+msgstr "impossible de modifier les permissions de %s"
+
+#: lib/mkdir-p.c:200
+#, c-format
+msgid "cannot create directory %s"
+msgstr "impossible de créer le répertoire %s"
+
+#: lib/obstack.c:338 lib/obstack.c:340 lib/xalloc-die.c:34 lib/xsetenv.c:37
+msgid "memory exhausted"
+msgstr "mémoire épuisée"
+
+#: lib/openat-die.c:38
+msgid "unable to record current working directory"
+msgstr "impossible de mémoriser le répertoire de travail courant"
+
+#: lib/openat-die.c:57
+msgid "failed to return to initial working directory"
+msgstr "échec de retour au répertoire initial de travail"
+
+#: lib/pagealign_alloc.c:137
+msgid "Failed to open /dev/zero for read"
+msgstr "Échec d'ouverture de /dev/zero en lecture"
+
+#: lib/pipe-filter-gi.c:152
+msgid "creation of reading thread failed"
+msgstr "échec de création du processus de lecture"
+
+#: lib/pipe-filter-gi.c:257 lib/pipe-filter-ii.c:419
+#, c-format
+msgid "cannot set up nonblocking I/O to %s subprocess"
+msgstr "impossible de configurer l'entrée sortie non bloquante au sous-processus %s"
+
+#: lib/pipe-filter-gi.c:335 lib/pipe-filter-ii.c:457
+#, c-format
+msgid "communication with %s subprocess failed"
+msgstr "échec de communication avec le sous-processus %s"
+
+#: lib/pipe-filter-gi.c:365 lib/pipe-filter-ii.c:345 lib/pipe-filter-ii.c:502
+#, c-format
+msgid "write to %s subprocess failed"
+msgstr "échec d'écriture vers le sous-processus %s"
+
+#: lib/pipe-filter-gi.c:405 lib/pipe-filter-ii.c:366 lib/pipe-filter-ii.c:545
+#, c-format
+msgid "read from %s subprocess failed"
+msgstr "échec de lecture depuis le sous-processus %s"
+
+#: lib/pipe-filter-gi.c:458
+#, c-format
+msgid "subprocess %s terminated with exit code %d"
+msgstr "le sous-processus %s s'est terminé avec le code de retour %d"
+
+#: lib/pipe-filter-ii.c:313
+msgid "creation of threads failed"
+msgstr "échec de création de processus"
+
+#: lib/pipe-filter-ii.c:577
+#, c-format
+msgid "%s subprocess terminated with exit code %d"
+msgstr "le sous-processus de %s s'est terminé avec le code de retour %d"
+
+#. TRANSLATORS:
+#. Get translations for open and closing quotation marks.
+#. The message catalog should translate "`" to a left
+#. quotation mark suitable for the locale, and similarly for
+#. "'".  For example, a French Unicode local should translate
+#. these to U+00AB (LEFT-POINTING DOUBLE ANGLE
+#. QUOTATION MARK), and U+00BB (RIGHT-POINTING DOUBLE ANGLE
+#. QUOTATION MARK), respectively.
+#.
+#. If the catalog has no translation, we will try to
+#. use Unicode U+2018 (LEFT SINGLE QUOTATION MARK) and
+#. Unicode U+2019 (RIGHT SINGLE QUOTATION MARK).  If the
+#. current locale is not Unicode, locale_quoting_style
+#. will quote 'like this', and clocale_quoting_style will
+#. quote "like this".  You should always include translations
+#. for "`" and "'" even if U+2018 and U+2019 are appropriate
+#. for your locale.
+#.
+#. If you don't know what to put here, please see
+#. <https://en.wikipedia.org/wiki/Quotation_marks_in_other_languages>
+#. and use glyphs suitable for your language.
+#: lib/quotearg.c:362
+msgid "`"
+msgstr "« "
+
+#: lib/quotearg.c:363
+msgid "'"
+msgstr " »"
+
+#: lib/regcomp.c:135
+msgid "Success"
+msgstr "Succès"
+
+#: lib/regcomp.c:138
+msgid "No match"
+msgstr "Pas de correspondance"
+
+#: lib/regcomp.c:141
+msgid "Invalid regular expression"
+msgstr "Expression rationnelle non valable"
+
+#: lib/regcomp.c:144
+msgid "Invalid collation character"
+msgstr "Caractère d'assemblage non valable"
+
+#: lib/regcomp.c:147
+msgid "Invalid character class name"
+msgstr "Nom de classe de caractères non valable"
+
+#: lib/regcomp.c:150
+msgid "Trailing backslash"
+msgstr "Barre oblique inverse en fin de ligne"
+
+#: lib/regcomp.c:153
+msgid "Invalid back reference"
+msgstr "Référence antérieure non valable"
+
+#: lib/regcomp.c:156
+msgid "Unmatched [, [^, [:, [., or [="
+msgstr "[, [^, [:, [. ou [= non appairé"
+
+#: lib/regcomp.c:159
+msgid "Unmatched ( or \\("
+msgstr "( ou \\( non appairée"
+
+#: lib/regcomp.c:162
+msgid "Unmatched \\{"
+msgstr "\\{ non appairée"
+
+#: lib/regcomp.c:165
+msgid "Invalid content of \\{\\}"
+msgstr "Le contenu de \\{\\} n'est pas valable"
+
+#: lib/regcomp.c:168
+msgid "Invalid range end"
+msgstr "Borne finale de l'intervalle non valable"
+
+#: lib/regcomp.c:171
+msgid "Memory exhausted"
+msgstr "Mémoire épuisée"
+
+#: lib/regcomp.c:174
+msgid "Invalid preceding regular expression"
+msgstr "Expression rationnelle précédente non valable"
+
+#: lib/regcomp.c:177
+msgid "Premature end of regular expression"
+msgstr "Fin prématurée d'expression rationnelle"
+
+#: lib/regcomp.c:180
+msgid "Regular expression too big"
+msgstr "Expression rationnelle trop grande"
+
+#: lib/regcomp.c:183
+msgid "Unmatched ) or \\)"
+msgstr ") ou \\) non appairée"
+
+#: lib/regcomp.c:676
+msgid "No previous regular expression"
+msgstr "Pas d'expression rationnelle précédente"
+
+#. TRANSLATORS: A regular expression testing for an affirmative answer
+#. (english: "yes").  Testing the first character may be sufficient.
+#. Take care to consider upper and lower case.
+#. To enquire the regular expression that your system uses for this
+#. purpose, you can use the command
+#. locale -k LC_MESSAGES | grep '^yesexpr='
+#: lib/rpmatch.c:150
+msgid "^[yY]"
+msgstr "^[oOyY].*"
+
+#. TRANSLATORS: A regular expression testing for a negative answer
+#. (english: "no").  Testing the first character may be sufficient.
+#. Take care to consider upper and lower case.
+#. To enquire the regular expression that your system uses for this
+#. purpose, you can use the command
+#. locale -k LC_MESSAGES | grep '^noexpr='
+#: lib/rpmatch.c:163
+msgid "^[nN]"
+msgstr "^[nN].*"
+
+#: lib/set-acl.c:46
+#, c-format
+msgid "setting permissions for %s"
+msgstr "impossible de définir les permissions de %s"
+
+#: lib/siglist.h:31
+msgid "Hangup"
+msgstr "Raccrocher"
+
+#: lib/siglist.h:34
+msgid "Interrupt"
+msgstr "Interrompre"
+
+#: lib/siglist.h:37
+msgid "Quit"
+msgstr "Quitter"
+
+#: lib/siglist.h:40
+msgid "Illegal instruction"
+msgstr "Instruction illégale"
+
+#: lib/siglist.h:43
+msgid "Trace/breakpoint trap"
+msgstr "Piège de trace ou point de d'arrêt "
+
+#: lib/siglist.h:46
+msgid "Aborted"
+msgstr "Abandonné"
+
+#: lib/siglist.h:49
+msgid "Floating point exception"
+msgstr "Exception de virgule flottante"
+
+#: lib/siglist.h:52
+msgid "Killed"
+msgstr "Tué"
+
+#: lib/siglist.h:55
+msgid "Bus error"
+msgstr "Erreur de bus"
+
+#: lib/siglist.h:58
+msgid "Segmentation fault"
+msgstr "Erreur de segmentation"
+
+#: lib/siglist.h:61
+msgid "Broken pipe"
+msgstr "Tube rompu"
+
+#: lib/siglist.h:64
+msgid "Alarm clock"
+msgstr "Réveil"
+
+#: lib/siglist.h:67
+msgid "Terminated"
+msgstr "Terminé"
+
+#: lib/siglist.h:70
+msgid "Urgent I/O condition"
+msgstr "Condition d'entrée sortie urgente"
+
+#: lib/siglist.h:73
+msgid "Stopped (signal)"
+msgstr "Arrêté (signal)"
+
+#: lib/siglist.h:76
+msgid "Stopped"
+msgstr "Arrêté"
+
+#: lib/siglist.h:79
+msgid "Continued"
+msgstr "Continué"
+
+#: lib/siglist.h:82
+msgid "Child exited"
+msgstr "Fin du processus fils"
+
+#: lib/siglist.h:85
+msgid "Stopped (tty input)"
+msgstr "Arrêté (entrée de tty)"
+
+#: lib/siglist.h:88
+msgid "Stopped (tty output)"
+msgstr "Arrêté (sortie de tty)"
+
+#: lib/siglist.h:91
+msgid "I/O possible"
+msgstr "Entrée sortie possible"
+
+#: lib/siglist.h:94
+msgid "CPU time limit exceeded"
+msgstr "Temps limite de processeur dépassé"
+
+#: lib/siglist.h:97
+msgid "File size limit exceeded"
+msgstr "Taille limite de fichier dépassée"
+
+#: lib/siglist.h:100
+msgid "Virtual timer expired"
+msgstr "Temporisation virtuelle dépassée"
+
+#: lib/siglist.h:103
+msgid "Profiling timer expired"
+msgstr "Temporisation de profilage dépassée"
+
+#: lib/siglist.h:106
+msgid "Window changed"
+msgstr "Fenêtre modifiée"
+
+#: lib/siglist.h:109
+msgid "User defined signal 1"
+msgstr "Signal 1 défini par utilisateur"
+
+#: lib/siglist.h:112
+msgid "User defined signal 2"
+msgstr "Signal 2 défini par utilisateur"
+
+#: lib/siglist.h:117
+msgid "EMT trap"
+msgstr "Piège EMT"
+
+#: lib/siglist.h:120
+msgid "Bad system call"
+msgstr "Mauvais appel système"
+
+#: lib/siglist.h:123
+msgid "Stack fault"
+msgstr "Défaut de pile"
+
+#: lib/siglist.h:126
+msgid "Information request"
+msgstr "Demande de renseignements"
+
+#: lib/siglist.h:128
+msgid "Power failure"
+msgstr "Échec d'alimentation"
+
+#: lib/siglist.h:131
+msgid "Resource lost"
+msgstr "Ressource perdue"
+
+#: lib/sigpipe-die.c:37
+msgid "error writing to a closed pipe or socket"
+msgstr "Erreur d'écriture vers un tube ou un socket fermé"
+
+#: lib/spawn-pipe.c:141 lib/spawn-pipe.c:144 lib/spawn-pipe.c:265
+#: lib/spawn-pipe.c:268
+msgid "cannot create pipe"
+msgstr "impossible de créer un tube (« pipe »)"
+
+#: lib/strsignal.c:114
+#, c-format
+msgid "Real-time signal %d"
+msgstr "Signal %d en temps réel"
+
+#: lib/strsignal.c:118
+#, c-format
+msgid "Unknown signal %d"
+msgstr "Signal %d inconnu"
+
+#: lib/timevar.c:316
+msgid "Execution times (seconds)"
+msgstr "Temps d'exécution (s)"
+
+#: lib/timevar.c:318
+msgid "CPU user"
+msgstr "Temps utilisateur"
+
+#: lib/timevar.c:318
+msgid "CPU system"
+msgstr "Temps système"
+
+#: lib/timevar.c:318
+msgid "wall clock"
+msgstr "horloge murale"
+
+#: lib/unicodeio.c:102
+msgid "iconv function not usable"
+msgstr "fonction iconv non utilisable"
+
+#: lib/unicodeio.c:104
+msgid "iconv function not available"
+msgstr "fonction iconv non disponible"
+
+#: lib/unicodeio.c:111
+msgid "character out of range"
+msgstr "caractère hors limites"
+
+#: lib/unicodeio.c:181
+#, c-format
+msgid "cannot convert U+%04X to local character set"
+msgstr "impossible de convertir U+%04X dans le jeu de caractères local"
+
+#: lib/unicodeio.c:183
+#, c-format
+msgid "cannot convert U+%04X to local character set: %s"
+msgstr "impossible de convertir U+%04X dans le jeu de caractères local : %s"
+
+#: lib/userspec.c:106
+msgid "invalid user"
+msgstr "utilisateur non valable"
+
+#: lib/userspec.c:107
+msgid "invalid group"
+msgstr "groupe non valable"
+
+#: lib/userspec.c:108
+msgid "invalid spec"
+msgstr "spécification non valable"
+
+#: lib/verror.c:73
+msgid "unable to display error message"
+msgstr "impossible d'afficher le message d'erreur"
+
+#: lib/version-etc.c:73
+#, c-format
+msgid "Packaged by %s (%s)\n"
+msgstr "Empaqueté par %s (%s)\n"
+
+#: lib/version-etc.c:76
+#, c-format
+msgid "Packaged by %s\n"
+msgstr "Empaqueté par %s\n"
+
+#. TRANSLATORS: Translate "(C)" to the copyright symbol
+#. (C-in-a-circle), if this symbol is available in the user's
+#. locale.  Otherwise, do not translate "(C)"; leave it as-is.
+#: lib/version-etc.c:83
+msgid "(C)"
+msgstr "©"
+
+#. TRANSLATORS: The %s placeholder is the web address of the GPL license.
+#: lib/version-etc.c:88
+#, c-format
+msgid ""
+"License GPLv3+: GNU GPL version 3 or later <%s>.\n"
+"This is free software: you are free to change and redistribute it.\n"
+"There is NO WARRANTY, to the extent permitted by law.\n"
+msgstr ""
+"Licence GPLv3+ : GNU GPL version 3 ou ultérieure <%s>\n"
+"Logiciel libre : vous êtes libre de le modifier ou de le redistribuer.\n"
+"Il n'y a AUCUNE GARANTIE, dans les limites permises par la loi.\n"
+
+#. TRANSLATORS: %s denotes an author name.
+#: lib/version-etc.c:105
+#, c-format
+msgid "Written by %s.\n"
+msgstr "Écrit par %s.\n"
+
+#. TRANSLATORS: Each %s denotes an author name.
+#: lib/version-etc.c:109
+#, c-format
+msgid "Written by %s and %s.\n"
+msgstr "Écrit par %s et %s.\n"
+
+#. TRANSLATORS: Each %s denotes an author name.
+#: lib/version-etc.c:113
+#, c-format
+msgid "Written by %s, %s, and %s.\n"
+msgstr "Écrit par %s, %s et %s.\n"
+
+#. TRANSLATORS: Each %s denotes an author name.
+#. You can use line breaks, estimating that each author name occupies
+#. ca. 16 screen columns and that a screen line has ca. 80 columns.
+#: lib/version-etc.c:120
+#, c-format
+msgid ""
+"Written by %s, %s, %s,\n"
+"and %s.\n"
+msgstr ""
+"Écrit par %s, %s, %s,\n"
+"et %s.\n"
+
+#. TRANSLATORS: Each %s denotes an author name.
+#. You can use line breaks, estimating that each author name occupies
+#. ca. 16 screen columns and that a screen line has ca. 80 columns.
+#: lib/version-etc.c:127
+#, c-format
+msgid ""
+"Written by %s, %s, %s,\n"
+"%s, and %s.\n"
+msgstr ""
+"Écrit par %s, %s, %s,\n"
+"%s et %s.\n"
+
+#. TRANSLATORS: Each %s denotes an author name.
+#. You can use line breaks, estimating that each author name occupies
+#. ca. 16 screen columns and that a screen line has ca. 80 columns.
+#: lib/version-etc.c:134
+#, c-format
+msgid ""
+"Written by %s, %s, %s,\n"
+"%s, %s, and %s.\n"
+msgstr ""
+"Écrit par %s, %s, %s,\n"
+"%s, %s, et %s.\n"
+
+#. TRANSLATORS: Each %s denotes an author name.
+#. You can use line breaks, estimating that each author name occupies
+#. ca. 16 screen columns and that a screen line has ca. 80 columns.
+#: lib/version-etc.c:142
+#, c-format
+msgid ""
+"Written by %s, %s, %s,\n"
+"%s, %s, %s, and %s.\n"
+msgstr ""
+"Écrit par %s, %s, %s,\n"
+"%s, %s, %s, et %s.\n"
+
+#. TRANSLATORS: Each %s denotes an author name.
+#. You can use line breaks, estimating that each author name occupies
+#. ca. 16 screen columns and that a screen line has ca. 80 columns.
+#: lib/version-etc.c:150
+#, c-format
+msgid ""
+"Written by %s, %s, %s,\n"
+"%s, %s, %s, %s,\n"
+"and %s.\n"
+msgstr ""
+"Écrit par %s, %s, %s,\n"
+"%s, %s, %s, %s,\n"
+"et %s.\n"
+
+#. TRANSLATORS: Each %s denotes an author name.
+#. You can use line breaks, estimating that each author name occupies
+#. ca. 16 screen columns and that a screen line has ca. 80 columns.
+#: lib/version-etc.c:159
+#, c-format
+msgid ""
+"Written by %s, %s, %s,\n"
+"%s, %s, %s, %s,\n"
+"%s, and %s.\n"
+msgstr ""
+"Écrit par %s, %s, %s,\n"
+"%s, %s, %s, %s,\n"
+"%s et %s.\n"
+
+#. TRANSLATORS: Each %s denotes an author name.
+#. You can use line breaks, estimating that each author name occupies
+#. ca. 16 screen columns and that a screen line has ca. 80 columns.
+#: lib/version-etc.c:170
+#, c-format
+msgid ""
+"Written by %s, %s, %s,\n"
+"%s, %s, %s, %s,\n"
+"%s, %s, and others.\n"
+msgstr ""
+"Écrit par %s, %s, %s,\n"
+"%s, %s, %s, %s,\n"
+"%s, %s et d'autres.\n"
+
+#. TRANSLATORS: The placeholder indicates the bug-reporting address
+#. for this package.  Please add _another line_ saying
+#. "Report translation bugs to <...>\n" with the address for translation
+#. bugs (typically your translation team's web or email address).
+#: lib/version-etc.c:249
+#, c-format
+msgid "Report bugs to: %s\n"
+msgstr "Signalez toute anomalie à : %s\n"
+
+#: lib/version-etc.c:251
+#, c-format
+msgid "Report %s bugs to: %s\n"
+msgstr "Signalez les anomalies de %s à : %s\n"
+
+#: lib/version-etc.c:255 lib/version-etc.c:257
+#, c-format
+msgid "%s home page: <%s>\n"
+msgstr "page d'accueil de %s : <%s>\n"
+
+#: lib/version-etc.c:260
+#, c-format
+msgid "General help using GNU software: <%s>\n"
+msgstr "Aide globale sur les logiciels GNU : <%s>\n"
+
+#: lib/w32spawn.h:49
+msgid "_open_osfhandle failed"
+msgstr "échec de _open_osfhandle"
+
+#: lib/w32spawn.h:90
+#, c-format
+msgid "cannot restore fd %d: dup2 failed"
+msgstr "impossible de restaurer le descripteur de fichier (fd) %d : échec de dup2"
+
+#: lib/wait-process.c:231 lib/wait-process.c:263 lib/wait-process.c:325
+#, c-format
+msgid "%s subprocess"
+msgstr "sous-processus %s"
+
+#: lib/wait-process.c:282 lib/wait-process.c:354
+#, c-format
+msgid "%s subprocess got fatal signal %d"
+msgstr "le sous-processus %s a reçu un signal fatal %d"
+
+#: lib/xbinary-io.c:37
+msgid "failed to set file descriptor text/binary mode"
+msgstr "impossible de définir le mode texte/binaire du descripteur de fichier"
+
+#: lib/xfreopen.c:34
+msgid "stdin"
+msgstr "entrée standard (stdin)"
+
+#: lib/xfreopen.c:35
+msgid "stdout"
+msgstr "sortie standard (stdout)"
+
+#: lib/xfreopen.c:36
+msgid "stderr"
+msgstr "sortie d'erreur (stderr)"
+
+#: lib/xfreopen.c:37
+msgid "unknown stream"
+msgstr "flux inconnu"
+
+#: lib/xfreopen.c:38
+#, c-format
+msgid "failed to reopen %s with mode %s"
+msgstr "impossible de rouvrir %s en mode %s"
+
+#: lib/xmemcoll.c:39
+msgid "string comparison failed"
+msgstr "échec de comparaison de chaîne"
+
+#: lib/xmemcoll.c:40
+msgid "Set LC_ALL='C' to work around the problem."
+msgstr "Définir LC_ALL='C' pour contourner le problème."
+
+#: lib/xmemcoll.c:42
+#, c-format
+msgid "The strings compared were %s and %s."
+msgstr "Les chaînes comparées étaient %s et %s."
+
+#: lib/xprintf.c:50 lib/xprintf.c:76
+msgid "cannot perform formatted output"
+msgstr "impossible mettre en forme la sortie formatée"
+
+#: lib/xstdopen.c:34
+msgid "standard file descriptors"
+msgstr "descripteurs de fichier standards"
+
+#: lib/xstrtol-error.c:63
+#, c-format
+msgid "invalid %s%s argument '%s'"
+msgstr "argument %s%s non valable « %s »"
+
+#: lib/xstrtol-error.c:68
+#, c-format
+msgid "invalid suffix in %s%s argument '%s'"
+msgstr "suffixe non valable dans l'argument %s%s « %s »"
+
+#: lib/xstrtol-error.c:72
+#, c-format
+msgid "%s%s argument '%s' too large"
+msgstr "argument %s%s « %s » trop grand"
+
+#~ msgid "%s home page: <https://www.gnu.org/software/%s/>\n"
+#~ msgstr "page d'accueil de %s : <https://www.gnu.org/software/%s/>\n"
