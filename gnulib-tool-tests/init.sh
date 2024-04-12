@@ -151,10 +151,11 @@ do_import_test ()
       $GNULIB_SRCDIR/gnulib-tool --gnulib-dir="$gnulib_dir" $3
   ) >$tmp-out 2>$tmp-err
   rc=$?
-  # Remove empty build-aux dirs, since we cannot check them in as part of the expected result.
-  build_aux_dir=`find $tmp-result -name build-aux -type d -empty -print`
-  if test -n "$build_aux_dir"; then
-    rmdir $build_aux_dir
+  # Remove empty 'build-aux' or 'support' dirs, since we cannot check them in
+  # as part of the expected result.
+  empty_dirs=`find $tmp-result '(' -name build-aux -o -name support ')' -type d -empty -print`
+  if test -n "$empty_dirs"; then
+    rmdir $empty_dirs
   fi
   # Remove autom4te.cache directory, since it may depend on the Autoconf version or M4 version.
   rm -rf $tmp-result/"$2"/autom4te.cache
