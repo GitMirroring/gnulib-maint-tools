@@ -65,6 +65,7 @@ run_test_group '
   test-cache-2-23.sh
   test-cache-2-24.sh
   test-cache-2-25.sh
+  test-cache-2-26.sh
   test-cache-2-27.sh
   test-cache-2-28.sh
   test-cache-2-29.sh
