@@ -34,7 +34,7 @@
 #  --doc-base=doc \
 #  --tests-base=tests \
 #  --aux-dir=. \
-#  --makefile-name=Makefile.gnulib \
+#  --makefile-name=GenMakefile.gnulib \
 #  --no-conditional-dependencies \
 #  --no-libtool \
 #  --macro-prefix=gl
@@ -51,7 +51,7 @@ gl_PO_BASE([])
 gl_DOC_BASE([doc])
 gl_TESTS_BASE([tests])
 gl_LIB([libgnu])
-gl_MAKEFILE_NAME([Makefile.gnulib])
+gl_MAKEFILE_NAME([GenMakefile.gnulib])
 gl_MACRO_PREFIX([gl])
 gl_PO_DOMAIN([])
 gl_WITNESS_C_MACRO([])

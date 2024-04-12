@@ -39,7 +39,7 @@
 #  --with-unportable-tests \
 #  --with-all-tests \
 #  --lgpl \
-#  --makefile-name=Makefile.gnulib \
+#  --makefile-name=GenMakefile.gnulib \
 #  --automake-subdir \
 #  --no-conditional-dependencies \
 #  --libtool \

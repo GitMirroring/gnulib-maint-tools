@@ -12,13 +12,13 @@ Copying file m4/gnulib-tool.m4
 Copying file m4/zzgnulib.m4
 Updating m4/gnulib-cache.m4 (backup in m4/gnulib-cache.m4~)
 Creating m4/gnulib-comp.m4
-Creating lib/Makefile.gnulib
+Creating lib/GenMakefile.gnulib
 Finished.
 
 You may need to add #include directives for the following .h files.
 
 Don't forget to
-  - "include Makefile.gnulib" from within "lib/Makefile.am",
+  - "include GenMakefile.gnulib" from within "lib/Makefile.am",
   - mention "-I m4" in ACLOCAL_AMFLAGS in Makefile.am
     or add an AC_CONFIG_MACRO_DIRS([m4]) invocation in ./configure.ac,
   - mention "m4/gnulib-cache.m4" in EXTRA_DIST in Makefile.am,

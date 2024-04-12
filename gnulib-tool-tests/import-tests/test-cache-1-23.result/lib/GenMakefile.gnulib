@@ -29,7 +29,7 @@
 #  --doc-base=doc \
 #  --tests-base=tests \
 #  --aux-dir=. \
-#  --makefile-name=Makefile.gnulib \
+#  --makefile-name=GenMakefile.gnulib \
 #  --no-conditional-dependencies \
 #  --no-libtool \
 #  --macro-prefix=gl

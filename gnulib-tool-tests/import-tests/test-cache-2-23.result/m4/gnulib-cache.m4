@@ -44,7 +44,7 @@
 #  --with-unportable-tests \
 #  --with-all-tests \
 #  --lgpl \
-#  --makefile-name=Makefile.gnulib \
+#  --makefile-name=GenMakefile.gnulib \
 #  --automake-subdir \
 #  --no-conditional-dependencies \
 #  --libtool \
@@ -75,7 +75,7 @@ gl_TESTS_BASE([tests])
 gl_WITH_TESTS
 gl_LIB([libgnu])
 gl_LGPL
-gl_MAKEFILE_NAME([Makefile.gnulib])
+gl_MAKEFILE_NAME([GenMakefile.gnulib])
 gl_AUTOMAKE_SUBDIR
 gl_LIBTOOL
 gl_MACRO_PREFIX([gl])
