@@ -1,0 +1,46 @@
+  argmatch array-list assert assure attribute
+  bitsetv
+  calloc-posix close closeout config-h c-strcase c-strtod
+  configmake
+  dirname
+  error execute extensions
+  fopen-safer fstrcmp
+  getopt-gnu
+  gettext-h git-version-gen gitlog-to-changelog
+  gpl-3.0 intprops inttypes isnan javacomp-script
+  hash-map
+  javaexec-script
+  ldexpl
+  libtextstyle-optional
+  linked-list
+  malloc-gnu
+  mbfile mbswidth
+  obstack
+  obstack-printf
+  perror progname
+  quote quotearg
+  rbtreehash-list
+  readline
+  readme-release
+  realloc-posix
+  relocatable-prog relocatable-script
+  rename
+  spawn-pipe stdbool stpcpy stpncpy strdup-posix strerror strverscmp
+  sys_ioctl
+  termios
+  timevar
+  unicodeio unistd unistd-safer unlink unlocked-io
+  update-copyright unsetenv verify
+  warnings
+  winsz-ioctl
+  winsz-termios
+  xalloc
+  xalloc-die
+  xconcat-filename
+  xhash
+  xlist
+  xmap xmemdup0
+  xstrndup
+
+  fprintf-posix printf-posix snprintf-posix sprintf-posix
+  vsnprintf-posix vsprintf-posix

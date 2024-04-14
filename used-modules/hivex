@@ -1,0 +1,11 @@
+byteswap
+c-ctype
+full-read
+full-write
+safe-read
+safe-write
+xstrtol
+xstrtoll
+xstrtoul
+xstrtoull
+xstrtoumax

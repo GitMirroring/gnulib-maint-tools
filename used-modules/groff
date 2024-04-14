@@ -1,0 +1,10 @@
+    attribute
+    git-version-gen
+    havelib
+    wcwidth
+    fprintf-posix
+    snprintf
+    vsnprintf
+    stdbool-c99
+    stdint
+    sys_wait

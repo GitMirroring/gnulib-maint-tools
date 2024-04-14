@@ -1,0 +1,7 @@
+  ansi-c++-opt
+  clean-temp-simple
+  host-cpu-c-abi
+  lock
+  nocrash
+  stdint
+  stdnoreturn

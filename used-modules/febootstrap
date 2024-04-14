@@ -1,0 +1,9 @@
+  error
+  filevercmp
+  fts
+  full-write
+  hash
+  hash-pjw
+  xalloc
+  xstrtol
+  xvasprintf

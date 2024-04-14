@@ -1,0 +1,7 @@
+  lock
+  memrchr
+  snprintf
+  strdup-posix
+  strndup
+  time_r
+  vsnprintf

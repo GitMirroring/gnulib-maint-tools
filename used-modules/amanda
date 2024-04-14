@@ -1,0 +1,17 @@
+  base64
+  environ
+  euidaccess
+  fseeko
+  fsusage
+  ftello
+  full-read
+  full-write
+  getaddrinfo
+  getopt-gnu
+  inet_pton
+  lock
+  lseek
+  mkdtemp
+  nanosleep
+  physmem
+  regex

@@ -1,0 +1,7 @@
+        bootstrap
+        configmake
+        flock
+        gnu-make
+        manywarnings
+        relocatable-lib-lgpl
+        strchrnul

@@ -1,0 +1,15 @@
+  dirname-lgpl
+  fcntl-h
+  getopt-gnu
+  git-version-gen
+  isatty
+  memmem-simple
+  stdarg
+  stdbool
+  stdint
+  std-gnu11
+  strerror_r-posix
+  strndup
+  strtok_r
+  strtoull
+  vasprintf

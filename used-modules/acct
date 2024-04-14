@@ -1,0 +1,12 @@
+  alloca
+  ftello
+  getopt-gnu
+  getpagesize
+  mktime
+  readutmp
+  rename
+  sigaction
+  strtol
+  strtoul
+  sys_stat
+  xalloc

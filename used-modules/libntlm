@@ -1,0 +1,13 @@
+  autobuild
+  byteswap
+  check-version
+  crypto/des
+  crypto/md4
+  inline
+  maintainer-makefile
+  manywarnings
+  strverscmp
+  unistd
+  update-copyright
+  valgrind-tests
+  warnings

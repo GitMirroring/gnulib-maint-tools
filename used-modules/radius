@@ -1,0 +1,9 @@
+ obstack
+ regex
+ vasprintf
+ argp
+ getline
+ gettext
+ gitlog-to-changelog
+ strerror
+ strcase

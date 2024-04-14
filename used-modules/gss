@@ -1,0 +1,16 @@
+  autobuild
+  base64
+  error
+  getline
+  getopt-gnu
+  git-version-gen
+  havelib
+  lib-msvc-compat
+  lib-symbol-versions
+  manywarnings
+  pmccabe2html
+  progname
+  readme-release
+  update-copyright
+  valgrind-tests
+  version-etc

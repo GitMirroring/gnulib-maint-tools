@@ -1,0 +1,2 @@
+git-version-gen gitlog-to-changelog gnupload signal-h
+maintainer-makefile announce-gen getopt-gnu snprintf-posix

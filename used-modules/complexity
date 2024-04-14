@@ -1,0 +1,7 @@
+	    close
+	    fdl
+	    gendocs
+	    gpl-3.0
+	    malloc-posix
+	    snprintf
+	    stdbool

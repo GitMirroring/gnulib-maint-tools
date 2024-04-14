@@ -1,0 +1,14 @@
+  argp
+  base64
+  error
+  fnmatch
+  getdelim
+  getline
+  gettext-h
+  gitlog-to-changelog
+  mbswidth
+  progname
+  realloc-gnu
+  regex
+  save-cwd
+  stdbool

@@ -1,0 +1,14 @@
+  announce-gen
+  do-release-commit-and-tag
+  extra-lib
+  fdl
+  git-version-gen
+  gitlog-to-changelog
+  gnu-make
+  gnupload
+  gnu-web-doc-update
+  maintainer-makefile
+  perl
+  posix-shell
+  readme-release
+  update-copyright

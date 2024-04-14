@@ -1,0 +1,26 @@
+  autobuild
+  csharpcomp-script
+  csharpexec-script
+  error
+  getline
+  getopt-gnu
+  git-version-gen
+  gitlog-to-changelog
+  lib-msvc-compat
+  lib-symbol-versions
+  lib-symbol-visibility
+  manywarnings
+  pmccabe2html
+  progname
+  readme-release
+  update-copyright
+  useless-if-before-free
+  valgrind-tests
+  version-etc
+
+  gettext-h
+  langinfo
+  stdint
+  striconv
+  strverscmp
+  unistr/u8-check

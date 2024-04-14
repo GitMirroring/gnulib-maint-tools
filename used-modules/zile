@@ -1,0 +1,11 @@
+announce-gen
+bootstrap
+do-release-commit-and-tag
+euidaccess
+gendocs
+getopt-gnu
+gnupload
+maintainer-makefile
+memmem
+readme-release
+regex

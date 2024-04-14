@@ -1,0 +1,7 @@
+  alloca
+  getopt-gnu
+  hash
+  strcase
+  strings
+  vasprintf
+  xalloc

@@ -1,0 +1,5 @@
+  check-version
+  crypto/sha256
+  lib-symbol-versions
+  maintainer-makefile
+  manywarnings

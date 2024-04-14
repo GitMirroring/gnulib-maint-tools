@@ -1,0 +1,17 @@
+  argp
+  argp-version-etc
+  configmake
+  fdl-1.3
+  getaddrinfo
+  gettext
+  git-version-gen
+  gitlog-to-changelog
+  warnings
+  progname
+  readme-release
+  regex
+  snprintf
+  strcase
+  test-framework-sh
+  version-etc-fsf
+  xalloc-die

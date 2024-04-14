@@ -1,0 +1,10 @@
+  announce-gen array-list autobuild base64 closeout crc euidaccess execute flock
+  floor fprintf-posix gendocs getopt-gnu getpass-gnu gettext-h gnupload
+  list maintainer-makefile minmax mkstemp parse-datetime printf-posix progname
+  random_r read-file readline regex regexprops-generic stdint strcasestr
+  strsep tempname vasnprintf-posix vasprintf vasprintf-posix  acl alloca btowc
+  c-ctype extensions fwriting getdelim localcharset mbrlen
+  mbrtowc mbsinit memchr mkostemp obstack pathmax regex rename selinux-h stdbool
+  stat-macros ssize_t strerror strverscmp threadlib unlocked-io verify
+  version-etc-fsf wcrtomb wctob tmpdir pathmax signal-h update-copyright copy-file
+  remove

@@ -1,0 +1,10 @@
+autobuild
+crypto/des
+gettext
+inttostr
+mbchar
+mbiter
+mbslen
+mbswidth
+setenv
+stdint
