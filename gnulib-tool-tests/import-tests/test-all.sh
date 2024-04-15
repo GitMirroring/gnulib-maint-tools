@@ -78,6 +78,9 @@ run_test_group '
   test-cache-3-26.sh
   test-cache-3-27.sh
   test-cache-4-8.sh
+  test-cache-5-12.sh
+  test-cache-5-15.sh
+  test-cache-5-16.sh
   test-wget2-1.sh
   test-oath-toolkit-1.sh
   test-oath-toolkit-2.sh

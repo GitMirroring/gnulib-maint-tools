@@ -1,0 +1,49 @@
+Module list with included dependencies (indented):
+  attribute
+    c99
+  relocatable-script
+    std-gnu11
+    stdbool
+  stdbool-tests
+File list:
+  build-aux/relocatable.sh.in
+  doc/relocatable.texi
+  lib/attribute.h
+  lib/dummy.c
+  m4/00gnulib.m4
+  m4/c-bool.m4
+  m4/gnulib-common.m4
+  m4/relocatable-lib.m4
+  m4/std-gnu11.m4
+  m4/zzgnulib.m4
+  tests/test-stdbool.c
+Creating directory ./newtests
+Removing file tests/test-stdbool.c (backup in tests/test-stdbool.c~)
+Copying file lib/dummy.c
+Copying file m4/00gnulib.m4
+Copying file m4/c-bool.m4
+Copying file m4/gnulib-common.m4
+Copying file m4/gnulib-tool.m4
+Copying file m4/std-gnu11.m4
+Copying file m4/zzgnulib.m4
+Copying file newtests/test-stdbool.c
+Updating file m4/relocatable-lib.m4 (backup in m4/relocatable-lib.m4~)
+Updating file relocatable.sh.in (backup in relocatable.sh.in~)
+Updating m4/gnulib-cache.m4 (backup in m4/gnulib-cache.m4~)
+Updating m4/gnulib-comp.m4 (backup in m4/gnulib-comp.m4~)
+Updating lib/Makefile.am (backup in lib/Makefile.am~)
+Creating newtests/Makefile.am
+Finished.
+
+You may need to add #include directives for the following .h files.
+  #include "attribute.h"
+
+Don't forget to
+  - add "lib/Makefile" to AC_CONFIG_FILES in ./configure.ac,
+  - add "newtests/Makefile" to AC_CONFIG_FILES in ./configure.ac,
+  - mention "lib" in SUBDIRS in Makefile.am,
+  - mention "-I m4" in ACLOCAL_AMFLAGS in Makefile.am
+    or add an AC_CONFIG_MACRO_DIRS([m4]) invocation in ./configure.ac,
+  - mention "m4/gnulib-cache.m4" in EXTRA_DIST in Makefile.am,
+  - invoke gl_EARLY in ./configure.ac, right after AC_PROG_CC,
+  - invoke gl_INIT in ./configure.ac.
