@@ -126,3 +126,5 @@ Notes
 -----
 
 "make check" of gmp-6.2.0 in 64-bit mode hangs. (with qemu-2.9.0)
+
+For debugging with gdb, compile with CFLAGS=-ggdb and LDFLAGS=-static.

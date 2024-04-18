@@ -8,8 +8,8 @@ https://www.debian.org/ports/m68k/index.en.html
 (QV) Choose a QEMU version
 --------------------------
 
-Use qemu-8.1.2
-% PATH=$HOME/inst-qemu/8.1.2/bin:$PATH
+Use qemu-8.2.0 (This version fixes the 'long double' operations.)
+% PATH=$HOME/inst-qemu/8.2.0/bin:$PATH
 
 (DL) Download an installation CD-ROM or DVD image
 -------------------------------------------------
@@ -188,4 +188,4 @@ $ sudo bash
 Notes
 -----
 
-Don't use 'vi', as it hangs.
+Don't use 'vi' or 'vim', as it hangs.

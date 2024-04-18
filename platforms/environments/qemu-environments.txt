@@ -144,7 +144,9 @@ For instance, Debian's ports
 have only "network installation" CDs. Which is OK for now, but will be a
 problem when 15.0 is released, because as you can see in
 <http://ftp.debian.org/debian/dists/>, only the three latest major Debian
-releases still have downloadable package repositories.
+releases still have downloadable package repositories. (Although, after
+the point in time, you will be able to access the package repositories at
+snapshot.debian.org.)
 
 Use 'wget', not a browser, to download the image.
 In case there you encounter a network disconnect during the download,
