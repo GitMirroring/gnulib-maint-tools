@@ -1,0 +1,3066 @@
+Module list with included dependencies (indented):
+    absolute-header
+    accept
+    accept-tests
+    alignasof
+    alignasof-tests
+    alloca
+    alloca-opt
+    alloca-opt-tests
+    allocator
+  announce-gen
+  argmatch
+    argmatch-tests
+    arpa_inet
+    arpa_inet-tests
+  assert-h
+    assert-h-tests
+    assure
+    at-internal
+    atoll
+  attribute
+    basename-lgpl
+  binary-io
+    binary-io-tests
+    bind
+    bind-tests
+    bitrotate
+    bitrotate-tests
+    btoc32
+    btoc32-tests
+    btowc
+    btowc-tests
+  builtin-expect
+  c-ctype
+    c-ctype-tests
+    c-file-type
+  c-stack
+    c-stack-tests
+    c-strcase
+    c-strcase-tests
+    c-strcaseeq
+    c-strcasestr
+    c-strcasestr-tests
+    c32_apply_type_test
+    c32_apply_type_test-tests
+    c32_get_type_test
+    c32_get_type_test-tests
+    c32isalnum
+    c32isalnum-tests
+    c32isalpha
+    c32isalpha-tests
+    c32isblank
+    c32isblank-tests
+    c32iscntrl
+    c32iscntrl-tests
+    c32isdigit
+    c32isdigit-tests
+    c32isgraph
+    c32isgraph-tests
+    c32islower
+    c32islower-tests
+    c32isprint
+    c32isprint-tests
+    c32ispunct
+    c32ispunct-tests
+  c32isspace
+    c32isspace-tests
+    c32isupper
+    c32isupper-tests
+    c32isxdigit
+    c32isxdigit-tests
+    c32rtomb
+    c32rtomb-tests
+    c32tob
+  c32tolower
+    c32tolower-tests
+  c32width
+    c32width-tests
+    c99
+    calloc-gnu
+    calloc-gnu-tests
+    calloc-posix
+  careadlinkat
+    chdir
+    chdir-long
+    chdir-tests
+    clock-time
+    cloexec
+    cloexec-tests
+    close
+    close-tests
+    closedir
+  config-h
+    connect
+    connect-tests
+  count-leading-zeros
+    count-leading-zeros-tests
+    ctype
+    ctype-tests
+  diffseq
+    dirent
+    dirent-tests
+    dirfd
+    dirfd-tests
+  dirname
+    dirname-lgpl
+    dirname-tests
+  do-release-commit-and-tag
+    double-slash-root
+    dtotimespec
+    dup
+    dup-tests
+  dup2
+    dup2-tests
+    environ
+    environ-tests
+    errno
+    errno-tests
+  error
+    error-h
+    error-tests
+  exclude
+    exclude-tests
+  exitfail
+  extensions
+  extern-inline
+    fchdir
+    fchdir-tests
+  fcntl
+    fcntl-h
+    fcntl-h-tests
+    fcntl-tests
+    fd-hook
+    fd-safer-flag
+    fdopen
+    fdopen-tests
+  fdopendir
+    fdopendir-tests
+    fgetc-tests
+  file-type
+    filename
+  filenamecat
+    filenamecat-lgpl
+    filenamecat-tests
+  flexmember
+    float
+    float-tests
+    fnmatch
+  fnmatch-gnu
+    fnmatch-h
+    fnmatch-h-tests
+    fnmatch-tests
+    fopen
+    fopen-gnu
+    fopen-gnu-tests
+    fopen-tests
+    fpieee
+    fpucw
+    fputc-tests
+    fread-tests
+    free-posix
+    free-posix-tests
+    freopen
+    freopen-tests
+    fstat
+    fstat-tests
+  fstatat
+    fstatat-tests
+    ftruncate
+    ftruncate-tests
+    fwrite-tests
+    gen-header
+    gendocs
+    getcwd-lgpl
+    getcwd-lgpl-tests
+    getdtablesize
+    getdtablesize-tests
+  getopt-gnu
+    getopt-gnu-tests
+    getopt-posix
+    getopt-posix-tests
+    getpagesize
+    getprogname
+    getprogname-tests
+    getrandom
+    getrandom-tests
+  gettext-h
+    gettime
+    gettimeofday
+    gettimeofday-tests
+  git-version-gen
+  gitlog-to-changelog
+    glibc-internal/dynarray
+    glibc-internal/dynarray-tests
+  gnu-make
+  gnu-web-doc-update
+  gnumakefile
+  gnupload
+  hard-locale
+    hard-locale-tests
+    hash
+    hash-pjw
+    hash-tests
+    havelib
+    host-cpu-c-abi
+  ialloc
+  idx
+    ignore-value
+    ignore-value-tests
+    include_next
+    inet_pton
+    inet_pton-tests
+    inline
+  intprops
+    intprops-tests
+    inttostr
+    inttostr-tests
+  inttypes
+    inttypes-incomplete
+    inttypes-tests
+    ioctl
+    ioctl-tests
+  isblank
+    isblank-tests
+    isnand-nolibm
+    isnand-nolibm-tests
+    isnanf-nolibm
+    isnanf-nolibm-tests
+    isnanl-nolibm
+    isnanl-nolibm-tests
+    iswblank
+    iswblank-tests
+    iswctype
+    iswctype-tests
+    iswdigit
+    iswdigit-tests
+    iswpunct
+    iswpunct-tests
+    iswxdigit
+    iswxdigit-tests
+    langinfo
+    langinfo-tests
+  largefile
+    largefile-tests
+    libc-config
+    limits-h
+    limits-h-tests
+    listen
+    listen-tests
+    localcharset
+    localcharset-tests
+    locale
+    locale-tests
+    localeconv
+    localeconv-tests
+    lock
+  lstat
+    lstat-tests
+  maintainer-makefile
+    malloc-gnu
+    malloc-gnu-tests
+    malloc-posix
+    malloca
+    malloca-tests
+  manywarnings
+    math
+    math-tests
+    mbchar
+  mbrtoc32
+    mbrtoc32-tests
+    mbrtowc
+    mbrtowc-tests
+    mbscasecmp
+    mbscasecmp-tests
+    mbsinit
+    mbsinit-tests
+    mbsrtoc32s
+    mbsrtoc32s-tests
+    mbsrtowcs
+    mbsrtowcs-tests
+    mbszero
+    mbtowc
+    mbuiter
+    mbuiterf
+    memchr
+    memchr-tests
+  mempcpy
+    memrchr
+    memrchr-tests
+  minmax
+    mkdir
+    mkdir-tests
+  mkstemp
+  mktime
+    mktime-internal
+    msvc-inval
+    msvc-nothrow
+    multiarch
+    nan
+    nanosleep
+    nanosleep-tests
+    netinet_in
+    netinet_in-tests
+    nl_langinfo
+    nl_langinfo-tests
+    nocrash
+  nstrftime
+    nstrftime-tests
+  nullptr
+    nullptr-tests
+    open
+    open-tests
+  openat
+    openat-die
+    openat-h
+    openat-tests
+    opendir
+    pathmax
+    pathmax-tests
+  pclose
+    pclose-tests
+  perl
+    perror
+    perror-tests
+    pipe-posix
+    pipe-posix-tests
+  popen
+    popen-tests
+    priv-set
+    priv-set-tests
+  progname
+  propername-lite
+    pselect
+    pselect-tests
+    pthread-h
+    pthread-h-tests
+    pthread-thread
+    pthread-thread-tests
+    pthread_sigmask
+    pthread_sigmask-tests
+    putenv
+    quote
+    quotearg
+    quotearg-simple
+    quotearg-simple-tests
+  raise
+    raise-tests
+  rawmemchr
+    rawmemchr-tests
+  readdir
+    readlink
+    readlink-tests
+  readlinkat
+    readlinkat-tests
+  readme-release
+    realloc-gnu
+    realloc-gnu-tests
+    realloc-posix
+    reallocarray
+    reallocarray-tests
+  regex
+    regex-tests
+    rmdir
+    rmdir-tests
+    root-uid
+  same-inode
+    save-cwd
+    sched
+    sched-tests
+    select
+    select-tests
+    setenv
+    setenv-tests
+    setlocale-null
+    setlocale-null-tests
+    setsockopt
+    setsockopt-tests
+  sh-quote
+    sh-quote-tests
+  sigaction
+    sigaction-tests
+  signal
+    signal-h
+    signal-h-tests
+    signbit
+    signbit-tests
+    signed-nan
+    signed-snan
+  sigprocmask
+    sigprocmask-tests
+    sigsegv
+    sigsegv-tests
+    size_max
+    sleep
+    sleep-tests
+    snan
+    snippet/_Noreturn
+    snippet/arg-nonnull
+    snippet/c++defs
+    snippet/warn-on-use
+    snprintf
+    snprintf-tests
+    socket
+    socketlib
+    sockets
+    sockets-tests
+    socklen
+    ssize_t
+  stat
+  stat-macros
+    stat-tests
+  stat-time
+    stat-time-tests
+    std-gnu11
+    stdarg
+    stdarg-tests
+  stdbool
+    stdbool-tests
+  stdckdint
+    stdckdint-tests
+    stddef
+    stddef-tests
+  stdint
+    stdint-tests
+    stdio
+    stdio-tests
+    stdlib
+    stdlib-tests
+    stdopen
+  stpcpy
+  strcase
+    strdup-posix
+    streq
+    strerror
+    strerror-override
+    strerror-tests
+    strerror_r-posix
+    strerror_r-posix-tests
+    string
+    string-tests
+    strings
+    strings-tests
+    strnlen
+    strnlen-tests
+    strnlen1
+  strptime
+  strtoimax
+    strtoimax-tests
+    strtoll
+    strtoll-tests
+    symlink
+    symlink-tests
+    symlinkat
+    symlinkat-tests
+    sys_ioctl
+    sys_ioctl-tests
+    sys_random
+    sys_random-tests
+    sys_select
+    sys_select-tests
+    sys_socket
+    sys_socket-tests
+    sys_stat
+    sys_stat-tests
+    sys_time
+    sys_time-tests
+    sys_types
+    sys_types-tests
+    sys_uio
+    sys_uio-tests
+  sys_wait
+    sys_wait-tests
+  system-quote
+    tempname
+    test-framework-sh
+    test-framework-sh-tests
+    thread
+    thread-tests
+    threadlib
+    time
+    time-h
+    time-h-tests
+    time-tests
+    time_r
+  time_rz
+    timegm
+  timespec
+    timespec-add
+    timespec-sub
+    timespec-tests
+  timespec_get
+    timespec_get-tests
+    tzset
+    uchar
+    uchar-tests
+    unicase/base
+    unicase/tolower
+    unicase/tolower-tests
+    unictype/base
+    unictype/ctype-alnum
+    unictype/ctype-alnum-tests
+    unictype/ctype-alpha
+    unictype/ctype-alpha-tests
+    unictype/ctype-blank
+    unictype/ctype-blank-tests
+    unictype/ctype-cntrl
+    unictype/ctype-cntrl-tests
+    unictype/ctype-digit
+    unictype/ctype-digit-tests
+    unictype/ctype-graph
+    unictype/ctype-graph-tests
+    unictype/ctype-lower
+    unictype/ctype-lower-tests
+    unictype/ctype-print
+    unictype/ctype-print-tests
+    unictype/ctype-punct
+    unictype/ctype-punct-tests
+    unictype/ctype-space
+    unictype/ctype-space-tests
+    unictype/ctype-upper
+    unictype/ctype-upper-tests
+    unictype/ctype-xdigit
+    unictype/ctype-xdigit-tests
+    uninorm/base
+  unistd
+    unistd-safer
+    unistd-safer-tests
+    unistd-tests
+    unistr/base
+    unistr/u32-chr
+    unistr/u32-chr-tests
+    unistr/u32-cpy
+    unistr/u32-cpy-tests
+    unistr/u32-pcpy
+    unistr/u32-pcpy-tests
+    unistr/u32-set
+    unistr/u32-set-tests
+    unistr/u32-strcat
+    unistr/u32-strcat-tests
+    unistr/u32-strlen
+    unistr/u32-strlen-tests
+    unitypes
+    uniwidth/base
+    uniwidth/width
+    uniwidth/width-tests
+    unlink
+    unlink-tests
+    unlinkat
+    unlinkat-tests
+    unlinkdir
+  unlocked-io
+    unlocked-io-internal
+    unsetenv
+    unsetenv-tests
+  update-copyright
+    update-copyright-tests
+    useless-if-before-free
+    vararrays
+    vasnprintf
+    vasnprintf-tests
+    vc-list-files
+    vc-list-files-tests
+  verify
+    verify-tests
+  version-etc
+  version-etc-fsf
+    version-etc-tests
+    warnings
+    wchar
+    wchar-tests
+    wcrtomb
+    wcrtomb-tests
+    wctob
+    wctomb
+    wctype
+    wctype-h
+    wctype-h-tests
+    wctype-tests
+    wcwidth
+    wcwidth-tests
+    windows-mutex
+    windows-once
+    windows-recmutex
+    windows-rwlock
+    windows-thread
+    windows-tls
+    wmemchr
+    wmempcpy
+  xalloc
+    xalloc-die
+    xalloc-die-tests
+    xalloc-oversized
+  xfreopen
+  xmalloca
+    xsize
+  xstdopen
+    xstdopen-tests
+  xstrtoimax
+    xstrtoimax-tests
+    xstrtol
+    xstrtol-error
+    xstrtol-tests
+  year2038
+    year2038-tests
+File list:
+  build-aux/announce-gen
+  build-aux/config.rpath
+  build-aux/do-release-commit-and-tag
+  build-aux/gendocs.sh
+  build-aux/git-version-gen
+  build-aux/gitlog-to-changelog
+  build-aux/gnu-web-doc-update
+  build-aux/gnupload
+  build-aux/update-copyright
+  build-aux/useless-if-before-free
+  build-aux/vc-list-files
+  doc/gendocs_template
+  doc/gendocs_template_min
+  lib/_Noreturn.h
+  lib/alloca.in.h
+  lib/allocator.c
+  lib/allocator.h
+  lib/arg-nonnull.h
+  lib/argmatch.c
+  lib/argmatch.h
+  lib/assert.in.h
+  lib/assure.h
+  lib/at-func.c
+  lib/attribute.h
+  lib/basename-lgpl.c
+  lib/basename-lgpl.h
+  lib/basename.c
+  lib/binary-io.c
+  lib/binary-io.h
+  lib/bitrotate.c
+  lib/bitrotate.h
+  lib/btoc32.c
+  lib/btowc.c
+  lib/c++defs.h
+  lib/c-ctype.c
+  lib/c-ctype.h
+  lib/c-file-type.c
+  lib/c-stack.c
+  lib/c-stack.h
+  lib/c-strcase.h
+  lib/c-strcasecmp.c
+  lib/c-strcaseeq.h
+  lib/c-strncasecmp.c
+  lib/c32_apply_type_test.c
+  lib/c32_get_type_test.c
+  lib/c32is-impl.h
+  lib/c32isalnum.c
+  lib/c32isalpha.c
+  lib/c32isblank.c
+  lib/c32iscntrl.c
+  lib/c32isdigit.c
+  lib/c32isgraph.c
+  lib/c32islower.c
+  lib/c32isprint.c
+  lib/c32ispunct.c
+  lib/c32isspace.c
+  lib/c32isupper.c
+  lib/c32isxdigit.c
+  lib/c32to-impl.h
+  lib/c32tolower.c
+  lib/c32width.c
+  lib/calloc.c
+  lib/careadlinkat.c
+  lib/careadlinkat.h
+  lib/cdefs.h
+  lib/chdir-long.c
+  lib/chdir-long.h
+  lib/cloexec.c
+  lib/cloexec.h
+  lib/close.c
+  lib/closedir.c
+  lib/count-leading-zeros.c
+  lib/count-leading-zeros.h
+  lib/ctype.in.h
+  lib/diffseq.h
+  lib/dirent-private.h
+  lib/dirent.in.h
+  lib/dirfd.c
+  lib/dirname-lgpl.c
+  lib/dirname.c
+  lib/dirname.h
+  lib/dup-safer-flag.c
+  lib/dup-safer.c
+  lib/dup.c
+  lib/dup2.c
+  lib/dynarray.h
+  lib/errno.in.h
+  lib/error.c
+  lib/error.in.h
+  lib/exclude.c
+  lib/exclude.h
+  lib/exitfail.c
+  lib/exitfail.h
+  lib/fchdir.c
+  lib/fcntl.c
+  lib/fcntl.in.h
+  lib/fd-hook.c
+  lib/fd-hook.h
+  lib/fd-safer-flag.c
+  lib/fd-safer.c
+  lib/fdopendir.c
+  lib/file-type.c
+  lib/file-type.h
+  lib/filename.h
+  lib/filenamecat-lgpl.c
+  lib/filenamecat.c
+  lib/filenamecat.h
+  lib/flexmember.h
+  lib/fnmatch.c
+  lib/fnmatch.in.h
+  lib/fnmatch_loop.c
+  lib/fopen.c
+  lib/free.c
+  lib/freopen.c
+  lib/fstat.c
+  lib/fstatat.c
+  lib/getcwd-lgpl.c
+  lib/getdtablesize.c
+  lib/getopt-cdefs.in.h
+  lib/getopt-core.h
+  lib/getopt-ext.h
+  lib/getopt-pfx-core.h
+  lib/getopt-pfx-ext.h
+  lib/getopt.c
+  lib/getopt.in.h
+  lib/getopt1.c
+  lib/getopt_int.h
+  lib/getpagesize.c
+  lib/getprogname.c
+  lib/getprogname.h
+  lib/getrandom.c
+  lib/gettext.h
+  lib/gettime.c
+  lib/gettimeofday.c
+  lib/glthread/lock.c
+  lib/glthread/lock.h
+  lib/glthread/threadlib.c
+  lib/hard-locale.c
+  lib/hard-locale.h
+  lib/hash.c
+  lib/hash.h
+  lib/ialloc.c
+  lib/ialloc.h
+  lib/idx.h
+  lib/ignore-value.h
+  lib/intprops-internal.h
+  lib/intprops.h
+  lib/inttypes.in.h
+  lib/isblank.c
+  lib/iswblank.c
+  lib/iswctype-impl.h
+  lib/iswctype.c
+  lib/iswdigit.c
+  lib/iswpunct.c
+  lib/iswxdigit.c
+  lib/langinfo.in.h
+  lib/lc-charset-dispatch.c
+  lib/lc-charset-dispatch.h
+  lib/libc-config.h
+  lib/limits.in.h
+  lib/localcharset.c
+  lib/localcharset.h
+  lib/locale.in.h
+  lib/localeconv.c
+  lib/lstat.c
+  lib/malloc.c
+  lib/malloc/dynarray-skeleton.c
+  lib/malloc/dynarray.h
+  lib/malloc/dynarray_at_failure.c
+  lib/malloc/dynarray_emplace_enlarge.c
+  lib/malloc/dynarray_finalize.c
+  lib/malloc/dynarray_resize.c
+  lib/malloc/dynarray_resize_clear.c
+  lib/malloca.c
+  lib/malloca.h
+  lib/mbchar.c
+  lib/mbchar.h
+  lib/mbrtoc32.c
+  lib/mbrtowc-impl-utf8.h
+  lib/mbrtowc-impl.h
+  lib/mbrtowc.c
+  lib/mbscasecmp.c
+  lib/mbsinit.c
+  lib/mbsrtoc32s-state.c
+  lib/mbsrtoc32s.c
+  lib/mbsrtowcs-impl.h
+  lib/mbsrtowcs-state.c
+  lib/mbsrtowcs.c
+  lib/mbszero.c
+  lib/mbtowc-impl.h
+  lib/mbtowc-lock.c
+  lib/mbtowc-lock.h
+  lib/mbtowc.c
+  lib/mbuiter.c
+  lib/mbuiter.h
+  lib/mbuiterf.c
+  lib/mbuiterf.h
+  lib/memchr.c
+  lib/memchr.valgrind
+  lib/mempcpy.c
+  lib/memrchr.c
+  lib/minmax.h
+  lib/mkdir.c
+  lib/mkstemp.c
+  lib/mktime-internal.h
+  lib/mktime.c
+  lib/msvc-inval.c
+  lib/msvc-inval.h
+  lib/msvc-nothrow.c
+  lib/msvc-nothrow.h
+  lib/nl_langinfo-lock.c
+  lib/nl_langinfo.c
+  lib/nstrftime.c
+  lib/open.c
+  lib/openat-die.c
+  lib/openat-priv.h
+  lib/openat-proc.c
+  lib/openat.c
+  lib/openat.h
+  lib/opendir.c
+  lib/pathmax.h
+  lib/pclose.c
+  lib/pipe-safer.c
+  lib/pipe.c
+  lib/popen.c
+  lib/progname.c
+  lib/progname.h
+  lib/propername-lite.c
+  lib/propername.h
+  lib/quote.h
+  lib/quotearg.c
+  lib/quotearg.h
+  lib/raise.c
+  lib/rawmemchr.c
+  lib/rawmemchr.valgrind
+  lib/readdir.c
+  lib/readlink.c
+  lib/readlinkat.c
+  lib/realloc.c
+  lib/reallocarray.c
+  lib/regcomp.c
+  lib/regex.c
+  lib/regex.h
+  lib/regex_internal.c
+  lib/regex_internal.h
+  lib/regexec.c
+  lib/same-inode.c
+  lib/same-inode.h
+  lib/save-cwd.c
+  lib/save-cwd.h
+  lib/setenv.c
+  lib/setlocale-lock.c
+  lib/setlocale_null.c
+  lib/setlocale_null.h
+  lib/sh-quote.c
+  lib/sh-quote.h
+  lib/sig-handler.c
+  lib/sig-handler.h
+  lib/sigaction.c
+  lib/signal.in.h
+  lib/sigprocmask.c
+  lib/sigsegv.c
+  lib/sigsegv.in.h
+  lib/stackvma.c
+  lib/stackvma.h
+  lib/stat-macros.h
+  lib/stat-time.c
+  lib/stat-time.h
+  lib/stat-w32.c
+  lib/stat-w32.h
+  lib/stat.c
+  lib/stdarg.in.h
+  lib/stdckdint.in.h
+  lib/stddef.in.h
+  lib/stdint.in.h
+  lib/stdio-read.c
+  lib/stdio-write.c
+  lib/stdio.in.h
+  lib/stdlib.in.h
+  lib/stdopen.c
+  lib/stdopen.h
+  lib/stpcpy.c
+  lib/strcasecmp.c
+  lib/strdup.c
+  lib/streq.h
+  lib/strerror-override.c
+  lib/strerror-override.h
+  lib/strerror.c
+  lib/strftime.h
+  lib/string.in.h
+  lib/strings.in.h
+  lib/stripslash.c
+  lib/strncasecmp.c
+  lib/strnlen.c
+  lib/strnlen1.c
+  lib/strnlen1.h
+  lib/strptime.c
+  lib/strtoimax.c
+  lib/strtol.c
+  lib/strtoll.c
+  lib/sys_random.in.h
+  lib/sys_stat.in.h
+  lib/sys_time.in.h
+  lib/sys_types.in.h
+  lib/sys_wait.in.h
+  lib/system-quote.c
+  lib/system-quote.h
+  lib/tempname.c
+  lib/tempname.h
+  lib/time-internal.h
+  lib/time.in.h
+  lib/time_r.c
+  lib/time_rz.c
+  lib/timegm.c
+  lib/timespec.c
+  lib/timespec.h
+  lib/timespec_get.c
+  lib/tzset.c
+  lib/uchar.in.h
+  lib/unicase.in.h
+  lib/unicase/simple-mapping.h
+  lib/unicase/tolower.c
+  lib/unicase/tolower.h
+  lib/unictype.in.h
+  lib/unictype/bitmap.h
+  lib/unictype/ctype_alnum.c
+  lib/unictype/ctype_alnum.h
+  lib/unictype/ctype_alpha.c
+  lib/unictype/ctype_alpha.h
+  lib/unictype/ctype_blank.c
+  lib/unictype/ctype_blank.h
+  lib/unictype/ctype_cntrl.c
+  lib/unictype/ctype_cntrl.h
+  lib/unictype/ctype_digit.c
+  lib/unictype/ctype_digit.h
+  lib/unictype/ctype_graph.c
+  lib/unictype/ctype_graph.h
+  lib/unictype/ctype_lower.c
+  lib/unictype/ctype_lower.h
+  lib/unictype/ctype_print.c
+  lib/unictype/ctype_print.h
+  lib/unictype/ctype_punct.c
+  lib/unictype/ctype_punct.h
+  lib/unictype/ctype_space.c
+  lib/unictype/ctype_space.h
+  lib/unictype/ctype_upper.c
+  lib/unictype/ctype_upper.h
+  lib/unictype/ctype_xdigit.c
+  lib/unictype/ctype_xdigit.h
+  lib/uninorm.in.h
+  lib/unistd--.h
+  lib/unistd-safer.h
+  lib/unistd.c
+  lib/unistd.in.h
+  lib/unistr.in.h
+  lib/unistr/u-cpy.h
+  lib/unistr/u-pcpy.h
+  lib/unistr/u-strcat.h
+  lib/unistr/u-strlen.h
+  lib/unistr/u32-chr.c
+  lib/unistr/u32-cpy.c
+  lib/unistr/u32-pcpy.c
+  lib/unistr/u32-strcat.c
+  lib/unistr/u32-strlen.c
+  lib/unitypes.in.h
+  lib/uniwidth.in.h
+  lib/uniwidth/cjk.h
+  lib/uniwidth/width.c
+  lib/uniwidth/width0.h
+  lib/uniwidth/width2.h
+  lib/unlocked-io.h
+  lib/unsetenv.c
+  lib/verify.h
+  lib/version-etc-fsf.c
+  lib/version-etc.c
+  lib/version-etc.h
+  lib/warn-on-use.h
+  lib/wchar.in.h
+  lib/wcrtomb.c
+  lib/wctype-h.c
+  lib/wctype-impl.h
+  lib/wctype.c
+  lib/wctype.in.h
+  lib/wcwidth.c
+  lib/windows-initguard.h
+  lib/windows-mutex.c
+  lib/windows-mutex.h
+  lib/windows-once.c
+  lib/windows-once.h
+  lib/windows-recmutex.c
+  lib/windows-recmutex.h
+  lib/windows-rwlock.c
+  lib/windows-rwlock.h
+  lib/wmemchr-impl.h
+  lib/wmemchr.c
+  lib/wmempcpy.c
+  lib/xalloc-die.c
+  lib/xalloc-oversized.h
+  lib/xalloc.h
+  lib/xfreopen.c
+  lib/xfreopen.h
+  lib/xmalloc.c
+  lib/xmalloca.c
+  lib/xmalloca.h
+  lib/xstdopen.c
+  lib/xstdopen.h
+  lib/xstrtoimax.c
+  lib/xstrtol.c
+  lib/xstrtol.h
+  lib/xstrtoul.c
+  m4/00gnulib.m4
+  m4/__inline.m4
+  m4/absolute-header.m4
+  m4/alloca.m4
+  m4/arpa_inet_h.m4
+  m4/asm-underscore.m4
+  m4/assert_h.m4
+  m4/atoll.m4
+  m4/btowc.m4
+  m4/builtin-expect.m4
+  m4/c-bool.m4
+  m4/c-stack.m4
+  m4/c32rtomb.m4
+  m4/calloc.m4
+  m4/chdir-long.m4
+  m4/clock_time.m4
+  m4/close.m4
+  m4/closedir.m4
+  m4/codeset.m4
+  m4/config-h.m4
+  m4/ctype_h.m4
+  m4/dirent_h.m4
+  m4/dirfd.m4
+  m4/double-slash-root.m4
+  m4/dup.m4
+  m4/dup2.m4
+  m4/eealloc.m4
+  m4/environ.m4
+  m4/errno_h.m4
+  m4/error.m4
+  m4/error_h.m4
+  m4/exponentd.m4
+  m4/exponentf.m4
+  m4/exponentl.m4
+  m4/extensions.m4
+  m4/extern-inline.m4
+  m4/fchdir.m4
+  m4/fclose.m4
+  m4/fcntl-o.m4
+  m4/fcntl.m4
+  m4/fcntl_h.m4
+  m4/fdopen.m4
+  m4/fdopendir.m4
+  m4/fflush.m4
+  m4/filenamecat.m4
+  m4/flexmember.m4
+  m4/float_h.m4
+  m4/fnmatch.m4
+  m4/fnmatch_h.m4
+  m4/fopen.m4
+  m4/fpieee.m4
+  m4/free.m4
+  m4/freopen.m4
+  m4/fstat.m4
+  m4/fstatat.m4
+  m4/ftruncate.m4
+  m4/getcwd.m4
+  m4/getdtablesize.m4
+  m4/getopt.m4
+  m4/getpagesize.m4
+  m4/getprogname.m4
+  m4/getrandom.m4
+  m4/gettime.m4
+  m4/gettimeofday.m4
+  m4/gnu-make.m4
+  m4/gnulib-common.m4
+  m4/host-cpu-c-abi.m4
+  m4/include_next.m4
+  m4/inet_pton.m4
+  m4/inline.m4
+  m4/intl-thread-locale.m4
+  m4/intmax_t.m4
+  m4/inttostr.m4
+  m4/inttypes.m4
+  m4/inttypes_h.m4
+  m4/ioctl.m4
+  m4/isblank.m4
+  m4/isnand.m4
+  m4/isnanf.m4
+  m4/isnanl.m4
+  m4/iswblank.m4
+  m4/iswctype.m4
+  m4/iswdigit.m4
+  m4/iswpunct.m4
+  m4/iswxdigit.m4
+  m4/langinfo_h.m4
+  m4/largefile.m4
+  m4/lib-ld.m4
+  m4/lib-link.m4
+  m4/lib-prefix.m4
+  m4/libsigsegv.m4
+  m4/libunistring-base.m4
+  m4/limits-h.m4
+  m4/localcharset.m4
+  m4/locale-fr.m4
+  m4/locale-ja.m4
+  m4/locale-tr.m4
+  m4/locale-zh.m4
+  m4/locale_h.m4
+  m4/localeconv.m4
+  m4/lock.m4
+  m4/lstat.m4
+  m4/malloc.m4
+  m4/malloca.m4
+  m4/manywarnings-c++.m4
+  m4/manywarnings.m4
+  m4/math_h.m4
+  m4/mbchar.m4
+  m4/mbiter.m4
+  m4/mbrtoc32.m4
+  m4/mbrtowc.m4
+  m4/mbsinit.m4
+  m4/mbsrtowcs.m4
+  m4/mbstate_t.m4
+  m4/mbtowc.m4
+  m4/memchr.m4
+  m4/mempcpy.m4
+  m4/memrchr.m4
+  m4/minmax.m4
+  m4/mkdir.m4
+  m4/mkstemp.m4
+  m4/mktime.m4
+  m4/mmap-anon.m4
+  m4/mode_t.m4
+  m4/msvc-inval.m4
+  m4/msvc-nothrow.m4
+  m4/multiarch.m4
+  m4/musl.m4
+  m4/nan-mips.m4
+  m4/nanosleep.m4
+  m4/netinet_in_h.m4
+  m4/nl_langinfo.m4
+  m4/nocrash.m4
+  m4/nstrftime.m4
+  m4/nullptr.m4
+  m4/off_t.m4
+  m4/open-cloexec.m4
+  m4/open-slash.m4
+  m4/open.m4
+  m4/openat.m4
+  m4/opendir.m4
+  m4/pathmax.m4
+  m4/pclose.m4
+  m4/perl.m4
+  m4/perror.m4
+  m4/pid_t.m4
+  m4/pipe.m4
+  m4/popen.m4
+  m4/printf.m4
+  m4/priv-set.m4
+  m4/pselect.m4
+  m4/pthread-thread.m4
+  m4/pthread_h.m4
+  m4/pthread_rwlock_rdlock.m4
+  m4/pthread_sigmask.m4
+  m4/putenv.m4
+  m4/quote.m4
+  m4/quotearg.m4
+  m4/raise.m4
+  m4/rawmemchr.m4
+  m4/readdir.m4
+  m4/readlink.m4
+  m4/readlinkat.m4
+  m4/realloc.m4
+  m4/reallocarray.m4
+  m4/regex.m4
+  m4/rmdir.m4
+  m4/save-cwd.m4
+  m4/sched_h.m4
+  m4/select.m4
+  m4/setenv.m4
+  m4/setlocale_null.m4
+  m4/sigaction.m4
+  m4/sigaltstack.m4
+  m4/signal_h.m4
+  m4/signalblocking.m4
+  m4/signbit.m4
+  m4/sigsegv.m4
+  m4/size_max.m4
+  m4/sleep.m4
+  m4/snan.m4
+  m4/snprintf.m4
+  m4/socketlib.m4
+  m4/sockets.m4
+  m4/socklen.m4
+  m4/sockpfaf.m4
+  m4/ssize_t.m4
+  m4/stack-direction.m4
+  m4/stat-time.m4
+  m4/stat.m4
+  m4/std-gnu11.m4
+  m4/stdalign.m4
+  m4/stdarg.m4
+  m4/stddef_h.m4
+  m4/stdint.m4
+  m4/stdint_h.m4
+  m4/stdio_h.m4
+  m4/stdlib_h.m4
+  m4/stpcpy.m4
+  m4/strcase.m4
+  m4/strdup.m4
+  m4/strerror.m4
+  m4/strerror_r.m4
+  m4/string_h.m4
+  m4/strings_h.m4
+  m4/strnlen.m4
+  m4/strptime.m4
+  m4/strtoimax.m4
+  m4/strtoll.m4
+  m4/symlink.m4
+  m4/symlinkat.m4
+  m4/sys_ioctl_h.m4
+  m4/sys_random_h.m4
+  m4/sys_select_h.m4
+  m4/sys_socket_h.m4
+  m4/sys_stat_h.m4
+  m4/sys_time_h.m4
+  m4/sys_types_h.m4
+  m4/sys_uio_h.m4
+  m4/sys_wait_h.m4
+  m4/tempname.m4
+  m4/thread.m4
+  m4/threadlib.m4
+  m4/time.m4
+  m4/time_h.m4
+  m4/time_r.m4
+  m4/time_rz.m4
+  m4/timegm.m4
+  m4/timespec.m4
+  m4/timespec_get.m4
+  m4/tm_gmtoff.m4
+  m4/tzset.m4
+  m4/uchar_h.m4
+  m4/unicase_h.m4
+  m4/unictype_h.m4
+  m4/uninorm_h.m4
+  m4/unistd-safer.m4
+  m4/unistd_h.m4
+  m4/unlink.m4
+  m4/unlinkat.m4
+  m4/unlinkdir.m4
+  m4/unlocked-io.m4
+  m4/vararrays.m4
+  m4/vasnprintf.m4
+  m4/version-etc.m4
+  m4/visibility.m4
+  m4/warn-on-use.m4
+  m4/warnings.m4
+  m4/wchar_h.m4
+  m4/wchar_t.m4
+  m4/wcrtomb.m4
+  m4/wctob.m4
+  m4/wctomb.m4
+  m4/wctype.m4
+  m4/wctype_h.m4
+  m4/wcwidth.m4
+  m4/wint_t.m4
+  m4/wmemchr.m4
+  m4/wmempcpy.m4
+  m4/xalloc.m4
+  m4/xsize.m4
+  m4/xstrtol.m4
+  m4/zzgnulib.m4
+  tests/altstack-util.h
+  tests/infinity.h
+  tests/init.sh
+  tests/locale.c
+  tests/macros.h
+  tests/minus-zero.h
+  tests/mmap-anon-util.h
+  tests/nap.h
+  tests/signature.h
+  tests/test-accept.c
+  tests/test-alignasof.c
+  tests/test-alloca-opt.c
+  tests/test-argmatch.c
+  tests/test-arpa_inet.c
+  tests/test-assert.c
+  tests/test-binary-io.c
+  tests/test-binary-io.sh
+  tests/test-bind.c
+  tests/test-bitrotate.c
+  tests/test-btoc32-1.sh
+  tests/test-btoc32-2.sh
+  tests/test-btoc32-3.sh
+  tests/test-btoc32.c
+  tests/test-btowc-1.sh
+  tests/test-btowc-2.sh
+  tests/test-btowc-3.sh
+  tests/test-btowc.c
+  tests/test-c-ctype.c
+  tests/test-c-stack.c
+  tests/test-c-stack.sh
+  tests/test-c-stack2.sh
+  tests/test-c-strcase.sh
+  tests/test-c-strcasecmp.c
+  tests/test-c-strcasestr.c
+  tests/test-c-strncasecmp.c
+  tests/test-c32_apply_type_test.c
+  tests/test-c32_get_type_test.c
+  tests/test-c32isalnum.c
+  tests/test-c32isalnum.sh
+  tests/test-c32isalpha.c
+  tests/test-c32isalpha.sh
+  tests/test-c32isblank.c
+  tests/test-c32isblank.sh
+  tests/test-c32iscntrl.c
+  tests/test-c32iscntrl.sh
+  tests/test-c32isdigit.c
+  tests/test-c32isdigit.sh
+  tests/test-c32isgraph.c
+  tests/test-c32isgraph.sh
+  tests/test-c32islower.c
+  tests/test-c32islower.sh
+  tests/test-c32isprint.c
+  tests/test-c32isprint.sh
+  tests/test-c32ispunct.c
+  tests/test-c32ispunct.sh
+  tests/test-c32isspace.c
+  tests/test-c32isspace.sh
+  tests/test-c32isupper.c
+  tests/test-c32isupper.sh
+  tests/test-c32isxdigit.c
+  tests/test-c32isxdigit.sh
+  tests/test-c32rtomb-w32-2.sh
+  tests/test-c32rtomb-w32-3.sh
+  tests/test-c32rtomb-w32-4.sh
+  tests/test-c32rtomb-w32-5.sh
+  tests/test-c32rtomb-w32-6.sh
+  tests/test-c32rtomb-w32-7.sh
+  tests/test-c32rtomb-w32-8.sh
+  tests/test-c32rtomb-w32.c
+  tests/test-c32rtomb.c
+  tests/test-c32rtomb.sh
+  tests/test-c32tolower.c
+  tests/test-c32tolower.sh
+  tests/test-c32width.c
+  tests/test-calloc-gnu.c
+  tests/test-chdir.c
+  tests/test-cloexec.c
+  tests/test-close.c
+  tests/test-connect.c
+  tests/test-count-leading-zeros.c
+  tests/test-ctype.c
+  tests/test-dirent.c
+  tests/test-dirfd.c
+  tests/test-dirname.c
+  tests/test-dup-safer.c
+  tests/test-dup.c
+  tests/test-dup2.c
+  tests/test-dynarray.c
+  tests/test-environ.c
+  tests/test-errno.c
+  tests/test-error.c
+  tests/test-error.sh
+  tests/test-exclude.c
+  tests/test-exclude1.sh
+  tests/test-exclude2.sh
+  tests/test-exclude3.sh
+  tests/test-exclude4.sh
+  tests/test-exclude5.sh
+  tests/test-exclude6.sh
+  tests/test-exclude7.sh
+  tests/test-exclude8.sh
+  tests/test-fchdir.c
+  tests/test-fcntl-h.c
+  tests/test-fcntl.c
+  tests/test-fdopen.c
+  tests/test-fdopendir.c
+  tests/test-fgetc.c
+  tests/test-filenamecat.c
+  tests/test-float.c
+  tests/test-fnmatch-1.sh
+  tests/test-fnmatch-2.sh
+  tests/test-fnmatch-3.sh
+  tests/test-fnmatch-4.sh
+  tests/test-fnmatch-5.sh
+  tests/test-fnmatch-h.c
+  tests/test-fnmatch-w32-2.sh
+  tests/test-fnmatch-w32-3.sh
+  tests/test-fnmatch-w32-4.sh
+  tests/test-fnmatch-w32-5.sh
+  tests/test-fnmatch-w32-6.sh
+  tests/test-fnmatch-w32-7.sh
+  tests/test-fnmatch-w32-8.sh
+  tests/test-fnmatch-w32.c
+  tests/test-fnmatch.c
+  tests/test-fopen-gnu.c
+  tests/test-fopen.c
+  tests/test-fopen.h
+  tests/test-fputc.c
+  tests/test-fread.c
+  tests/test-free.c
+  tests/test-freopen.c
+  tests/test-fstat.c
+  tests/test-fstatat.c
+  tests/test-ftruncate.c
+  tests/test-ftruncate.sh
+  tests/test-fwrite.c
+  tests/test-getcwd-lgpl.c
+  tests/test-getdtablesize.c
+  tests/test-getopt-gnu.c
+  tests/test-getopt-main.h
+  tests/test-getopt-posix.c
+  tests/test-getopt.h
+  tests/test-getopt_long.h
+  tests/test-getprogname.c
+  tests/test-getrandom.c
+  tests/test-gettimeofday.c
+  tests/test-hard-locale.c
+  tests/test-hash.c
+  tests/test-ignore-value.c
+  tests/test-inet_pton.c
+  tests/test-init.sh
+  tests/test-intprops.c
+  tests/test-inttostr.c
+  tests/test-inttypes.c
+  tests/test-ioctl.c
+  tests/test-isblank.c
+  tests/test-isnand-nolibm.c
+  tests/test-isnand.h
+  tests/test-isnanf-nolibm.c
+  tests/test-isnanf.h
+  tests/test-isnanl-nolibm.c
+  tests/test-isnanl.h
+  tests/test-iswblank.c
+  tests/test-iswctype.c
+  tests/test-iswdigit.c
+  tests/test-iswdigit.sh
+  tests/test-iswpunct.c
+  tests/test-iswpunct.sh
+  tests/test-iswxdigit.c
+  tests/test-iswxdigit.sh
+  tests/test-langinfo.c
+  tests/test-largefile.c
+  tests/test-limits-h.c
+  tests/test-listen.c
+  tests/test-localcharset.c
+  tests/test-locale.c
+  tests/test-localeconv.c
+  tests/test-lstat.c
+  tests/test-lstat.h
+  tests/test-malloc-gnu.c
+  tests/test-malloca.c
+  tests/test-math.c
+  tests/test-mbrtoc32-1.sh
+  tests/test-mbrtoc32-2.sh
+  tests/test-mbrtoc32-3.sh
+  tests/test-mbrtoc32-4.sh
+  tests/test-mbrtoc32-5.sh
+  tests/test-mbrtoc32-w32-2.sh
+  tests/test-mbrtoc32-w32-3.sh
+  tests/test-mbrtoc32-w32-4.sh
+  tests/test-mbrtoc32-w32-5.sh
+  tests/test-mbrtoc32-w32-6.sh
+  tests/test-mbrtoc32-w32-7.sh
+  tests/test-mbrtoc32-w32-8.sh
+  tests/test-mbrtoc32-w32.c
+  tests/test-mbrtoc32.c
+  tests/test-mbrtowc-1.sh
+  tests/test-mbrtowc-2.sh
+  tests/test-mbrtowc-3.sh
+  tests/test-mbrtowc-4.sh
+  tests/test-mbrtowc-5.sh
+  tests/test-mbrtowc-w32-2.sh
+  tests/test-mbrtowc-w32-3.sh
+  tests/test-mbrtowc-w32-4.sh
+  tests/test-mbrtowc-w32-5.sh
+  tests/test-mbrtowc-w32-6.sh
+  tests/test-mbrtowc-w32-7.sh
+  tests/test-mbrtowc-w32-8.sh
+  tests/test-mbrtowc-w32.c
+  tests/test-mbrtowc.c
+  tests/test-mbscasecmp.c
+  tests/test-mbscasecmp.sh
+  tests/test-mbsinit.c
+  tests/test-mbsinit.sh
+  tests/test-mbsrtoc32s-1.sh
+  tests/test-mbsrtoc32s-2.sh
+  tests/test-mbsrtoc32s-3.sh
+  tests/test-mbsrtoc32s-4.sh
+  tests/test-mbsrtoc32s-5.sh
+  tests/test-mbsrtoc32s.c
+  tests/test-mbsrtowcs-1.sh
+  tests/test-mbsrtowcs-2.sh
+  tests/test-mbsrtowcs-3.sh
+  tests/test-mbsrtowcs-4.sh
+  tests/test-mbsrtowcs-5.sh
+  tests/test-mbsrtowcs.c
+  tests/test-memchr.c
+  tests/test-memrchr.c
+  tests/test-mkdir.c
+  tests/test-mkdir.h
+  tests/test-nanosleep.c
+  tests/test-netinet_in.c
+  tests/test-nl_langinfo-mt.c
+  tests/test-nl_langinfo1.c
+  tests/test-nl_langinfo1.sh
+  tests/test-nl_langinfo2.c
+  tests/test-nl_langinfo2.sh
+  tests/test-nstrftime.c
+  tests/test-nullptr.c
+  tests/test-open.c
+  tests/test-open.h
+  tests/test-openat.c
+  tests/test-pathmax.c
+  tests/test-perror.c
+  tests/test-perror.sh
+  tests/test-perror2.c
+  tests/test-pipe.c
+  tests/test-popen.c
+  tests/test-popen.h
+  tests/test-priv-set.c
+  tests/test-pselect.c
+  tests/test-pthread-thread.c
+  tests/test-pthread.c
+  tests/test-pthread_sigmask1.c
+  tests/test-pthread_sigmask2.c
+  tests/test-quotearg-simple.c
+  tests/test-quotearg.h
+  tests/test-raise.c
+  tests/test-rawmemchr.c
+  tests/test-readlink.c
+  tests/test-readlink.h
+  tests/test-readlinkat.c
+  tests/test-realloc-gnu.c
+  tests/test-reallocarray.c
+  tests/test-regex.c
+  tests/test-rmdir.c
+  tests/test-rmdir.h
+  tests/test-sched.c
+  tests/test-select-fd.c
+  tests/test-select-in.sh
+  tests/test-select-out.sh
+  tests/test-select-stdin.c
+  tests/test-select.c
+  tests/test-select.h
+  tests/test-setenv.c
+  tests/test-setlocale_null-mt-all.c
+  tests/test-setlocale_null-mt-one.c
+  tests/test-setlocale_null.c
+  tests/test-setsockopt.c
+  tests/test-sh-quote.c
+  tests/test-sigaction.c
+  tests/test-signal-h.c
+  tests/test-signbit.c
+  tests/test-sigprocmask.c
+  tests/test-sigsegv-catch-segv1.c
+  tests/test-sigsegv-catch-segv2.c
+  tests/test-sigsegv-catch-stackoverflow1.c
+  tests/test-sigsegv-catch-stackoverflow2.c
+  tests/test-sleep.c
+  tests/test-snprintf.c
+  tests/test-sockets.c
+  tests/test-stat-time.c
+  tests/test-stat.c
+  tests/test-stat.h
+  tests/test-stdbool.c
+  tests/test-stdckdint.c
+  tests/test-stddef.c
+  tests/test-stdint.c
+  tests/test-stdio.c
+  tests/test-stdlib.c
+  tests/test-strerror.c
+  tests/test-strerror_r.c
+  tests/test-string.c
+  tests/test-strings.c
+  tests/test-strnlen.c
+  tests/test-strtoimax.c
+  tests/test-strtoll.c
+  tests/test-symlink.c
+  tests/test-symlink.h
+  tests/test-symlinkat.c
+  tests/test-sys_ioctl.c
+  tests/test-sys_random.c
+  tests/test-sys_select.c
+  tests/test-sys_socket.c
+  tests/test-sys_stat.c
+  tests/test-sys_time.c
+  tests/test-sys_types.c
+  tests/test-sys_uio.c
+  tests/test-sys_wait.c
+  tests/test-sys_wait.h
+  tests/test-thread_create.c
+  tests/test-thread_self.c
+  tests/test-time-h.c
+  tests/test-time.c
+  tests/test-timespec.c
+  tests/test-timespec_get.c
+  tests/test-uchar.c
+  tests/test-unistd.c
+  tests/test-unlink.c
+  tests/test-unlink.h
+  tests/test-unlinkat.c
+  tests/test-unsetenv.c
+  tests/test-update-copyright.sh
+  tests/test-vasnprintf.c
+  tests/test-vc-list-files-cvs.sh
+  tests/test-vc-list-files-git.sh
+  tests/test-verify-try.c
+  tests/test-verify.c
+  tests/test-verify.sh
+  tests/test-version-etc.c
+  tests/test-version-etc.sh
+  tests/test-wchar.c
+  tests/test-wcrtomb-w32-2.sh
+  tests/test-wcrtomb-w32-3.sh
+  tests/test-wcrtomb-w32-4.sh
+  tests/test-wcrtomb-w32-5.sh
+  tests/test-wcrtomb-w32-6.sh
+  tests/test-wcrtomb-w32-7.sh
+  tests/test-wcrtomb-w32-8.sh
+  tests/test-wcrtomb-w32.c
+  tests/test-wcrtomb.c
+  tests/test-wcrtomb.sh
+  tests/test-wctype-h.c
+  tests/test-wctype.c
+  tests/test-wcwidth.c
+  tests/test-xalloc-die.c
+  tests/test-xalloc-die.sh
+  tests/test-xstdopen.c
+  tests/test-xstdopen.sh
+  tests/test-xstrtoimax.c
+  tests/test-xstrtoimax.sh
+  tests/test-xstrtol.c
+  tests/test-xstrtol.sh
+  tests/test-xstrtoul.c
+  tests/test-year2038.c
+  tests/unicase/test-mapping-part1.h
+  tests/unicase/test-mapping-part2.h
+  tests/unicase/test-uc_tolower.c
+  tests/unictype/test-ctype_alnum.c
+  tests/unictype/test-ctype_alpha.c
+  tests/unictype/test-ctype_blank.c
+  tests/unictype/test-ctype_cntrl.c
+  tests/unictype/test-ctype_digit.c
+  tests/unictype/test-ctype_graph.c
+  tests/unictype/test-ctype_lower.c
+  tests/unictype/test-ctype_print.c
+  tests/unictype/test-ctype_punct.c
+  tests/unictype/test-ctype_space.c
+  tests/unictype/test-ctype_upper.c
+  tests/unictype/test-ctype_xdigit.c
+  tests/unictype/test-predicate-part1.h
+  tests/unictype/test-predicate-part2.h
+  tests/unistr/test-chr.h
+  tests/unistr/test-cpy.h
+  tests/unistr/test-pcpy.h
+  tests/unistr/test-set.h
+  tests/unistr/test-strcat.h
+  tests/unistr/test-u32-chr.c
+  tests/unistr/test-u32-cpy.c
+  tests/unistr/test-u32-pcpy.c
+  tests/unistr/test-u32-set.c
+  tests/unistr/test-u32-strcat.c
+  tests/unistr/test-u32-strlen.c
+  tests/uniwidth/test-uc_width.c
+  tests/uniwidth/test-uc_width2.c
+  tests/uniwidth/test-uc_width2.sh
+  tests/zerosize-ptr.h
+  lib/_Noreturn.h -> tests/_Noreturn.h
+  lib/accept.c -> tests/accept.c
+  lib/alloca.c -> tests/alloca.c
+  lib/anytostr.c -> tests/anytostr.c
+  lib/arg-nonnull.h -> tests/arg-nonnull.h
+  lib/arpa_inet.in.h -> tests/arpa_inet.in.h
+  lib/asnprintf.c -> tests/asnprintf.c
+  lib/at-func.c -> tests/at-func.c
+  lib/atoll.c -> tests/atoll.c
+  lib/bind.c -> tests/bind.c
+  lib/c++defs.h -> tests/c++defs.h
+  lib/c-strcasestr.c -> tests/c-strcasestr.c
+  lib/c-strcasestr.h -> tests/c-strcasestr.h
+  lib/c32rtomb.c -> tests/c32rtomb.c
+  lib/c32tob.c -> tests/c32tob.c
+  lib/connect.c -> tests/connect.c
+  lib/dtotimespec.c -> tests/dtotimespec.c
+  lib/fdopen.c -> tests/fdopen.c
+  lib/float+.h -> tests/float+.h
+  lib/float.c -> tests/float.c
+  lib/float.in.h -> tests/float.in.h
+  lib/fpucw.h -> tests/fpucw.h
+  lib/ftruncate.c -> tests/ftruncate.c
+  lib/glthread/thread.c -> tests/glthread/thread.c
+  lib/glthread/thread.h -> tests/glthread/thread.h
+  lib/hash-pjw.c -> tests/hash-pjw.c
+  lib/hash-pjw.h -> tests/hash-pjw.h
+  lib/imaxtostr.c -> tests/imaxtostr.c
+  lib/inet_pton.c -> tests/inet_pton.c
+  lib/inttostr.c -> tests/inttostr.c
+  lib/inttostr.h -> tests/inttostr.h
+  lib/ioctl.c -> tests/ioctl.c
+  lib/isnan.c -> tests/isnan.c
+  lib/isnand-nolibm.h -> tests/isnand-nolibm.h
+  lib/isnand.c -> tests/isnand.c
+  lib/isnanf-nolibm.h -> tests/isnanf-nolibm.h
+  lib/isnanf.c -> tests/isnanf.c
+  lib/isnanl-nolibm.h -> tests/isnanl-nolibm.h
+  lib/isnanl.c -> tests/isnanl.c
+  lib/itold.c -> tests/itold.c
+  lib/listen.c -> tests/listen.c
+  lib/math.c -> tests/math.c
+  lib/math.in.h -> tests/math.in.h
+  lib/nan.h -> tests/nan.h
+  lib/nanosleep.c -> tests/nanosleep.c
+  lib/netinet_in.in.h -> tests/netinet_in.in.h
+  lib/offtostr.c -> tests/offtostr.c
+  lib/perror.c -> tests/perror.c
+  lib/printf-args.c -> tests/printf-args.c
+  lib/printf-args.h -> tests/printf-args.h
+  lib/printf-parse.c -> tests/printf-parse.c
+  lib/printf-parse.h -> tests/printf-parse.h
+  lib/priv-set.c -> tests/priv-set.c
+  lib/priv-set.h -> tests/priv-set.h
+  lib/pselect.c -> tests/pselect.c
+  lib/pthread-thread.c -> tests/pthread-thread.c
+  lib/pthread.in.h -> tests/pthread.in.h
+  lib/pthread_sigmask.c -> tests/pthread_sigmask.c
+  lib/putenv.c -> tests/putenv.c
+  lib/rmdir.c -> tests/rmdir.c
+  lib/root-uid.h -> tests/root-uid.h
+  lib/sched.in.h -> tests/sched.in.h
+  lib/select.c -> tests/select.c
+  lib/setsockopt.c -> tests/setsockopt.c
+  lib/signbitd.c -> tests/signbitd.c
+  lib/signbitf.c -> tests/signbitf.c
+  lib/signbitl.c -> tests/signbitl.c
+  lib/signed-nan.h -> tests/signed-nan.h
+  lib/signed-snan.h -> tests/signed-snan.h
+  lib/size_max.h -> tests/size_max.h
+  lib/sleep.c -> tests/sleep.c
+  lib/snan.h -> tests/snan.h
+  lib/snprintf.c -> tests/snprintf.c
+  lib/socket.c -> tests/socket.c
+  lib/sockets.c -> tests/sockets.c
+  lib/sockets.h -> tests/sockets.h
+  lib/str-two-way.h -> tests/str-two-way.h
+  lib/strerror_r.c -> tests/strerror_r.c
+  lib/symlink.c -> tests/symlink.c
+  lib/symlinkat.c -> tests/symlinkat.c
+  lib/sys_ioctl.in.h -> tests/sys_ioctl.in.h
+  lib/sys_select.in.h -> tests/sys_select.in.h
+  lib/sys_socket.c -> tests/sys_socket.c
+  lib/sys_socket.in.h -> tests/sys_socket.in.h
+  lib/sys_uio.in.h -> tests/sys_uio.in.h
+  lib/time.c -> tests/time.c
+  lib/timespec-add.c -> tests/timespec-add.c
+  lib/timespec-sub.c -> tests/timespec-sub.c
+  lib/uinttostr.c -> tests/uinttostr.c
+  lib/umaxtostr.c -> tests/umaxtostr.c
+  lib/unistr/u-set.h -> tests/unistr/u-set.h
+  lib/unistr/u32-set.c -> tests/unistr/u32-set.c
+  lib/unlink.c -> tests/unlink.c
+  lib/unlinkat.c -> tests/unlinkat.c
+  lib/unlinkdir.c -> tests/unlinkdir.c
+  lib/unlinkdir.h -> tests/unlinkdir.h
+  lib/vasnprintf.c -> tests/vasnprintf.c
+  lib/vasnprintf.h -> tests/vasnprintf.h
+  lib/w32sock.h -> tests/w32sock.h
+  lib/warn-on-use.h -> tests/warn-on-use.h
+  lib/wctob.c -> tests/wctob.c
+  lib/wctomb-impl.h -> tests/wctomb-impl.h
+  lib/wctomb.c -> tests/wctomb.c
+  lib/windows-thread.c -> tests/windows-thread.c
+  lib/windows-thread.h -> tests/windows-thread.h
+  lib/windows-tls.c -> tests/windows-tls.c
+  lib/windows-tls.h -> tests/windows-tls.h
+  lib/xsize.c -> tests/xsize.c
+  lib/xsize.h -> tests/xsize.h
+  lib/xstrtol-error.c -> tests/xstrtol-error.c
+  lib/xstrtol-error.h -> tests/xstrtol-error.h
+  top/GNUmakefile
+  top/README-release
+  top/maint.mk
+Copying file gnulib-tests/at-func.c
+Copying file gnulib-tests/infinity.h
+Copying file gnulib-tests/isnan.c
+Copying file gnulib-tests/isnand-nolibm.h
+Copying file gnulib-tests/isnand.c
+Copying file gnulib-tests/isnanf-nolibm.h
+Copying file gnulib-tests/isnanf.c
+Copying file gnulib-tests/isnanl-nolibm.h
+Copying file gnulib-tests/isnanl.c
+Copying file gnulib-tests/math.c
+Copying file gnulib-tests/math.in.h
+Copying file gnulib-tests/minus-zero.h
+Copying file gnulib-tests/priv-set.c
+Copying file gnulib-tests/priv-set.h
+Copying file gnulib-tests/rmdir.c
+Copying file gnulib-tests/root-uid.h
+Copying file gnulib-tests/signbitd.c
+Copying file gnulib-tests/signbitf.c
+Copying file gnulib-tests/signbitl.c
+Copying file gnulib-tests/signed-nan.h
+Copying file gnulib-tests/signed-snan.h
+Copying file gnulib-tests/snan.h
+Copying file gnulib-tests/symlinkat.c
+Copying file gnulib-tests/test-btowc-1.sh
+Copying file gnulib-tests/test-btowc-2.sh
+Copying file gnulib-tests/test-btowc-3.sh
+Copying file gnulib-tests/test-c32_apply_type_test.c
+Copying file gnulib-tests/test-c32_get_type_test.c
+Copying file gnulib-tests/test-c32isalnum.c
+Copying file gnulib-tests/test-c32isalnum.sh
+Copying file gnulib-tests/test-c32isalpha.c
+Copying file gnulib-tests/test-c32isalpha.sh
+Copying file gnulib-tests/test-c32isblank.c
+Copying file gnulib-tests/test-c32isblank.sh
+Copying file gnulib-tests/test-c32iscntrl.c
+Copying file gnulib-tests/test-c32iscntrl.sh
+Copying file gnulib-tests/test-c32isdigit.c
+Copying file gnulib-tests/test-c32isdigit.sh
+Copying file gnulib-tests/test-c32isgraph.c
+Copying file gnulib-tests/test-c32isgraph.sh
+Copying file gnulib-tests/test-c32islower.c
+Copying file gnulib-tests/test-c32islower.sh
+Copying file gnulib-tests/test-c32isprint.c
+Copying file gnulib-tests/test-c32isprint.sh
+Copying file gnulib-tests/test-c32ispunct.c
+Copying file gnulib-tests/test-c32ispunct.sh
+Copying file gnulib-tests/test-c32isupper.c
+Copying file gnulib-tests/test-c32isupper.sh
+Copying file gnulib-tests/test-c32isxdigit.c
+Copying file gnulib-tests/test-c32isxdigit.sh
+Copying file gnulib-tests/test-c32rtomb-w32-8.sh
+Copying file gnulib-tests/test-fnmatch-1.sh
+Copying file gnulib-tests/test-fnmatch-2.sh
+Copying file gnulib-tests/test-fnmatch-3.sh
+Copying file gnulib-tests/test-fnmatch-4.sh
+Copying file gnulib-tests/test-fnmatch-5.sh
+Copying file gnulib-tests/test-fnmatch-w32-2.sh
+Copying file gnulib-tests/test-fnmatch-w32-3.sh
+Copying file gnulib-tests/test-fnmatch-w32-4.sh
+Copying file gnulib-tests/test-fnmatch-w32-5.sh
+Copying file gnulib-tests/test-fnmatch-w32-6.sh
+Copying file gnulib-tests/test-fnmatch-w32-7.sh
+Copying file gnulib-tests/test-fnmatch-w32-8.sh
+Copying file gnulib-tests/test-fnmatch-w32.c
+Copying file gnulib-tests/test-fstatat.c
+Copying file gnulib-tests/test-isnand-nolibm.c
+Copying file gnulib-tests/test-isnand.h
+Copying file gnulib-tests/test-isnanf-nolibm.c
+Copying file gnulib-tests/test-isnanf.h
+Copying file gnulib-tests/test-isnanl-nolibm.c
+Copying file gnulib-tests/test-isnanl.h
+Copying file gnulib-tests/test-iswctype.c
+Copying file gnulib-tests/test-iswpunct.c
+Copying file gnulib-tests/test-iswpunct.sh
+Copying file gnulib-tests/test-math.c
+Copying file gnulib-tests/test-mbrtoc32-w32-8.sh
+Copying file gnulib-tests/test-mbrtowc-1.sh
+Copying file gnulib-tests/test-mbrtowc-2.sh
+Copying file gnulib-tests/test-mbrtowc-3.sh
+Copying file gnulib-tests/test-mbrtowc-4.sh
+Copying file gnulib-tests/test-mbrtowc-5.sh
+Copying file gnulib-tests/test-mbrtowc-w32-8.sh
+Copying file gnulib-tests/test-mbsrtoc32s-1.sh
+Copying file gnulib-tests/test-mbsrtoc32s-2.sh
+Copying file gnulib-tests/test-mbsrtoc32s-3.sh
+Copying file gnulib-tests/test-mbsrtoc32s-4.sh
+Copying file gnulib-tests/test-mbsrtoc32s-5.sh
+Copying file gnulib-tests/test-mbsrtoc32s.c
+Copying file gnulib-tests/test-mbsrtowcs-1.sh
+Copying file gnulib-tests/test-mbsrtowcs-2.sh
+Copying file gnulib-tests/test-mbsrtowcs-3.sh
+Copying file gnulib-tests/test-mbsrtowcs-4.sh
+Copying file gnulib-tests/test-mbsrtowcs-5.sh
+Copying file gnulib-tests/test-popen.c
+Copying file gnulib-tests/test-popen.h
+Copying file gnulib-tests/test-priv-set.c
+Copying file gnulib-tests/test-readlinkat.c
+Copying file gnulib-tests/test-rmdir.c
+Copying file gnulib-tests/test-rmdir.h
+Copying file gnulib-tests/test-sigaction.c
+Copying file gnulib-tests/test-signbit.c
+Copying file gnulib-tests/test-symlinkat.c
+Copying file gnulib-tests/test-unlink.c
+Copying file gnulib-tests/test-unlink.h
+Copying file gnulib-tests/test-unlinkat.c
+Copying file gnulib-tests/test-wcrtomb-w32-8.sh
+Copying file gnulib-tests/test-wctype.c
+Copying file gnulib-tests/unictype/test-ctype_alnum.c
+Copying file gnulib-tests/unictype/test-ctype_alpha.c
+Copying file gnulib-tests/unictype/test-ctype_blank.c
+Copying file gnulib-tests/unictype/test-ctype_cntrl.c
+Copying file gnulib-tests/unictype/test-ctype_digit.c
+Copying file gnulib-tests/unictype/test-ctype_graph.c
+Copying file gnulib-tests/unictype/test-ctype_lower.c
+Copying file gnulib-tests/unictype/test-ctype_print.c
+Copying file gnulib-tests/unictype/test-ctype_punct.c
+Copying file gnulib-tests/unictype/test-ctype_upper.c
+Copying file gnulib-tests/unictype/test-ctype_xdigit.c
+Copying file gnulib-tests/unistr/test-chr.h
+Copying file gnulib-tests/unistr/test-cpy.h
+Copying file gnulib-tests/unistr/test-pcpy.h
+Copying file gnulib-tests/unistr/test-set.h
+Copying file gnulib-tests/unistr/test-strcat.h
+Copying file gnulib-tests/unistr/test-u32-chr.c
+Copying file gnulib-tests/unistr/test-u32-cpy.c
+Copying file gnulib-tests/unistr/test-u32-pcpy.c
+Copying file gnulib-tests/unistr/test-u32-set.c
+Copying file gnulib-tests/unistr/test-u32-strcat.c
+Copying file gnulib-tests/unistr/test-u32-strlen.c
+Copying file gnulib-tests/unistr/u-set.h
+Copying file gnulib-tests/unistr/u32-set.c
+Copying file gnulib-tests/unlink.c
+Copying file gnulib-tests/unlinkat.c
+Copying file gnulib-tests/unlinkdir.c
+Copying file gnulib-tests/unlinkdir.h
+Copying file lib/at-func.c
+Copying file lib/btoc32.c
+Copying file lib/c-file-type.c
+Copying file lib/c32_apply_type_test.c
+Copying file lib/c32_get_type_test.c
+Copying file lib/c32isalnum.c
+Copying file lib/c32isalpha.c
+Copying file lib/c32isblank.c
+Copying file lib/c32iscntrl.c
+Copying file lib/c32isdigit.c
+Copying file lib/c32isgraph.c
+Copying file lib/c32islower.c
+Copying file lib/c32isprint.c
+Copying file lib/c32ispunct.c
+Copying file lib/c32isupper.c
+Copying file lib/c32isxdigit.c
+Copying file lib/fstatat.c
+Copying file lib/iswctype-impl.h
+Copying file lib/iswctype.c
+Copying file lib/iswpunct.c
+Copying file lib/mbsrtoc32s-state.c
+Copying file lib/mbsrtoc32s.c
+Copying file lib/mbszero.c
+Copying file lib/mbuiterf.c
+Copying file lib/mbuiterf.h
+Copying file lib/pclose.c
+Copying file lib/popen.c
+Copying file lib/readdir.c
+Copying file lib/readlinkat.c
+Copying file lib/same-inode.c
+Copying file lib/sig-handler.c
+Copying file lib/sig-handler.h
+Copying file lib/sigaction.c
+Copying file lib/unictype/ctype_alnum.c
+Copying file lib/unictype/ctype_alnum.h
+Copying file lib/unictype/ctype_alpha.c
+Copying file lib/unictype/ctype_alpha.h
+Copying file lib/unictype/ctype_blank.c
+Copying file lib/unictype/ctype_blank.h
+Copying file lib/unictype/ctype_cntrl.c
+Copying file lib/unictype/ctype_cntrl.h
+Copying file lib/unictype/ctype_digit.c
+Copying file lib/unictype/ctype_digit.h
+Copying file lib/unictype/ctype_graph.c
+Copying file lib/unictype/ctype_graph.h
+Copying file lib/unictype/ctype_lower.c
+Copying file lib/unictype/ctype_lower.h
+Copying file lib/unictype/ctype_print.c
+Copying file lib/unictype/ctype_print.h
+Copying file lib/unictype/ctype_punct.c
+Copying file lib/unictype/ctype_punct.h
+Copying file lib/unictype/ctype_upper.c
+Copying file lib/unictype/ctype_upper.h
+Copying file lib/unictype/ctype_xdigit.c
+Copying file lib/unictype/ctype_xdigit.h
+Copying file lib/unistr.in.h
+Copying file lib/unistr/u-cpy.h
+Copying file lib/unistr/u-pcpy.h
+Copying file lib/unistr/u-strcat.h
+Copying file lib/unistr/u-strlen.h
+Copying file lib/unistr/u32-chr.c
+Copying file lib/unistr/u32-cpy.c
+Copying file lib/unistr/u32-pcpy.c
+Copying file lib/unistr/u32-strcat.c
+Copying file lib/unistr/u32-strlen.c
+Copying file lib/wctype-impl.h
+Copying file lib/wctype.c
+Copying file m4/exponentf.m4
+Copying file m4/exponentl.m4
+Copying file m4/fstatat.m4
+Copying file m4/gnulib-tool.m4
+Copying file m4/inline.m4
+Copying file m4/isnand.m4
+Copying file m4/isnanf.m4
+Copying file m4/isnanl.m4
+Copying file m4/iswctype.m4
+Copying file m4/iswpunct.m4
+Copying file m4/nan-mips.m4
+Copying file m4/pclose.m4
+Copying file m4/popen.m4
+Copying file m4/priv-set.m4
+Copying file m4/readdir.m4
+Copying file m4/readlinkat.m4
+Copying file m4/rmdir.m4
+Copying file m4/sigaction.m4
+Copying file m4/signbit.m4
+Copying file m4/snan.m4
+Copying file m4/symlinkat.m4
+Copying file m4/unlink.m4
+Copying file m4/unlinkat.m4
+Copying file m4/unlinkdir.m4
+Copying file m4/wctype.m4
+Copying file GNUmakefile
+Copying file README-release
+Copying file build-aux/announce-gen
+Copying file build-aux/config.rpath
+Copying file build-aux/do-release-commit-and-tag
+Copying file build-aux/gendocs.sh
+Copying file build-aux/git-version-gen
+Copying file build-aux/gitlog-to-changelog
+Copying file build-aux/gnu-web-doc-update
+Copying file build-aux/gnupload
+Copying file build-aux/update-copyright
+Copying file build-aux/useless-if-before-free
+Copying file build-aux/vc-list-files
+Copying file doc/gendocs_template
+Copying file doc/gendocs_template_min
+Copying file gnulib-tests/_Noreturn.h
+Copying file gnulib-tests/accept.c
+Copying file gnulib-tests/alloca.c
+Copying file gnulib-tests/altstack-util.h
+Copying file gnulib-tests/anytostr.c
+Copying file gnulib-tests/arg-nonnull.h
+Copying file gnulib-tests/arpa_inet.in.h
+Copying file gnulib-tests/asnprintf.c
+Copying file gnulib-tests/atoll.c
+Copying file gnulib-tests/bind.c
+Copying file gnulib-tests/c++defs.h
+Copying file gnulib-tests/c-strcasestr.c
+Copying file gnulib-tests/c-strcasestr.h
+Copying file gnulib-tests/c32rtomb.c
+Copying file gnulib-tests/c32tob.c
+Copying file gnulib-tests/connect.c
+Copying file gnulib-tests/dtotimespec.c
+Copying file gnulib-tests/fdopen.c
+Copying file gnulib-tests/float+.h
+Copying file gnulib-tests/float.c
+Copying file gnulib-tests/float.in.h
+Copying file gnulib-tests/fpucw.h
+Copying file gnulib-tests/ftruncate.c
+Copying file gnulib-tests/glthread/thread.c
+Copying file gnulib-tests/glthread/thread.h
+Copying file gnulib-tests/hash-pjw.c
+Copying file gnulib-tests/hash-pjw.h
+Copying file gnulib-tests/imaxtostr.c
+Copying file gnulib-tests/inet_pton.c
+Copying file gnulib-tests/init.sh
+Copying file gnulib-tests/inttostr.c
+Copying file gnulib-tests/inttostr.h
+Copying file gnulib-tests/ioctl.c
+Copying file gnulib-tests/itold.c
+Copying file gnulib-tests/listen.c
+Copying file gnulib-tests/locale.c
+Copying file gnulib-tests/macros.h
+Copying file gnulib-tests/mmap-anon-util.h
+Updating file gnulib-tests/nan.h (backup in gnulib-tests/nan.h~)
+Copying file gnulib-tests/nanosleep.c
+Copying file gnulib-tests/nap.h
+Copying file gnulib-tests/netinet_in.in.h
+Copying file gnulib-tests/offtostr.c
+Copying file gnulib-tests/perror.c
+Copying file gnulib-tests/printf-args.c
+Copying file gnulib-tests/printf-args.h
+Copying file gnulib-tests/printf-parse.c
+Copying file gnulib-tests/printf-parse.h
+Copying file gnulib-tests/pselect.c
+Copying file gnulib-tests/pthread-thread.c
+Copying file gnulib-tests/pthread.in.h
+Copying file gnulib-tests/pthread_sigmask.c
+Copying file gnulib-tests/putenv.c
+Copying file gnulib-tests/sched.in.h
+Copying file gnulib-tests/select.c
+Copying file gnulib-tests/setsockopt.c
+Copying file gnulib-tests/signature.h
+Copying file gnulib-tests/size_max.h
+Copying file gnulib-tests/sleep.c
+Copying file gnulib-tests/snprintf.c
+Copying file gnulib-tests/socket.c
+Copying file gnulib-tests/sockets.c
+Copying file gnulib-tests/sockets.h
+Copying file gnulib-tests/str-two-way.h
+Copying file gnulib-tests/strerror_r.c
+Copying file gnulib-tests/symlink.c
+Copying file gnulib-tests/sys_ioctl.in.h
+Copying file gnulib-tests/sys_select.in.h
+Copying file gnulib-tests/sys_socket.c
+Copying file gnulib-tests/sys_socket.in.h
+Copying file gnulib-tests/sys_uio.in.h
+Copying file gnulib-tests/test-accept.c
+Copying file gnulib-tests/test-alignasof.c
+Copying file gnulib-tests/test-alloca-opt.c
+Copying file gnulib-tests/test-argmatch.c
+Copying file gnulib-tests/test-arpa_inet.c
+Copying file gnulib-tests/test-assert.c
+Copying file gnulib-tests/test-binary-io.c
+Copying file gnulib-tests/test-binary-io.sh
+Copying file gnulib-tests/test-bind.c
+Copying file gnulib-tests/test-bitrotate.c
+Copying file gnulib-tests/test-btoc32-1.sh
+Copying file gnulib-tests/test-btoc32-2.sh
+Copying file gnulib-tests/test-btoc32-3.sh
+Copying file gnulib-tests/test-btoc32.c
+Copying file gnulib-tests/test-btowc.c
+Copying file gnulib-tests/test-c-ctype.c
+Copying file gnulib-tests/test-c-stack.c
+Copying file gnulib-tests/test-c-stack.sh
+Copying file gnulib-tests/test-c-stack2.sh
+Copying file gnulib-tests/test-c-strcase.sh
+Copying file gnulib-tests/test-c-strcasecmp.c
+Copying file gnulib-tests/test-c-strcasestr.c
+Copying file gnulib-tests/test-c-strncasecmp.c
+Copying file gnulib-tests/test-c32isspace.c
+Copying file gnulib-tests/test-c32isspace.sh
+Copying file gnulib-tests/test-c32rtomb-w32-2.sh
+Copying file gnulib-tests/test-c32rtomb-w32-3.sh
+Copying file gnulib-tests/test-c32rtomb-w32-4.sh
+Copying file gnulib-tests/test-c32rtomb-w32-5.sh
+Copying file gnulib-tests/test-c32rtomb-w32-6.sh
+Copying file gnulib-tests/test-c32rtomb-w32-7.sh
+Copying file gnulib-tests/test-c32rtomb-w32.c
+Copying file gnulib-tests/test-c32rtomb.c
+Copying file gnulib-tests/test-c32rtomb.sh
+Copying file gnulib-tests/test-c32tolower.c
+Copying file gnulib-tests/test-c32tolower.sh
+Copying file gnulib-tests/test-c32width.c
+Copying file gnulib-tests/test-calloc-gnu.c
+Copying file gnulib-tests/test-chdir.c
+Copying file gnulib-tests/test-cloexec.c
+Copying file gnulib-tests/test-close.c
+Copying file gnulib-tests/test-connect.c
+Copying file gnulib-tests/test-count-leading-zeros.c
+Copying file gnulib-tests/test-ctype.c
+Copying file gnulib-tests/test-dirent.c
+Copying file gnulib-tests/test-dirfd.c
+Copying file gnulib-tests/test-dirname.c
+Copying file gnulib-tests/test-dup-safer.c
+Copying file gnulib-tests/test-dup.c
+Copying file gnulib-tests/test-dup2.c
+Copying file gnulib-tests/test-dynarray.c
+Copying file gnulib-tests/test-environ.c
+Copying file gnulib-tests/test-errno.c
+Copying file gnulib-tests/test-error.c
+Copying file gnulib-tests/test-error.sh
+Copying file gnulib-tests/test-exclude.c
+Copying file gnulib-tests/test-exclude1.sh
+Copying file gnulib-tests/test-exclude2.sh
+Copying file gnulib-tests/test-exclude3.sh
+Copying file gnulib-tests/test-exclude4.sh
+Copying file gnulib-tests/test-exclude5.sh
+Copying file gnulib-tests/test-exclude6.sh
+Copying file gnulib-tests/test-exclude7.sh
+Copying file gnulib-tests/test-exclude8.sh
+Copying file gnulib-tests/test-fchdir.c
+Copying file gnulib-tests/test-fcntl-h.c
+Copying file gnulib-tests/test-fcntl.c
+Copying file gnulib-tests/test-fdopen.c
+Copying file gnulib-tests/test-fdopendir.c
+Copying file gnulib-tests/test-fgetc.c
+Copying file gnulib-tests/test-filenamecat.c
+Copying file gnulib-tests/test-float.c
+Copying file gnulib-tests/test-fnmatch-h.c
+Copying file gnulib-tests/test-fnmatch.c
+Copying file gnulib-tests/test-fopen-gnu.c
+Copying file gnulib-tests/test-fopen.c
+Copying file gnulib-tests/test-fopen.h
+Copying file gnulib-tests/test-fputc.c
+Copying file gnulib-tests/test-fread.c
+Copying file gnulib-tests/test-free.c
+Copying file gnulib-tests/test-freopen.c
+Copying file gnulib-tests/test-fstat.c
+Copying file gnulib-tests/test-ftruncate.c
+Copying file gnulib-tests/test-ftruncate.sh
+Copying file gnulib-tests/test-fwrite.c
+Copying file gnulib-tests/test-getcwd-lgpl.c
+Copying file gnulib-tests/test-getdtablesize.c
+Copying file gnulib-tests/test-getopt-gnu.c
+Copying file gnulib-tests/test-getopt-main.h
+Copying file gnulib-tests/test-getopt-posix.c
+Copying file gnulib-tests/test-getopt.h
+Copying file gnulib-tests/test-getopt_long.h
+Copying file gnulib-tests/test-getprogname.c
+Copying file gnulib-tests/test-getrandom.c
+Copying file gnulib-tests/test-gettimeofday.c
+Copying file gnulib-tests/test-hard-locale.c
+Copying file gnulib-tests/test-hash.c
+Copying file gnulib-tests/test-ignore-value.c
+Copying file gnulib-tests/test-inet_pton.c
+Copying file gnulib-tests/test-init.sh
+Copying file gnulib-tests/test-intprops.c
+Copying file gnulib-tests/test-inttostr.c
+Copying file gnulib-tests/test-inttypes.c
+Copying file gnulib-tests/test-ioctl.c
+Copying file gnulib-tests/test-isblank.c
+Copying file gnulib-tests/test-iswblank.c
+Copying file gnulib-tests/test-iswdigit.c
+Copying file gnulib-tests/test-iswdigit.sh
+Copying file gnulib-tests/test-iswxdigit.c
+Copying file gnulib-tests/test-iswxdigit.sh
+Copying file gnulib-tests/test-langinfo.c
+Copying file gnulib-tests/test-largefile.c
+Copying file gnulib-tests/test-limits-h.c
+Copying file gnulib-tests/test-listen.c
+Copying file gnulib-tests/test-localcharset.c
+Copying file gnulib-tests/test-locale.c
+Copying file gnulib-tests/test-localeconv.c
+Copying file gnulib-tests/test-lstat.c
+Copying file gnulib-tests/test-lstat.h
+Copying file gnulib-tests/test-malloc-gnu.c
+Copying file gnulib-tests/test-malloca.c
+Copying file gnulib-tests/test-mbrtoc32-1.sh
+Copying file gnulib-tests/test-mbrtoc32-2.sh
+Copying file gnulib-tests/test-mbrtoc32-3.sh
+Copying file gnulib-tests/test-mbrtoc32-4.sh
+Copying file gnulib-tests/test-mbrtoc32-5.sh
+Copying file gnulib-tests/test-mbrtoc32-w32-2.sh
+Copying file gnulib-tests/test-mbrtoc32-w32-3.sh
+Copying file gnulib-tests/test-mbrtoc32-w32-4.sh
+Copying file gnulib-tests/test-mbrtoc32-w32-5.sh
+Copying file gnulib-tests/test-mbrtoc32-w32-6.sh
+Copying file gnulib-tests/test-mbrtoc32-w32-7.sh
+Copying file gnulib-tests/test-mbrtoc32-w32.c
+Copying file gnulib-tests/test-mbrtoc32.c
+Copying file gnulib-tests/test-mbrtowc-w32-2.sh
+Copying file gnulib-tests/test-mbrtowc-w32-3.sh
+Copying file gnulib-tests/test-mbrtowc-w32-4.sh
+Copying file gnulib-tests/test-mbrtowc-w32-5.sh
+Copying file gnulib-tests/test-mbrtowc-w32-6.sh
+Copying file gnulib-tests/test-mbrtowc-w32-7.sh
+Copying file gnulib-tests/test-mbrtowc-w32.c
+Copying file gnulib-tests/test-mbrtowc.c
+Copying file gnulib-tests/test-mbscasecmp.c
+Copying file gnulib-tests/test-mbscasecmp.sh
+Copying file gnulib-tests/test-mbsinit.c
+Copying file gnulib-tests/test-mbsinit.sh
+Copying file gnulib-tests/test-mbsrtowcs.c
+Copying file gnulib-tests/test-memchr.c
+Copying file gnulib-tests/test-memrchr.c
+Copying file gnulib-tests/test-mkdir.c
+Copying file gnulib-tests/test-mkdir.h
+Copying file gnulib-tests/test-nanosleep.c
+Copying file gnulib-tests/test-netinet_in.c
+Copying file gnulib-tests/test-nl_langinfo-mt.c
+Copying file gnulib-tests/test-nl_langinfo1.c
+Copying file gnulib-tests/test-nl_langinfo1.sh
+Copying file gnulib-tests/test-nl_langinfo2.c
+Copying file gnulib-tests/test-nl_langinfo2.sh
+Copying file gnulib-tests/test-nstrftime.c
+Copying file gnulib-tests/test-nullptr.c
+Copying file gnulib-tests/test-open.c
+Copying file gnulib-tests/test-open.h
+Copying file gnulib-tests/test-openat.c
+Copying file gnulib-tests/test-pathmax.c
+Copying file gnulib-tests/test-perror.c
+Copying file gnulib-tests/test-perror.sh
+Copying file gnulib-tests/test-perror2.c
+Copying file gnulib-tests/test-pipe.c
+Copying file gnulib-tests/test-pselect.c
+Copying file gnulib-tests/test-pthread-thread.c
+Copying file gnulib-tests/test-pthread.c
+Copying file gnulib-tests/test-pthread_sigmask1.c
+Copying file gnulib-tests/test-pthread_sigmask2.c
+Copying file gnulib-tests/test-quotearg-simple.c
+Copying file gnulib-tests/test-quotearg.h
+Updating file gnulib-tests/test-raise.c (backup in gnulib-tests/test-raise.c~)
+Copying file gnulib-tests/test-rawmemchr.c
+Copying file gnulib-tests/test-readlink.c
+Copying file gnulib-tests/test-readlink.h
+Copying file gnulib-tests/test-realloc-gnu.c
+Copying file gnulib-tests/test-reallocarray.c
+Copying file gnulib-tests/test-regex.c
+Copying file gnulib-tests/test-sched.c
+Copying file gnulib-tests/test-select-fd.c
+Copying file gnulib-tests/test-select-in.sh
+Copying file gnulib-tests/test-select-out.sh
+Copying file gnulib-tests/test-select-stdin.c
+Copying file gnulib-tests/test-select.c
+Copying file gnulib-tests/test-select.h
+Copying file gnulib-tests/test-setenv.c
+Copying file gnulib-tests/test-setlocale_null-mt-all.c
+Copying file gnulib-tests/test-setlocale_null-mt-one.c
+Copying file gnulib-tests/test-setlocale_null.c
+Copying file gnulib-tests/test-setsockopt.c
+Copying file gnulib-tests/test-sh-quote.c
+Copying file gnulib-tests/test-signal-h.c
+Copying file gnulib-tests/test-sigprocmask.c
+Copying file gnulib-tests/test-sigsegv-catch-segv1.c
+Copying file gnulib-tests/test-sigsegv-catch-segv2.c
+Copying file gnulib-tests/test-sigsegv-catch-stackoverflow1.c
+Copying file gnulib-tests/test-sigsegv-catch-stackoverflow2.c
+Copying file gnulib-tests/test-sleep.c
+Copying file gnulib-tests/test-snprintf.c
+Copying file gnulib-tests/test-sockets.c
+Copying file gnulib-tests/test-stat-time.c
+Copying file gnulib-tests/test-stat.c
+Copying file gnulib-tests/test-stat.h
+Copying file gnulib-tests/test-stdbool.c
+Copying file gnulib-tests/test-stdckdint.c
+Copying file gnulib-tests/test-stddef.c
+Copying file gnulib-tests/test-stdint.c
+Copying file gnulib-tests/test-stdio.c
+Copying file gnulib-tests/test-stdlib.c
+Copying file gnulib-tests/test-strerror.c
+Copying file gnulib-tests/test-strerror_r.c
+Copying file gnulib-tests/test-string.c
+Copying file gnulib-tests/test-strings.c
+Copying file gnulib-tests/test-strnlen.c
+Copying file gnulib-tests/test-strtoimax.c
+Copying file gnulib-tests/test-strtoll.c
+Copying file gnulib-tests/test-symlink.c
+Copying file gnulib-tests/test-symlink.h
+Copying file gnulib-tests/test-sys_ioctl.c
+Copying file gnulib-tests/test-sys_random.c
+Copying file gnulib-tests/test-sys_select.c
+Copying file gnulib-tests/test-sys_socket.c
+Copying file gnulib-tests/test-sys_stat.c
+Copying file gnulib-tests/test-sys_time.c
+Copying file gnulib-tests/test-sys_types.c
+Copying file gnulib-tests/test-sys_uio.c
+Copying file gnulib-tests/test-sys_wait.c
+Copying file gnulib-tests/test-sys_wait.h
+Copying file gnulib-tests/test-thread_create.c
+Copying file gnulib-tests/test-thread_self.c
+Copying file gnulib-tests/test-time-h.c
+Copying file gnulib-tests/test-time.c
+Copying file gnulib-tests/test-timespec.c
+Copying file gnulib-tests/test-timespec_get.c
+Copying file gnulib-tests/test-uchar.c
+Copying file gnulib-tests/test-unistd.c
+Copying file gnulib-tests/test-unsetenv.c
+Copying file gnulib-tests/test-update-copyright.sh
+Copying file gnulib-tests/test-vasnprintf.c
+Copying file gnulib-tests/test-vc-list-files-cvs.sh
+Copying file gnulib-tests/test-vc-list-files-git.sh
+Copying file gnulib-tests/test-verify-try.c
+Copying file gnulib-tests/test-verify.c
+Copying file gnulib-tests/test-verify.sh
+Copying file gnulib-tests/test-version-etc.c
+Copying file gnulib-tests/test-version-etc.sh
+Copying file gnulib-tests/test-wchar.c
+Copying file gnulib-tests/test-wcrtomb-w32-2.sh
+Copying file gnulib-tests/test-wcrtomb-w32-3.sh
+Copying file gnulib-tests/test-wcrtomb-w32-4.sh
+Copying file gnulib-tests/test-wcrtomb-w32-5.sh
+Copying file gnulib-tests/test-wcrtomb-w32-6.sh
+Copying file gnulib-tests/test-wcrtomb-w32-7.sh
+Copying file gnulib-tests/test-wcrtomb-w32.c
+Copying file gnulib-tests/test-wcrtomb.c
+Copying file gnulib-tests/test-wcrtomb.sh
+Copying file gnulib-tests/test-wctype-h.c
+Copying file gnulib-tests/test-wcwidth.c
+Copying file gnulib-tests/test-xalloc-die.c
+Copying file gnulib-tests/test-xalloc-die.sh
+Copying file gnulib-tests/test-xstdopen.c
+Copying file gnulib-tests/test-xstdopen.sh
+Copying file gnulib-tests/test-xstrtoimax.c
+Copying file gnulib-tests/test-xstrtoimax.sh
+Copying file gnulib-tests/test-xstrtol.c
+Copying file gnulib-tests/test-xstrtol.sh
+Copying file gnulib-tests/test-xstrtoul.c
+Copying file gnulib-tests/test-year2038.c
+Copying file gnulib-tests/time.c
+Copying file gnulib-tests/timespec-add.c
+Copying file gnulib-tests/timespec-sub.c
+Copying file gnulib-tests/uinttostr.c
+Copying file gnulib-tests/umaxtostr.c
+Copying file gnulib-tests/unicase/test-mapping-part1.h
+Copying file gnulib-tests/unicase/test-mapping-part2.h
+Copying file gnulib-tests/unicase/test-uc_tolower.c
+Copying file gnulib-tests/unictype/test-ctype_space.c
+Copying file gnulib-tests/unictype/test-predicate-part1.h
+Copying file gnulib-tests/unictype/test-predicate-part2.h
+Copying file gnulib-tests/uniwidth/test-uc_width.c
+Copying file gnulib-tests/uniwidth/test-uc_width2.c
+Copying file gnulib-tests/uniwidth/test-uc_width2.sh
+Copying file gnulib-tests/vasnprintf.c
+Copying file gnulib-tests/vasnprintf.h
+Copying file gnulib-tests/w32sock.h
+Copying file gnulib-tests/warn-on-use.h
+Copying file gnulib-tests/wctob.c
+Copying file gnulib-tests/wctomb-impl.h
+Copying file gnulib-tests/wctomb.c
+Copying file gnulib-tests/windows-thread.c
+Copying file gnulib-tests/windows-thread.h
+Copying file gnulib-tests/windows-tls.c
+Copying file gnulib-tests/windows-tls.h
+Copying file gnulib-tests/xsize.c
+Copying file gnulib-tests/xsize.h
+Copying file gnulib-tests/xstrtol-error.c
+Copying file gnulib-tests/xstrtol-error.h
+Copying file gnulib-tests/zerosize-ptr.h
+Copying file lib/_Noreturn.h
+Copying file lib/alloca.in.h
+Copying file lib/allocator.c
+Copying file lib/allocator.h
+Copying file lib/arg-nonnull.h
+Copying file lib/argmatch.c
+Copying file lib/argmatch.h
+Copying file lib/assert.in.h
+Copying file lib/assure.h
+Copying file lib/attribute.h
+Copying file lib/basename-lgpl.c
+Copying file lib/basename-lgpl.h
+Copying file lib/basename.c
+Copying file lib/binary-io.c
+Copying file lib/binary-io.h
+Copying file lib/bitrotate.c
+Copying file lib/bitrotate.h
+Copying file lib/btowc.c
+Copying file lib/c++defs.h
+Copying file lib/c-ctype.c
+Copying file lib/c-ctype.h
+Copying file lib/c-stack.c
+Copying file lib/c-stack.h
+Copying file lib/c-strcase.h
+Copying file lib/c-strcasecmp.c
+Copying file lib/c-strcaseeq.h
+Copying file lib/c-strncasecmp.c
+Copying file lib/c32is-impl.h
+Copying file lib/c32isspace.c
+Copying file lib/c32to-impl.h
+Copying file lib/c32tolower.c
+Copying file lib/c32width.c
+Copying file lib/calloc.c
+Copying file lib/careadlinkat.c
+Copying file lib/careadlinkat.h
+Copying file lib/cdefs.h
+Copying file lib/chdir-long.c
+Copying file lib/chdir-long.h
+Copying file lib/cloexec.c
+Copying file lib/cloexec.h
+Copying file lib/close.c
+Copying file lib/closedir.c
+Copying file lib/count-leading-zeros.c
+Copying file lib/count-leading-zeros.h
+Copying file lib/ctype.in.h
+Copying file lib/diffseq.h
+Copying file lib/dirent-private.h
+Copying file lib/dirent.in.h
+Copying file lib/dirfd.c
+Copying file lib/dirname-lgpl.c
+Copying file lib/dirname.c
+Copying file lib/dirname.h
+Copying file lib/dup-safer-flag.c
+Copying file lib/dup-safer.c
+Copying file lib/dup.c
+Copying file lib/dup2.c
+Copying file lib/dynarray.h
+Copying file lib/errno.in.h
+Copying file lib/error.c
+Copying file lib/error.in.h
+Copying file lib/exclude.c
+Copying file lib/exclude.h
+Copying file lib/exitfail.c
+Copying file lib/exitfail.h
+Copying file lib/fchdir.c
+Copying file lib/fcntl.c
+Copying file lib/fcntl.in.h
+Copying file lib/fd-hook.c
+Copying file lib/fd-hook.h
+Copying file lib/fd-safer-flag.c
+Copying file lib/fd-safer.c
+Copying file lib/fdopendir.c
+Copying file lib/file-type.c
+Copying file lib/file-type.h
+Copying file lib/filename.h
+Copying file lib/filenamecat-lgpl.c
+Copying file lib/filenamecat.c
+Copying file lib/filenamecat.h
+Copying file lib/flexmember.h
+Copying file lib/fnmatch.c
+Copying file lib/fnmatch.in.h
+Copying file lib/fnmatch_loop.c
+Copying file lib/fopen.c
+Copying file lib/free.c
+Copying file lib/freopen.c
+Copying file lib/fstat.c
+Copying file lib/getcwd-lgpl.c
+Copying file lib/getdtablesize.c
+Copying file lib/getopt-cdefs.in.h
+Copying file lib/getopt-core.h
+Copying file lib/getopt-ext.h
+Copying file lib/getopt-pfx-core.h
+Copying file lib/getopt-pfx-ext.h
+Copying file lib/getopt.c
+Copying file lib/getopt.in.h
+Copying file lib/getopt1.c
+Copying file lib/getopt_int.h
+Copying file lib/getpagesize.c
+Copying file lib/getprogname.c
+Copying file lib/getprogname.h
+Copying file lib/getrandom.c
+Copying file lib/gettext.h
+Copying file lib/gettime.c
+Copying file lib/gettimeofday.c
+Copying file lib/glthread/lock.c
+Copying file lib/glthread/lock.h
+Copying file lib/glthread/threadlib.c
+Copying file lib/hard-locale.c
+Copying file lib/hard-locale.h
+Copying file lib/hash.c
+Copying file lib/hash.h
+Copying file lib/ialloc.c
+Copying file lib/ialloc.h
+Copying file lib/idx.h
+Copying file lib/ignore-value.h
+Copying file lib/intprops-internal.h
+Copying file lib/intprops.h
+Copying file lib/inttypes.in.h
+Copying file lib/isblank.c
+Copying file lib/iswblank.c
+Copying file lib/iswdigit.c
+Copying file lib/iswxdigit.c
+Copying file lib/langinfo.in.h
+Copying file lib/lc-charset-dispatch.c
+Copying file lib/lc-charset-dispatch.h
+Copying file lib/libc-config.h
+Copying file lib/limits.in.h
+Copying file lib/localcharset.c
+Copying file lib/localcharset.h
+Copying file lib/locale.in.h
+Copying file lib/localeconv.c
+Copying file lib/lstat.c
+Copying file lib/malloc.c
+Copying file lib/malloc/dynarray-skeleton.c
+Copying file lib/malloc/dynarray.h
+Copying file lib/malloc/dynarray_at_failure.c
+Copying file lib/malloc/dynarray_emplace_enlarge.c
+Copying file lib/malloc/dynarray_finalize.c
+Copying file lib/malloc/dynarray_resize.c
+Copying file lib/malloc/dynarray_resize_clear.c
+Copying file lib/malloca.c
+Copying file lib/malloca.h
+Copying file lib/mbchar.c
+Copying file lib/mbchar.h
+Copying file lib/mbrtoc32.c
+Copying file lib/mbrtowc-impl-utf8.h
+Copying file lib/mbrtowc-impl.h
+Copying file lib/mbrtowc.c
+Copying file lib/mbscasecmp.c
+Copying file lib/mbsinit.c
+Copying file lib/mbsrtowcs-impl.h
+Copying file lib/mbsrtowcs-state.c
+Copying file lib/mbsrtowcs.c
+Copying file lib/mbtowc-impl.h
+Copying file lib/mbtowc-lock.c
+Copying file lib/mbtowc-lock.h
+Copying file lib/mbtowc.c
+Copying file lib/mbuiter.c
+Copying file lib/mbuiter.h
+Copying file lib/memchr.c
+Copying file lib/memchr.valgrind
+Copying file lib/mempcpy.c
+Copying file lib/memrchr.c
+Copying file lib/minmax.h
+Copying file lib/mkdir.c
+Copying file lib/mkstemp.c
+Copying file lib/mktime-internal.h
+Copying file lib/mktime.c
+Copying file lib/msvc-inval.c
+Copying file lib/msvc-inval.h
+Copying file lib/msvc-nothrow.c
+Copying file lib/msvc-nothrow.h
+Copying file lib/nl_langinfo-lock.c
+Copying file lib/nl_langinfo.c
+Copying file lib/nstrftime.c
+Copying file lib/open.c
+Copying file lib/openat-die.c
+Copying file lib/openat-priv.h
+Copying file lib/openat-proc.c
+Copying file lib/openat.c
+Copying file lib/openat.h
+Copying file lib/opendir.c
+Copying file lib/pathmax.h
+Copying file lib/pipe-safer.c
+Copying file lib/pipe.c
+Copying file lib/progname.c
+Copying file lib/progname.h
+Copying file lib/propername-lite.c
+Copying file lib/propername.h
+Copying file lib/quote.h
+Copying file lib/quotearg.c
+Copying file lib/quotearg.h
+Copying file lib/raise.c
+Copying file lib/rawmemchr.c
+Copying file lib/rawmemchr.valgrind
+Copying file lib/readlink.c
+Copying file lib/realloc.c
+Copying file lib/reallocarray.c
+Copying file lib/regcomp.c
+Copying file lib/regex.c
+Copying file lib/regex.h
+Copying file lib/regex_internal.c
+Copying file lib/regex_internal.h
+Copying file lib/regexec.c
+Copying file lib/same-inode.h
+Copying file lib/save-cwd.c
+Copying file lib/save-cwd.h
+Copying file lib/setenv.c
+Copying file lib/setlocale-lock.c
+Copying file lib/setlocale_null.c
+Copying file lib/setlocale_null.h
+Copying file lib/sh-quote.c
+Copying file lib/sh-quote.h
+Copying file lib/signal.in.h
+Copying file lib/sigprocmask.c
+Copying file lib/sigsegv.c
+Copying file lib/sigsegv.in.h
+Copying file lib/stackvma.c
+Copying file lib/stackvma.h
+Copying file lib/stat-macros.h
+Copying file lib/stat-time.c
+Copying file lib/stat-time.h
+Copying file lib/stat-w32.c
+Copying file lib/stat-w32.h
+Copying file lib/stat.c
+Copying file lib/stdarg.in.h
+Copying file lib/stdckdint.in.h
+Copying file lib/stddef.in.h
+Copying file lib/stdint.in.h
+Copying file lib/stdio-read.c
+Copying file lib/stdio-write.c
+Copying file lib/stdio.in.h
+Copying file lib/stdlib.in.h
+Copying file lib/stdopen.c
+Copying file lib/stdopen.h
+Copying file lib/stpcpy.c
+Copying file lib/strcasecmp.c
+Copying file lib/strdup.c
+Copying file lib/streq.h
+Copying file lib/strerror-override.c
+Copying file lib/strerror-override.h
+Copying file lib/strerror.c
+Copying file lib/strftime.h
+Copying file lib/string.in.h
+Copying file lib/strings.in.h
+Copying file lib/stripslash.c
+Copying file lib/strncasecmp.c
+Copying file lib/strnlen.c
+Copying file lib/strnlen1.c
+Copying file lib/strnlen1.h
+Copying file lib/strptime.c
+Copying file lib/strtoimax.c
+Copying file lib/strtol.c
+Copying file lib/strtoll.c
+Copying file lib/sys_random.in.h
+Copying file lib/sys_stat.in.h
+Copying file lib/sys_time.in.h
+Copying file lib/sys_types.in.h
+Copying file lib/sys_wait.in.h
+Copying file lib/system-quote.c
+Copying file lib/system-quote.h
+Copying file lib/tempname.c
+Copying file lib/tempname.h
+Copying file lib/time-internal.h
+Copying file lib/time.in.h
+Copying file lib/time_r.c
+Copying file lib/time_rz.c
+Copying file lib/timegm.c
+Copying file lib/timespec.c
+Copying file lib/timespec.h
+Copying file lib/timespec_get.c
+Copying file lib/tzset.c
+Copying file lib/uchar.in.h
+Copying file lib/unicase.in.h
+Copying file lib/unicase/simple-mapping.h
+Copying file lib/unicase/tolower.c
+Copying file lib/unicase/tolower.h
+Copying file lib/unictype.in.h
+Copying file lib/unictype/bitmap.h
+Copying file lib/unictype/ctype_space.c
+Copying file lib/unictype/ctype_space.h
+Copying file lib/uninorm.in.h
+Copying file lib/unistd--.h
+Copying file lib/unistd-safer.h
+Copying file lib/unistd.c
+Copying file lib/unistd.in.h
+Copying file lib/unitypes.in.h
+Copying file lib/uniwidth.in.h
+Copying file lib/uniwidth/cjk.h
+Copying file lib/uniwidth/width.c
+Copying file lib/uniwidth/width0.h
+Copying file lib/uniwidth/width2.h
+Copying file lib/unlocked-io.h
+Copying file lib/unsetenv.c
+Copying file lib/verify.h
+Copying file lib/version-etc-fsf.c
+Copying file lib/version-etc.c
+Copying file lib/version-etc.h
+Copying file lib/warn-on-use.h
+Copying file lib/wchar.in.h
+Copying file lib/wcrtomb.c
+Copying file lib/wctype-h.c
+Copying file lib/wctype.in.h
+Copying file lib/wcwidth.c
+Copying file lib/windows-initguard.h
+Copying file lib/windows-mutex.c
+Copying file lib/windows-mutex.h
+Copying file lib/windows-once.c
+Copying file lib/windows-once.h
+Copying file lib/windows-recmutex.c
+Copying file lib/windows-recmutex.h
+Copying file lib/windows-rwlock.c
+Copying file lib/windows-rwlock.h
+Copying file lib/wmemchr-impl.h
+Copying file lib/wmemchr.c
+Copying file lib/wmempcpy.c
+Copying file lib/xalloc-die.c
+Copying file lib/xalloc-oversized.h
+Copying file lib/xalloc.h
+Copying file lib/xfreopen.c
+Copying file lib/xfreopen.h
+Copying file lib/xmalloc.c
+Copying file lib/xmalloca.c
+Copying file lib/xmalloca.h
+Copying file lib/xstdopen.c
+Copying file lib/xstdopen.h
+Copying file lib/xstrtoimax.c
+Copying file lib/xstrtol.c
+Copying file lib/xstrtol.h
+Copying file lib/xstrtoul.c
+Copying file m4/00gnulib.m4
+Copying file m4/__inline.m4
+Copying file m4/absolute-header.m4
+Copying file m4/alloca.m4
+Copying file m4/arpa_inet_h.m4
+Copying file m4/asm-underscore.m4
+Copying file m4/assert_h.m4
+Copying file m4/atoll.m4
+Copying file m4/btowc.m4
+Copying file m4/builtin-expect.m4
+Copying file m4/c-bool.m4
+Copying file m4/c-stack.m4
+Copying file m4/c32rtomb.m4
+Copying file m4/calloc.m4
+Copying file m4/chdir-long.m4
+Copying file m4/clock_time.m4
+Copying file m4/close.m4
+Copying file m4/closedir.m4
+Copying file m4/codeset.m4
+Copying file m4/config-h.m4
+Copying file m4/ctype_h.m4
+Copying file m4/dirent_h.m4
+Copying file m4/dirfd.m4
+Copying file m4/double-slash-root.m4
+Copying file m4/dup.m4
+Copying file m4/dup2.m4
+Copying file m4/eealloc.m4
+Copying file m4/environ.m4
+Copying file m4/errno_h.m4
+Copying file m4/error.m4
+Copying file m4/error_h.m4
+Copying file m4/exponentd.m4
+Copying file m4/extensions.m4
+Copying file m4/extern-inline.m4
+Copying file m4/fchdir.m4
+Copying file m4/fclose.m4
+Copying file m4/fcntl-o.m4
+Copying file m4/fcntl.m4
+Copying file m4/fcntl_h.m4
+Copying file m4/fdopen.m4
+Copying file m4/fdopendir.m4
+Copying file m4/fflush.m4
+Copying file m4/filenamecat.m4
+Copying file m4/flexmember.m4
+Copying file m4/float_h.m4
+Copying file m4/fnmatch.m4
+Copying file m4/fnmatch_h.m4
+Copying file m4/fopen.m4
+Copying file m4/fpieee.m4
+Copying file m4/free.m4
+Copying file m4/freopen.m4
+Copying file m4/fstat.m4
+Copying file m4/ftruncate.m4
+Copying file m4/getcwd.m4
+Copying file m4/getdtablesize.m4
+Copying file m4/getopt.m4
+Copying file m4/getpagesize.m4
+Copying file m4/getprogname.m4
+Copying file m4/getrandom.m4
+Copying file m4/gettime.m4
+Copying file m4/gettimeofday.m4
+Copying file m4/gnu-make.m4
+Copying file m4/gnulib-common.m4
+Copying file m4/host-cpu-c-abi.m4
+Copying file m4/include_next.m4
+Copying file m4/inet_pton.m4
+Copying file m4/intl-thread-locale.m4
+Copying file m4/intmax_t.m4
+Copying file m4/inttostr.m4
+Copying file m4/inttypes.m4
+Copying file m4/inttypes_h.m4
+Copying file m4/ioctl.m4
+Copying file m4/isblank.m4
+Copying file m4/iswblank.m4
+Copying file m4/iswdigit.m4
+Copying file m4/iswxdigit.m4
+Copying file m4/langinfo_h.m4
+Copying file m4/largefile.m4
+Copying file m4/lib-ld.m4
+Copying file m4/lib-link.m4
+Copying file m4/lib-prefix.m4
+Copying file m4/libsigsegv.m4
+Copying file m4/libunistring-base.m4
+Copying file m4/limits-h.m4
+Copying file m4/localcharset.m4
+Copying file m4/locale-fr.m4
+Copying file m4/locale-ja.m4
+Copying file m4/locale-tr.m4
+Copying file m4/locale-zh.m4
+Copying file m4/locale_h.m4
+Copying file m4/localeconv.m4
+Copying file m4/lock.m4
+Copying file m4/lstat.m4
+Copying file m4/malloc.m4
+Copying file m4/malloca.m4
+Copying file m4/manywarnings-c++.m4
+Copying file m4/manywarnings.m4
+Copying file m4/math_h.m4
+Copying file m4/mbchar.m4
+Copying file m4/mbiter.m4
+Copying file m4/mbrtoc32.m4
+Copying file m4/mbrtowc.m4
+Copying file m4/mbsinit.m4
+Copying file m4/mbsrtowcs.m4
+Copying file m4/mbstate_t.m4
+Copying file m4/mbtowc.m4
+Copying file m4/memchr.m4
+Copying file m4/mempcpy.m4
+Copying file m4/memrchr.m4
+Copying file m4/minmax.m4
+Copying file m4/mkdir.m4
+Copying file m4/mkstemp.m4
+Copying file m4/mktime.m4
+Copying file m4/mmap-anon.m4
+Copying file m4/mode_t.m4
+Copying file m4/msvc-inval.m4
+Copying file m4/msvc-nothrow.m4
+Copying file m4/multiarch.m4
+Copying file m4/musl.m4
+Copying file m4/nanosleep.m4
+Copying file m4/netinet_in_h.m4
+Copying file m4/nl_langinfo.m4
+Copying file m4/nocrash.m4
+Copying file m4/nstrftime.m4
+Copying file m4/nullptr.m4
+Copying file m4/off_t.m4
+Copying file m4/open-cloexec.m4
+Copying file m4/open-slash.m4
+Copying file m4/open.m4
+Copying file m4/openat.m4
+Copying file m4/opendir.m4
+Copying file m4/pathmax.m4
+Copying file m4/perl.m4
+Copying file m4/perror.m4
+Copying file m4/pid_t.m4
+Copying file m4/pipe.m4
+Copying file m4/printf.m4
+Copying file m4/pselect.m4
+Copying file m4/pthread-thread.m4
+Copying file m4/pthread_h.m4
+Copying file m4/pthread_rwlock_rdlock.m4
+Copying file m4/pthread_sigmask.m4
+Copying file m4/putenv.m4
+Copying file m4/quote.m4
+Copying file m4/quotearg.m4
+Copying file m4/raise.m4
+Copying file m4/rawmemchr.m4
+Copying file m4/readlink.m4
+Copying file m4/realloc.m4
+Copying file m4/reallocarray.m4
+Copying file m4/regex.m4
+Copying file m4/save-cwd.m4
+Copying file m4/sched_h.m4
+Copying file m4/select.m4
+Copying file m4/setenv.m4
+Copying file m4/setlocale_null.m4
+Copying file m4/sigaltstack.m4
+Copying file m4/signal_h.m4
+Copying file m4/signalblocking.m4
+Copying file m4/sigsegv.m4
+Copying file m4/size_max.m4
+Copying file m4/sleep.m4
+Copying file m4/snprintf.m4
+Copying file m4/socketlib.m4
+Copying file m4/sockets.m4
+Copying file m4/socklen.m4
+Copying file m4/sockpfaf.m4
+Copying file m4/ssize_t.m4
+Copying file m4/stack-direction.m4
+Copying file m4/stat-time.m4
+Copying file m4/stat.m4
+Copying file m4/std-gnu11.m4
+Copying file m4/stdalign.m4
+Copying file m4/stdarg.m4
+Copying file m4/stddef_h.m4
+Copying file m4/stdint.m4
+Copying file m4/stdint_h.m4
+Copying file m4/stdio_h.m4
+Copying file m4/stdlib_h.m4
+Copying file m4/stpcpy.m4
+Copying file m4/strcase.m4
+Copying file m4/strdup.m4
+Copying file m4/strerror.m4
+Copying file m4/strerror_r.m4
+Copying file m4/string_h.m4
+Copying file m4/strings_h.m4
+Copying file m4/strnlen.m4
+Copying file m4/strptime.m4
+Copying file m4/strtoimax.m4
+Copying file m4/strtoll.m4
+Copying file m4/symlink.m4
+Copying file m4/sys_ioctl_h.m4
+Copying file m4/sys_random_h.m4
+Copying file m4/sys_select_h.m4
+Copying file m4/sys_socket_h.m4
+Copying file m4/sys_stat_h.m4
+Copying file m4/sys_time_h.m4
+Copying file m4/sys_types_h.m4
+Copying file m4/sys_uio_h.m4
+Copying file m4/sys_wait_h.m4
+Copying file m4/tempname.m4
+Copying file m4/thread.m4
+Copying file m4/threadlib.m4
+Copying file m4/time.m4
+Copying file m4/time_h.m4
+Copying file m4/time_r.m4
+Copying file m4/time_rz.m4
+Copying file m4/timegm.m4
+Copying file m4/timespec.m4
+Copying file m4/timespec_get.m4
+Copying file m4/tm_gmtoff.m4
+Copying file m4/tzset.m4
+Copying file m4/uchar_h.m4
+Copying file m4/unicase_h.m4
+Copying file m4/unictype_h.m4
+Copying file m4/uninorm_h.m4
+Copying file m4/unistd-safer.m4
+Copying file m4/unistd_h.m4
+Copying file m4/unlocked-io.m4
+Copying file m4/vararrays.m4
+Copying file m4/vasnprintf.m4
+Copying file m4/version-etc.m4
+Copying file m4/visibility.m4
+Copying file m4/warn-on-use.m4
+Copying file m4/warnings.m4
+Copying file m4/wchar_h.m4
+Copying file m4/wchar_t.m4
+Copying file m4/wcrtomb.m4
+Copying file m4/wctob.m4
+Copying file m4/wctomb.m4
+Copying file m4/wctype_h.m4
+Copying file m4/wcwidth.m4
+Copying file m4/wint_t.m4
+Copying file m4/wmemchr.m4
+Copying file m4/wmempcpy.m4
+Copying file m4/xalloc.m4
+Copying file m4/xsize.m4
+Copying file m4/xstrtol.m4
+Copying file m4/zzgnulib.m4
+Copying file maint.mk
+Updating m4/gnulib-cache.m4 (backup in m4/gnulib-cache.m4~)
+Updating m4/gnulib-comp.m4 (backup in m4/gnulib-comp.m4~)
+Creating lib/gnulib.mk
+Creating gnulib-tests/gnulib.mk
+Updating gnulib-tests/.gitignore (backup in gnulib-tests/.gitignore~)
+Updating lib/.gitignore (backup in lib/.gitignore~)
+Updating m4/.gitignore (backup in m4/.gitignore~)
+Finished.
+
+You may need to add #include directives for the following .h files.
+  #include <assert.h>
+  #include <ctype.h>
+  #include <dirent.h>
+  #include <error.h>
+  #include <fcntl.h>
+  #include <fnmatch.h>
+  #include <getopt.h>
+  #include <inttypes.h>
+  #include <regex.h>
+  #include <signal.h>
+  #include <stdckdint.h>
+  #include <stdint.h>
+  #include <stdio.h>
+  #include <stdlib.h>
+  #include <string.h>
+  #include <strings.h>
+  #include <sys/stat.h>
+  #include <sys/wait.h>
+  #include <time.h>
+  #include <uchar.h>
+  #include <unistd.h>
+  #include "argmatch.h"
+  #include "attribute.h"
+  #include "binary-io.h"
+  #include "c-ctype.h"
+  #include "c-stack.h"
+  #include "careadlinkat.h"
+  #include "count-leading-zeros.h"
+  #include "diffseq.h"
+  #include "dirname.h"
+  #include "exclude.h"
+  #include "exitfail.h"
+  #include "file-type.h"
+  #include "filenamecat.h"
+  #include "flexmember.h"
+  #include "gettext.h"
+  #include "hard-locale.h"
+  #include "ialloc.h"
+  #include "idx.h"
+  #include "intprops.h"
+  #include "minmax.h"
+  #include "progname.h"
+  #include "propername.h"
+  #include "same-inode.h"
+  #include "sh-quote.h"
+  #include "stat-macros.h"
+  #include "stat-time.h"
+  #include "strftime.h"
+  #include "system-quote.h"
+  #include "timespec.h"
+  #include "unlocked-io.h"
+  #include "verify.h"
+  #include "version-etc.h"
+  #include "xalloc.h"
+  #include "xfreopen.h"
+  #include "xmalloca.h"
+  #include "xstdopen.h"
+  #include "xstrtol.h"
+
+You may need to use the following Makefile variables when linking.
+Use them in <program>_LDADD when linking a program, or
+in <library>_a_LDFLAGS or <library>_la_LDFLAGS when linking a library.
+  $(CLOCK_TIME_LIB)
+  $(GETRANDOM_LIB)
+  $(HARD_LOCALE_LIB)
+  $(LIBTHREAD)
+  $(LTLIBC32CONV) when linking with libtool, $(LIBC32CONV) otherwise
+  $(LTLIBCSTACK) when linking with libtool, $(LIBCSTACK) otherwise
+  $(LTLIBINTL) when linking with libtool, $(LIBINTL) otherwise
+  $(LTLIBSIGSEGV) when linking with libtool, $(LIBSIGSEGV) otherwise
+  $(LTLIBUNISTRING) when linking with libtool, $(LIBUNISTRING) otherwise
+  $(MBRTOWC_LIB)
+  $(SETLOCALE_NULL_LIB)
+
+Don't forget to
+  - "include gnulib.mk" from within "lib/Makefile.am",
+  - "include gnulib.mk" from within "gnulib-tests/Makefile.am",
+  - mention "-I m4" in ACLOCAL_AMFLAGS in Makefile.am
+    or add an AC_CONFIG_MACRO_DIRS([m4]) invocation in ./configure.ac,
+  - mention "m4/gnulib-cache.m4" in EXTRA_DIST in Makefile.am,
+  - invoke gl_EARLY in ./configure.ac, right after AC_PROG_CC,
+  - invoke gl_INIT in ./configure.ac.
