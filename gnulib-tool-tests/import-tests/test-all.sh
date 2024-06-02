@@ -99,4 +99,5 @@ run_test_group '
   test-gettext-7.sh
   test-gettext-8.sh
   test-diffutils-1.sh
+  test-rcs-1.sh
 '

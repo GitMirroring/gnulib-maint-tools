@@ -1,0 +1,1057 @@
+Module list with included dependencies (indented):
+  _Exit
+    absolute-header
+    access
+    alignasof
+    alignof
+    alloca-opt
+    assert-h
+    assure
+    at-internal
+  attribute
+    basename-lgpl
+    builtin-expect
+    c99
+    calloc-gnu
+    calloc-posix
+    chdir
+    chdir-long
+    clock-time
+    cloexec
+  close
+  closedir
+    concat-filename
+    d-ino
+  dirent
+    dirfd
+    dirname-lgpl
+  double-slash-root
+    dup
+    dup2
+  errno
+    error
+    error-h
+  exitfail
+  extensions
+    extern-inline
+    fchdir
+  fcntl
+  fcntl-h
+    fd-hook
+    fd-safer-flag
+    fdopendir
+    filename
+    filenamecat-lgpl
+  findprog
+    float
+    fpieee
+    fpucw
+    free-posix
+    frexp-nolibm
+    frexpl-nolibm
+  fstat
+    fstatat
+  ftruncate
+    gen-header
+  getcwd
+    getcwd-lgpl
+    getdtablesize
+  getlogin_r
+  getopt-gnu
+    getopt-posix
+    getprogname
+    getrandom
+    gettext-h
+  gettime
+    gettimeofday
+  git-version-gen
+  hash-pjw
+    ialloc
+    idx
+    include_next
+  inline
+    intprops
+    inttypes-incomplete
+    isnand-nolibm
+    isnanf-nolibm
+    isnanl-nolibm
+  largefile
+    libc-config
+    limits-h
+    lock
+    lstat
+    malloc-gnu
+    malloc-posix
+    malloca
+    math
+    mbszero
+  memchr
+  mempcpy
+    memrchr
+    minmax
+    mkdir
+  mkstemp
+    msvc-inval
+    msvc-nothrow
+    multiarch
+    nocrash
+  obstack
+  obstack-printf
+  open
+    openat
+    openat-die
+    openat-h
+    opendir
+    pathmax
+    pipe-posix
+    printf-frexp
+    printf-frexpl
+    printf-safe
+  progname
+    raise
+  readdir
+  readlink
+    realloc-gnu
+    realloc-posix
+    reallocarray
+    rewinddir
+  same-inode
+    save-cwd
+  scandir
+  sigaction
+  signal
+  signal-h
+    signbit
+    sigprocmask
+    size_max
+  snippet/_Noreturn
+  snippet/arg-nonnull
+    snippet/c++defs
+    snippet/warn-on-use
+  snprintf
+  sprintf-posix
+  ssize_t
+  stat
+  stat-time
+    std-gnu11
+  stdarg
+  stdbool
+    stdckdint
+    stddef
+  stdint
+  stdio
+  stdlib
+    stpcpy
+    strdup-posix
+    strerror
+    strerror-override
+  string
+  strsignal
+  strtok_r
+    sys_random
+  sys_stat
+    sys_time
+  sys_types
+  sys_wait
+    tempname
+    threadlib
+  time
+    time-h
+  time_r
+  timespec
+    tls
+  tzset
+  unistd
+  unistd-safer
+  unlink
+    utime
+    utime-h
+  utimens
+  vararrays
+    vasnprintf
+    verify
+  vla
+  waitpid
+    wchar
+    windows-mutex
+    windows-once
+    windows-recmutex
+    windows-rwlock
+    windows-tls
+  xalloc
+  xalloc-die
+    xalloc-oversized
+    xconcat-filename
+    xsize
+File list:
+  build-aux/git-version-gen
+  lib/_Exit.c
+  lib/_Noreturn.h
+  lib/access.c
+  lib/alignof.h
+  lib/alloca.in.h
+  lib/arg-nonnull.h
+  lib/asnprintf.c
+  lib/assert.in.h
+  lib/assure.h
+  lib/at-func.c
+  lib/attribute.h
+  lib/basename-lgpl.c
+  lib/basename-lgpl.h
+  lib/c++defs.h
+  lib/calloc.c
+  lib/cdefs.h
+  lib/chdir-long.c
+  lib/chdir-long.h
+  lib/cloexec.c
+  lib/cloexec.h
+  lib/close.c
+  lib/closedir.c
+  lib/concat-filename.c
+  lib/concat-filename.h
+  lib/dirent-private.h
+  lib/dirent.in.h
+  lib/dirfd.c
+  lib/dirname-lgpl.c
+  lib/dirname.h
+  lib/dup-safer-flag.c
+  lib/dup-safer.c
+  lib/dup.c
+  lib/dup2.c
+  lib/errno.in.h
+  lib/error.c
+  lib/error.in.h
+  lib/exitfail.c
+  lib/exitfail.h
+  lib/fchdir.c
+  lib/fcntl.c
+  lib/fcntl.in.h
+  lib/fd-hook.c
+  lib/fd-hook.h
+  lib/fd-safer-flag.c
+  lib/fd-safer.c
+  lib/fdopendir.c
+  lib/filename.h
+  lib/filenamecat-lgpl.c
+  lib/filenamecat.h
+  lib/findprog.c
+  lib/findprog.h
+  lib/float+.h
+  lib/float.c
+  lib/float.in.h
+  lib/fpucw.h
+  lib/free.c
+  lib/frexp.c
+  lib/frexpl.c
+  lib/fstat.c
+  lib/fstatat.c
+  lib/ftruncate.c
+  lib/getcwd-lgpl.c
+  lib/getcwd.c
+  lib/getdtablesize.c
+  lib/getlogin_r.c
+  lib/getopt-cdefs.in.h
+  lib/getopt-core.h
+  lib/getopt-ext.h
+  lib/getopt-pfx-core.h
+  lib/getopt-pfx-ext.h
+  lib/getopt.c
+  lib/getopt.in.h
+  lib/getopt1.c
+  lib/getopt_int.h
+  lib/getprogname.c
+  lib/getprogname.h
+  lib/getrandom.c
+  lib/gettext.h
+  lib/gettime.c
+  lib/gettimeofday.c
+  lib/glthread/lock.c
+  lib/glthread/lock.h
+  lib/glthread/threadlib.c
+  lib/glthread/tls.c
+  lib/glthread/tls.h
+  lib/hash-pjw.c
+  lib/hash-pjw.h
+  lib/ialloc.c
+  lib/ialloc.h
+  lib/idx.h
+  lib/intprops-internal.h
+  lib/intprops.h
+  lib/inttypes.in.h
+  lib/isnan.c
+  lib/isnand-nolibm.h
+  lib/isnand.c
+  lib/isnanf-nolibm.h
+  lib/isnanf.c
+  lib/isnanl-nolibm.h
+  lib/isnanl.c
+  lib/itold.c
+  lib/libc-config.h
+  lib/limits.in.h
+  lib/lstat.c
+  lib/malloc.c
+  lib/malloca.c
+  lib/malloca.h
+  lib/math.c
+  lib/math.in.h
+  lib/mbszero.c
+  lib/memchr.c
+  lib/memchr.valgrind
+  lib/mempcpy.c
+  lib/memrchr.c
+  lib/minmax.h
+  lib/mkdir.c
+  lib/mkstemp.c
+  lib/msvc-inval.c
+  lib/msvc-inval.h
+  lib/msvc-nothrow.c
+  lib/msvc-nothrow.h
+  lib/obstack.c
+  lib/obstack.in.h
+  lib/obstack_printf.c
+  lib/open.c
+  lib/openat-die.c
+  lib/openat-priv.h
+  lib/openat-proc.c
+  lib/openat.c
+  lib/openat.h
+  lib/opendir.c
+  lib/pathmax.h
+  lib/pipe-safer.c
+  lib/pipe.c
+  lib/printf-args.c
+  lib/printf-args.h
+  lib/printf-frexp.c
+  lib/printf-frexp.h
+  lib/printf-frexpl.c
+  lib/printf-frexpl.h
+  lib/printf-parse.c
+  lib/printf-parse.h
+  lib/progname.c
+  lib/progname.h
+  lib/raise.c
+  lib/readdir.c
+  lib/readlink.c
+  lib/realloc.c
+  lib/reallocarray.c
+  lib/rewinddir.c
+  lib/same-inode.c
+  lib/same-inode.h
+  lib/save-cwd.c
+  lib/save-cwd.h
+  lib/scandir.c
+  lib/sig-handler.c
+  lib/sig-handler.h
+  lib/sigaction.c
+  lib/siglist.h
+  lib/signal.in.h
+  lib/signbitd.c
+  lib/signbitf.c
+  lib/signbitl.c
+  lib/sigprocmask.c
+  lib/size_max.h
+  lib/snprintf.c
+  lib/sprintf.c
+  lib/stat-time.c
+  lib/stat-time.h
+  lib/stat-w32.c
+  lib/stat-w32.h
+  lib/stat.c
+  lib/stdarg.in.h
+  lib/stdckdint.in.h
+  lib/stddef.in.h
+  lib/stdint.in.h
+  lib/stdio-read.c
+  lib/stdio-write.c
+  lib/stdio.in.h
+  lib/stdlib.in.h
+  lib/stpcpy.c
+  lib/strdup.c
+  lib/strerror-override.c
+  lib/strerror-override.h
+  lib/strerror.c
+  lib/string.in.h
+  lib/stripslash.c
+  lib/strsignal.c
+  lib/strtok_r.c
+  lib/sys_random.in.h
+  lib/sys_stat.in.h
+  lib/sys_time.in.h
+  lib/sys_types.in.h
+  lib/sys_wait.in.h
+  lib/tempname.c
+  lib/tempname.h
+  lib/time.c
+  lib/time.in.h
+  lib/time_r.c
+  lib/timespec.c
+  lib/timespec.h
+  lib/tzset.c
+  lib/unistd--.h
+  lib/unistd-safer.h
+  lib/unistd.c
+  lib/unistd.in.h
+  lib/unlink.c
+  lib/utime.c
+  lib/utime.in.h
+  lib/utimens.c
+  lib/utimens.h
+  lib/vasnprintf.c
+  lib/vasnprintf.h
+  lib/verify.h
+  lib/vla.h
+  lib/waitpid.c
+  lib/warn-on-use.h
+  lib/wchar.in.h
+  lib/windows-initguard.h
+  lib/windows-mutex.c
+  lib/windows-mutex.h
+  lib/windows-once.c
+  lib/windows-once.h
+  lib/windows-recmutex.c
+  lib/windows-recmutex.h
+  lib/windows-rwlock.c
+  lib/windows-rwlock.h
+  lib/windows-tls.c
+  lib/windows-tls.h
+  lib/xalloc-die.c
+  lib/xalloc-oversized.h
+  lib/xalloc.h
+  lib/xconcat-filename.c
+  lib/xmalloc.c
+  lib/xsize.c
+  lib/xsize.h
+  m4/00gnulib.m4
+  m4/_Exit.m4
+  m4/__inline.m4
+  m4/absolute-header.m4
+  m4/access.m4
+  m4/alloca.m4
+  m4/assert_h.m4
+  m4/builtin-expect.m4
+  m4/c-bool.m4
+  m4/calloc.m4
+  m4/chdir-long.m4
+  m4/clock_time.m4
+  m4/close.m4
+  m4/closedir.m4
+  m4/codeset.m4
+  m4/d-ino.m4
+  m4/dirent_h.m4
+  m4/dirfd.m4
+  m4/double-slash-root.m4
+  m4/dup.m4
+  m4/dup2.m4
+  m4/eaccess.m4
+  m4/eealloc.m4
+  m4/errno_h.m4
+  m4/error.m4
+  m4/error_h.m4
+  m4/exponentd.m4
+  m4/exponentf.m4
+  m4/exponentl.m4
+  m4/extensions.m4
+  m4/extern-inline.m4
+  m4/fchdir.m4
+  m4/fcntl-o.m4
+  m4/fcntl.m4
+  m4/fcntl_h.m4
+  m4/fdopendir.m4
+  m4/filenamecat.m4
+  m4/findprog.m4
+  m4/float_h.m4
+  m4/fpieee.m4
+  m4/free.m4
+  m4/frexp.m4
+  m4/frexpl.m4
+  m4/fstat.m4
+  m4/fstatat.m4
+  m4/ftruncate.m4
+  m4/getcwd-abort-bug.m4
+  m4/getcwd-path-max.m4
+  m4/getcwd.m4
+  m4/getdtablesize.m4
+  m4/getlogin.m4
+  m4/getlogin_r.m4
+  m4/getopt.m4
+  m4/getpagesize.m4
+  m4/getprogname.m4
+  m4/getrandom.m4
+  m4/gettime.m4
+  m4/gettimeofday.m4
+  m4/gnulib-common.m4
+  m4/include_next.m4
+  m4/inline.m4
+  m4/intmax_t.m4
+  m4/inttypes.m4
+  m4/inttypes_h.m4
+  m4/isnand.m4
+  m4/isnanf.m4
+  m4/isnanl.m4
+  m4/largefile.m4
+  m4/ldexpl.m4
+  m4/limits-h.m4
+  m4/locale-fr.m4
+  m4/locale-ja.m4
+  m4/locale-zh.m4
+  m4/lock.m4
+  m4/lstat.m4
+  m4/malloc.m4
+  m4/malloca.m4
+  m4/math_h.m4
+  m4/mbrtowc.m4
+  m4/mbstate_t.m4
+  m4/memchr.m4
+  m4/mempcpy.m4
+  m4/memrchr.m4
+  m4/minmax.m4
+  m4/mkdir.m4
+  m4/mkstemp.m4
+  m4/mmap-anon.m4
+  m4/mode_t.m4
+  m4/msvc-inval.m4
+  m4/msvc-nothrow.m4
+  m4/multiarch.m4
+  m4/musl.m4
+  m4/nocrash.m4
+  m4/obstack-printf.m4
+  m4/obstack.m4
+  m4/off_t.m4
+  m4/open-cloexec.m4
+  m4/open-slash.m4
+  m4/open.m4
+  m4/openat.m4
+  m4/opendir.m4
+  m4/pathmax.m4
+  m4/pid_t.m4
+  m4/pipe.m4
+  m4/printf-frexp.m4
+  m4/printf-frexpl.m4
+  m4/printf.m4
+  m4/pthread_rwlock_rdlock.m4
+  m4/raise.m4
+  m4/readdir.m4
+  m4/readlink.m4
+  m4/realloc.m4
+  m4/reallocarray.m4
+  m4/rewinddir.m4
+  m4/save-cwd.m4
+  m4/scandir.m4
+  m4/sigaction.m4
+  m4/signal_h.m4
+  m4/signalblocking.m4
+  m4/signbit.m4
+  m4/size_max.m4
+  m4/snprintf.m4
+  m4/sprintf-posix.m4
+  m4/ssize_t.m4
+  m4/stat-time.m4
+  m4/stat.m4
+  m4/std-gnu11.m4
+  m4/stdalign.m4
+  m4/stdarg.m4
+  m4/stddef_h.m4
+  m4/stdint.m4
+  m4/stdint_h.m4
+  m4/stdio_h.m4
+  m4/stdlib_h.m4
+  m4/stpcpy.m4
+  m4/strdup.m4
+  m4/strerror.m4
+  m4/string_h.m4
+  m4/strsignal.m4
+  m4/strtok_r.m4
+  m4/sys_random_h.m4
+  m4/sys_socket_h.m4
+  m4/sys_stat_h.m4
+  m4/sys_time_h.m4
+  m4/sys_types_h.m4
+  m4/sys_wait_h.m4
+  m4/tempname.m4
+  m4/threadlib.m4
+  m4/time.m4
+  m4/time_h.m4
+  m4/time_r.m4
+  m4/timespec.m4
+  m4/tls.m4
+  m4/tzset.m4
+  m4/unistd-safer.m4
+  m4/unistd_h.m4
+  m4/unlink.m4
+  m4/utime.m4
+  m4/utime_h.m4
+  m4/utimens.m4
+  m4/utimes.m4
+  m4/vararrays.m4
+  m4/vasnprintf.m4
+  m4/waitpid.m4
+  m4/warn-on-use.m4
+  m4/wchar_h.m4
+  m4/wchar_t.m4
+  m4/wint_t.m4
+  m4/xalloc.m4
+  m4/xsize.m4
+  m4/zzgnulib.m4
+Creating directory ./lib
+Creating directory ./build-aux
+Creating directory ./lib/glthread
+Copying file build-aux/git-version-gen
+Copying file lib/_Exit.c
+Copying file lib/_Noreturn.h
+Copying file lib/access.c
+Copying file lib/alignof.h
+Copying file lib/alloca.in.h
+Copying file lib/arg-nonnull.h
+Copying file lib/asnprintf.c
+Copying file lib/assert.in.h
+Copying file lib/assure.h
+Copying file lib/at-func.c
+Copying file lib/attribute.h
+Copying file lib/basename-lgpl.c
+Copying file lib/basename-lgpl.h
+Copying file lib/c++defs.h
+Copying file lib/calloc.c
+Copying file lib/cdefs.h
+Copying file lib/chdir-long.c
+Copying file lib/chdir-long.h
+Copying file lib/cloexec.c
+Copying file lib/cloexec.h
+Copying file lib/close.c
+Copying file lib/closedir.c
+Copying file lib/concat-filename.c
+Copying file lib/concat-filename.h
+Copying file lib/dirent-private.h
+Copying file lib/dirent.in.h
+Copying file lib/dirfd.c
+Copying file lib/dirname-lgpl.c
+Copying file lib/dirname.h
+Copying file lib/dup-safer-flag.c
+Copying file lib/dup-safer.c
+Copying file lib/dup.c
+Copying file lib/dup2.c
+Copying file lib/errno.in.h
+Copying file lib/error.c
+Copying file lib/error.in.h
+Copying file lib/exitfail.c
+Copying file lib/exitfail.h
+Copying file lib/fchdir.c
+Copying file lib/fcntl.c
+Copying file lib/fcntl.in.h
+Copying file lib/fd-hook.c
+Copying file lib/fd-hook.h
+Copying file lib/fd-safer-flag.c
+Copying file lib/fd-safer.c
+Copying file lib/fdopendir.c
+Copying file lib/filename.h
+Copying file lib/filenamecat-lgpl.c
+Copying file lib/filenamecat.h
+Copying file lib/findprog.c
+Copying file lib/findprog.h
+Copying file lib/float+.h
+Copying file lib/float.c
+Copying file lib/float.in.h
+Copying file lib/fpucw.h
+Copying file lib/free.c
+Copying file lib/frexp.c
+Copying file lib/frexpl.c
+Copying file lib/fstat.c
+Copying file lib/fstatat.c
+Copying file lib/ftruncate.c
+Copying file lib/getcwd-lgpl.c
+Copying file lib/getcwd.c
+Copying file lib/getdtablesize.c
+Copying file lib/getlogin_r.c
+Copying file lib/getopt-cdefs.in.h
+Copying file lib/getopt-core.h
+Copying file lib/getopt-ext.h
+Copying file lib/getopt-pfx-core.h
+Copying file lib/getopt-pfx-ext.h
+Copying file lib/getopt.c
+Copying file lib/getopt.in.h
+Copying file lib/getopt1.c
+Copying file lib/getopt_int.h
+Copying file lib/getprogname.c
+Copying file lib/getprogname.h
+Copying file lib/getrandom.c
+Copying file lib/gettext.h
+Copying file lib/gettime.c
+Copying file lib/gettimeofday.c
+Copying file lib/glthread/lock.c
+Copying file lib/glthread/lock.h
+Copying file lib/glthread/threadlib.c
+Copying file lib/glthread/tls.c
+Copying file lib/glthread/tls.h
+Copying file lib/hash-pjw.c
+Copying file lib/hash-pjw.h
+Copying file lib/ialloc.c
+Copying file lib/ialloc.h
+Copying file lib/idx.h
+Copying file lib/intprops-internal.h
+Copying file lib/intprops.h
+Copying file lib/inttypes.in.h
+Copying file lib/isnan.c
+Copying file lib/isnand-nolibm.h
+Copying file lib/isnand.c
+Copying file lib/isnanf-nolibm.h
+Copying file lib/isnanf.c
+Copying file lib/isnanl-nolibm.h
+Copying file lib/isnanl.c
+Copying file lib/itold.c
+Copying file lib/libc-config.h
+Copying file lib/limits.in.h
+Copying file lib/lstat.c
+Copying file lib/malloc.c
+Copying file lib/malloca.c
+Copying file lib/malloca.h
+Copying file lib/math.c
+Copying file lib/math.in.h
+Copying file lib/mbszero.c
+Copying file lib/memchr.c
+Copying file lib/memchr.valgrind
+Copying file lib/mempcpy.c
+Copying file lib/memrchr.c
+Copying file lib/minmax.h
+Copying file lib/mkdir.c
+Copying file lib/mkstemp.c
+Copying file lib/msvc-inval.c
+Copying file lib/msvc-inval.h
+Copying file lib/msvc-nothrow.c
+Copying file lib/msvc-nothrow.h
+Copying file lib/obstack.c
+Copying file lib/obstack.in.h
+Copying file lib/obstack_printf.c
+Copying file lib/open.c
+Copying file lib/openat-die.c
+Copying file lib/openat-priv.h
+Copying file lib/openat-proc.c
+Copying file lib/openat.c
+Copying file lib/openat.h
+Copying file lib/opendir.c
+Copying file lib/pathmax.h
+Copying file lib/pipe-safer.c
+Copying file lib/pipe.c
+Copying file lib/printf-args.c
+Copying file lib/printf-args.h
+Copying file lib/printf-frexp.c
+Copying file lib/printf-frexp.h
+Copying file lib/printf-frexpl.c
+Copying file lib/printf-frexpl.h
+Copying file lib/printf-parse.c
+Copying file lib/printf-parse.h
+Copying file lib/progname.c
+Copying file lib/progname.h
+Copying file lib/raise.c
+Copying file lib/readdir.c
+Copying file lib/readlink.c
+Copying file lib/realloc.c
+Copying file lib/reallocarray.c
+Copying file lib/rewinddir.c
+Copying file lib/same-inode.c
+Copying file lib/same-inode.h
+Copying file lib/save-cwd.c
+Copying file lib/save-cwd.h
+Copying file lib/scandir.c
+Copying file lib/sig-handler.c
+Copying file lib/sig-handler.h
+Copying file lib/sigaction.c
+Copying file lib/siglist.h
+Copying file lib/signal.in.h
+Copying file lib/signbitd.c
+Copying file lib/signbitf.c
+Copying file lib/signbitl.c
+Copying file lib/sigprocmask.c
+Copying file lib/size_max.h
+Copying file lib/snprintf.c
+Copying file lib/sprintf.c
+Copying file lib/stat-time.c
+Copying file lib/stat-time.h
+Copying file lib/stat-w32.c
+Copying file lib/stat-w32.h
+Copying file lib/stat.c
+Copying file lib/stdarg.in.h
+Copying file lib/stdckdint.in.h
+Copying file lib/stddef.in.h
+Copying file lib/stdint.in.h
+Copying file lib/stdio-read.c
+Copying file lib/stdio-write.c
+Copying file lib/stdio.in.h
+Copying file lib/stdlib.in.h
+Copying file lib/stpcpy.c
+Copying file lib/strdup.c
+Copying file lib/strerror-override.c
+Copying file lib/strerror-override.h
+Copying file lib/strerror.c
+Copying file lib/string.in.h
+Copying file lib/stripslash.c
+Copying file lib/strsignal.c
+Copying file lib/strtok_r.c
+Copying file lib/sys_random.in.h
+Copying file lib/sys_stat.in.h
+Copying file lib/sys_time.in.h
+Copying file lib/sys_types.in.h
+Copying file lib/sys_wait.in.h
+Copying file lib/tempname.c
+Copying file lib/tempname.h
+Copying file lib/time.c
+Copying file lib/time.in.h
+Copying file lib/time_r.c
+Copying file lib/timespec.c
+Copying file lib/timespec.h
+Copying file lib/tzset.c
+Copying file lib/unistd--.h
+Copying file lib/unistd-safer.h
+Copying file lib/unistd.c
+Copying file lib/unistd.in.h
+Copying file lib/unlink.c
+Copying file lib/utime.c
+Copying file lib/utime.in.h
+Copying file lib/utimens.c
+Copying file lib/utimens.h
+Copying file lib/vasnprintf.c
+Copying file lib/vasnprintf.h
+Copying file lib/verify.h
+Copying file lib/vla.h
+Copying file lib/waitpid.c
+Copying file lib/warn-on-use.h
+Copying file lib/wchar.in.h
+Copying file lib/windows-initguard.h
+Copying file lib/windows-mutex.c
+Copying file lib/windows-mutex.h
+Copying file lib/windows-once.c
+Copying file lib/windows-once.h
+Copying file lib/windows-recmutex.c
+Copying file lib/windows-recmutex.h
+Copying file lib/windows-rwlock.c
+Copying file lib/windows-rwlock.h
+Copying file lib/windows-tls.c
+Copying file lib/windows-tls.h
+Copying file lib/xalloc-die.c
+Copying file lib/xalloc-oversized.h
+Copying file lib/xalloc.h
+Copying file lib/xconcat-filename.c
+Copying file lib/xmalloc.c
+Copying file lib/xsize.c
+Copying file lib/xsize.h
+Copying file m4/00gnulib.m4
+Copying file m4/_Exit.m4
+Copying file m4/__inline.m4
+Copying file m4/absolute-header.m4
+Copying file m4/access.m4
+Copying file m4/alloca.m4
+Copying file m4/assert_h.m4
+Copying file m4/builtin-expect.m4
+Copying file m4/c-bool.m4
+Copying file m4/calloc.m4
+Copying file m4/chdir-long.m4
+Copying file m4/clock_time.m4
+Copying file m4/close.m4
+Copying file m4/closedir.m4
+Copying file m4/codeset.m4
+Copying file m4/d-ino.m4
+Copying file m4/dirent_h.m4
+Copying file m4/dirfd.m4
+Copying file m4/double-slash-root.m4
+Copying file m4/dup.m4
+Copying file m4/dup2.m4
+Copying file m4/eaccess.m4
+Copying file m4/eealloc.m4
+Copying file m4/errno_h.m4
+Copying file m4/error.m4
+Copying file m4/error_h.m4
+Copying file m4/exponentd.m4
+Copying file m4/exponentf.m4
+Copying file m4/exponentl.m4
+Copying file m4/extensions.m4
+Copying file m4/extern-inline.m4
+Copying file m4/fchdir.m4
+Copying file m4/fcntl-o.m4
+Copying file m4/fcntl.m4
+Copying file m4/fcntl_h.m4
+Copying file m4/fdopendir.m4
+Copying file m4/filenamecat.m4
+Copying file m4/findprog.m4
+Copying file m4/float_h.m4
+Copying file m4/fpieee.m4
+Copying file m4/free.m4
+Copying file m4/frexp.m4
+Copying file m4/frexpl.m4
+Copying file m4/fstat.m4
+Copying file m4/fstatat.m4
+Copying file m4/ftruncate.m4
+Copying file m4/getcwd-abort-bug.m4
+Copying file m4/getcwd-path-max.m4
+Copying file m4/getcwd.m4
+Copying file m4/getdtablesize.m4
+Copying file m4/getlogin.m4
+Copying file m4/getlogin_r.m4
+Copying file m4/getopt.m4
+Copying file m4/getpagesize.m4
+Copying file m4/getprogname.m4
+Copying file m4/getrandom.m4
+Copying file m4/gettime.m4
+Copying file m4/gettimeofday.m4
+Copying file m4/gnulib-common.m4
+Copying file m4/gnulib-tool.m4
+Copying file m4/include_next.m4
+Copying file m4/inline.m4
+Copying file m4/intmax_t.m4
+Copying file m4/inttypes.m4
+Copying file m4/inttypes_h.m4
+Copying file m4/isnand.m4
+Copying file m4/isnanf.m4
+Copying file m4/isnanl.m4
+Copying file m4/largefile.m4
+Copying file m4/ldexpl.m4
+Copying file m4/limits-h.m4
+Copying file m4/locale-fr.m4
+Copying file m4/locale-ja.m4
+Copying file m4/locale-zh.m4
+Copying file m4/lock.m4
+Copying file m4/lstat.m4
+Copying file m4/malloc.m4
+Copying file m4/malloca.m4
+Copying file m4/math_h.m4
+Copying file m4/mbrtowc.m4
+Copying file m4/mbstate_t.m4
+Copying file m4/memchr.m4
+Copying file m4/mempcpy.m4
+Copying file m4/memrchr.m4
+Copying file m4/minmax.m4
+Copying file m4/mkdir.m4
+Copying file m4/mkstemp.m4
+Copying file m4/mmap-anon.m4
+Copying file m4/mode_t.m4
+Copying file m4/msvc-inval.m4
+Copying file m4/msvc-nothrow.m4
+Copying file m4/multiarch.m4
+Copying file m4/musl.m4
+Copying file m4/nocrash.m4
+Copying file m4/obstack-printf.m4
+Copying file m4/obstack.m4
+Copying file m4/off_t.m4
+Copying file m4/open-cloexec.m4
+Copying file m4/open-slash.m4
+Copying file m4/open.m4
+Copying file m4/openat.m4
+Copying file m4/opendir.m4
+Copying file m4/pathmax.m4
+Copying file m4/pid_t.m4
+Copying file m4/pipe.m4
+Copying file m4/printf-frexp.m4
+Copying file m4/printf-frexpl.m4
+Copying file m4/printf.m4
+Copying file m4/pthread_rwlock_rdlock.m4
+Copying file m4/raise.m4
+Copying file m4/readdir.m4
+Copying file m4/readlink.m4
+Copying file m4/realloc.m4
+Copying file m4/reallocarray.m4
+Copying file m4/rewinddir.m4
+Copying file m4/save-cwd.m4
+Copying file m4/scandir.m4
+Copying file m4/sigaction.m4
+Copying file m4/signal_h.m4
+Copying file m4/signalblocking.m4
+Copying file m4/signbit.m4
+Copying file m4/size_max.m4
+Copying file m4/snprintf.m4
+Copying file m4/sprintf-posix.m4
+Copying file m4/ssize_t.m4
+Copying file m4/stat-time.m4
+Copying file m4/stat.m4
+Copying file m4/std-gnu11.m4
+Copying file m4/stdalign.m4
+Copying file m4/stdarg.m4
+Copying file m4/stddef_h.m4
+Copying file m4/stdint.m4
+Copying file m4/stdint_h.m4
+Copying file m4/stdio_h.m4
+Copying file m4/stdlib_h.m4
+Copying file m4/stpcpy.m4
+Copying file m4/strdup.m4
+Copying file m4/strerror.m4
+Copying file m4/string_h.m4
+Copying file m4/strsignal.m4
+Copying file m4/strtok_r.m4
+Copying file m4/sys_random_h.m4
+Copying file m4/sys_socket_h.m4
+Copying file m4/sys_stat_h.m4
+Copying file m4/sys_time_h.m4
+Copying file m4/sys_types_h.m4
+Copying file m4/sys_wait_h.m4
+Copying file m4/tempname.m4
+Copying file m4/threadlib.m4
+Copying file m4/time.m4
+Copying file m4/time_h.m4
+Copying file m4/time_r.m4
+Copying file m4/timespec.m4
+Copying file m4/tls.m4
+Copying file m4/tzset.m4
+Copying file m4/unistd-safer.m4
+Copying file m4/unistd_h.m4
+Copying file m4/unlink.m4
+Copying file m4/utime.m4
+Copying file m4/utime_h.m4
+Copying file m4/utimens.m4
+Copying file m4/utimes.m4
+Copying file m4/vararrays.m4
+Copying file m4/vasnprintf.m4
+Copying file m4/waitpid.m4
+Copying file m4/warn-on-use.m4
+Copying file m4/wchar_h.m4
+Copying file m4/wchar_t.m4
+Copying file m4/wint_t.m4
+Copying file m4/xalloc.m4
+Copying file m4/xsize.m4
+Copying file m4/zzgnulib.m4
+Updating m4/gnulib-cache.m4 (backup in m4/gnulib-cache.m4~)
+Creating m4/gnulib-comp.m4
+Creating lib/Makefile.am
+Finished.
+
+You may need to add #include directives for the following .h files.
+  #include <dirent.h>
+  #include <errno.h>
+  #include <fcntl.h>
+  #include <getopt.h>
+  #include <signal.h>
+  #include <stdarg.h>
+  #include <stdint.h>
+  #include <stdio.h>
+  #include <stdlib.h>
+  #include <string.h>
+  #include <sys/stat.h>
+  #include <sys/types.h>
+  #include <sys/wait.h>
+  #include <time.h>
+  #include <unistd.h>
+  #include "attribute.h"
+  #include "exitfail.h"
+  #include "findprog.h"
+  #include "hash-pjw.h"
+  #include "obstack.h"
+  #include "progname.h"
+  #include "same-inode.h"
+  #include "stat-time.h"
+  #include "timespec.h"
+  #include "unistd-safer.h"
+  #include "utimens.h"
+  #include "xalloc.h"
+
+You may need to use the following Makefile variables when linking.
+Use them in <program>_LDADD when linking a program, or
+in <library>_a_LDFLAGS or <library>_la_LDFLAGS when linking a library.
+  $(CLOCK_TIME_LIB)
+  $(GETLOGIN_LIB)
+  $(GETRANDOM_LIB)
+  $(LIBTHREAD)
+  $(LTLIBINTL) when linking with libtool, $(LIBINTL) otherwise
+
+Don't forget to
+  - add "lib/Makefile" to AC_CONFIG_FILES in ./configure.ac,
+  - mention "lib" in SUBDIRS in Makefile.am,
+  - mention "-I m4" in ACLOCAL_AMFLAGS in Makefile.am
+    or add an AC_CONFIG_MACRO_DIRS([m4]) invocation in ./configure.ac,
+  - mention "m4/gnulib-cache.m4" in EXTRA_DIST in Makefile.am,
+  - invoke gl_EARLY in ./configure.ac, right after AC_PROG_CC,
+  - invoke gl_INIT in ./configure.ac.
