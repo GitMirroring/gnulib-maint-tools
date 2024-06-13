@@ -1,0 +1,8 @@
+The following code search services are available on the web:
+
+* https://codesearch.debian.net/
+  all Debian source code
+* https://codesearch.isocpp.org/
+  C/C++ source code from many packages
+* https://github.com/search?type=code&q=...
+  all source code on GitHub
