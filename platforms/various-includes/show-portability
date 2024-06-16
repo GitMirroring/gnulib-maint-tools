@@ -35,17 +35,29 @@ if test "x$1" = "x--doc"; then
         line=$line', glibc 2.3.6'
       fi
     fi
-    if ! func_has macos-11.1 "$header"; then
-      line=$line', macOS 11.1'
+    if ! func_has macos-14.5 "$header"; then
+      line=$line', macOS 14'
     else
-      if ! func_has macosx-10.13 "$header"; then
-        line=$line', Mac OS X 10.13'
+      if ! func_has macos-13.6 "$header"; then
+        line=$line', macOS 13'
       else
-        if ! func_has macosx-10.5 "$header"; then
-          line=$line', Mac OS X 10.5'
+        if ! func_has macos-12.7 "$header"; then
+          line=$line', macOS 12'
         else
-          if ! func_has macosx-10.3 "$header"; then
-            line=$line', Mac OS X 10.3'
+          if ! func_has macos-11.7 "$header"; then
+            line=$line', macOS 11'
+          else
+            if ! func_has macosx-10.13 "$header"; then
+              line=$line', Mac OS X 10.13'
+            else
+              if ! func_has macosx-10.5 "$header"; then
+                line=$line', Mac OS X 10.5'
+              else
+                if ! func_has macosx-10.3 "$header"; then
+                  line=$line', Mac OS X 10.3'
+                fi
+              fi
+            fi
           fi
         fi
       fi
@@ -168,9 +180,9 @@ if test "x$1" = "x--doc"; then
         fi
       fi
     fi
-    if ! func_has irix-6.5 "$header"; then
-      line=$line', IRIX 6.5'
-    fi
+    #if ! func_has irix-6.5 "$header"; then
+    #  line=$line', IRIX 6.5'
+    #fi
     #if ! func_has osf1-5.1a "$header"; then
     #  line=$line', OSF/1 5.1'
     #else
