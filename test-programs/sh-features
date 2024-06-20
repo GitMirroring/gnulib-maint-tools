@@ -1,0 +1,115 @@
+# This program determines the features of a Bourne-compatible shell.
+# Usage: SHELL sh-features 2>/dev/null
+# You find the known results at the end of this script.
+
+echo '1 - $(...) syntax for command substitution'
+echo '2 - printf builtin supports octal escapes correctly'
+echo '3 - local variables with non-surprising semantics'
+echo '4 - sane tracing (set -x)'
+echo '5 - locally bound shell options'
+
+if (eval 'test $(echo y) = y'); then
+  posix_command_subst=yes
+else
+  posix_command_subst=no
+fi
+
+if { LC_ALL=en_US.UTF-8 printf "\\351" 2>/dev/null \
+     | LC_ALL=C tr "\\351" x | LC_ALL=C grep "^x$" > /dev/null; } \
+   && { printf "\\351" 2>/dev/null \
+        | LC_ALL=C tr "\\351" x | LC_ALL=C grep "^x$" > /dev/null; }; then
+  printf_works=yes
+else
+  printf_works=no
+fi
+
+f_local_() { local v=1; }
+f_dash_local_fail_() { local t=`printf " 1"`; }
+if f_local_ && f_dash_local_fail_; then
+  local_works=yes
+else
+  local_works=no
+fi
+
+trace_err=`(exec 3>&1; set -x; P=1 true 2>&3) 2> /dev/null`
+if test -z "$trace_err"; then
+  tracing_works=yes
+else
+  tracing_works=no
+fi
+
+f_tracing_off() { local -; set +x; is_tracing_2=`{ :; } 2>&1`; }
+f_tracing_on()  { local -; set -x; is_tracing_5=`{ :; } 2>&1`; }
+set -x
+is_tracing_1=`{ :; } 2>&1`
+f_tracing_off
+is_tracing_3=`{ :; } 2>&1`
+set +x
+is_tracing_4=`{ :; } 2>&1`
+f_tracing_on
+is_tracing_6=`{ :; } 2>&1`
+set +x
+if test -n "$is_tracing_1" && test -z "$is_tracing_2" && test -n "$is_tracing_3" \
+   && test -z "$is_tracing_4" && test -n "$is_tracing_5" && test -z "$is_tracing_6"; then
+  locally_bound_options=yes
+else
+  echo "is_tracing_1=$is_tracing_1" 1>&2
+  echo "is_tracing_2=$is_tracing_2" 1>&2
+  echo "is_tracing_3=$is_tracing_3" 1>&2
+  echo "is_tracing_4=$is_tracing_4" 1>&2
+  echo "is_tracing_5=$is_tracing_5" 1>&2
+  echo "is_tracing_6=$is_tracing_6" 1>&2
+  locally_bound_options=no
+fi
+
+echo "1 2 3 4 5"
+echo "$posix_command_subst $printf_works $local_works $tracing_works $locally_bound_options" \
+  | sed -e 's/yes/Y/g' -e 's/no/-/g'
+
+exit 0
+
+====================== Results ======================
+1 - $(...) syntax for command substitution
+2 - printf builtin supports octal escapes correctly
+3 - local variables with non-surprising semantics
+4 - sane tracing (set -x)
+5 - locally bound shell options
+
+                    1 2 3 4 5
+bash 1.14.7         Y Y Y Y -
+bash 2.05b          Y Y Y Y -
+bash 3.2.57         Y Y Y Y -
+bash 4.4.18         Y Y Y Y Y
+bash 5.2.21         Y Y Y Y Y
+dash 0.5.11         Y Y Y Y Y
+zsh 5.8.11          Y Y Y Y Y
+busybox sh          Y Y Y Y Y
+macOS 10.5 sh       Y Y Y Y -
+macOS 12 sh         Y Y Y Y -
+FreeBSD 5.2.1 sh    Y Y - Y Y
+FreeBSD 14.0 sh     Y Y Y Y Y
+NetBSD 10.0 sh      Y Y - Y Y
+OpenBSD 7.5 sh      Y Y Y - Y
+AIX 7.1 sh          Y ? Y - Y
+Solaris 10 sh       - Y - - -
+Solaris 11 sh       Y Y - - -
+
+
+Details for 5:
+
+bash 1.14.7, bash 2.05b, bash 3.2.57, macOS 10.5 sh, macOS 12 sh
+is_tracing_1=++ :
+is_tracing_2=
+is_tracing_3=
+is_tracing_4=
+is_tracing_5=++ :
+is_tracing_6=++ :
+
+Solaris 10 sh, Solaris 11 sh
+is_tracing_1=+ :
+is_tracing_2=
+is_tracing_3=
+is_tracing_4=
+is_tracing_5=+ :
+is_tracing_6=+ :
+
