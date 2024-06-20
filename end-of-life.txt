@@ -12,11 +12,12 @@ End-of-life / end-of-support data for various OS releases
   For RHEL, consider the end of "maintenance support", not the end of "extended life phase".
   RHEL / CentOS 5:               2017-03-31 †
   RHEL / CentOS 6:               2020-11-30 †
-  RHEL / CentOS 7:               2024-06-30
+  RHEL / CentOS 7:               2028-06-30 (S)
   RHEL / CentOS 8 / AlmaLinux 8: 2029-05-31
   RHEL / AlmaLinux 9:            2032-05-31
   Reference: https://en.wikipedia.org/wiki/Red_Hat_Enterprise_Linux#Version_history_and_timeline
              https://access.redhat.com/support/policy/updates/errata
+             (S) https://www.suse.com/products/suse-liberty-linux/
              https://endoflife.date/almalinux
 
 * Ubuntu
