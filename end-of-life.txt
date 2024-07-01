@@ -3,7 +3,7 @@ End-of-life / end-of-support data for various OS releases
 
 * Debian
   Debian 9: 2022-07-01 †
-  Debian 10: 2024-06-30
+  Debian 10: 2024-06-30 †
   Debian 11: 2026-06-30
   Debian 12: 2028-06-10
   Reference: https://endoflife.date/debian
