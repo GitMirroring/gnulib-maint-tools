@@ -1,0 +1,20 @@
+The program in this directory extract information about how the pthread rwlocks
+of a platform are implemented.
+
+1) foo.c is a program that shows in which order the waiting threads get granted
+   access to the lock.
+
+   Compilation instructions are at the end of the file.
+
+   foo.sh is equivalent to "./foo 5".
+
+2) outputs/ contains the output of "./foo 5" on various platforms. Each
+   invocation has been done at least twice, so as to determine the degree
+   of randomness in the output.
+
+3) rwlock-analyze.sh is a program that analyzes one of the "./foo 5" outputs and
+   produces a textual description of how the pthread rwlocks work.
+
+4) results/ contains the results of rwlock-analyze.sh for each of the platforms.
+
+5) results.txt summarizes these results in a single file (copy&pasted).

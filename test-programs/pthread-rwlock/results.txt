@@ -1,0 +1,134 @@
+How do the implementations work?
+
+glibc/Linux <2.25 default, glibc/Linux PREFER_WRITER, AIX, Android
+  When releasing the last reader lock:
+    If at least one of the enqueued lock attempts is for reading, the
+    first one of them is granted.
+    Otherwise, the first of the waiting write attempts is granted.
+  When releasing a writer lock:
+    If at least one of the enqueued lock attempts is for writing, the
+    first one of them is granted.
+    Otherwise, one of the waiting read attempts is granted.
+  This implementation does not globally prefer readers, only when releasing
+  a reader lock.
+  This implementation does not globally prefer writers, only when releasing
+  a writer lock.
+
+glibc/Linux PREFER_WRITER_NONRECURSIVE, FreeBSD, Cygwin
+  When releasing the last reader lock:
+    The first of the enqueued lock attempts is granted.
+  When releasing a writer lock:
+    If at least one of the enqueued lock attempts is for writing, the
+    first one of them is granted.
+    Otherwise, one of the waiting read attempts is granted.
+  This implementation does not prefer readers.
+  This implementation does not globally prefer writers, only when releasing
+  a writer lock.
+
+glibc/Linux ≥2.25 default
+  When releasing the last reader lock:
+    If at least one of the enqueued lock attempts is for reading, the
+    first one of them is granted.
+    Otherwise, the first of the waiting write attempts is granted.
+  When releasing a writer lock:
+    If at least one of the enqueued lock attempts is for reading, one of
+    them is granted.
+    Otherwise, the first of the waiting write attempts is granted.
+  This implementation always prefers readers.
+  This implementation does not prefer writers.
+
+glibc/Hurd
+  When releasing the last reader lock:
+    If at least one of the enqueued lock attempts is for reading, the
+    first one of them is granted.
+    Otherwise, the latest (LIFO!) waiting write attempt is granted.
+  When releasing a writer lock:
+    If at least one of the enqueued lock attempts is for writing, the
+    latest (LIFO!) one of them is granted.
+    Otherwise, the latest (LIFO!) of the waiting read attempts is granted.
+  This implementation does not globally prefer readers, only when releasing
+  a reader lock.
+  This implementation does not globally prefer writers, only when releasing
+  a writer lock.
+  This implementation is deterministic.
+
+musl, OpenBSD
+  When releasing the last reader lock:
+    If at least one of the enqueued lock attempts is for reading, the
+    first one of them is granted.
+    Otherwise, the first of the waiting write attempts is granted.
+  When releasing a writer lock:
+    The first of the enqueued lock attempts is granted.
+  This implementation does not globally prefer readers, only when releasing
+  a reader lock.
+  This implementation does not prefer writers.
+  This implementation is deterministic.
+
+macOS
+  When releasing the last reader lock:
+    The first of the enqueued lock attempts is granted.
+  When releasing a writer lock:
+    If at least one of the enqueued lock attempts is for writing, the
+    first of them is granted.
+    Otherwise, one of the waiting read attempts is granted.
+  This implementation does not prefer readers.
+  This implementation does not prefer writers.
+
+NetBSD
+  When releasing the last reader lock:
+    The first of the enqueued lock attempts is granted.
+  When releasing a writer lock:
+    If at least one of the enqueued lock attempts is for writing, the
+    first one of them is granted.
+    Otherwise, the latest (LIFO!) of the waiting read attempts is granted.
+  This implementation does not prefer readers.
+  This implementation does not globally prefer writers, only when releasing
+  a writer lock.
+  This implementation is deterministic.
+
+Solaris 10
+  When releasing the last reader lock:
+    If at least one of the enqueued lock attempts is for writing, the
+    latest (LIFO!) one of them is granted.
+  When releasing a writer lock:
+    If at least one of the enqueued lock attempts is for writing, one of
+    the waiting write attempts is granted (not necessarily the first one).
+    Otherwise, one of the waiting read attempts is granted.
+  This implementation does not prefer readers.
+  This implementation always prefers writers.
+
+Solaris 11
+  When releasing the last reader lock:
+    If at least one of the enqueued lock attempts is for writing, one
+    of them is granted.
+  When releasing a writer lock:
+    If at least one of the enqueued lock attempts is for writing, one of
+    the waiting write attempts is granted (not necessarily the first one).
+    Otherwise, one of the waiting read attempts is granted.
+  This implementation does not prefer readers.
+  This implementation always prefers writers.
+
+gnulib on native Windows
+  When releasing the last reader lock:
+    The first of the enqueued lock attempts is granted.
+  When releasing a writer lock:
+    If at least one of the enqueued lock attempts is for writing, the
+    first one of them is granted.
+    Otherwise, the first of the waiting read attempts is granted.
+  This implementation does not prefer readers.
+  This implementation does not globally prefer writers, only when releasing
+  a writer lock.
+  This implementation is deterministic.
+
+gnulib on native Windows, modified to prefer readers
+  When releasing the last reader lock:
+    If at least one of the enqueued lock attempts is for reading, the
+    first one of them is granted.
+    Otherwise, the first of the waiting write attempts is granted.
+  When releasing a writer lock:
+    If at least one of the enqueued lock attempts is for reading, the
+    first of them is granted.
+    Otherwise, the first of the waiting write attempts is granted.
+  This implementation always prefers readers.
+  This implementation does not prefer writers.
+  This implementation is deterministic.
