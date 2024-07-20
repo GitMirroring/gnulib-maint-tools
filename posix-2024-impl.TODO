@@ -14,16 +14,16 @@ Implementation of new functions, classified according to the header file
 
 <complex.h>
                 CMPLX, CMPLXF, CMPLXL
-                
+
 <devctl.h>
                 posix_devctl
-                
+
 <dirent.h>
                 posix_getdents
-                
+
 <dlfcn.h>
                 dladdr
-                
+
 <endian.h>
                 be16toh
                 be32toh
@@ -37,7 +37,7 @@ Implementation of new functions, classified according to the header file
                 le16toh
                 le32toh
                 le64toh
-                
+
 <iconv.h>
 
 <libintl.h>
@@ -56,31 +56,31 @@ Implementation of new functions, classified according to the header file
                 gettext_l
                 ngettext
                 ngettext_l
-                
+
 <locale.h>
                 getlocalename_l
-                
+
 <netinet/in.h>
                 in6addr_any
                 in6addr_loopback
-                
+
 <poll.h>
                 ppoll
-                
+
 <pthread.h>
                 pthread_cond_clockwait
                 pthread_mutex_clocklock
                 pthread_rwlock_clockrdlock
                 pthread_rwlock_clockwrlock
-                
+
 <signal.h>
                 sig2str
                 str2sig
-                
+
 <spawn.h>
                 posix_spawn_file_actions_addchdir
                 posix_spawn_file_actions_addfchdir
-                
+
 <stdatomic.h>
                 atomic_compare_exchange_strong
                 atomic_compare_exchange_strong_explicit
@@ -111,11 +111,11 @@ Implementation of new functions, classified according to the header file
                 atomic_store
                 atomic_store_explicit
                 kill_dependency
-                
+
 <stdio.h>
                 asprintf
                 vasprintf
-                
+
 <stdlib.h>
                 aligned_alloc
                 at_quick_exit
@@ -123,22 +123,22 @@ Implementation of new functions, classified according to the header file
                 ptsname_r
                 qsort_r
                 quick_exit
-                
+
 <string.h>
                 memmem
                 strlcat
                 strlcpy
-                
+
 <strings.h>
                 ffsl, ffsll
-                
+
 <sys/socket.h>
                 accept4
-                
+
 <termios.h>
                 tcgetwinsize
                 tcsetwinsize
-                
+
 <threads.h>
                 call_once
                 cnd_broadcast
@@ -165,16 +165,16 @@ Implementation of new functions, classified according to the header file
                 tss_delete
                 tss_get
                 tss_set
-                
+
 <time.h>
                 timespec_get
-                
+
 <uchar.h>
                 c16rtomb
                 c32rtomb
                 mbrtoc16
                 mbrtoc32
-                
+
 <unistd.h>
                 dup3
                 getentropy
@@ -183,7 +183,7 @@ Implementation of new functions, classified according to the header file
                 pipe2
                 setresgid
                 setresuid
-                
+
 <wchar.h>
                 wcslcat
                 wcslcpy
@@ -196,12 +196,12 @@ Implementation of modified functions, classified according to the header file
                 aio_suspend
                 aio_write
                 lio_listio
-                
+
 <arpa/inet.h>
                 htonl, htons, ntohl, ntohs
                 inet_addr, inet_ntoa
                 inet_ntop, inet_pton
-                
+
 <complex.h>
                 cabs, cabsf, cabsl
                 cacos, cacosf, cacosl
@@ -221,22 +221,22 @@ Implementation of modified functions, classified according to the header file
                 csqrt, csqrtf, csqrtl
                 ctan, ctanf, ctanl
                 ctanh, ctanhf, ctanhl
-                
+
 <dirent.h>
                 closedir
                 dirfd
                 fdopendir, opendir
                 readdir, readdir_r
-                
+
 <dlfcn.h>
                 dlclose
                 dlerror
                 dlopen
                 dlsym
-                
+
 <errno.h>
                 errno
-                
+
 <fcntl.h>
                 fchmodat
                 creat
@@ -244,38 +244,38 @@ Implementation of modified functions, classified according to the header file
                 open, openat
                 posix_fadvise
                 posix_fallocate
-                
+
 <fnmatch.h>
                 fnmatch
-                
+
 <ftw.h>
                 nftw
-                
+
 <glob.h>
                 glob, globfree
-                
+
 <grp.h>
                 getgrgid, getgrgid_r
                 getgrnam, getgrnam_r
-                
+
 <iconv.h>
                 iconv
                 iconv_open
-                
+
 <inttypes.h>
                 imaxabs
-                
+
 <libgen.h>
                 basename
                 dirname
-                
+
 <locale.h>
                 freelocale
                 localeconv
                 newlocale
                 setlocale
                 uselocale
-                
+
 <math.h>
                 asin, asinf, asinl
                 asinh, asinhf, asinhl
@@ -314,36 +314,36 @@ Implementation of modified functions, classified according to the header file
                 tgamma, tgammaf, tgammal
                 trunc, truncf, truncl
                 y0, y1, yn
-                
+
 <monetary.h>
                 strfmon, strfmon_l
-                
+
 <mqueue.h>
                 mq_close
                 mq_notify
                 mq_open
                 mq_receive, mq_timedreceive
                 mq_send, mq_timedsend
-                
+
 <ndbm.h>
                 dbm_clearerr, dbm_close, dbm_delete, dmb_error, dmb_fetch, dbm_firstkey, dbm_nextkey, dbm_open, dbm_store
-                
+
 <net/if.h>
                 if_freenameindex
-                
+
 <netdb.h>
                 endhostent, gethostent, sethostent
                 endnetent, getnetbyaddr, getnetbyname, getnetent, setnetent
                 endprotoent, getprotobyname, getprotobynumber, getprotoent, setprotoent
                 endservent, getservbyname, getservbyport, getservent, setservent
                 freeaddrinfo, getaddrinfo
-                
+
 <nl_types.h>
                 catopen
-                
+
 <poll.h>
                 poll
-                
+
 <pthread.h>
                 pthread_atfork
                 pthread_cancel
@@ -369,17 +369,17 @@ Implementation of modified functions, classified according to the header file
                 pthread_rwlock_timedwrlock
                 pthread_rwlock_rdlock, pthread_rwlock_tryrdlock
                 pthread_setcancelstate, pthread_setcanceltype, pthread_testcancel
-                
+
 <pwd.h>
                 getpwnam, getpwnam_r
                 getpwuid, getpwuid_r
-                
+
 <regex.h>
                 regcomp, regerror, regexec, regfree
-                
+
 <search.h>
                 tdelete, tfind, tsearch, twalk
-                
+
 <semaphore.h>
                 sem_clockwait, sem_timedwait
                 sem_close
@@ -387,12 +387,12 @@ Implementation of modified functions, classified according to the header file
                 sem_init
                 sem_open
                 sem_post
-                
+
 <setjmp.h>
                 longjmp
                 siglongjmp
                 sigsetjmp
-                
+
 <signal.h>
                 kill
                 pthread_sigmask, sigprocmask
@@ -401,13 +401,13 @@ Implementation of modified functions, classified according to the header file
                 signal
                 sigsuspend
                 sigtimedwait, sigwaitinfo
-                
+
 <spawn.h>
                 posix_spawn, posix_spawnp
                 posix_spawn_file_actions_addclose
                 posix_spawn_file_actions_adddup2
                 posix_spawnattr_getflags, posix_spawnattr_setflags
-                
+
 <stdio.h>
                 fclose
                 fdopen
@@ -443,7 +443,7 @@ Implementation of modified functions, classified according to the header file
                 tmpnam
                 ungetc
                 vdprintf, vfprintf, vprintf, vsnprintf, vsprintf
-                
+
 <stdlib.h>
                 _Exit, exit
                 abort
@@ -477,7 +477,7 @@ Implementation of modified functions, classified according to the header file
                 strtoul, strtoull
                 unlockpt
                 wctomb
-                
+
 <string.h>
                 memccpy
                 memchr
@@ -503,31 +503,31 @@ Implementation of modified functions, classified according to the header file
                 strstr
                 strtok, strtok_r
                 system
-                
+
 <strings.h>
                 strcasecmp, strcasecmp_l, strncasecmp, strncasecmp_l
-                
+
 <sys/mman.h>
                 mmap
                 msync
                 posix_typed_mem_open
                 shm_open
-                
+
 <sys/resource.h>
                 getrlimit, setrlimit
                 getrusage
-                
+
 <sys/select.h>
                 pselect, select
-                
+
 <sys/sem.h>
                 semget
                 semop
-                
+
 <sys/shm.h>
                 shmat
                 shmctl
-                
+
 <sys/socket.h>
                 accept
                 bind
@@ -545,7 +545,7 @@ Implementation of modified functions, classified according to the header file
                 sockatmark
                 socket
                 socketpair
-                
+
 <sys/stat.h>
                 chmod
                 fchmod
@@ -555,14 +555,14 @@ Implementation of modified functions, classified according to the header file
                 mkfifo, mkfifoat
                 mknod, mknodat
                 umask
-                
+
 <sys/wait.h>
                 wait, waitpid
                 waitid
-                
+
 <syslog.h>
                 closelog, openlog, setlogmask, syslog
-                
+
 <time.h>
                 asctime
                 clock
@@ -577,7 +577,7 @@ Implementation of modified functions, classified according to the header file
                 time
                 timer_create
                 daylight, timezone, tzname, tzset
-                
+
 <unistd.h>
                 alarm
                 close, posix_close
@@ -620,7 +620,7 @@ Implementation of modified functions, classified according to the header file
                 ttyname, ttyname_r
                 unlink, unlinkat
                 pwrite, write
-                
+
 <wchar.h>
                 mbrlen
                 mbrtowc
@@ -653,11 +653,11 @@ Implementation of modified functions, classified according to the header file
                 wmemcpy
                 wmemmove
                 wmemset
-                
+
 <wctype.h>
                 iswblank, iswblank_l
                 iswctype, iswctype_l
                 towctrans, towctrans_l
-                
+
 <wordexp.h>
                 wordexp, wordfree

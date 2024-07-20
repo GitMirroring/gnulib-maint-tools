@@ -1,14 +1,14 @@
 Gnulib documentation tasks related to POSIX.1-2024
 ==================================================
-                
+
 Status can be:
 - empty           for "not evaluated yet"
 - WIP <name>      while <name> is working on it
 - DONE            for done
-                
+
 Documentation
 -------------
-                
+
 Update documentation regarding new header files:
 -- Borrowed from ISO C:
                 <stdalign.h>
@@ -20,7 +20,7 @@ Update documentation regarding new header files:
                 <devctl.h>
                 <endian.h>
                 <libintl.h>
-                
+
 Update documentation regarding modified existing header files
 (see CHANGE HISTORY > Issue 8):
                 <arpa/inet.h>
@@ -74,7 +74,7 @@ Update documentation regarding modified existing header files
                 <wchar.h>
                 <wctype.h>
                 <wordexp.h>
-                
+
 Update documentation regarding new functions.
 -- Borrowed from ISO C:
                 CMPLX, CMPLXF, CMPLXL
@@ -209,7 +209,7 @@ Update documentation regarding new functions.
                 vasprintf
                 wcslcat
                 wcslcpy
-                
+
 Update documentation regarding modified functions
 (see CHANGE HISTORY > Issue 8):
                 _Exit, exit
@@ -583,5 +583,5 @@ Update documentation regarding modified functions
                 wordexp, wordfree
                 pwrite, write
                 y0, y1, yn
-                
+
                 Update documentation regarding obsoleted functions.
