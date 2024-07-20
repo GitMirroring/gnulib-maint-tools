@@ -1,0 +1,587 @@
+Gnulib documentation tasks related to POSIX.1-2024
+==================================================
+                
+Status can be:
+- empty           for "not evaluated yet"
+- WIP <name>      while <name> is working on it
+- DONE            for done
+                
+Documentation
+-------------
+                
+Update documentation regarding new header files:
+-- Borrowed from ISO C:
+                <stdalign.h>
+                <stdatomic.h>
+                <stdnoreturn.h>
+                <threads.h>
+                <uchar.h>
+-- Originating in POSIX:
+                <devctl.h>
+                <endian.h>
+                <libintl.h>
+                
+Update documentation regarding modified existing header files
+(see CHANGE HISTORY > Issue 8):
+                <arpa/inet.h>
+                <complex.h>
+                <ctype.h>
+                <dirent.h>
+                <dlfcn.h>
+                <errno.h>
+                <fcntl.h>
+                <float.h>
+                <fnmatch.h>
+                <ftw.h>
+                <langinfo.h>
+                <limits.h>
+                <locale.h>
+                <math.h>
+                <mqueue.h>
+                <netdb.h>
+                <netinet.h>
+                <poll.h>
+                <pthread.h>
+                <regex.h>
+                <search.h>
+                <semaphore.h>
+                <setjmp.h>
+                <signal.h>
+                <spawn.h>
+                <stdbool.h>
+                <stddef.h>
+                <stdint.h>
+                <stdio.h>
+                <stdlib.h>
+                <string.h>
+                <strings.h>
+                <sys/mman.h>
+                <sys/resource.h>
+                <sys/select.h>
+                <sys/shm.h>
+                <sys/socket.h>
+                <sys/stat.h>
+                <sys/time.h>
+                <sys/types.h>
+                <sys/un.h>
+                <sys/wait.h>
+                <syslog.h>
+                <tar.h>
+                <termios.h>
+                <tgmath.h>
+                <time.h>
+                <unistd.h>
+                <wchar.h>
+                <wctype.h>
+                <wordexp.h>
+                
+Update documentation regarding new functions.
+-- Borrowed from ISO C:
+                CMPLX, CMPLXF, CMPLXL
+                aligned_alloc
+                at_quick_exit
+                atomic_compare_exchange_strong
+                atomic_compare_exchange_strong_explicit
+                atomic_compare_exchange_weak
+                atomic_compare_exchange_weak_explicit
+                atomic_exchange
+                atomic_exchange_explicit
+                atomic_fetch_add
+                atomic_fetch_add_explicit
+                atomic_fetch_and
+                atomic_fetch_and_explicit
+                atomic_fetch_or
+                atomic_fetch_or_explicit
+                atomic_fetch_sub
+                atomic_fetch_sub_explicit
+                atomic_fetch_xor
+                atomic_fetch_xor_explicit
+                atomic_flag_clear
+                atomic_flag_clear_explicit
+                atomic_flag_test_and_set
+                atomic_flag_test_and_set_explicit
+                atomic_init
+                atomic_is_lock_free
+                atomic_load
+                atomic_load_explicit
+                atomic_signal_fence
+                atomic_thread_fence
+                atomic_store
+                atomic_store_explicit
+                c16rtomb
+                c32rtomb
+                call_once
+                cnd_broadcast
+                cnd_signal
+                cnd_destroy
+                cnd_init
+                cnd_timedwait
+                cnd_wait
+                kill_dependency
+                mbrtoc16
+                mbrtoc32
+                mtx_destroy
+                mtx_init
+                mtx_lock
+                mtx_timedlock
+                mtx_trylock
+                mtx_unlock
+                quick_exit
+                thrd_create
+                thrd_current
+                thrd_detach
+                thrd_equal
+                thrd_exit
+                thrd_join
+                thrd_sleep
+                thrd_yield
+                tss_create
+                tss_delete
+                tss_get
+                tss_set
+-- Originating in POSIX:
+                _Fork
+                accept4
+                asprintf
+                be16toh
+                be32toh
+                be64toh
+                htobe16
+                htobe32
+                htobe64
+                htole16
+                htole32
+                htole64
+                le16toh
+                le32toh
+                le64toh
+                bindtextdomain
+                bind_textdomain_codeset
+                textdomain
+                dladdr
+                dup3
+                ffsl, ffsll
+                getentropy
+                getlocalename_l
+                getresgid
+                getresuid
+                dgettext
+                dgettext_l
+                dcgettext
+                dcgettext_l
+                dngettext
+                dngettext_l
+                dcngettext
+                dcngettext_l
+                gettext
+                gettext_l
+                ngettext
+                ngettext_l
+                in6addr_any
+                in6addr_loopback
+                memmem
+                mkostemp
+                pipe2
+                posix_close
+                posix_devctl
+                posix_getdents
+                posix_spawn_file_actions_addchdir
+                posix_spawn_file_actions_addfchdir
+                ppoll
+                pthread_cond_clockwait
+                pthread_mutex_clocklock
+                pthread_rwlock_clockrdlock
+                pthread_rwlock_clockwrlock
+                ptsname_r
+                qsort_r
+                reallocarray
+                secure_getenv
+                sem_clockwait
+                setresgid
+                setresuid
+                sig2str
+                str2sig
+                strlcat
+                strlcpy
+                tcgetwinsize
+                tcsetwinsize
+                timespec_get
+                vasprintf
+                wcslcat
+                wcslcpy
+                
+Update documentation regarding modified functions
+(see CHANGE HISTORY > Issue 8):
+                _Exit, exit
+                abort
+                abs
+                accept, accept4
+                aio_fsync
+                aio_suspend
+                aio_write
+                alarm
+                asctime
+                asin, asinf, asinl
+                asinh, asinhf, asinhl
+                atan, atanf, atanl
+                atan2, atan2f, atan2l
+                atanh, atanhf, atanhl
+                atexit
+                atoi
+                basename
+                bind
+                cabs, cabsf, cabsl
+                cacos, cacosf, cacosl
+                cacosh, cacoshf, cacoshl
+                calloc
+                carg, cargf, cargl
+                casin, casinf, casinl
+                casinh, casinhf, casinhl
+                catan, catanf, catanl
+                catanh, catanhf, catanhl
+                catopen
+                ccos, ccosf, ccosl
+                ccosh, ccoshf, ccoshl
+                ceil, ceilf, ceill
+                cexp, cexpf, cexpl
+                chmod, fchmodat
+                clock
+                clock_getres
+                clog, clogf, clogl
+                close, posix_close
+                closedir
+                closelog, openlog, setlogmask, syslog
+                confstr
+                connect
+                copysign, copysignf, copysignl
+                cpow, cpowf, cpowl
+                creat
+                crypt
+                csin, csinf, csinl
+                csinh, csinhf, csinhl
+                csqrt, csqrtf, csqrtl
+                ctan, ctanf, ctanl
+                ctanh, ctanhf, ctanhl
+                ctime
+                dbm_clearerr, dbm_close, dbm_delete, dmb_error, dmb_fetch, dbm_firstkey, dbm_nextkey, dbm_open, dbm_store
+                dirfd
+                dirname
+                dlclose
+                dlerror
+                dlopen
+                dlsym
+                drand48, erand48, jrand48, lcong48, lrand48, mrand48, nrand48, seed48, srand48
+                dup, dup2, dup3
+                encrypt
+                endhostent, gethostent, sethostent
+                endnetent, getnetbyaddr, getnetbyname, getnetent, setnetent
+                endprotoent, getprotobyname, getprotobynumber, getprotoent, setprotoent
+                endservent, getservbyname, getservbyport, getservent, setservent
+                erf, erff, erfl
+                errno
+                execl, execle, execlp, execv, execve, execvp, fexecve
+                exit
+                expm1, expm1f, expm1l
+                fabs, fabsf, fabsl
+                fchmod
+                fchown
+                fclose
+                fcntl
+                fdatasync
+                fdopen
+                fdopendir, opendir
+                fflush
+                fgetc
+                fgets
+                fgetwc
+                fgetws
+                flockfile, ftrylockfile, funlockfile
+                floor, floorf, floorl
+                fmax, fmaxf, fmaxl
+                fmemopen
+                fmin, fminf, fminl
+                fmod, fmodf, fmodl
+                fnmatch
+                fopen
+                fork, _Fork
+                fpathconf, pathconf
+                asprintf, dprintf, fprintf, printf, snprintf, sprintf
+                fputc
+                fputwc
+                fread
+                free
+                freeaddrinfo, getaddrinfo
+                freelocale
+                freopen
+                frexp, frexpf, frexpl
+                fscanf, scanf, sscanf
+                fseek, fseeko
+                fsetpos
+                fstatat, lstat, stat
+                fsync
+                ftell, ftello
+                ftruncate
+                futimens, utimensat, utimes
+                fwprintf, swprintf, wprintf
+                fwrite
+                fwscanf, swscanf, wscanf
+                getdate
+                getdelim, getline
+                getegid
+                getenv, secure_getenv
+                geteuid
+                getgid
+                getgrgid, getgrgid_r
+                getgrnam, getgrnam_r
+                getgroups
+                getlogin, getlogin_r
+                getopt, optarg, opterr, optind, optopt
+                getpeername
+                getpgrp
+                getpwnam, getpwnam_r
+                getpwuid, getpwuid_r
+                getrlimit, setrlimit
+                getrusage
+                getsockname
+                getsubopt
+                getuid
+                glob, globfree
+                gmtime, gmtime_r
+                grantpt
+                htonl, htons, ntohl, ntohs
+                iconv
+                iconv_open
+                if_freenameindex
+                ilogb, ilogbf, ilogbl
+                imaxabs
+                inet_addr, inet_ntoa
+                inet_ntop, inet_pton
+                initstate, setstate, srandom
+                isgreater, isgreaterequal, isless, islessequal, islessgreater
+                iswblank, iswblank_l
+                iswctype, iswctype_l
+                j0, j1, jn
+                kill
+                labs, llabs
+                lgamma, lgammaf, lgammal, signgam
+                link, linkat
+                lio_listio
+                localeconv
+                localtime, localtime_r
+                lockf
+                log1p, log1pf, log1pl
+                logb, logbf, logbl
+                longjmp
+                lseek
+                malloc
+                mblen
+                mbrlen
+                mbrtowc
+                mbsnrtowcs, mbsrtowcs
+                mbtowc
+                memccpy
+                memchr
+                memcmp
+                memcpy
+                memmove
+                memset
+                mkdir, mkdirat
+                mkdtemp, mkostemp, mkstemp
+                mkfifo, mkfifoat
+                mknod, mknodat
+                mktime
+                mmap
+                modf, modff, modfl
+                mq_close
+                mq_notify
+                mq_open
+                mq_receive, mq_timedreceive
+                mq_send, mq_timedsend
+                msync
+                nan, nanf, nanl
+                newlocale
+                nextafter, nextafterf, nextafterl, nexttoward, nexttowardf, nexttowardl
+                nftw
+                open, openat
+                open_memstream, open_wmemstream
+                pclose
+                pipe, pipe2
+                poll, ppoll
+                popen
+                posix_fadvise
+                posix_fallocate
+                posix_memalign
+                posix_openpt
+                posix_spawn, posix_spawnp
+                posix_spawn_file_actions_addclose
+                posix_spawn_file_actions_adddup2
+                posix_spawnattr_getflags, posix_spawnattr_setflags
+                posix_typed_mem_open
+                pow, powf, powl
+                pselect, select
+                pthread_atfork
+                pthread_cancel
+                pthread_cleanup_pop, pthread_cleanup_push
+                pthread_cond_broadcast, pthread_cond_signal
+                pthread_cond_clockwait, pthread_cond_timedwait, pthread_cond_wait
+                pthread_condattr_getclock, pthread_condattr_setclock
+                pthread_detach
+                pthread_equal
+                pthread_exit
+                pthread_join
+                pthread_key_create
+                pthread_kill
+                pthread_mutex_clocklock, pthread_mutex_timedlock
+                pthread_mutex_destroy, pthread_mutex_init, PTHREAD_MUTEX_INITIALIZER
+                pthread_mutex_getprioceiling, pthread_mutex_setprioceiling
+                pthread_mutex_lock, pthread_mutex_trylock, pthread_mutex_unlock
+                pthread_mutexattr_destroy, pthread_mutexattr_init
+                pthread_mutexattr_getprotocol, pthread_mutexattr_setprotocol
+                pthread_mutexattr_gettype, pthread_mutexattr_settype
+                pthread_once, PTHREAD_ONCE_INIT
+                pthread_rwlock_clockrdlock, pthread_rwlock_timedrdlock
+                pthread_rwlock_clockwrlock, pthread_rwlock_timedwrlock
+                pthread_rwlock_rdlock, pthread_rwlock_tryrdlock
+                pthread_setcancelstate, pthread_setcanceltype, pthread_testcancel
+                pthread_sigmask, sigprocmask
+                ptsname, ptsname_r
+                putenv
+                qsort, qsort_r
+                rand, srand
+                pread, read
+                readdir, readdir_r
+                realloc, reallocarray
+                realpath
+                recv
+                recvfrom
+                recvmsg
+                regcomp, regerror, regexec, regfree
+                remainder, remainderf, remainderl
+                remquo, remquof, remquol
+                rename, renameat
+                rewind
+                round, roundf, roundl
+                scalbln, scalblnf, scalblnl, scalbn, scalbnf, scalbnl
+                sem_clockwait, sem_timedwait
+                sem_close
+                sem_destroy
+                sem_init
+                sem_open
+                sem_post
+                semget
+                semop
+                send
+                sendmsg
+                sendto
+                setegid
+                seteuid
+                setgid
+                setkey
+                setlocale
+                setregid
+                setreuid
+                setsid
+                setsockopt
+                setuid
+                setvbuf
+                shm_open
+                shmat
+                shmctl
+                shutdown
+                sigaction
+                sigaltstack
+                siglongjmp
+                signal
+                sigsetjmp
+                sigsuspend
+                sigtimedwait, sigwaitinfo
+                sin, sinf, sinl
+                sinh, sinhf, sinhl
+                sleep
+                sockatmark
+                socket
+                socketpair
+                sqrt, sqrtf, sqrtl
+                stderr, stdin, stdout
+                strcasecmp, strcasecmp_l, strncasecmp, strncasecmp_l
+                strcat
+                strchr
+                strcmp
+                stpcpy, strcpy
+                strcspn
+                strdup, strndup
+                strerror, strerror_l, strerror_r
+                strfmon, strfmon_l
+                strftime, strftime_l
+                strlen, strnlen
+                strncat
+                strncmp
+                stpncpy, strncpy
+                strpbrk
+                strptime
+                strrchr
+                strsignal
+                strspn
+                strstr
+                strtod, strtof, strtold
+                strtok, strtok_r
+                strtol, strtoll
+                strtoul, strtoull
+                symlink, symlinkat
+                sysconf
+                system
+                tan, tanf, tanl
+                tanh, tanhf, tanhl
+                tcsetpgrp
+                tdelete, tfind, tsearch, twalk
+                tgamma, tgammaf, tgammal
+                time
+                timer_create
+                tmpfile
+                tmpnam
+                towctrans, towctrans_l
+                trunc, truncf, truncl
+                truncate
+                ttyname, ttyname_r
+                daylight, timezone, tzname, tzset
+                umask
+                ungetc
+                ungetwc
+                unlink, unlinkat
+                unlockpt
+                uselocale
+                vasprintf, vdprintf, vfprintf, vprintf, vsnprintf, vsprintf
+                wait, waitpid
+                waitid
+                wcrtomb
+                wcscat
+                wcschr
+                wcscmp
+                wcpcpy, wcscpy
+                wcscspn
+                wcslen, wcsnlen
+                wcsncat
+                wcsncmp
+                wcpncpy, wcsncpy
+                wcspbrk
+                wcsrchr
+                wcsnrtombs, wcsrtombs
+                wcsspn
+                wcsstr
+                wcstod, wcstof, wcstold
+                wcstok
+                wcstol, wcstoll
+                wcstoul, wcstoull
+                wcswidth
+                wctob
+                wcwidth
+                wmemchr
+                wmemcmp
+                wmemcpy
+                wmemmove
+                wmemset
+                wordexp, wordfree
+                pwrite, write
+                y0, y1, yn
+                
+                Update documentation regarding obsoleted functions.
