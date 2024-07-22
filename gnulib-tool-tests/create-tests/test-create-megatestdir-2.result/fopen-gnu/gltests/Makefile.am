@@ -56,6 +56,7 @@ AM_CPPFLAGS = \
 LDADD = ../gllib/libgnu.a
 
 TESTS_ENVIRONMENT += EXEEXT='@EXEEXT@' srcdir='$(srcdir)'
+IGNORE_SKIPPED_LOGS = 1
 
 ## begin gnulib module accept-tests
 

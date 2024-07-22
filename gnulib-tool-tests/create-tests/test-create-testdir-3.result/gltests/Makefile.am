@@ -62,6 +62,7 @@ EXTRA_libtests_a_SOURCES =
 AM_LIBTOOLFLAGS = --preserve-dup-deps
 
 TESTS_ENVIRONMENT += EXEEXT='@EXEEXT@' srcdir='$(srcdir)'
+IGNORE_SKIPPED_LOGS = 1
 
 ## begin gnulib module alignasof-tests
 
