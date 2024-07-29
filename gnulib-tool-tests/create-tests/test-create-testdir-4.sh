@@ -1,3 +1,3 @@
 #!/bin/sh
 . ../init.sh
-do_create_test "--create-testdir --single-configure --with-c++-tests --without-privileged-tests"
+do_create_test "--create-testdir --single-configure --with-c++-tests --without-privileged-tests --avoid=config-h --avoid=non-recursive-gnulib-prefix-hack --avoid=timevar --avoid=mountlist --avoid=lib-ignore"

@@ -3,6 +3,10 @@ This directory contains unit tests for gnulib-tool.
 Before using it, set the environment variables
   - GNULIB_SRCDIR     - points to the directory that contains gnulib-tool
   - GNULIB_TOOL_IMPL  - determines the implementation of gnulib-tool.
+and make sure that you have
+  autoconf 2.72
+  automake 1.16.5
+in your PATH.
 
 The directory gnulib-data contains a particular version of gnulib, namely
 commit 35245921a8f0eace93bef05814525673078b58c7 from the stable-202401 branch,
