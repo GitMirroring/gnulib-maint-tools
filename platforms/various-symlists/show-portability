@@ -103,14 +103,18 @@ if test "x$1" = "x--doc"; then
         fi
       fi
     fi
-    if ! grep '^'"$symbol"'$' openbsd-6.7/* >/dev/null; then
-      line=$line', OpenBSD 6.7'
+    if ! grep '^'"$symbol"'$' openbsd-7.5/* >/dev/null; then
+      line=$line', OpenBSD 7.5'
     else
-      if ! grep '^'"$symbol"'$' openbsd-6.0/* >/dev/null; then
-        line=$line', OpenBSD 6.0'
+      if ! grep '^'"$symbol"'$' openbsd-6.7/* >/dev/null; then
+        line=$line', OpenBSD 6.7'
       else
-        if ! grep '^'"$symbol"'$' openbsd-3.8/* >/dev/null; then
-          line=$line', OpenBSD 3.8'
+        if ! grep '^'"$symbol"'$' openbsd-6.0/* >/dev/null; then
+          line=$line', OpenBSD 6.0'
+        else
+          if ! grep '^'"$symbol"'$' openbsd-3.8/* >/dev/null; then
+            line=$line', OpenBSD 3.8'
+          fi
         fi
       fi
     fi

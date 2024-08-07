@@ -116,14 +116,18 @@ if test "x$1" = "x--doc"; then
         fi
       fi
     fi
-    if ! func_has openbsd-6.7 "$header"; then
-      line=$line', OpenBSD 6.7'
+    if ! func_has openbsd-7.5 "$header"; then
+      line=$line', OpenBSD 7.5'
     else
-      if ! func_has openbsd-6.0 "$header"; then
-        line=$line', OpenBSD 6.0'
+      if ! func_has openbsd-6.7 "$header"; then
+        line=$line', OpenBSD 6.7'
       else
-        if ! func_has openbsd-3.8 "$header"; then
-          line=$line', OpenBSD 3.8'
+        if ! func_has openbsd-6.0 "$header"; then
+          line=$line', OpenBSD 6.0'
+        else
+          if ! func_has openbsd-3.8 "$header"; then
+            line=$line', OpenBSD 3.8'
+          fi
         fi
       fi
     fi
