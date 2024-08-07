@@ -58,7 +58,7 @@ Implementation of new functions, classified according to the header file
                 ngettext_l
 
 <locale.h>
-                getlocalename_l
+WIP Bruno       getlocalename_l
 
 <netinet/in.h>
                 in6addr_any
