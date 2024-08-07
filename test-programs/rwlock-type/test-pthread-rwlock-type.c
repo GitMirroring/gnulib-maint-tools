@@ -57,7 +57,7 @@ get_effective_type (pthread_rwlock_t *lock)
 int
 main ()
 {
-#if __GLIBC__ >= 2
+#if __GLIBC__ >= 2 && defined __linux__
 
   /* Find the effective type of a PREFER_READER lock.  */
   const char *type_p_reader;
@@ -117,7 +117,7 @@ main ()
     type_def = get_effective_type (&lock);
   }
 
-#if __GLIBC__ >= 2
+#if __GLIBC__ >= 2 && defined __linux__
   printf ("PREFER_READER               -> type = %s\n", type_p_reader);
   printf ("PREFER_WRITER               -> type = %s\n", type_p_writer);
   printf ("PREFER_WRITER_NONRECURSIVE  -> type = %s\n", type_p_writer_nonrec);
@@ -125,7 +125,7 @@ main ()
 #endif
   printf ("Default                     -> type = %s\n", type_def);
 
-#if __GLIBC__ >= 2
+#if __GLIBC__ >= 2 && defined __linux__
   ASSERT (strcmp (type_default, type_def) == 0);
 #endif
 
