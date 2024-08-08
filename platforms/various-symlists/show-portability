@@ -216,14 +216,18 @@ if test "x$1" = "x--doc"; then
         fi
       fi
     fi
-    if ! grep '^'"$symbol"'$' cygwin-2.9/* >/dev/null; then
-      line=$line', Cygwin 2.9'
+    if ! grep '^'"$symbol"'$' cygwin-3.5/* >/dev/null; then
+      line=$line', Cygwin 3.5.3'
     else
-      if ! grep '^'"$symbol"'$' cygwin-1.7/* >/dev/null; then
-        line=$line', Cygwin 1.7.x'
+      if ! grep '^'"$symbol"'$' cygwin-2.9/* >/dev/null; then
+        line=$line', Cygwin 2.9'
       else
-        if ! grep '^'"$symbol"'$' cygwin-1.5/* >/dev/null; then
-          line=$line', Cygwin 1.5.x'
+        if ! grep '^'"$symbol"'$' cygwin-1.7/* >/dev/null; then
+          line=$line', Cygwin 1.7.x'
+        else
+          if ! grep '^'"$symbol"'$' cygwin-1.5/* >/dev/null; then
+            line=$line', Cygwin 1.5.x'
+          fi
         fi
       fi
     fi
