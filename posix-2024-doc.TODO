@@ -11,15 +11,15 @@ Documentation
 
 Update documentation regarding new header files:
 -- Borrowed from ISO C:
-WIP Bruno       <stdalign.h>
-WIP Bruno       <stdatomic.h>
-WIP Bruno       <stdnoreturn.h>
-WIP Bruno       <threads.h>
-WIP Bruno       <uchar.h>
+                <stdalign.h>
+                <stdatomic.h>
+                <stdnoreturn.h>
+                <threads.h>
+                <uchar.h>
 -- Originating in POSIX:
-WIP Bruno       <devctl.h>
-WIP Bruno       <endian.h>
-WIP Bruno       <libintl.h>
+DONE            <devctl.h>
+DONE            <endian.h>
+DONE            <libintl.h>
 
 Update documentation regarding modified existing header files
 (see CHANGE HISTORY > Issue 8):
@@ -77,138 +77,138 @@ Update documentation regarding modified existing header files
 
 Update documentation regarding new functions.
 -- Borrowed from ISO C:
-WIP Bruno       CMPLX, CMPLXF, CMPLXL
-WIP Bruno       aligned_alloc
-WIP Bruno       at_quick_exit
-WIP Bruno       atomic_compare_exchange_strong
-WIP Bruno       atomic_compare_exchange_strong_explicit
-WIP Bruno       atomic_compare_exchange_weak
-WIP Bruno       atomic_compare_exchange_weak_explicit
-WIP Bruno       atomic_exchange
-WIP Bruno       atomic_exchange_explicit
-WIP Bruno       atomic_fetch_add
-WIP Bruno       atomic_fetch_add_explicit
-WIP Bruno       atomic_fetch_and
-WIP Bruno       atomic_fetch_and_explicit
-WIP Bruno       atomic_fetch_or
-WIP Bruno       atomic_fetch_or_explicit
-WIP Bruno       atomic_fetch_sub
-WIP Bruno       atomic_fetch_sub_explicit
-WIP Bruno       atomic_fetch_xor
-WIP Bruno       atomic_fetch_xor_explicit
-WIP Bruno       atomic_flag_clear
-WIP Bruno       atomic_flag_clear_explicit
-WIP Bruno       atomic_flag_test_and_set
-WIP Bruno       atomic_flag_test_and_set_explicit
-WIP Bruno       atomic_init
-WIP Bruno       atomic_is_lock_free
-WIP Bruno       atomic_load
-WIP Bruno       atomic_load_explicit
-WIP Bruno       atomic_signal_fence
-WIP Bruno       atomic_thread_fence
-WIP Bruno       atomic_store
-WIP Bruno       atomic_store_explicit
-WIP Bruno       c16rtomb
-WIP Bruno       c32rtomb
-WIP Bruno       call_once
-WIP Bruno       cnd_broadcast
-WIP Bruno       cnd_signal
-WIP Bruno       cnd_destroy
-WIP Bruno       cnd_init
-WIP Bruno       cnd_timedwait
-WIP Bruno       cnd_wait
-WIP Bruno       kill_dependency
-WIP Bruno       mbrtoc16
-WIP Bruno       mbrtoc32
-WIP Bruno       mtx_destroy
-WIP Bruno       mtx_init
-WIP Bruno       mtx_lock
-WIP Bruno       mtx_timedlock
-WIP Bruno       mtx_trylock
-WIP Bruno       mtx_unlock
-WIP Bruno       quick_exit
-WIP Bruno       thrd_create
-WIP Bruno       thrd_current
-WIP Bruno       thrd_detach
-WIP Bruno       thrd_equal
-WIP Bruno       thrd_exit
-WIP Bruno       thrd_join
-WIP Bruno       thrd_sleep
-WIP Bruno       thrd_yield
-WIP Bruno       tss_create
-WIP Bruno       tss_delete
-WIP Bruno       tss_get
-WIP Bruno       tss_set
+DONE            CMPLX, CMPLXF, CMPLXL
+DONE            aligned_alloc
+DONE            at_quick_exit
+DONE            atomic_compare_exchange_strong
+DONE            atomic_compare_exchange_strong_explicit
+DONE            atomic_compare_exchange_weak
+DONE            atomic_compare_exchange_weak_explicit
+DONE            atomic_exchange
+DONE            atomic_exchange_explicit
+DONE            atomic_fetch_add
+DONE            atomic_fetch_add_explicit
+DONE            atomic_fetch_and
+DONE            atomic_fetch_and_explicit
+DONE            atomic_fetch_or
+DONE            atomic_fetch_or_explicit
+DONE            atomic_fetch_sub
+DONE            atomic_fetch_sub_explicit
+DONE            atomic_fetch_xor
+DONE            atomic_fetch_xor_explicit
+DONE            atomic_flag_clear
+DONE            atomic_flag_clear_explicit
+DONE            atomic_flag_test_and_set
+DONE            atomic_flag_test_and_set_explicit
+DONE            atomic_init
+DONE            atomic_is_lock_free
+DONE            atomic_load
+DONE            atomic_load_explicit
+DONE            atomic_signal_fence
+DONE            atomic_thread_fence
+DONE            atomic_store
+DONE            atomic_store_explicit
+DONE            c16rtomb
+DONE            c32rtomb
+DONE            call_once
+DONE            cnd_broadcast
+DONE            cnd_signal
+DONE            cnd_destroy
+DONE            cnd_init
+DONE            cnd_timedwait
+DONE            cnd_wait
+DONE            kill_dependency
+DONE            mbrtoc16
+DONE            mbrtoc32
+DONE            mtx_destroy
+DONE            mtx_init
+DONE            mtx_lock
+DONE            mtx_timedlock
+DONE            mtx_trylock
+DONE            mtx_unlock
+DONE            quick_exit
+DONE            thrd_create
+DONE            thrd_current
+DONE            thrd_detach
+DONE            thrd_equal
+DONE            thrd_exit
+DONE            thrd_join
+DONE            thrd_sleep
+DONE            thrd_yield
+DONE            tss_create
+DONE            tss_delete
+DONE            tss_get
+DONE            tss_set
 -- Originating in POSIX:
-WIP Bruno       _Fork
-WIP Bruno       accept4
-WIP Bruno       asprintf
-WIP Bruno       be16toh
-WIP Bruno       be32toh
-WIP Bruno       be64toh
-WIP Bruno       htobe16
-WIP Bruno       htobe32
-WIP Bruno       htobe64
-WIP Bruno       htole16
-WIP Bruno       htole32
-WIP Bruno       htole64
-WIP Bruno       le16toh
-WIP Bruno       le32toh
-WIP Bruno       le64toh
-WIP Bruno       bindtextdomain
-WIP Bruno       bind_textdomain_codeset
-WIP Bruno       textdomain
-WIP Bruno       dladdr
-WIP Bruno       dup3
-WIP Bruno       ffsl, ffsll
-WIP Bruno       getentropy
-WIP Bruno       getlocalename_l
-WIP Bruno       getresgid
-WIP Bruno       getresuid
-WIP Bruno       dgettext
-WIP Bruno       dgettext_l
-WIP Bruno       dcgettext
-WIP Bruno       dcgettext_l
-WIP Bruno       dngettext
-WIP Bruno       dngettext_l
-WIP Bruno       dcngettext
-WIP Bruno       dcngettext_l
-WIP Bruno       gettext
-WIP Bruno       gettext_l
-WIP Bruno       ngettext
-WIP Bruno       ngettext_l
-WIP Bruno       in6addr_any
-WIP Bruno       in6addr_loopback
-WIP Bruno       memmem
-WIP Bruno       mkostemp
-WIP Bruno       pipe2
-WIP Bruno       posix_close
-WIP Bruno       posix_devctl
-WIP Bruno       posix_getdents
-WIP Bruno       posix_spawn_file_actions_addchdir
-WIP Bruno       posix_spawn_file_actions_addfchdir
-WIP Bruno       ppoll
-WIP Bruno       pthread_cond_clockwait
-WIP Bruno       pthread_mutex_clocklock
-WIP Bruno       pthread_rwlock_clockrdlock
-WIP Bruno       pthread_rwlock_clockwrlock
-WIP Bruno       ptsname_r
-WIP Bruno       qsort_r
-WIP Bruno       reallocarray
-WIP Bruno       secure_getenv
-WIP Bruno       sem_clockwait
-WIP Bruno       setresgid
-WIP Bruno       setresuid
-WIP Bruno       sig2str
-WIP Bruno       str2sig
-WIP Bruno       strlcat
-WIP Bruno       strlcpy
-WIP Bruno       tcgetwinsize
-WIP Bruno       tcsetwinsize
-WIP Bruno       timespec_get
-WIP Bruno       vasprintf
-WIP Bruno       wcslcat
-WIP Bruno       wcslcpy
+                _Fork
+                accept4
+                asprintf
+DONE            be16toh
+DONE            be32toh
+DONE            be64toh
+DONE            htobe16
+DONE            htobe32
+DONE            htobe64
+DONE            htole16
+DONE            htole32
+DONE            htole64
+DONE            le16toh
+DONE            le32toh
+DONE            le64toh
+                bindtextdomain
+                bind_textdomain_codeset
+                textdomain
+                dladdr
+                dup3
+                ffsl, ffsll
+                getentropy
+DONE            getlocalename_l
+                getresgid
+                getresuid
+                dgettext
+DONE            dgettext_l
+                dcgettext
+DONE            dcgettext_l
+                dngettext
+DONE            dngettext_l
+                dcngettext
+DONE            dcngettext_l
+                gettext
+DONE            gettext_l
+                ngettext
+DONE            ngettext_l
+                in6addr_any
+                in6addr_loopback
+                memmem
+                mkostemp
+                pipe2
+DONE            posix_close
+DONE            posix_devctl
+DONE            posix_getdents
+DONE            posix_spawn_file_actions_addchdir
+DONE            posix_spawn_file_actions_addfchdir
+                ppoll
+                pthread_cond_clockwait
+                pthread_mutex_clocklock
+                pthread_rwlock_clockrdlock
+                pthread_rwlock_clockwrlock
+                ptsname_r
+                qsort_r
+                reallocarray
+                secure_getenv
+                sem_clockwait
+                setresgid
+                setresuid
+DONE            sig2str
+DONE            str2sig
+                strlcat
+                strlcpy
+DONE            tcgetwinsize
+DONE            tcsetwinsize
+                timespec_get
+                vasprintf
+DONE            wcslcat
+DONE            wcslcpy
 
 Update documentation regarding modified functions
 (see CHANGE HISTORY > Issue 8):
