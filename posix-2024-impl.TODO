@@ -74,8 +74,8 @@ WIP Bruno       getlocalename_l
                 pthread_rwlock_clockwrlock
 
 <signal.h>
-                sig2str
-                str2sig
+WIP Bruno       sig2str
+WIP Bruno       str2sig
 
 <spawn.h>
                 posix_spawn_file_actions_addchdir
