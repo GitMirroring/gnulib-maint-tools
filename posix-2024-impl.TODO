@@ -198,7 +198,7 @@ Implementation of modified functions, classified according to the header file
                 lio_listio
 
 <arpa/inet.h>
-                htonl, htons, ntohl, ntohs
+DONE            htonl, htons, ntohl, ntohs
                 inet_addr, inet_ntoa
                 inet_ntop, inet_pton
 
