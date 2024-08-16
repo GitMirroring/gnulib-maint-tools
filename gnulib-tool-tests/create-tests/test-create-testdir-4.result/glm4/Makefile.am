@@ -788,6 +788,7 @@ EXTRA_DIST += utimes.m4
 EXTRA_DIST += utmp_h.m4
 EXTRA_DIST += va-args.m4
 EXTRA_DIST += valgrind-helper.m4
+EXTRA_DIST += valgrind-tests.m4
 EXTRA_DIST += vararrays.m4
 EXTRA_DIST += vasnprintf-gnu.m4
 EXTRA_DIST += vasnprintf-posix.m4

@@ -1701,6 +1701,7 @@ utimens
 utimensat
 utmp
 va-args
+valgrind-tests
 vararrays
 vasnprintf
 vasnprintf-gnu

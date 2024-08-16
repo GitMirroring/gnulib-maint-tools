@@ -157,12 +157,6 @@ File list:
   m4/wchar_t.m4
   m4/wint_t.m4
   m4/zzgnulib.m4
-  lib/_Noreturn.h -> tests/_Noreturn.h
-  lib/arg-nonnull.h -> tests/arg-nonnull.h
-  lib/c++defs.h -> tests/c++defs.h
-  lib/dummy.c -> tests/dummy.c
-  lib/warn-on-use.h -> tests/warn-on-use.h
-Creating directory ./gl/tests
 Creating directory ./build-aux
 Updating file gl/cdefs.h (backup in gl/cdefs.h~)
 Updating file gl/limits.in.h (backup in gl/limits.in.h~)
@@ -171,14 +165,9 @@ Updating file gl/m4/string_h.m4 (backup in gl/m4/string_h.m4~)
 Updating file gl/m4/time_h.m4 (backup in gl/m4/time_h.m4~)
 Updating file gl/stdlib.in.h (backup in gl/stdlib.in.h~)
 Updating file gl/string.in.h (backup in gl/string.in.h~)
-Copying file gl/tests/_Noreturn.h
-Copying file gl/tests/arg-nonnull.h
-Copying file gl/tests/c++defs.h
-Copying file gl/tests/dummy.c
-Copying file gl/tests/warn-on-use.h
 Updating file gl/time.in.h (backup in gl/time.in.h~)
+Updating gl/m4/gnulib-comp.m4 (backup in gl/m4/gnulib-comp.m4~)
 Updating gl/Makefile.am (backup in gl/Makefile.am~)
-Creating gl/tests/Makefile.am
 Finished.
 
 You may need to add #include directives for the following .h files.
@@ -190,7 +179,6 @@ You may need to add #include directives for the following .h files.
 
 Don't forget to
   - add "gl/Makefile" to AC_CONFIG_FILES in ./configure.ac,
-  - add "gl/tests/Makefile" to AC_CONFIG_FILES in ./configure.ac,
   - mention "gl" in SUBDIRS in Makefile.am,
   - mention "-I gl/m4" in ACLOCAL_AMFLAGS in Makefile.am
     or add an AC_CONFIG_MACRO_DIRS([gl/m4]) invocation in ./configure.ac,

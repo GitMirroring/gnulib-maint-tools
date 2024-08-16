@@ -2957,6 +2957,7 @@ Module list with included dependencies (indented):
     utmp-c++-tests
     utmp-tests
   va-args
+  valgrind-tests
   vararrays
   vasnprintf
   vasnprintf-gnu
@@ -6471,6 +6472,7 @@ File list:
   m4/utmp_h.m4
   m4/va-args.m4
   m4/valgrind-helper.m4
+  m4/valgrind-tests.m4
   m4/vararrays.m4
   m4/vasnprintf-gnu.m4
   m4/vasnprintf-posix.m4
