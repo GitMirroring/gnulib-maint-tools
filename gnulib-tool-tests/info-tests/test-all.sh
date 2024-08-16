@@ -27,6 +27,10 @@ run_test_group '
   test-extract-recursive-dependencies-1.sh
   test-extract-recursive-dependencies-2.sh
   test-extract-recursive-dependencies-3.sh
+  test-extract-dependents-1.sh
+  test-extract-dependents-2.sh
+  test-extract-dependents-3.sh
+  test-extract-dependents-4.sh
   test-extract-autoconf-snippet-1.sh
   test-extract-autoconf-snippet-2.sh
   test-extract-autoconf-snippet-3.sh
