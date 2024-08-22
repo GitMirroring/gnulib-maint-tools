@@ -149,6 +149,7 @@ As examples, find in the environments/ directory:
   * qemu/alpha-linux-debian12.txt
   * qemu/alpha-linux-t2sde.txt
   * qemu/arm-freebsd12.txt
+  * qemu/arm-freebsd14.txt
   * qemu/armel-linux-debian8.txt
   * qemu/armelhf-linux-debian12.txt
   * qemu/armelhf-raspbian.txt

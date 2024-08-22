@@ -1,0 +1,162 @@
+(DR) Collect pointers to documentation and references
+-----------------------------------------------------
+
+https://www.qemu.org/docs/master/system/target-arm.html
+https://wiki.qemu.org/Documentation/Platforms/ARM
+https://wiki.freebsd.org/QemuRecipes
+
+(QV) Choose a QEMU version
+--------------------------
+
+Use qemu-8.2.0
+% PATH=$HOME/inst-qemu/8.2.0/bin:$PATH
+
+(DL) Download an installation CD-ROM or DVD image
+-------------------------------------------------
+
+Download image from
+https://download.freebsd.org/releases/ISO-IMAGES/14.1/FreeBSD-14.1-RELEASE-arm-armv7-GENERICSD.img.xz
+Uncompress it:
+% xz -d FreeBSD-14.1-RELEASE-arm-armv7-GENERICSD.img.xz
+
+Convert to qcow2 format:
+% qemu-img convert -f raw -O qcow2 FreeBSD-14.1-RELEASE-arm-armv7-GENERICSD.img freebsd14.qcow2
+
+(XK) Extract the kernel from the CD-ROM or DVD image
+----------------------------------------------------
+
+This is not needed in this case.
+
+(CD) Create an empty disk image to be used by the virtual machine
+-----------------------------------------------------------------
+
+This is not needed in this case; we have a disk image already.
+
+(MA) Choose the machine arguments
+---------------------------------
+
+% machine_args="-M virt -m 512"
+
+Since QEMU cannot directly boot a FreeBSD kernel, we'll need some
+boot firmware:
+
+  - Either the UEFI firmware that comes bundled with QEMU:
+    % machine_args="$machine_args -bios edk2-arm-code.fd"
+
+  - Or U-Boot. References:
+      https://www.denx.de/wiki/U-Boot
+      https://github.com/ARM-software/u-boot
+    FreeBSD provided binaries of it in its package repository:
+    https://freebsd.pkgs.org/12/freebsd-armv7/26/ ->
+    https://freebsd.pkgs.org/12/freebsd-armv7/u-boot-qemu-arm-2020.07.txz.html ->
+    https://freebsd.pkgs.org/12/freebsd-amd64/u-boot-qemu-arm-2020.07.txz.html ->
+    https://pkg.freebsd.org/FreeBSD:12:amd64/quarterly/All/u-boot-qemu-arm-2020.07.txz
+    Unpack it.
+    But these binaries are no longer available. Newer binaries are, though:
+    https://freebsd.pkgs.org/12/freebsd-amd64/u-boot-qemu-arm-2023.07.02.pkg.html ->
+    https://pkg.freebsd.org/FreeBSD:12:amd64/quarterly/All/u-boot-qemu-arm-2023.07.02.pkg
+    % mv u-boot-qemu-arm-2023.07.02.pkg u-boot-qemu-arm-2023.07.02.tar.xz
+    % xz -d u-boot-qemu-arm-2023.07.02.tar.xz
+    % tar -xOf u-boot-qemu-arm-2023.07.02.tar /usr/local/share/u-boot/u-boot-qemu-arm/u-boot.bin > u-boot.bin
+    % machine_args="$machine_args -bios u-boot.bin"
+
+(DI) Choose the disk arguments
+------------------------------
+
+% disk_args="-hda freebsd14.qcow2"
+
+(NW) Choose the network arguments
+---------------------------------
+
+% net_args=""
+This provides an ethernet interface by default:
+(qemu) info network
+hub 0
+ \ hub0port1: user.0: index=0,type=user,net=10.0.2.0,restrict=off
+ \ hub0port0: virtio-net-pci.0: index=0,type=nic,model=virtio-net-pci,macaddr=52:54:00:12:34:56
+
+This common alternative does not work in this case:
+% net_args="-netdev type=user,id=net0 -device e1000,netdev=net0,mac=52:54:00:12:34:56"
+This provides an ethernet interface too:
+(qemu) info network
+e1000.0: index=0,type=nic,model=e1000,macaddr=52:54:00:12:34:56
+ \ net0: index=0,type=user,net=10.0.2.0,restrict=off
+But FreeBSD would not recognize it later.
+
+(DV) Choose the display/video arguments
+---------------------------------------
+
+% display_args="-nographic"
+
+(B1) Boot from the CD/DVD
+-------------------------
+
+This is not needed in this case; we have a disk image already.
+
+(IN) Perform the steps of the installer
+---------------------------------------
+
+This is not needed in this case; we have a disk image already.
+
+(B2) Boot from the installed disk
+---------------------------------
+
+% common_args="$machine_args $disk_args $net_args $display_args"
+% qemu-system-arm $common_args
+
+Login in as root. Password: root
+
+As in https://www.freebsd.org/doc/en/articles/linux-users/network.html
+# env TERM=xterm vi /etc/rc.conf
+hostname="arm-freebsd14.MYDOMAINNAME"
+
+Reboot.
+
+Set root password:
+# passwd
+login: root
+password: ********
+
+Add account:
+# adduser
+Username: MY_USER_NAME
+Full name: MY_FULL_NAME
+Invite MY_USER_NAME into other groups? wheel
+=>
+login: MY_USER_NAME
+password: ********
+
+Edit /etc/profile to set TERM=xterm (since qemu's 'gtk' display is based on vte):
+# env TERM=xterm vi /etc/profile .cshrc
+In /etc/profile, add
+  TERM=xterm
+  export TERM
+In .cshrc, add
+  setenv TERM xterm
+
+Mount /proc:
+Edit /etc/fstab as indicated in
+https://www.freebsd.org/cgi/man.cgi?query=procfs&sektion=&n=1
+
+Ensure a correct date:
+Edit /etc/rc.conf, adding
+ntpd_enable="YES"
+ntpd_sync_on_start="YES"
+This will, among other things, later avoid errors such as
+Certificate verification failed for /CN=pkg.freebsd.org
+00000121:error:0A000086:SSL routines:tls_post_process_server_certificate:certificate verify failed:/usr/src/crypto/openssl/ssl/statem/statem_clnt.c:1890:
+
+(PK) Install packages
+---------------------
+
+# pkg search bash
+# pkg install bash
+# pkg install gmake
+Do not install these, because they take up too much disk space:
+# pkg install gcc9 binutils gdb vim-console emacs-nox
+
+
+Notes
+-----
+
+The primary compiler is CC="cc" (clang 18.1.5).
