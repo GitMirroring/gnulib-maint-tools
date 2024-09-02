@@ -157,3 +157,7 @@ checking if the system supports catching SIGSEGV... no
 checking if the system supports catching stack overflow... no
 
 GNU mpfr does not work: 117 test failures.
+
+There are disk driver problems:
+(aprobe0:ata3:0:0:0): ATAPI_IDENTIFY. ACB: a1 00 00 00 00 40 00 00 00 00 00 00
+(aprobe0:ata3:0:0:0): CAM status: Command timeout

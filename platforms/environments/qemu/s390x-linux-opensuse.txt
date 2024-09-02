@@ -8,8 +8,10 @@ https://www.kernel.org/doc/html/v6.6/admin-guide/kernel-parameters.html
 (QV) Choose a QEMU version
 --------------------------
 
-Use qemu-8.2.0-rc0 (to fix <https://gitlab.com/qemu-project/qemu/-/issues/1865>).
-% PATH=$HOME/inst-qemu/8.2.0-rc0/bin:$PATH
+Use qemu-9.0.2.
+(At least qemu-8.2.0-rc0 is needed, to fix <https://gitlab.com/qemu-project/qemu/-/issues/1865>,
+but with qemu-9.0.2 it is more reliable.)
+% PATH=$HOME/inst-qemu/9.0.2/bin:$PATH
 
 (DL) Download an installation CD-ROM or DVD image
 -------------------------------------------------
