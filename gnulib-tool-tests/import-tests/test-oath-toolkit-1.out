@@ -21,6 +21,8 @@ File list:
   top/GNUmakefile
   top/maint.mk
 Updating file gl/m4/gnulib-common.m4 (backup in gl/m4/gnulib-common.m4~)
+Updating gl/m4/gnulib-cache.m4 (backup in gl/m4/gnulib-cache.m4~)
+Updating gl/m4/gnulib-comp.m4 (backup in gl/m4/gnulib-comp.m4~)
 Updating gl/Makefile.am (backup in gl/Makefile.am~)
 Finished.
 
