@@ -518,7 +518,7 @@ NO_OP           errno
                 getrusage
 
 <sys/select.h>
-                pselect, select
+NO_OP           pselect, select
 
 <sys/sem.h>
                 semget

@@ -39,7 +39,7 @@ DONE            <errno.h>
                 <math.h>
                 <mqueue.h>
                 <netdb.h>
-                <netinet.h>
+                <netinet/in.h>
                 <poll.h>
                 <pthread.h>
                 <regex.h>
@@ -57,7 +57,7 @@ DONE            <errno.h>
                 <strings.h>
                 <sys/mman.h>
                 <sys/resource.h>
-                <sys/select.h>
+DONE            <sys/select.h>
                 <sys/shm.h>
                 <sys/socket.h>
                 <sys/stat.h>
