@@ -28,7 +28,7 @@ Update documentation regarding modified existing header files
                 <ctype.h>
                 <dirent.h>
                 <dlfcn.h>
-                <errno.h>
+DONE            <errno.h>
                 <fcntl.h>
                 <float.h>
                 <fnmatch.h>

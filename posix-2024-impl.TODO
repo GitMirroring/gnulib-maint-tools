@@ -235,7 +235,7 @@ DONE            htonl, htons, ntohl, ntohs
                 dlsym
 
 <errno.h>
-                errno
+NO_OP           errno
 
 <fcntl.h>
                 fchmodat
