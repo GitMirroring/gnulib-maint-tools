@@ -59,7 +59,7 @@ DONE            <errno.h>
                 <sys/resource.h>
 DONE            <sys/select.h>
                 <sys/shm.h>
-                <sys/socket.h>
+DONE            <sys/socket.h>
                 <sys/stat.h>
                 <sys/time.h>
                 <sys/types.h>
