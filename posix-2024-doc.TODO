@@ -63,8 +63,8 @@ DONE            <sys/socket.h>
                 <sys/stat.h>
                 <sys/time.h>
                 <sys/types.h>
-                <sys/un.h>
-                <sys/wait.h>
+DONE            <sys/un.h>
+DONE            <sys/wait.h>
                 <syslog.h>
                 <tar.h>
                 <termios.h>
