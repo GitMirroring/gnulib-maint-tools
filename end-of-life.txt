@@ -49,15 +49,16 @@ End-of-life / end-of-support data for various OS releases
   OpenBSD 7.1: 2023-04-10 †
   OpenBSD 7.2: 2023-10-16 †
   OpenBSD 7.3: 2024-04-05 †
-  OpenBSD 7.4: 2024-11
+  OpenBSD 7.4: 2024-10-08 †
   OpenBSD 7.5: 2025-05
+  OpenBSD 7.6: 2025-11
   Reference: https://en.wikipedia.org/wiki/OpenBSD#Releases
              https://endoflife.date/openbsd
 
 * macOS
   macOS 10.15: 2022-09-12 †
   macOS 11: 2023-09-26 †
-  macOS 12:
+  macOS 12: 2024-09-16 †
   macOS 13:
   macOS 14:
   Reference: https://en.wikipedia.org/wiki/MacOS_version_history
