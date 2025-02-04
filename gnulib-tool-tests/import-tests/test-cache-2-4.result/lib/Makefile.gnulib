@@ -60,9 +60,9 @@ lib_libgnu_a_CPPFLAGS = $(AM_CPPFLAGS) -DIN_PROG=1
 noinst_LTLIBRARIES += lib/libgnu.la
 
 lib_libgnu_la_SOURCES =
-lib_libgnu_la_CFLAGS = $(AM_CFLAGS) $(GL_CFLAG_GNULIB_WARNINGS)
-lib_libgnu_la_LIBADD = $(gl_LTLIBOBJS)
-lib_libgnu_la_DEPENDENCIES = $(gl_LTLIBOBJS)
+lib_libgnu_la_CFLAGS = $(AM_CFLAGS) $(GL_CFLAG_GNULIB_WARNINGS) $(GL_CFLAG_ALLOW_WARNINGS)
+lib_libgnu_la_LIBADD = $(gl_libgnu_LTLIBOBJS)
+lib_libgnu_la_DEPENDENCIES = $(gl_libgnu_LTLIBOBJS)
 EXTRA_lib_libgnu_la_SOURCES =
 lib_libgnu_la_LDFLAGS = $(AM_LDFLAGS)
 lib_libgnu_la_LDFLAGS += -no-undefined
@@ -450,5 +450,5 @@ mostlyclean-local: mostlyclean-generic
 	:
 distclean-local: distclean-gnulib-libobjs
 distclean-gnulib-libobjs:
-	-rm -f @gl_LIBOBJDEPS@
+	-rm -f @gl_libgnu_LIBOBJDEPS@
 maintainer-clean-local: distclean-gnulib-libobjs

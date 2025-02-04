@@ -85,27 +85,35 @@ AC_DEFUN([hl_INIT],
     hl_libobjs=
     hl_ltlibobjs=
     hl_libobjdeps=
+    hl_libgnu_libobjs=
+    hl_libgnu_ltlibobjs=
+    hl_libgnu_libobjdeps=
     if test -n "$hl_LIBOBJS"; then
       # Remove the extension.
 changequote(,)dnl
       sed_drop_objext='s/\.o$//;s/\.obj$//'
       sed_dirname1='s,//*,/,g'
       sed_dirname2='s,\(.\)/$,\1,'
-      sed_dirname3='s,^[^/]*$,.,'
-      sed_dirname4='s,\(.\)/[^/]*$,\1,'
+      sed_dirname3='s,[^/]*$,,'
       sed_basename1='s,.*/,,'
 changequote([, ])dnl
       for i in `for i in $hl_LIBOBJS; do echo "$i"; done | sed -e "$sed_drop_objext" | sort | uniq`; do
         hl_libobjs="$hl_libobjs $i.$ac_objext"
         hl_ltlibobjs="$hl_ltlibobjs $i.lo"
-        i_dir=`echo "$i" | sed -e "$sed_dirname1" -e "$sed_dirname2" -e "$sed_dirname3" -e "$sed_dirname4"`
+        i_dir=`echo "$i" | sed -e "$sed_dirname1" -e "$sed_dirname2" -e "$sed_dirname3"`
         i_base=`echo "$i" | sed -e "$sed_basename1"`
-        hl_libobjdeps="$hl_libobjdeps $i_dir/\$(DEPDIR)/$i_base.Po"
+        hl_libgnu_libobjs="$hl_libgnu_libobjs $i_dir""libgnu_a-$i_base.$ac_objext"
+        hl_libgnu_ltlibobjs="$hl_libgnu_ltlibobjs $i_dir""libgnu_la-$i_base.lo"
+        hl_libobjdeps="$hl_libobjdeps $i_dir\$(DEPDIR)/$i_base.Po"
+        hl_libgnu_libobjdeps="$hl_libgnu_libobjdeps $i_dir\$(DEPDIR)/libgnu_a-$i_base.Po"
       done
     fi
     AC_SUBST([hl_LIBOBJS], [$hl_libobjs])
     AC_SUBST([hl_LTLIBOBJS], [$hl_ltlibobjs])
     AC_SUBST([hl_LIBOBJDEPS], [$hl_libobjdeps])
+    AC_SUBST([hl_libgnu_LIBOBJS], [$hl_libgnu_libobjs])
+    AC_SUBST([hl_libgnu_LTLIBOBJS], [$hl_libgnu_ltlibobjs])
+    AC_SUBST([hl_libgnu_LIBOBJDEPS], [$hl_libgnu_libobjdeps])
   ])
   gltests_libdeps=
   gltests_ltlibdeps=
@@ -148,27 +156,35 @@ changequote([, ])dnl
     hltests_libobjs=
     hltests_ltlibobjs=
     hltests_libobjdeps=
+    hltests_libgnu_libobjs=
+    hltests_libgnu_ltlibobjs=
+    hltests_libgnu_libobjdeps=
     if test -n "$hltests_LIBOBJS"; then
       # Remove the extension.
 changequote(,)dnl
       sed_drop_objext='s/\.o$//;s/\.obj$//'
       sed_dirname1='s,//*,/,g'
       sed_dirname2='s,\(.\)/$,\1,'
-      sed_dirname3='s,^[^/]*$,.,'
-      sed_dirname4='s,\(.\)/[^/]*$,\1,'
+      sed_dirname3='s,[^/]*$,,'
       sed_basename1='s,.*/,,'
 changequote([, ])dnl
       for i in `for i in $hltests_LIBOBJS; do echo "$i"; done | sed -e "$sed_drop_objext" | sort | uniq`; do
         hltests_libobjs="$hltests_libobjs $i.$ac_objext"
         hltests_ltlibobjs="$hltests_ltlibobjs $i.lo"
-        i_dir=`echo "$i" | sed -e "$sed_dirname1" -e "$sed_dirname2" -e "$sed_dirname3" -e "$sed_dirname4"`
+        i_dir=`echo "$i" | sed -e "$sed_dirname1" -e "$sed_dirname2" -e "$sed_dirname3"`
         i_base=`echo "$i" | sed -e "$sed_basename1"`
-        hltests_libobjdeps="$hltests_libobjdeps $i_dir/\$(DEPDIR)/$i_base.Po"
+        hltests_libgnu_libobjs="$hltests_libgnu_libobjs $i_dir""libgnu_a-$i_base.$ac_objext"
+        hltests_libgnu_ltlibobjs="$hltests_libgnu_ltlibobjs $i_dir""libgnu_la-$i_base.lo"
+        hltests_libobjdeps="$hltests_libobjdeps $i_dir\$(DEPDIR)/$i_base.Po"
+        hltests_libgnu_libobjdeps="$hltests_libgnu_libobjdeps $i_dir\$(DEPDIR)/libgnu_a-$i_base.Po"
       done
     fi
     AC_SUBST([hltests_LIBOBJS], [$hltests_libobjs])
     AC_SUBST([hltests_LTLIBOBJS], [$hltests_ltlibobjs])
     AC_SUBST([hltests_LIBOBJDEPS], [$hltests_libobjdeps])
+    AC_SUBST([hltests_libgnu_LIBOBJS], [$hltests_libgnu_libobjs])
+    AC_SUBST([hltests_libgnu_LTLIBOBJS], [$hltests_libgnu_ltlibobjs])
+    AC_SUBST([hltests_libgnu_LIBOBJDEPS], [$hltests_libgnu_libobjdeps])
   ])
   AC_REQUIRE([gl_CC_GNULIB_WARNINGS])
   LIBGNU_LIBDEPS="$gl_libdeps"

@@ -1685,27 +1685,35 @@ AC_DEFUN([gl_INIT],
     gl_libobjs=
     gl_ltlibobjs=
     gl_libobjdeps=
+    gl_libdiffutils_libobjs=
+    gl_libdiffutils_ltlibobjs=
+    gl_libdiffutils_libobjdeps=
     if test -n "$gl_LIBOBJS"; then
       # Remove the extension.
 changequote(,)dnl
       sed_drop_objext='s/\.o$//;s/\.obj$//'
       sed_dirname1='s,//*,/,g'
       sed_dirname2='s,\(.\)/$,\1,'
-      sed_dirname3='s,^[^/]*$,.,'
-      sed_dirname4='s,\(.\)/[^/]*$,\1,'
+      sed_dirname3='s,[^/]*$,,'
       sed_basename1='s,.*/,,'
 changequote([, ])dnl
       for i in `for i in $gl_LIBOBJS; do echo "$i"; done | sed -e "$sed_drop_objext" | sort | uniq`; do
         gl_libobjs="$gl_libobjs $i.$ac_objext"
         gl_ltlibobjs="$gl_ltlibobjs $i.lo"
-        i_dir=`echo "$i" | sed -e "$sed_dirname1" -e "$sed_dirname2" -e "$sed_dirname3" -e "$sed_dirname4"`
+        i_dir=`echo "$i" | sed -e "$sed_dirname1" -e "$sed_dirname2" -e "$sed_dirname3"`
         i_base=`echo "$i" | sed -e "$sed_basename1"`
-        gl_libobjdeps="$gl_libobjdeps $i_dir/\$(DEPDIR)/$i_base.Po"
+        gl_libdiffutils_libobjs="$gl_libdiffutils_libobjs $i_dir""libdiffutils_a-$i_base.$ac_objext"
+        gl_libdiffutils_ltlibobjs="$gl_libdiffutils_ltlibobjs $i_dir""libdiffutils_la-$i_base.lo"
+        gl_libobjdeps="$gl_libobjdeps $i_dir\$(DEPDIR)/$i_base.Po"
+        gl_libdiffutils_libobjdeps="$gl_libdiffutils_libobjdeps $i_dir\$(DEPDIR)/libdiffutils_a-$i_base.Po"
       done
     fi
     AC_SUBST([gl_LIBOBJS], [$gl_libobjs])
     AC_SUBST([gl_LTLIBOBJS], [$gl_ltlibobjs])
     AC_SUBST([gl_LIBOBJDEPS], [$gl_libobjdeps])
+    AC_SUBST([gl_libdiffutils_LIBOBJS], [$gl_libdiffutils_libobjs])
+    AC_SUBST([gl_libdiffutils_LTLIBOBJS], [$gl_libdiffutils_ltlibobjs])
+    AC_SUBST([gl_libdiffutils_LIBOBJDEPS], [$gl_libdiffutils_libobjdeps])
   ])
   gltests_libdeps=
   gltests_ltlibdeps=
@@ -2116,27 +2124,35 @@ changequote([, ])dnl
     gltests_libobjs=
     gltests_ltlibobjs=
     gltests_libobjdeps=
+    gltests_libdiffutils_libobjs=
+    gltests_libdiffutils_ltlibobjs=
+    gltests_libdiffutils_libobjdeps=
     if test -n "$gltests_LIBOBJS"; then
       # Remove the extension.
 changequote(,)dnl
       sed_drop_objext='s/\.o$//;s/\.obj$//'
       sed_dirname1='s,//*,/,g'
       sed_dirname2='s,\(.\)/$,\1,'
-      sed_dirname3='s,^[^/]*$,.,'
-      sed_dirname4='s,\(.\)/[^/]*$,\1,'
+      sed_dirname3='s,[^/]*$,,'
       sed_basename1='s,.*/,,'
 changequote([, ])dnl
       for i in `for i in $gltests_LIBOBJS; do echo "$i"; done | sed -e "$sed_drop_objext" | sort | uniq`; do
         gltests_libobjs="$gltests_libobjs $i.$ac_objext"
         gltests_ltlibobjs="$gltests_ltlibobjs $i.lo"
-        i_dir=`echo "$i" | sed -e "$sed_dirname1" -e "$sed_dirname2" -e "$sed_dirname3" -e "$sed_dirname4"`
+        i_dir=`echo "$i" | sed -e "$sed_dirname1" -e "$sed_dirname2" -e "$sed_dirname3"`
         i_base=`echo "$i" | sed -e "$sed_basename1"`
-        gltests_libobjdeps="$gltests_libobjdeps $i_dir/\$(DEPDIR)/$i_base.Po"
+        gltests_libdiffutils_libobjs="$gltests_libdiffutils_libobjs $i_dir""libdiffutils_a-$i_base.$ac_objext"
+        gltests_libdiffutils_ltlibobjs="$gltests_libdiffutils_ltlibobjs $i_dir""libdiffutils_la-$i_base.lo"
+        gltests_libobjdeps="$gltests_libobjdeps $i_dir\$(DEPDIR)/$i_base.Po"
+        gltests_libdiffutils_libobjdeps="$gltests_libdiffutils_libobjdeps $i_dir\$(DEPDIR)/libdiffutils_a-$i_base.Po"
       done
     fi
     AC_SUBST([gltests_LIBOBJS], [$gltests_libobjs])
     AC_SUBST([gltests_LTLIBOBJS], [$gltests_ltlibobjs])
     AC_SUBST([gltests_LIBOBJDEPS], [$gltests_libobjdeps])
+    AC_SUBST([gltests_libdiffutils_LIBOBJS], [$gltests_libdiffutils_libobjs])
+    AC_SUBST([gltests_libdiffutils_LTLIBOBJS], [$gltests_libdiffutils_ltlibobjs])
+    AC_SUBST([gltests_libdiffutils_LIBOBJDEPS], [$gltests_libdiffutils_libobjdeps])
   ])
   AC_REQUIRE([gl_CC_GNULIB_WARNINGS])
   LIBDIFFUTILS_LIBDEPS="$gl_libdeps"

@@ -191,9 +191,9 @@ MOSTLYCLEANFILES += core *.stackdump
 noinst_LIBRARIES += libtestsgnu.a
 
 libtestsgnu_a_SOURCES =
-libtestsgnu_a_CFLAGS = $(AM_CFLAGS) $(GL_CFLAG_GNULIB_WARNINGS)
-libtestsgnu_a_LIBADD = $(gttgl_LIBOBJS)
-libtestsgnu_a_DEPENDENCIES = $(gttgl_LIBOBJS)
+libtestsgnu_a_CFLAGS = $(AM_CFLAGS) $(GL_CFLAG_GNULIB_WARNINGS) $(GL_CFLAG_ALLOW_WARNINGS)
+libtestsgnu_a_LIBADD = $(gttgl_libtestsgnu_LIBOBJS)
+libtestsgnu_a_DEPENDENCIES = $(gttgl_libtestsgnu_LIBOBJS)
 EXTRA_libtestsgnu_a_SOURCES =
 
 ## begin gnulib module gen-header
@@ -342,5 +342,5 @@ mostlyclean-local: mostlyclean-generic
 	:
 distclean-local: distclean-gnulib-libobjs
 distclean-gnulib-libobjs:
-	-rm -f @gttgl_LIBOBJDEPS@
+	-rm -f @gttgl_libtestsgnu_LIBOBJDEPS@
 maintainer-clean-local: distclean-gnulib-libobjs

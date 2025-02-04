@@ -169,9 +169,9 @@ MOSTLYCLEANFILES += gl/core gl/*.stackdump
 noinst_LTLIBRARIES += gl/libgl.la
 
 gl_libgl_la_SOURCES =
-gl_libgl_la_CFLAGS = $(AM_CFLAGS) $(GL_CFLAG_GNULIB_WARNINGS)
-gl_libgl_la_LIBADD = $(gl_LTLIBOBJS)
-gl_libgl_la_DEPENDENCIES = $(gl_LTLIBOBJS)
+gl_libgl_la_CFLAGS = $(AM_CFLAGS) $(GL_CFLAG_GNULIB_WARNINGS) $(GL_CFLAG_ALLOW_WARNINGS)
+gl_libgl_la_LIBADD = $(gl_libgl_LTLIBOBJS)
+gl_libgl_la_DEPENDENCIES = $(gl_libgl_LTLIBOBJS)
 EXTRA_gl_libgl_la_SOURCES =
 gl_libgl_la_LDFLAGS = $(AM_LDFLAGS)
 gl_libgl_la_LDFLAGS += -no-undefined
@@ -5613,5 +5613,5 @@ mostlyclean-local: mostlyclean-generic
 	:
 distclean-local: distclean-gnulib-libobjs
 distclean-gnulib-libobjs:
-	-rm -f @gl_LIBOBJDEPS@
+	-rm -f @gl_libgl_LIBOBJDEPS@
 maintainer-clean-local: distclean-gnulib-libobjs

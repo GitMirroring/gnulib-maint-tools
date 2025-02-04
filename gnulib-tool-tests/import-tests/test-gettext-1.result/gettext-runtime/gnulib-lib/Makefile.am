@@ -86,9 +86,9 @@ AM_CFLAGS =
 noinst_LIBRARIES += libgrt.a
 
 libgrt_a_SOURCES =
-libgrt_a_CFLAGS = $(AM_CFLAGS) $(GL_CFLAG_GNULIB_WARNINGS)
-libgrt_a_LIBADD = $(gl_LIBOBJS)
-libgrt_a_DEPENDENCIES = $(gl_LIBOBJS)
+libgrt_a_CFLAGS = $(AM_CFLAGS) $(GL_CFLAG_GNULIB_WARNINGS) $(GL_CFLAG_ALLOW_WARNINGS)
+libgrt_a_LIBADD = $(gl_libgrt_LIBOBJS)
+libgrt_a_DEPENDENCIES = $(gl_libgrt_LIBOBJS)
 EXTRA_libgrt_a_SOURCES =
 
 ## begin gnulib module absolute-header
@@ -3176,5 +3176,5 @@ mostlyclean-local: mostlyclean-generic
 	:
 distclean-local: distclean-gnulib-libobjs
 distclean-gnulib-libobjs:
-	-rm -f @gl_LIBOBJDEPS@
+	-rm -f @gl_libgrt_LIBOBJDEPS@
 maintainer-clean-local: distclean-gnulib-libobjs

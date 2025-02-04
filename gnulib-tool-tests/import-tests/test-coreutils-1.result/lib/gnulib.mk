@@ -332,9 +332,9 @@ MOSTLYCLEANFILES += lib/core lib/*.stackdump
 noinst_LIBRARIES += lib/libcoreutils.a
 
 lib_libcoreutils_a_SOURCES =
-lib_libcoreutils_a_CFLAGS = $(AM_CFLAGS) $(GL_CFLAG_GNULIB_WARNINGS)
-lib_libcoreutils_a_LIBADD = $(gl_LIBOBJS)
-lib_libcoreutils_a_DEPENDENCIES = $(gl_LIBOBJS)
+lib_libcoreutils_a_CFLAGS = $(AM_CFLAGS) $(GL_CFLAG_GNULIB_WARNINGS) $(GL_CFLAG_ALLOW_WARNINGS)
+lib_libcoreutils_a_LIBADD = $(gl_libcoreutils_LIBOBJS)
+lib_libcoreutils_a_DEPENDENCIES = $(gl_libcoreutils_LIBOBJS)
 EXTRA_lib_libcoreutils_a_SOURCES =
 
 ## begin gnulib module absolute-header
@@ -7595,5 +7595,5 @@ mostlyclean-local: mostlyclean-generic
 	:
 distclean-local: distclean-gnulib-libobjs
 distclean-gnulib-libobjs:
-	-rm -f @gl_LIBOBJDEPS@
+	-rm -f @gl_libcoreutils_LIBOBJDEPS@
 maintainer-clean-local: distclean-gnulib-libobjs

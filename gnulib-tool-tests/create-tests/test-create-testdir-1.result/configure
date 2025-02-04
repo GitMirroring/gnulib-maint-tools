@@ -642,9 +642,15 @@ gl_use_threads_default=
 gl_use_winpthreads_default=no
 ac_func_c_list=
 enable_year2038=no
-ac_subst_vars='gltests_LIBOBJDEPS
+ac_subst_vars='gltests_libgnu_LIBOBJDEPS
+gltests_libgnu_LTLIBOBJS
+gltests_libgnu_LIBOBJS
+gltests_LIBOBJDEPS
 gltests_LTLIBOBJS
 gltests_LIBOBJS
+gl_libgnu_LIBOBJDEPS
+gl_libgnu_LTLIBOBJS
+gl_libgnu_LIBOBJS
 gl_LIBOBJDEPS
 gl_LTLIBOBJS
 gl_LIBOBJS
@@ -7470,8 +7476,6 @@ fi
 
 
 
-
-
   # IEEE behaviour is the default on all CPUs except Alpha and SH
   # (according to the test results of Bruno Haible's ieeefp/fenv_default.m4
   # and the GCC 4.1.2 manual).
@@ -8891,8 +8895,8 @@ rm -f core conftest.err conftest.$ac_objext conftest.beam \
         LIBS=$save_LIBS
         test $gl_pthread_api = yes && break
       done
-      echo "$as_me:8894: gl_pthread_api=$gl_pthread_api" >&5
-      echo "$as_me:8895: LIBPTHREAD=$LIBPTHREAD" >&5
+      echo "$as_me:8898: gl_pthread_api=$gl_pthread_api" >&5
+      echo "$as_me:8899: LIBPTHREAD=$LIBPTHREAD" >&5
 
       gl_pthread_in_glibc=no
       # On Linux with glibc >= 2.34, libc contains the fully functional
@@ -8918,7 +8922,7 @@ rm -rf conftest*
 
           ;;
       esac
-      echo "$as_me:8921: gl_pthread_in_glibc=$gl_pthread_in_glibc" >&5
+      echo "$as_me:8925: gl_pthread_in_glibc=$gl_pthread_in_glibc" >&5
 
       # Test for libpthread by looking for pthread_kill. (Not pthread_self,
       # since it is defined as a macro on OSF/1.)
@@ -9152,7 +9156,7 @@ fi
 
         fi
       fi
-      echo "$as_me:9155: LIBPMULTITHREAD=$LIBPMULTITHREAD" >&5
+      echo "$as_me:9159: LIBPMULTITHREAD=$LIBPMULTITHREAD" >&5
     fi
     { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking whether POSIX threads API is available" >&5
 printf %s "checking whether POSIX threads API is available... " >&6; }
@@ -12838,8 +12842,8 @@ rm -f core conftest.err conftest.$ac_objext conftest.beam \
         LIBS=$save_LIBS
         test $gl_pthread_api = yes && break
       done
-      echo "$as_me:12841: gl_pthread_api=$gl_pthread_api" >&5
-      echo "$as_me:12842: LIBPTHREAD=$LIBPTHREAD" >&5
+      echo "$as_me:12845: gl_pthread_api=$gl_pthread_api" >&5
+      echo "$as_me:12846: LIBPTHREAD=$LIBPTHREAD" >&5
 
       gl_pthread_in_glibc=no
       # On Linux with glibc >= 2.34, libc contains the fully functional
@@ -12865,7 +12869,7 @@ rm -rf conftest*
 
           ;;
       esac
-      echo "$as_me:12868: gl_pthread_in_glibc=$gl_pthread_in_glibc" >&5
+      echo "$as_me:12872: gl_pthread_in_glibc=$gl_pthread_in_glibc" >&5
 
       # Test for libpthread by looking for pthread_kill. (Not pthread_self,
       # since it is defined as a macro on OSF/1.)
@@ -13099,7 +13103,7 @@ fi
 
         fi
       fi
-      echo "$as_me:13102: LIBPMULTITHREAD=$LIBPMULTITHREAD" >&5
+      echo "$as_me:13106: LIBPMULTITHREAD=$LIBPMULTITHREAD" >&5
     fi
     { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking whether POSIX threads API is available" >&5
 printf %s "checking whether POSIX threads API is available... " >&6; }
@@ -13348,8 +13352,8 @@ rm -f core conftest.err conftest.$ac_objext conftest.beam \
         LIBS=$save_LIBS
         test $gl_pthread_api = yes && break
       done
-      echo "$as_me:13351: gl_pthread_api=$gl_pthread_api" >&5
-      echo "$as_me:13352: LIBPTHREAD=$LIBPTHREAD" >&5
+      echo "$as_me:13355: gl_pthread_api=$gl_pthread_api" >&5
+      echo "$as_me:13356: LIBPTHREAD=$LIBPTHREAD" >&5
 
       gl_pthread_in_glibc=no
       # On Linux with glibc >= 2.34, libc contains the fully functional
@@ -13375,7 +13379,7 @@ rm -rf conftest*
 
           ;;
       esac
-      echo "$as_me:13378: gl_pthread_in_glibc=$gl_pthread_in_glibc" >&5
+      echo "$as_me:13382: gl_pthread_in_glibc=$gl_pthread_in_glibc" >&5
 
       # Test for libpthread by looking for pthread_kill. (Not pthread_self,
       # since it is defined as a macro on OSF/1.)
@@ -13609,7 +13613,7 @@ fi
 
         fi
       fi
-      echo "$as_me:13612: LIBPMULTITHREAD=$LIBPMULTITHREAD" >&5
+      echo "$as_me:13616: LIBPMULTITHREAD=$LIBPMULTITHREAD" >&5
     fi
     { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking whether POSIX threads API is available" >&5
 printf %s "checking whether POSIX threads API is available... " >&6; }
@@ -17447,6 +17451,9 @@ if test $ac_cv_func_strerror_r_char_p = yes; then
 printf "%s\n" "#define STRERROR_R_CHAR_P 1" >>confdefs.h
 
 fi
+
+
+  XGETTEXT_EXTRA_OPTIONS=
 
 
     HAVE_FCNTL=1;
@@ -30128,6 +30135,13 @@ fi
 fi
 
 
+  XGETTEXT_EXTRA_OPTIONS="$XGETTEXT_EXTRA_OPTIONS --flag=error:3:c-format"
+
+
+
+  XGETTEXT_EXTRA_OPTIONS="$XGETTEXT_EXTRA_OPTIONS --flag=error_at_line:5:c-format"
+
+
 
 
 
@@ -39990,20 +40004,25 @@ fi
     gl_libobjs=
     gl_ltlibobjs=
     gl_libobjdeps=
+    gl_libgnu_libobjs=
+    gl_libgnu_ltlibobjs=
+    gl_libgnu_libobjdeps=
     if test -n "$gl_LIBOBJS"; then
       # Remove the extension.
       sed_drop_objext='s/\.o$//;s/\.obj$//'
       sed_dirname1='s,//*,/,g'
       sed_dirname2='s,\(.\)/$,\1,'
-      sed_dirname3='s,^[^/]*$,.,'
-      sed_dirname4='s,\(.\)/[^/]*$,\1,'
+      sed_dirname3='s,[^/]*$,,'
       sed_basename1='s,.*/,,'
       for i in `for i in $gl_LIBOBJS; do echo "$i"; done | sed -e "$sed_drop_objext" | sort | uniq`; do
         gl_libobjs="$gl_libobjs $i.$ac_objext"
         gl_ltlibobjs="$gl_ltlibobjs $i.lo"
-        i_dir=`echo "$i" | sed -e "$sed_dirname1" -e "$sed_dirname2" -e "$sed_dirname3" -e "$sed_dirname4"`
+        i_dir=`echo "$i" | sed -e "$sed_dirname1" -e "$sed_dirname2" -e "$sed_dirname3"`
         i_base=`echo "$i" | sed -e "$sed_basename1"`
-        gl_libobjdeps="$gl_libobjdeps $i_dir/\$(DEPDIR)/$i_base.Po"
+        gl_libgnu_libobjs="$gl_libgnu_libobjs $i_dir""libgnu_a-$i_base.$ac_objext"
+        gl_libgnu_ltlibobjs="$gl_libgnu_ltlibobjs $i_dir""libgnu_la-$i_base.lo"
+        gl_libobjdeps="$gl_libobjdeps $i_dir\$(DEPDIR)/$i_base.Po"
+        gl_libgnu_libobjdeps="$gl_libgnu_libobjdeps $i_dir\$(DEPDIR)/libgnu_a-$i_base.Po"
       done
     fi
     gl_LIBOBJS=$gl_libobjs
@@ -40011,6 +40030,12 @@ fi
     gl_LTLIBOBJS=$gl_ltlibobjs
 
     gl_LIBOBJDEPS=$gl_libobjdeps
+
+    gl_libgnu_LIBOBJS=$gl_libgnu_libobjs
+
+    gl_libgnu_LTLIBOBJS=$gl_libgnu_ltlibobjs
+
+    gl_libgnu_LIBOBJDEPS=$gl_libgnu_libobjdeps
 
 
 
@@ -40020,20 +40045,25 @@ fi
     gltests_libobjs=
     gltests_ltlibobjs=
     gltests_libobjdeps=
+    gltests_libgnu_libobjs=
+    gltests_libgnu_ltlibobjs=
+    gltests_libgnu_libobjdeps=
     if test -n "$gltests_LIBOBJS"; then
       # Remove the extension.
       sed_drop_objext='s/\.o$//;s/\.obj$//'
       sed_dirname1='s,//*,/,g'
       sed_dirname2='s,\(.\)/$,\1,'
-      sed_dirname3='s,^[^/]*$,.,'
-      sed_dirname4='s,\(.\)/[^/]*$,\1,'
+      sed_dirname3='s,[^/]*$,,'
       sed_basename1='s,.*/,,'
       for i in `for i in $gltests_LIBOBJS; do echo "$i"; done | sed -e "$sed_drop_objext" | sort | uniq`; do
         gltests_libobjs="$gltests_libobjs $i.$ac_objext"
         gltests_ltlibobjs="$gltests_ltlibobjs $i.lo"
-        i_dir=`echo "$i" | sed -e "$sed_dirname1" -e "$sed_dirname2" -e "$sed_dirname3" -e "$sed_dirname4"`
+        i_dir=`echo "$i" | sed -e "$sed_dirname1" -e "$sed_dirname2" -e "$sed_dirname3"`
         i_base=`echo "$i" | sed -e "$sed_basename1"`
-        gltests_libobjdeps="$gltests_libobjdeps $i_dir/\$(DEPDIR)/$i_base.Po"
+        gltests_libgnu_libobjs="$gltests_libgnu_libobjs $i_dir""libgnu_a-$i_base.$ac_objext"
+        gltests_libgnu_ltlibobjs="$gltests_libgnu_ltlibobjs $i_dir""libgnu_la-$i_base.lo"
+        gltests_libobjdeps="$gltests_libobjdeps $i_dir\$(DEPDIR)/$i_base.Po"
+        gltests_libgnu_libobjdeps="$gltests_libgnu_libobjdeps $i_dir\$(DEPDIR)/libgnu_a-$i_base.Po"
       done
     fi
     gltests_LIBOBJS=$gltests_libobjs
@@ -40041,6 +40071,12 @@ fi
     gltests_LTLIBOBJS=$gltests_ltlibobjs
 
     gltests_LIBOBJDEPS=$gltests_libobjdeps
+
+    gltests_libgnu_LIBOBJS=$gltests_libgnu_libobjs
+
+    gltests_libgnu_LTLIBOBJS=$gltests_libgnu_ltlibobjs
+
+    gltests_libgnu_LIBOBJDEPS=$gltests_libgnu_libobjdeps
 
 
 

@@ -640,9 +640,15 @@ ac_includes_default="\
 ac_header_c_list=
 ac_func_c_list=
 gl_libtextstyle_minversion=' 0.20 '
-ac_subst_vars='gltests_LIBOBJDEPS
+ac_subst_vars='gltests_libgnu_LIBOBJDEPS
+gltests_libgnu_LTLIBOBJS
+gltests_libgnu_LIBOBJS
+gltests_LIBOBJDEPS
 gltests_LTLIBOBJS
 gltests_LIBOBJS
+gl_libgnu_LIBOBJDEPS
+gl_libgnu_LTLIBOBJS
+gl_libgnu_LIBOBJS
 gl_LIBOBJDEPS
 gl_LTLIBOBJS
 gl_LIBOBJS
@@ -14657,6 +14663,9 @@ printf "%s\n" "#define HAVE_SNPRINTF_TRUNCATION_C99 1" >>confdefs.h
 
 
 
+  XGETTEXT_EXTRA_OPTIONS=
+
+
 
 
 
@@ -22910,6 +22919,13 @@ printf "%s\n" "#define GNULIB_TEST_VASPRINTF 1" >>confdefs.h
 
 
 
+  XGETTEXT_EXTRA_OPTIONS="$XGETTEXT_EXTRA_OPTIONS --flag=asprintf:2:c-format"
+
+
+
+  XGETTEXT_EXTRA_OPTIONS="$XGETTEXT_EXTRA_OPTIONS --flag=vasprintf:2:c-format"
+
+
 
   if test $gl_cv_func_vasprintf_posix = no; then
 
@@ -24030,20 +24046,25 @@ fi
     gl_libobjs=
     gl_ltlibobjs=
     gl_libobjdeps=
+    gl_libgnu_libobjs=
+    gl_libgnu_ltlibobjs=
+    gl_libgnu_libobjdeps=
     if test -n "$gl_LIBOBJS"; then
       # Remove the extension.
       sed_drop_objext='s/\.o$//;s/\.obj$//'
       sed_dirname1='s,//*,/,g'
       sed_dirname2='s,\(.\)/$,\1,'
-      sed_dirname3='s,^[^/]*$,.,'
-      sed_dirname4='s,\(.\)/[^/]*$,\1,'
+      sed_dirname3='s,[^/]*$,,'
       sed_basename1='s,.*/,,'
       for i in `for i in $gl_LIBOBJS; do echo "$i"; done | sed -e "$sed_drop_objext" | sort | uniq`; do
         gl_libobjs="$gl_libobjs $i.$ac_objext"
         gl_ltlibobjs="$gl_ltlibobjs $i.lo"
-        i_dir=`echo "$i" | sed -e "$sed_dirname1" -e "$sed_dirname2" -e "$sed_dirname3" -e "$sed_dirname4"`
+        i_dir=`echo "$i" | sed -e "$sed_dirname1" -e "$sed_dirname2" -e "$sed_dirname3"`
         i_base=`echo "$i" | sed -e "$sed_basename1"`
-        gl_libobjdeps="$gl_libobjdeps $i_dir/\$(DEPDIR)/$i_base.Po"
+        gl_libgnu_libobjs="$gl_libgnu_libobjs $i_dir""libgnu_a-$i_base.$ac_objext"
+        gl_libgnu_ltlibobjs="$gl_libgnu_ltlibobjs $i_dir""libgnu_la-$i_base.lo"
+        gl_libobjdeps="$gl_libobjdeps $i_dir\$(DEPDIR)/$i_base.Po"
+        gl_libgnu_libobjdeps="$gl_libgnu_libobjdeps $i_dir\$(DEPDIR)/libgnu_a-$i_base.Po"
       done
     fi
     gl_LIBOBJS=$gl_libobjs
@@ -24052,25 +24073,36 @@ fi
 
     gl_LIBOBJDEPS=$gl_libobjdeps
 
+    gl_libgnu_LIBOBJS=$gl_libgnu_libobjs
+
+    gl_libgnu_LTLIBOBJS=$gl_libgnu_ltlibobjs
+
+    gl_libgnu_LIBOBJDEPS=$gl_libgnu_libobjdeps
+
 
 
     gltests_libobjs=
     gltests_ltlibobjs=
     gltests_libobjdeps=
+    gltests_libgnu_libobjs=
+    gltests_libgnu_ltlibobjs=
+    gltests_libgnu_libobjdeps=
     if test -n "$gltests_LIBOBJS"; then
       # Remove the extension.
       sed_drop_objext='s/\.o$//;s/\.obj$//'
       sed_dirname1='s,//*,/,g'
       sed_dirname2='s,\(.\)/$,\1,'
-      sed_dirname3='s,^[^/]*$,.,'
-      sed_dirname4='s,\(.\)/[^/]*$,\1,'
+      sed_dirname3='s,[^/]*$,,'
       sed_basename1='s,.*/,,'
       for i in `for i in $gltests_LIBOBJS; do echo "$i"; done | sed -e "$sed_drop_objext" | sort | uniq`; do
         gltests_libobjs="$gltests_libobjs $i.$ac_objext"
         gltests_ltlibobjs="$gltests_ltlibobjs $i.lo"
-        i_dir=`echo "$i" | sed -e "$sed_dirname1" -e "$sed_dirname2" -e "$sed_dirname3" -e "$sed_dirname4"`
+        i_dir=`echo "$i" | sed -e "$sed_dirname1" -e "$sed_dirname2" -e "$sed_dirname3"`
         i_base=`echo "$i" | sed -e "$sed_basename1"`
-        gltests_libobjdeps="$gltests_libobjdeps $i_dir/\$(DEPDIR)/$i_base.Po"
+        gltests_libgnu_libobjs="$gltests_libgnu_libobjs $i_dir""libgnu_a-$i_base.$ac_objext"
+        gltests_libgnu_ltlibobjs="$gltests_libgnu_ltlibobjs $i_dir""libgnu_la-$i_base.lo"
+        gltests_libobjdeps="$gltests_libobjdeps $i_dir\$(DEPDIR)/$i_base.Po"
+        gltests_libgnu_libobjdeps="$gltests_libgnu_libobjdeps $i_dir\$(DEPDIR)/libgnu_a-$i_base.Po"
       done
     fi
     gltests_LIBOBJS=$gltests_libobjs
@@ -24078,6 +24110,12 @@ fi
     gltests_LTLIBOBJS=$gltests_ltlibobjs
 
     gltests_LIBOBJDEPS=$gltests_libobjdeps
+
+    gltests_libgnu_LIBOBJS=$gltests_libgnu_libobjs
+
+    gltests_libgnu_LTLIBOBJS=$gltests_libgnu_ltlibobjs
+
+    gltests_libgnu_LIBOBJDEPS=$gltests_libgnu_libobjdeps
 
 
 

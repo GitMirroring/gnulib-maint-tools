@@ -1435,10 +1435,16 @@ gl_GNULIB_ENABLED_utimens_CONDITION = @gl_GNULIB_ENABLED_utimens_CONDITION@
 gl_LIBOBJDEPS = @gl_LIBOBJDEPS@
 gl_LIBOBJS = @gl_LIBOBJS@
 gl_LTLIBOBJS = @gl_LTLIBOBJS@
+gl_libgnu_LIBOBJDEPS = @gl_libgnu_LIBOBJDEPS@
+gl_libgnu_LIBOBJS = @gl_libgnu_LIBOBJS@
+gl_libgnu_LTLIBOBJS = @gl_libgnu_LTLIBOBJS@
 gltests_LIBOBJDEPS = @gltests_LIBOBJDEPS@
 gltests_LIBOBJS = @gltests_LIBOBJS@
 gltests_LTLIBOBJS = @gltests_LTLIBOBJS@
 gltests_WITNESS = @gltests_WITNESS@
+gltests_libgnu_LIBOBJDEPS = @gltests_libgnu_LIBOBJDEPS@
+gltests_libgnu_LIBOBJS = @gltests_libgnu_LIBOBJS@
+gltests_libgnu_LTLIBOBJS = @gltests_libgnu_LTLIBOBJS@
 gsettingsschemadir = @gsettingsschemadir@
 host = @host@
 host_alias = @host_alias@
@@ -1486,9 +1492,9 @@ x_default_search_path = @x_default_search_path@
 noinst_LIBRARIES += libgnu.a
 
 libgnu_a_SOURCES =
-libgnu_a_CFLAGS = $(AM_CFLAGS) $(GL_CFLAG_GNULIB_WARNINGS)
-libgnu_a_LIBADD = $(gl_LIBOBJS)
-libgnu_a_DEPENDENCIES = $(gl_LIBOBJS)
+libgnu_a_CFLAGS = $(AM_CFLAGS) $(GL_CFLAG_GNULIB_WARNINGS) $(GL_CFLAG_ALLOW_WARNINGS)
+libgnu_a_LIBADD = $(gl_libgnu_LIBOBJS)
+libgnu_a_DEPENDENCIES = $(gl_libgnu_LIBOBJS)
 EXTRA_libgnu_a_SOURCES =
 
 ## begin gnulib module absolute-header
@@ -4299,5 +4305,5 @@ mostlyclean-local: mostlyclean-generic
 	:
 distclean-local: distclean-gnulib-libobjs
 distclean-gnulib-libobjs:
-	-rm -f @gl_LIBOBJDEPS@
+	-rm -f @gl_libgnu_LIBOBJDEPS@
 maintainer-clean-local: distclean-gnulib-libobjs

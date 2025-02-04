@@ -259,27 +259,35 @@ AC_DEFUN([grgl_INIT],
     grgl_libobjs=
     grgl_ltlibobjs=
     grgl_libobjdeps=
+    grgl_libgrep_libobjs=
+    grgl_libgrep_ltlibobjs=
+    grgl_libgrep_libobjdeps=
     if test -n "$grgl_LIBOBJS"; then
       # Remove the extension.
 changequote(,)dnl
       sed_drop_objext='s/\.o$//;s/\.obj$//'
       sed_dirname1='s,//*,/,g'
       sed_dirname2='s,\(.\)/$,\1,'
-      sed_dirname3='s,^[^/]*$,.,'
-      sed_dirname4='s,\(.\)/[^/]*$,\1,'
+      sed_dirname3='s,[^/]*$,,'
       sed_basename1='s,.*/,,'
 changequote([, ])dnl
       for i in `for i in $grgl_LIBOBJS; do echo "$i"; done | sed -e "$sed_drop_objext" | sort | uniq`; do
         grgl_libobjs="$grgl_libobjs $i.$ac_objext"
         grgl_ltlibobjs="$grgl_ltlibobjs $i.lo"
-        i_dir=`echo "$i" | sed -e "$sed_dirname1" -e "$sed_dirname2" -e "$sed_dirname3" -e "$sed_dirname4"`
+        i_dir=`echo "$i" | sed -e "$sed_dirname1" -e "$sed_dirname2" -e "$sed_dirname3"`
         i_base=`echo "$i" | sed -e "$sed_basename1"`
-        grgl_libobjdeps="$grgl_libobjdeps $i_dir/\$(DEPDIR)/$i_base.Po"
+        grgl_libgrep_libobjs="$grgl_libgrep_libobjs $i_dir""libgrep_a-$i_base.$ac_objext"
+        grgl_libgrep_ltlibobjs="$grgl_libgrep_ltlibobjs $i_dir""libgrep_la-$i_base.lo"
+        grgl_libobjdeps="$grgl_libobjdeps $i_dir\$(DEPDIR)/$i_base.Po"
+        grgl_libgrep_libobjdeps="$grgl_libgrep_libobjdeps $i_dir\$(DEPDIR)/libgrep_a-$i_base.Po"
       done
     fi
     AC_SUBST([grgl_LIBOBJS], [$grgl_libobjs])
     AC_SUBST([grgl_LTLIBOBJS], [$grgl_ltlibobjs])
     AC_SUBST([grgl_LIBOBJDEPS], [$grgl_libobjdeps])
+    AC_SUBST([grgl_libgrep_LIBOBJS], [$grgl_libgrep_libobjs])
+    AC_SUBST([grgl_libgrep_LTLIBOBJS], [$grgl_libgrep_ltlibobjs])
+    AC_SUBST([grgl_libgrep_LIBOBJDEPS], [$grgl_libgrep_libobjdeps])
   ])
   gltests_libdeps=
   gltests_ltlibdeps=
@@ -322,27 +330,35 @@ changequote([, ])dnl
     grgltests_libobjs=
     grgltests_ltlibobjs=
     grgltests_libobjdeps=
+    grgltests_libgrep_libobjs=
+    grgltests_libgrep_ltlibobjs=
+    grgltests_libgrep_libobjdeps=
     if test -n "$grgltests_LIBOBJS"; then
       # Remove the extension.
 changequote(,)dnl
       sed_drop_objext='s/\.o$//;s/\.obj$//'
       sed_dirname1='s,//*,/,g'
       sed_dirname2='s,\(.\)/$,\1,'
-      sed_dirname3='s,^[^/]*$,.,'
-      sed_dirname4='s,\(.\)/[^/]*$,\1,'
+      sed_dirname3='s,[^/]*$,,'
       sed_basename1='s,.*/,,'
 changequote([, ])dnl
       for i in `for i in $grgltests_LIBOBJS; do echo "$i"; done | sed -e "$sed_drop_objext" | sort | uniq`; do
         grgltests_libobjs="$grgltests_libobjs $i.$ac_objext"
         grgltests_ltlibobjs="$grgltests_ltlibobjs $i.lo"
-        i_dir=`echo "$i" | sed -e "$sed_dirname1" -e "$sed_dirname2" -e "$sed_dirname3" -e "$sed_dirname4"`
+        i_dir=`echo "$i" | sed -e "$sed_dirname1" -e "$sed_dirname2" -e "$sed_dirname3"`
         i_base=`echo "$i" | sed -e "$sed_basename1"`
-        grgltests_libobjdeps="$grgltests_libobjdeps $i_dir/\$(DEPDIR)/$i_base.Po"
+        grgltests_libgrep_libobjs="$grgltests_libgrep_libobjs $i_dir""libgrep_a-$i_base.$ac_objext"
+        grgltests_libgrep_ltlibobjs="$grgltests_libgrep_ltlibobjs $i_dir""libgrep_la-$i_base.lo"
+        grgltests_libobjdeps="$grgltests_libobjdeps $i_dir\$(DEPDIR)/$i_base.Po"
+        grgltests_libgrep_libobjdeps="$grgltests_libgrep_libobjdeps $i_dir\$(DEPDIR)/libgrep_a-$i_base.Po"
       done
     fi
     AC_SUBST([grgltests_LIBOBJS], [$grgltests_libobjs])
     AC_SUBST([grgltests_LTLIBOBJS], [$grgltests_ltlibobjs])
     AC_SUBST([grgltests_LIBOBJDEPS], [$grgltests_libobjdeps])
+    AC_SUBST([grgltests_libgrep_LIBOBJS], [$grgltests_libgrep_libobjs])
+    AC_SUBST([grgltests_libgrep_LTLIBOBJS], [$grgltests_libgrep_ltlibobjs])
+    AC_SUBST([grgltests_libgrep_LIBOBJDEPS], [$grgltests_libgrep_libobjdeps])
   ])
   AC_REQUIRE([gl_CC_GNULIB_WARNINGS])
   LIBGREP_LIBDEPS="$gl_libdeps"

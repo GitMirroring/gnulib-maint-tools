@@ -64,9 +64,9 @@ AM_CPPFLAGS += -DIN_GETTEXT_TOOLS_LIBGREP=1
 noinst_LIBRARIES += libgrep.a
 
 libgrep_a_SOURCES =
-libgrep_a_CFLAGS = $(AM_CFLAGS) $(GL_CFLAG_GNULIB_WARNINGS)
-libgrep_a_LIBADD = $(grgl_LIBOBJS)
-libgrep_a_DEPENDENCIES = $(grgl_LIBOBJS)
+libgrep_a_CFLAGS = $(AM_CFLAGS) $(GL_CFLAG_GNULIB_WARNINGS) $(GL_CFLAG_ALLOW_WARNINGS)
+libgrep_a_LIBADD = $(grgl_libgrep_LIBOBJS)
+libgrep_a_DEPENDENCIES = $(grgl_libgrep_LIBOBJS)
 EXTRA_libgrep_a_SOURCES =
 
 ## begin gnulib module attribute
@@ -1178,5 +1178,5 @@ mostlyclean-local: mostlyclean-generic
 	:
 distclean-local: distclean-gnulib-libobjs
 distclean-gnulib-libobjs:
-	-rm -f @grgl_LIBOBJDEPS@
+	-rm -f @grgl_libgrep_LIBOBJDEPS@
 maintainer-clean-local: distclean-gnulib-libobjs

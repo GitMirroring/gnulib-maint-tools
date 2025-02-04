@@ -116,27 +116,35 @@ AC_DEFUN([gttgl_INIT],
     gttgl_libobjs=
     gttgl_ltlibobjs=
     gttgl_libobjdeps=
+    gttgl_libtestsgnu_libobjs=
+    gttgl_libtestsgnu_ltlibobjs=
+    gttgl_libtestsgnu_libobjdeps=
     if test -n "$gttgl_LIBOBJS"; then
       # Remove the extension.
 changequote(,)dnl
       sed_drop_objext='s/\.o$//;s/\.obj$//'
       sed_dirname1='s,//*,/,g'
       sed_dirname2='s,\(.\)/$,\1,'
-      sed_dirname3='s,^[^/]*$,.,'
-      sed_dirname4='s,\(.\)/[^/]*$,\1,'
+      sed_dirname3='s,[^/]*$,,'
       sed_basename1='s,.*/,,'
 changequote([, ])dnl
       for i in `for i in $gttgl_LIBOBJS; do echo "$i"; done | sed -e "$sed_drop_objext" | sort | uniq`; do
         gttgl_libobjs="$gttgl_libobjs $i.$ac_objext"
         gttgl_ltlibobjs="$gttgl_ltlibobjs $i.lo"
-        i_dir=`echo "$i" | sed -e "$sed_dirname1" -e "$sed_dirname2" -e "$sed_dirname3" -e "$sed_dirname4"`
+        i_dir=`echo "$i" | sed -e "$sed_dirname1" -e "$sed_dirname2" -e "$sed_dirname3"`
         i_base=`echo "$i" | sed -e "$sed_basename1"`
-        gttgl_libobjdeps="$gttgl_libobjdeps $i_dir/\$(DEPDIR)/$i_base.Po"
+        gttgl_libtestsgnu_libobjs="$gttgl_libtestsgnu_libobjs $i_dir""libtestsgnu_a-$i_base.$ac_objext"
+        gttgl_libtestsgnu_ltlibobjs="$gttgl_libtestsgnu_ltlibobjs $i_dir""libtestsgnu_la-$i_base.lo"
+        gttgl_libobjdeps="$gttgl_libobjdeps $i_dir\$(DEPDIR)/$i_base.Po"
+        gttgl_libtestsgnu_libobjdeps="$gttgl_libtestsgnu_libobjdeps $i_dir\$(DEPDIR)/libtestsgnu_a-$i_base.Po"
       done
     fi
     AC_SUBST([gttgl_LIBOBJS], [$gttgl_libobjs])
     AC_SUBST([gttgl_LTLIBOBJS], [$gttgl_ltlibobjs])
     AC_SUBST([gttgl_LIBOBJDEPS], [$gttgl_libobjdeps])
+    AC_SUBST([gttgl_libtestsgnu_LIBOBJS], [$gttgl_libtestsgnu_libobjs])
+    AC_SUBST([gttgl_libtestsgnu_LTLIBOBJS], [$gttgl_libtestsgnu_ltlibobjs])
+    AC_SUBST([gttgl_libtestsgnu_LIBOBJDEPS], [$gttgl_libtestsgnu_libobjdeps])
   ])
   gltests_libdeps=
   gltests_ltlibdeps=
@@ -179,27 +187,35 @@ changequote([, ])dnl
     gttgltests_libobjs=
     gttgltests_ltlibobjs=
     gttgltests_libobjdeps=
+    gttgltests_libtestsgnu_libobjs=
+    gttgltests_libtestsgnu_ltlibobjs=
+    gttgltests_libtestsgnu_libobjdeps=
     if test -n "$gttgltests_LIBOBJS"; then
       # Remove the extension.
 changequote(,)dnl
       sed_drop_objext='s/\.o$//;s/\.obj$//'
       sed_dirname1='s,//*,/,g'
       sed_dirname2='s,\(.\)/$,\1,'
-      sed_dirname3='s,^[^/]*$,.,'
-      sed_dirname4='s,\(.\)/[^/]*$,\1,'
+      sed_dirname3='s,[^/]*$,,'
       sed_basename1='s,.*/,,'
 changequote([, ])dnl
       for i in `for i in $gttgltests_LIBOBJS; do echo "$i"; done | sed -e "$sed_drop_objext" | sort | uniq`; do
         gttgltests_libobjs="$gttgltests_libobjs $i.$ac_objext"
         gttgltests_ltlibobjs="$gttgltests_ltlibobjs $i.lo"
-        i_dir=`echo "$i" | sed -e "$sed_dirname1" -e "$sed_dirname2" -e "$sed_dirname3" -e "$sed_dirname4"`
+        i_dir=`echo "$i" | sed -e "$sed_dirname1" -e "$sed_dirname2" -e "$sed_dirname3"`
         i_base=`echo "$i" | sed -e "$sed_basename1"`
-        gttgltests_libobjdeps="$gttgltests_libobjdeps $i_dir/\$(DEPDIR)/$i_base.Po"
+        gttgltests_libtestsgnu_libobjs="$gttgltests_libtestsgnu_libobjs $i_dir""libtestsgnu_a-$i_base.$ac_objext"
+        gttgltests_libtestsgnu_ltlibobjs="$gttgltests_libtestsgnu_ltlibobjs $i_dir""libtestsgnu_la-$i_base.lo"
+        gttgltests_libobjdeps="$gttgltests_libobjdeps $i_dir\$(DEPDIR)/$i_base.Po"
+        gttgltests_libtestsgnu_libobjdeps="$gttgltests_libtestsgnu_libobjdeps $i_dir\$(DEPDIR)/libtestsgnu_a-$i_base.Po"
       done
     fi
     AC_SUBST([gttgltests_LIBOBJS], [$gttgltests_libobjs])
     AC_SUBST([gttgltests_LTLIBOBJS], [$gttgltests_ltlibobjs])
     AC_SUBST([gttgltests_LIBOBJDEPS], [$gttgltests_libobjdeps])
+    AC_SUBST([gttgltests_libtestsgnu_LIBOBJS], [$gttgltests_libtestsgnu_libobjs])
+    AC_SUBST([gttgltests_libtestsgnu_LTLIBOBJS], [$gttgltests_libtestsgnu_ltlibobjs])
+    AC_SUBST([gttgltests_libtestsgnu_LIBOBJDEPS], [$gttgltests_libtestsgnu_libobjdeps])
   ])
   AC_REQUIRE([gl_CC_GNULIB_WARNINGS])
   LIBTESTSGNU_LIBDEPS="$gl_libdeps"

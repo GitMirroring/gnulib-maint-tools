@@ -64,9 +64,9 @@ MOSTLYCLEANFILES += core *.stackdump
 noinst_LTLIBRARIES += libtextstyle.la
 
 libtextstyle_la_SOURCES =
-libtextstyle_la_CFLAGS = $(AM_CFLAGS) $(GL_CFLAG_GNULIB_WARNINGS)
-libtextstyle_la_LIBADD = $(lts_LTLIBOBJS)
-libtextstyle_la_DEPENDENCIES = $(lts_LTLIBOBJS)
+libtextstyle_la_CFLAGS = $(AM_CFLAGS) $(GL_CFLAG_GNULIB_WARNINGS) $(GL_CFLAG_ALLOW_WARNINGS)
+libtextstyle_la_LIBADD = $(lts_libtextstyle_LTLIBOBJS)
+libtextstyle_la_DEPENDENCIES = $(lts_libtextstyle_LTLIBOBJS)
 EXTRA_libtextstyle_la_SOURCES =
 libtextstyle_la_LDFLAGS = $(AM_LDFLAGS)
 libtextstyle_la_LDFLAGS += -no-undefined
@@ -3784,5 +3784,5 @@ mostlyclean-local: mostlyclean-generic
 	:
 distclean-local: distclean-gnulib-libobjs
 distclean-gnulib-libobjs:
-	-rm -f @lts_LIBOBJDEPS@
+	-rm -f @lts_libtextstyle_LIBOBJDEPS@
 maintainer-clean-local: distclean-gnulib-libobjs

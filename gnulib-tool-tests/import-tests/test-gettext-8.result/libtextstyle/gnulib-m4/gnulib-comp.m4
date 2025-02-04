@@ -776,27 +776,35 @@ AC_DEFUN([lts_INIT],
     lts_libobjs=
     lts_ltlibobjs=
     lts_libobjdeps=
+    lts_libtextstyle_libobjs=
+    lts_libtextstyle_ltlibobjs=
+    lts_libtextstyle_libobjdeps=
     if test -n "$lts_LIBOBJS"; then
       # Remove the extension.
 changequote(,)dnl
       sed_drop_objext='s/\.o$//;s/\.obj$//'
       sed_dirname1='s,//*,/,g'
       sed_dirname2='s,\(.\)/$,\1,'
-      sed_dirname3='s,^[^/]*$,.,'
-      sed_dirname4='s,\(.\)/[^/]*$,\1,'
+      sed_dirname3='s,[^/]*$,,'
       sed_basename1='s,.*/,,'
 changequote([, ])dnl
       for i in `for i in $lts_LIBOBJS; do echo "$i"; done | sed -e "$sed_drop_objext" | sort | uniq`; do
         lts_libobjs="$lts_libobjs $i.$ac_objext"
         lts_ltlibobjs="$lts_ltlibobjs $i.lo"
-        i_dir=`echo "$i" | sed -e "$sed_dirname1" -e "$sed_dirname2" -e "$sed_dirname3" -e "$sed_dirname4"`
+        i_dir=`echo "$i" | sed -e "$sed_dirname1" -e "$sed_dirname2" -e "$sed_dirname3"`
         i_base=`echo "$i" | sed -e "$sed_basename1"`
-        lts_libobjdeps="$lts_libobjdeps $i_dir/\$(DEPDIR)/$i_base.Plo"
+        lts_libtextstyle_libobjs="$lts_libtextstyle_libobjs $i_dir""libtextstyle_a-$i_base.$ac_objext"
+        lts_libtextstyle_ltlibobjs="$lts_libtextstyle_ltlibobjs $i_dir""libtextstyle_la-$i_base.lo"
+        lts_libobjdeps="$lts_libobjdeps $i_dir\$(DEPDIR)/$i_base.Plo"
+        lts_libtextstyle_libobjdeps="$lts_libtextstyle_libobjdeps $i_dir\$(DEPDIR)/libtextstyle_la-$i_base.Plo"
       done
     fi
     AC_SUBST([lts_LIBOBJS], [$lts_libobjs])
     AC_SUBST([lts_LTLIBOBJS], [$lts_ltlibobjs])
     AC_SUBST([lts_LIBOBJDEPS], [$lts_libobjdeps])
+    AC_SUBST([lts_libtextstyle_LIBOBJS], [$lts_libtextstyle_libobjs])
+    AC_SUBST([lts_libtextstyle_LTLIBOBJS], [$lts_libtextstyle_ltlibobjs])
+    AC_SUBST([lts_libtextstyle_LIBOBJDEPS], [$lts_libtextstyle_libobjdeps])
   ])
   gltests_libdeps=
   gltests_ltlibdeps=
@@ -841,27 +849,35 @@ changequote([, ])dnl
     ltstests_libobjs=
     ltstests_ltlibobjs=
     ltstests_libobjdeps=
+    ltstests_libtextstyle_libobjs=
+    ltstests_libtextstyle_ltlibobjs=
+    ltstests_libtextstyle_libobjdeps=
     if test -n "$ltstests_LIBOBJS"; then
       # Remove the extension.
 changequote(,)dnl
       sed_drop_objext='s/\.o$//;s/\.obj$//'
       sed_dirname1='s,//*,/,g'
       sed_dirname2='s,\(.\)/$,\1,'
-      sed_dirname3='s,^[^/]*$,.,'
-      sed_dirname4='s,\(.\)/[^/]*$,\1,'
+      sed_dirname3='s,[^/]*$,,'
       sed_basename1='s,.*/,,'
 changequote([, ])dnl
       for i in `for i in $ltstests_LIBOBJS; do echo "$i"; done | sed -e "$sed_drop_objext" | sort | uniq`; do
         ltstests_libobjs="$ltstests_libobjs $i.$ac_objext"
         ltstests_ltlibobjs="$ltstests_ltlibobjs $i.lo"
-        i_dir=`echo "$i" | sed -e "$sed_dirname1" -e "$sed_dirname2" -e "$sed_dirname3" -e "$sed_dirname4"`
+        i_dir=`echo "$i" | sed -e "$sed_dirname1" -e "$sed_dirname2" -e "$sed_dirname3"`
         i_base=`echo "$i" | sed -e "$sed_basename1"`
-        ltstests_libobjdeps="$ltstests_libobjdeps $i_dir/\$(DEPDIR)/$i_base.Plo"
+        ltstests_libtextstyle_libobjs="$ltstests_libtextstyle_libobjs $i_dir""libtextstyle_a-$i_base.$ac_objext"
+        ltstests_libtextstyle_ltlibobjs="$ltstests_libtextstyle_ltlibobjs $i_dir""libtextstyle_la-$i_base.lo"
+        ltstests_libobjdeps="$ltstests_libobjdeps $i_dir\$(DEPDIR)/$i_base.Plo"
+        ltstests_libtextstyle_libobjdeps="$ltstests_libtextstyle_libobjdeps $i_dir\$(DEPDIR)/libtextstyle_la-$i_base.Plo"
       done
     fi
     AC_SUBST([ltstests_LIBOBJS], [$ltstests_libobjs])
     AC_SUBST([ltstests_LTLIBOBJS], [$ltstests_ltlibobjs])
     AC_SUBST([ltstests_LIBOBJDEPS], [$ltstests_libobjdeps])
+    AC_SUBST([ltstests_libtextstyle_LIBOBJS], [$ltstests_libtextstyle_libobjs])
+    AC_SUBST([ltstests_libtextstyle_LTLIBOBJS], [$ltstests_libtextstyle_ltlibobjs])
+    AC_SUBST([ltstests_libtextstyle_LIBOBJDEPS], [$ltstests_libtextstyle_libobjdeps])
   ])
   AC_REQUIRE([gl_CC_GNULIB_WARNINGS])
   LIBTESTS_LIBDEPS="$gltests_libdeps"

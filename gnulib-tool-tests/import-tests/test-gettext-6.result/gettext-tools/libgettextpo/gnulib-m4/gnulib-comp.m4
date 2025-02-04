@@ -866,27 +866,35 @@ AC_DEFUN([gtpo_INIT],
     gtpo_libobjs=
     gtpo_ltlibobjs=
     gtpo_libobjdeps=
+    gtpo_libgnu_libobjs=
+    gtpo_libgnu_ltlibobjs=
+    gtpo_libgnu_libobjdeps=
     if test -n "$gtpo_LIBOBJS"; then
       # Remove the extension.
 changequote(,)dnl
       sed_drop_objext='s/\.o$//;s/\.obj$//'
       sed_dirname1='s,//*,/,g'
       sed_dirname2='s,\(.\)/$,\1,'
-      sed_dirname3='s,^[^/]*$,.,'
-      sed_dirname4='s,\(.\)/[^/]*$,\1,'
+      sed_dirname3='s,[^/]*$,,'
       sed_basename1='s,.*/,,'
 changequote([, ])dnl
       for i in `for i in $gtpo_LIBOBJS; do echo "$i"; done | sed -e "$sed_drop_objext" | sort | uniq`; do
         gtpo_libobjs="$gtpo_libobjs $i.$ac_objext"
         gtpo_ltlibobjs="$gtpo_ltlibobjs $i.lo"
-        i_dir=`echo "$i" | sed -e "$sed_dirname1" -e "$sed_dirname2" -e "$sed_dirname3" -e "$sed_dirname4"`
+        i_dir=`echo "$i" | sed -e "$sed_dirname1" -e "$sed_dirname2" -e "$sed_dirname3"`
         i_base=`echo "$i" | sed -e "$sed_basename1"`
-        gtpo_libobjdeps="$gtpo_libobjdeps $i_dir/\$(DEPDIR)/$i_base.Plo"
+        gtpo_libgnu_libobjs="$gtpo_libgnu_libobjs $i_dir""libgnu_a-$i_base.$ac_objext"
+        gtpo_libgnu_ltlibobjs="$gtpo_libgnu_ltlibobjs $i_dir""libgnu_la-$i_base.lo"
+        gtpo_libobjdeps="$gtpo_libobjdeps $i_dir\$(DEPDIR)/$i_base.Plo"
+        gtpo_libgnu_libobjdeps="$gtpo_libgnu_libobjdeps $i_dir\$(DEPDIR)/libgnu_la-$i_base.Plo"
       done
     fi
     AC_SUBST([gtpo_LIBOBJS], [$gtpo_libobjs])
     AC_SUBST([gtpo_LTLIBOBJS], [$gtpo_ltlibobjs])
     AC_SUBST([gtpo_LIBOBJDEPS], [$gtpo_libobjdeps])
+    AC_SUBST([gtpo_libgnu_LIBOBJS], [$gtpo_libgnu_libobjs])
+    AC_SUBST([gtpo_libgnu_LTLIBOBJS], [$gtpo_libgnu_ltlibobjs])
+    AC_SUBST([gtpo_libgnu_LIBOBJDEPS], [$gtpo_libgnu_libobjdeps])
   ])
   gltests_libdeps=
   gltests_ltlibdeps=
@@ -929,27 +937,35 @@ changequote([, ])dnl
     gtpotests_libobjs=
     gtpotests_ltlibobjs=
     gtpotests_libobjdeps=
+    gtpotests_libgnu_libobjs=
+    gtpotests_libgnu_ltlibobjs=
+    gtpotests_libgnu_libobjdeps=
     if test -n "$gtpotests_LIBOBJS"; then
       # Remove the extension.
 changequote(,)dnl
       sed_drop_objext='s/\.o$//;s/\.obj$//'
       sed_dirname1='s,//*,/,g'
       sed_dirname2='s,\(.\)/$,\1,'
-      sed_dirname3='s,^[^/]*$,.,'
-      sed_dirname4='s,\(.\)/[^/]*$,\1,'
+      sed_dirname3='s,[^/]*$,,'
       sed_basename1='s,.*/,,'
 changequote([, ])dnl
       for i in `for i in $gtpotests_LIBOBJS; do echo "$i"; done | sed -e "$sed_drop_objext" | sort | uniq`; do
         gtpotests_libobjs="$gtpotests_libobjs $i.$ac_objext"
         gtpotests_ltlibobjs="$gtpotests_ltlibobjs $i.lo"
-        i_dir=`echo "$i" | sed -e "$sed_dirname1" -e "$sed_dirname2" -e "$sed_dirname3" -e "$sed_dirname4"`
+        i_dir=`echo "$i" | sed -e "$sed_dirname1" -e "$sed_dirname2" -e "$sed_dirname3"`
         i_base=`echo "$i" | sed -e "$sed_basename1"`
-        gtpotests_libobjdeps="$gtpotests_libobjdeps $i_dir/\$(DEPDIR)/$i_base.Plo"
+        gtpotests_libgnu_libobjs="$gtpotests_libgnu_libobjs $i_dir""libgnu_a-$i_base.$ac_objext"
+        gtpotests_libgnu_ltlibobjs="$gtpotests_libgnu_ltlibobjs $i_dir""libgnu_la-$i_base.lo"
+        gtpotests_libobjdeps="$gtpotests_libobjdeps $i_dir\$(DEPDIR)/$i_base.Plo"
+        gtpotests_libgnu_libobjdeps="$gtpotests_libgnu_libobjdeps $i_dir\$(DEPDIR)/libgnu_la-$i_base.Plo"
       done
     fi
     AC_SUBST([gtpotests_LIBOBJS], [$gtpotests_libobjs])
     AC_SUBST([gtpotests_LTLIBOBJS], [$gtpotests_ltlibobjs])
     AC_SUBST([gtpotests_LIBOBJDEPS], [$gtpotests_libobjdeps])
+    AC_SUBST([gtpotests_libgnu_LIBOBJS], [$gtpotests_libgnu_libobjs])
+    AC_SUBST([gtpotests_libgnu_LTLIBOBJS], [$gtpotests_libgnu_ltlibobjs])
+    AC_SUBST([gtpotests_libgnu_LIBOBJDEPS], [$gtpotests_libgnu_libobjdeps])
   ])
   AC_REQUIRE([gl_CC_GNULIB_WARNINGS])
 ])

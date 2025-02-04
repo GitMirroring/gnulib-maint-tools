@@ -56,9 +56,9 @@ AM_CFLAGS =
 noinst_LIBRARIES += libgnu.a
 
 libgnu_a_SOURCES =
-libgnu_a_CFLAGS = $(AM_CFLAGS) $(GL_CFLAG_GNULIB_WARNINGS)
-libgnu_a_LIBADD = $(hl_LIBOBJS)
-libgnu_a_DEPENDENCIES = $(hl_LIBOBJS)
+libgnu_a_CFLAGS = $(AM_CFLAGS) $(GL_CFLAG_GNULIB_WARNINGS) $(GL_CFLAG_ALLOW_WARNINGS)
+libgnu_a_LIBADD = $(hl_libgnu_LIBOBJS)
+libgnu_a_DEPENDENCIES = $(hl_libgnu_LIBOBJS)
 EXTRA_libgnu_a_SOURCES =
 
 ## begin gnulib module dummy
@@ -77,5 +77,5 @@ mostlyclean-local: mostlyclean-generic
 	:
 distclean-local: distclean-gnulib-libobjs
 distclean-gnulib-libobjs:
-	-rm -f @hl_LIBOBJDEPS@
+	-rm -f @hl_libgnu_LIBOBJDEPS@
 maintainer-clean-local: distclean-gnulib-libobjs

@@ -59,9 +59,9 @@ lib_libposix_a_CPPFLAGS = $(AM_CPPFLAGS) -DIN_PROG=1
 noinst_LTLIBRARIES += lib/libposix.la
 
 lib_libposix_la_SOURCES =
-lib_libposix_la_CFLAGS = $(AM_CFLAGS) $(GL_CFLAG_GNULIB_WARNINGS)
-lib_libposix_la_LIBADD = $(gl_LTLIBOBJS)
-lib_libposix_la_DEPENDENCIES = $(gl_LTLIBOBJS)
+lib_libposix_la_CFLAGS = $(AM_CFLAGS) $(GL_CFLAG_GNULIB_WARNINGS) $(GL_CFLAG_ALLOW_WARNINGS)
+lib_libposix_la_LIBADD = $(gl_libposix_LTLIBOBJS)
+lib_libposix_la_DEPENDENCIES = $(gl_libposix_LTLIBOBJS)
 EXTRA_lib_libposix_la_SOURCES =
 lib_libposix_la_LDFLAGS = $(AM_LDFLAGS)
 lib_libposix_la_LDFLAGS += -no-undefined
@@ -416,5 +416,5 @@ mostlyclean-local: mostlyclean-generic
 	:
 distclean-local: distclean-gnulib-libobjs
 distclean-gnulib-libobjs:
-	-rm -f @gl_LIBOBJDEPS@
+	-rm -f @gl_libposix_LIBOBJDEPS@
 maintainer-clean-local: distclean-gnulib-libobjs

@@ -56,9 +56,9 @@ AM_CFLAGS =
 noinst_LIBRARIES += libposix.a
 
 libposix_a_SOURCES =
-libposix_a_CFLAGS = $(AM_CFLAGS) $(GL_CFLAG_GNULIB_WARNINGS)
-libposix_a_LIBADD = $(gl_LIBOBJS)
-libposix_a_DEPENDENCIES = $(gl_LIBOBJS)
+libposix_a_CFLAGS = $(AM_CFLAGS) $(GL_CFLAG_GNULIB_WARNINGS) $(GL_CFLAG_ALLOW_WARNINGS)
+libposix_a_LIBADD = $(gl_libposix_LIBOBJS)
+libposix_a_DEPENDENCIES = $(gl_libposix_LIBOBJS)
 EXTRA_libposix_a_SOURCES =
 
 ## begin gnulib module dummy
@@ -77,5 +77,5 @@ mostlyclean-local: mostlyclean-generic
 	:
 distclean-local: distclean-gnulib-libobjs
 distclean-gnulib-libobjs:
-	-rm -f @gl_LIBOBJDEPS@
+	-rm -f @gl_libposix_LIBOBJDEPS@
 maintainer-clean-local: distclean-gnulib-libobjs
