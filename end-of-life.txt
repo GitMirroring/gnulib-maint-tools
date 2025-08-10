@@ -4,9 +4,11 @@ End-of-life / end-of-support data for various OS releases
 * Debian
   Debian 9: 2022-07-01 †
   Debian 10: 2024-06-30 †
-  Debian 11: 2026-06-30
+  Debian 11: 2026-08-31
   Debian 12: 2028-06-10
+  Debian 13: 2030-08-09
   Reference: https://endoflife.date/debian
+             https://www.debian.org/News/2025/20250809
 
 * RHEL / CentOS
   For RHEL, consider the end of "maintenance support", not the end of "extended life phase".
