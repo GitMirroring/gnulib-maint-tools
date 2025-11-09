@@ -63,8 +63,10 @@ End-of-life / end-of-support data for various OS releases
   macOS 10.15: 2022-09-12 †
   macOS 11: 2023-09-26 †
   macOS 12: 2024-09-16 †
-  macOS 13:
+  macOS 13: 2025-09-15 †
   macOS 14:
+  macOS 15:
+  macOS 26:
   Reference: https://en.wikipedia.org/wiki/MacOS_version_history
              https://endoflife.date/macos
 
