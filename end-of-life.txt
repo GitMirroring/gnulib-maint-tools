@@ -31,8 +31,14 @@ End-of-life / end-of-support data for various OS releases
   FreeBSD 11.4: 2021-09-30 †
   FreeBSD 12.4: 2023-12-31 †
   FreeBSD 13.2: 2024-06-30 †
-  FreeBSD 13.3: 2026-04-30
-  FreeBSD 14.0: 2028-11-30
+  FreeBSD 13.3: 2024-12-31 †
+  FreeBSD 13.4: 2025-06-30 †
+  FreeBSD 13.5: 2026-04-30
+  FreeBSD 14.0: 2024-09-30 †
+  FreeBSD 14.1: 2025-03-31 †
+  FreeBSD 14.2: 2025-09-30 †
+  FreeBSD 14.3: 2026-06-30
+  FreeBSD 15.0: 2026-09-30
   Reference: https://en.wikipedia.org/wiki/FreeBSD_version_history
              https://endoflife.date/freebsd
              https://www.freebsd.org/security/#sup
