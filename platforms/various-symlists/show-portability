@@ -247,6 +247,9 @@ if test "x$1" = "x--doc"; then
     #if ! grep '^'"$symbol"'$' beos/* >/dev/null; then
     #  line=$line', BeOS'
     #fi
+    if ! grep '^'"$symbol"'$' qnx-8.0.3/* >/dev/null; then
+      line=$line', QNX 8'
+    fi
     if ! grep '^'"$symbol"'$' android-9.0/* >/dev/null; then
       line=$line', Android 9.0'
     else

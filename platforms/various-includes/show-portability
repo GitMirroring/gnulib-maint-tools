@@ -243,6 +243,9 @@ if test "x$1" = "x--doc"; then
     #if ! func_has beos "$header"; then
     #  line=$line', BeOS'
     #fi
+    if ! func_has qnx-8.0.3 "$header"; then
+      line=$line', QNX 8'
+    fi
     if ! func_has android-9.0 "$header"; then
       line=$line', Android 9.0'
     fi

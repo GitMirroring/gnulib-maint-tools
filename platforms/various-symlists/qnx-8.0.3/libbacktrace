@@ -1,0 +1,13 @@
+_btext
+_end
+_fini
+_init
+bt_get_backtrace
+bt_init_accessor
+bt_load_memmap
+bt_release_accessor
+bt_set_flags
+bt_sprn_memmap
+bt_sprnf_addrs
+bt_translate_addrs
+bt_unload_memmap
