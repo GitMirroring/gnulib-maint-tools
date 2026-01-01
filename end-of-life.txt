@@ -90,7 +90,7 @@ End-of-life / end-of-support data for various OS releases
   HP-UX 11.22:      2015-12-31 †
   HP-UX 11.23:      2015-12-31 †
   HP-UX 11.31/hppa: 2021-03-31 †
-  HP-UX 11.31/ia64: 2025-12-31
+  HP-UX 11.31/ia64: 2025-12-31 †
   Reference: https://en.wikipedia.org/wiki/HP-UX#Version_history
              https://www.hpe.com/psnow/doc/4aa4-7673enw.pdf?jumpid=in_pdfviewer-psnow
 
