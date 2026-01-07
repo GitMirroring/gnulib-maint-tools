@@ -24,11 +24,11 @@ the enabled tests in that directory.
 To update the expected test results after a new year's date change, use a
 command like this one:
 
-fgrep -l '2002-2025 Free Software Foundation' \
+fgrep -l '2002-2026 Free Software Foundation' \
          `find . '(' -name Makefile.am -o -name Makefile.gnulib -o -name GenMakefile.gnulib -o -name gnulib.mk -o -name gnulib.mk.in -o -name automake.mk -o -name Makefile.in -o -name gnulib-cache.m4 -o -name gnulib-comp.m4 -o -name Makevars -o -name POTFILES.in ')' | grep result/` \
 | while read f; do \
     case $f in \
       ./import-tests/test-cache-5-12.result/lib/Makefile.am | ./import-tests/test-cache-5-16.result/tests/Makefile.am | ./import-tests/test-oath-toolkit-[2345].result/gl/* | ./import-tests/test-oath-toolkit-[1345].result/liboath/* | ./import-tests/test-oath-toolkit-[1245].result/oathtool/* | ./import-tests/test-oath-toolkit-[1235].result/libpskc/* | ./import-tests/test-oath-toolkit-[1234].result/pskctool/* ) ;; \
-      *) sed -i -e 's/2002-2025 Free Software Foundation/2002-2026 Free Software Foundation/' $f ;; \
+      *) sed -i -e 's/2002-2026 Free Software Foundation/2002-2027 Free Software Foundation/' $f ;; \
     esac; \
   done
