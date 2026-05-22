@@ -60,8 +60,9 @@ End-of-life / end-of-support data for various OS releases
   OpenBSD 7.4: 2024-10-08 †
   OpenBSD 7.5: 2025-04-28 †
   OpenBSD 7.6: 2025-10-22 †
-  OpenBSD 7.7: 2026-05
+  OpenBSD 7.7: 2026-05-19 †
   OpenBSD 7.8: 2026-10
+  OpenBSD 7.9: 2027-05
   Reference: https://en.wikipedia.org/wiki/OpenBSD#Releases
              https://endoflife.date/openbsd
 
