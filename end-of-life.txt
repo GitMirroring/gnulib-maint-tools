@@ -47,8 +47,9 @@ End-of-life / end-of-support data for various OS releases
 * NetBSD
   NetBSD 7.0: 2020-06-30 †
   NetBSD 8.0: 2024-05-04 †
-  NetBSD 9.0:
+  NetBSD 9.0: 2026-08-30
   NetBSD 10.0:
+  NetBSD 11.0:
   Reference: https://en.wikipedia.org/wiki/NetBSD#Releases
              https://endoflife.date/netbsd
              https://www.netbsd.org/releases/formal.html#history
