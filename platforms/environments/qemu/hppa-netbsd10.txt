@@ -165,3 +165,4 @@ The VM is not 100% reliable:
 - Some gcc compilation commands crash with "internal compiler error" and
   succeed the next time.
 - Some gnulib unit tests, e.g. test-dynarray, may spuriously fail.
+- <pthread.h> is incomplete, pthread_create fails.

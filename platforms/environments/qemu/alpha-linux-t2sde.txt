@@ -147,3 +147,5 @@ Notes
 -----
 
 After every reboot, you need to set the date (year 2023, not 2003).
+
+perl is dysfunctional: Lacks the packages Scalar/Util.pm and re.pm.

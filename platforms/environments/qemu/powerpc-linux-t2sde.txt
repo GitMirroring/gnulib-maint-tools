@@ -155,3 +155,9 @@ they can be compiled locally through
 # svn update
 # scripts/Emerge-Pkg -f PACKAGE
 But that takes a long time.
+
+
+Notes
+-----
+
+perl is dysfunctional: Lacks the packages Scalar/Util.pm and re.pm.

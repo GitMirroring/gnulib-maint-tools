@@ -243,6 +243,60 @@ multiple times.
 
 "gcc" produces 32-bit binaries. "gcc -m64" produces 64-bit binaries.
 
+In 32-bit mode, the compilation of coreutils/src/sort.c crashes:
+depbase=`echo src/sort.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+gcc -m32  -I. -I.. -I./lib  -Ilib -I../lib -Isrc -I../src -I/home/bruno/prefix32/include -Wall   -g -O2 -MT src/sort.o -MD -MP -MF $depbase.Tpo -c -o src/sort.o ../src/sort.c &&\
+mv -f $depbase.Tpo $depbase.Po
+during GIMPLE pass: slp
+../src/sort.c: In function 'main':
+../src/sort.c:4339:1: internal compiler error: Bus error
+ 4339 | main (int argc, char **argv)
+      | ^~~~
+0x13259f3 internal_error(char const*, ...)
+        ???:0
+0xf76dfc03 __rt_sigreturn_stub
+        ???:0
+0xf76dfc03 __rt_sigreturn_stub
+        ???:0
+0xf76dfc03 __rt_sigreturn_stub
+        ???:0
+0xf76dfc03 __rt_sigreturn_stub
+        ???:0
+0xf76dfc03 __rt_sigreturn_stub
+        ???:0
+0xf76dfc03 __rt_sigreturn_stub
+        ???:0
+0xf76dfc03 __rt_sigreturn_stub
+        ???:0
+0xf76dfc03 __rt_sigreturn_stub
+        ???:0
+0xf76dfc03 __rt_sigreturn_stub
+        ???:0
+0xf76dfc03 __rt_sigreturn_stub
+        ???:0
+0xf76dfc03 __rt_sigreturn_stub
+        ???:0
+0xf76dfc03 __rt_sigreturn_stub
+        ???:0
+0xf76dfc03 __rt_sigreturn_stub
+        ???:0
+0xf76dfc03 __rt_sigreturn_stub
+        ???:0
+0xf76dfc03 __rt_sigreturn_stub
+        ???:0
+0xf76dfc03 __rt_sigreturn_stub
+        ???:0
+0xf76dfc03 __rt_sigreturn_stub
+        ???:0
+0xf76dfc03 __rt_sigreturn_stub
+        ???:0
+0xf76dfc03 __rt_sigreturn_stub
+        ???:0
+Please submit a full bug report, with preprocessed source (by using -freport-bug).
+Please include the complete backtrace with any bug report.
+See <https://gcc.gnu.org/bugs/> for instructions.
+make[2]: *** [Makefile:13228: src/sort.o] Error 1
+
 In 64-bit mode, the compilation of mktime.c crashes:
 depbase=`echo mktime.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
 gcc -m64 -DHAVE_CONFIG_H -DEXEEXT=\"\" -DEXEEXT=\"\" -DNO_XMALLOC -DEXEEXT=\"\" -I. -I../../gllib -I..  -DGNULIB_STRICT_CHECKING=1 -I/home/bruno/prefix64/include -Wall -fvisibility=hidden -g -O2 -MT mktime.o -MD -MP -MF $depbase.Tpo -c -o mktime.o ../../gllib/mktime.c &&\

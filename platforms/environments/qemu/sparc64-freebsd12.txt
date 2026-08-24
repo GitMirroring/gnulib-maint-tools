@@ -161,3 +161,8 @@ GNU mpfr does not work: 117 test failures.
 There are disk driver problems:
 (aprobe0:ata3:0:0:0): ATAPI_IDENTIFY. ACB: a1 00 00 00 00 40 00 00 00 00 00 00
 (aprobe0:ata3:0:0:0): CAM status: Command timeout
+
+Something is wrong with the time:
+gmake[2]: Warning: File 'Makefile' has modification time 29 s in the future
+
+GNU coreutils "make check" hangs: tests/tail/inotify-hash-abuse.sh hangs

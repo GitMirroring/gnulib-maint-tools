@@ -11,6 +11,12 @@ Use qemu-8.2.0-rc3 (because it supports 64-bit CPUs and has
 <https://gitlab.com/qemu-project/qemu/-/issues/1991> fixed).
 % PATH=$HOME/inst-qemu/8.2.0-rc3/bin:$PATH
 
+Up to at most qemu-9.1.3.
+(Newer versions of QEMU have bug <https://gitlab.com/qemu-project/qemu/-/issues/3158>.)
+% PATH=$HOME/inst-qemu/9.1.3/bin:$PATH
+
+Or use qemu-10.1.1 + the fix of <https://gitlab.com/qemu-project/qemu/-/issues/3158>.
+
 (DL) Download an installation CD-ROM or DVD image
 -------------------------------------------------
 
@@ -33,7 +39,7 @@ Download: https://dl.t2sde.org/binary/2023/t2-23.6-hppa-minimal-desktop-gcc-glib
 ---------------------------------
 
 The documentation says: Start 64-bit machine with "-machine C3700" and 32-bit CPU with "-machine B160L".
-Since the kernel provided by T2-SDE is a 64-bit kernel, we need a 64-bit machine.
+The kernel provided by T2-SDE is a 32-bit kernel, but nevertheless it needs a 64-bit machine.
 If we try it without '-M C3700', we later get an error message:
 -------------------------------------------------------------------
 Autobooting Linux kernel which was loaded by qemu...
