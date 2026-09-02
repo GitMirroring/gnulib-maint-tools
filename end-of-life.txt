@@ -4,7 +4,7 @@ End-of-life / end-of-support data for various OS releases
 * Debian
   Debian 9: 2022-07-01 †
   Debian 10: 2024-06-30 †
-  Debian 11: 2026-08-31
+  Debian 11: 2026-08-31 †
   Debian 12: 2028-06-10
   Debian 13: 2030-08-09
   Reference: https://endoflife.date/debian
@@ -34,7 +34,7 @@ End-of-life / end-of-support data for various OS releases
   FreeBSD 14.0: 2024-09-30 †
   FreeBSD 14.1: 2025-03-31 †
   FreeBSD 14.2: 2025-09-30 †
-  FreeBSD 14.3: 2026-06-30
+  FreeBSD 14.3: 2026-06-30 †
   FreeBSD 14.4: 2026-12-31
   FreeBSD 14.x: 2028-11-30
   FreeBSD 15.0: 2026-09-30
@@ -47,7 +47,7 @@ End-of-life / end-of-support data for various OS releases
 * NetBSD
   NetBSD 7.0: 2020-06-30 †
   NetBSD 8.0: 2024-05-04 †
-  NetBSD 9.0: 2026-08-30
+  NetBSD 9.0: 2026-08-30 †
   NetBSD 10.0:
   NetBSD 11.0:
   Reference: https://en.wikipedia.org/wiki/NetBSD#Releases
