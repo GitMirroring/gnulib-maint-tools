@@ -1,0 +1,314 @@
+(DR) Collect pointers to documentation and references
+-----------------------------------------------------
+
+https://www.qemu.org/docs/master/system/target-arm.html
+https://www.qemu.org/docs/master/system/arm/virt.html
+https://wiki.qemu.org/Documentation/Platforms/ARM
+https://qemu-project.gitlab.io/qemu/system/devices/usb.html
+https://linaro.atlassian.net/wiki/spaces/WOAR/pages/28914909194/windows-arm64+VM+using+qemu-system
+https://gist.github.com/Vogtinator/293c4f90c5e92838f7e72610725905fd
+
+(QV) Choose a QEMU version
+--------------------------
+
+Use qemu-11.1.0
+% PATH=$HOME/inst-qemu/11.1.0/bin:$PATH
+
+(DL) Download an installation CD-ROM or DVD image
+-------------------------------------------------
+
+Download: https://www.microsoft.com/en-us/software-download/windows11arm64
+Windows 11 25H2 - Arm64 - English International
+-> Win11_25H2_EnglishInternational_Arm64_v2.iso
+-> windows11-installer.iso
+
+Download: virtio drivers for Windows.
+https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso
+
+(XK) Extract the kernel from the CD-ROM or DVD image
+----------------------------------------------------
+
+This is not needed in this case.
+
+(CD) Create an empty disk image to be used by the virtual machine
+-----------------------------------------------------------------
+
+% qemu-img create -f qcow2 windows.qcow2 60G
+
+60 GB is sort of a minimum. After installing a couple of Windows updates,
+and after installing and using MSYS2, 50 GB of the disk are full, leaving
+about 10 GB for development.
+
+(MA) Choose the machine arguments
+---------------------------------
+
+% machine_args="-M virt -cpu neoverse-n1 -smp 4 -accel tcg,thread=multi -m 8G"
+This works. Speed: violet background after 41 sec, first window after 86 sec.
+or
+% machine_args="-M virt -cpu max,pauth-impdef=on -smp 4 -accel tcg,thread=multi -m 8G"
+This works. Speed: violet background after 43 sec, first window after 90 sec.
+or
+% machine_args="-M virt -cpu cortex-a72  -smp 4 -accel tcg,thread=multi -m 8G"
+Does not boot from CDROM later.
+
+For accessing USB devices (disk, CDROM, keyboard, mouse, tablet),
+without getting a qemu error "-device usb-storage,drive=disk1: No 'usb-bus' bus found for device 'usb-storage'":
+% machine_args="$machine_args -device qemu-xhci"
+
+Firmware:
+
+  - Either the UEFI firmware that comes bundled with QEMU:
+    % machine_args="$machine_args -bios edk2-aarch64-code.fd"
+    Provides the UEFI shell.
+    "Shell>" prompt => see arm64-uefi.txt
+    After command "exit", you get into the EFI's boot manager.
+
+  - Or some UEFI firmware named 'QEMU_EFI.fd' that is part of some Linux
+    distros, such as in the Ubuntu package 'qemu-efi'.
+    Download https://packages.debian.org/sid/qemu-efi-aarch64 -> all -> QEMU_EFI.fd
+    % machine_args="$machine_args -bios QEMU_EFI.fd"
+    Provides a boot menu with, as fallback, the UEFI shell.
+
+  - Or U-Boot.
+
+% machine_args="$machine_args -bios edk2-aarch64-code.fd"
+This works.
+or
+% machine_args="$machine_args -bios QEMU_EFI.fd"
+This works.
+
+Due to the choice of the 'virt' machine, it is possible to have
+  - virtual USB devices (which use the guest's native USB drivers), or
+  - virtual devices with virtio drivers (that have to be loaded into
+    and configure in the guest OS), or
+  - [maybe, I haven't tried] virtual SCSI devices.
+Since the Windows 11 installer CDROM refuses to install onto an USB disk
+(error message "Setup does not support configuration of or installation
+to disks connected through a USB or IEEE 1394 port.", see step (IN) below),
+the only working approach is *with* virtio drivers at least for the disk.
+But in this situation, you can use virtio drivers also for the network
+device.
+
+(DI) Choose the disk arguments
+------------------------------
+
+There are several possibilities.
+
+* Without virtio drivers:
+
+  % disk_args="-drive file=windows.qcow2,format=qcow2,if=none,id=disk1 -device usb-storage,drive=disk1"
+  At the QEMU level:
+    (qemu) info block
+    disk1: windows.qcow2
+      Attached to: /machine/peripheral-anon/device[5]/scsi.0/legacy[0]
+  At the UEFI level:
+    PciRoot(0)/Pci(1,0)/USB(2,0).
+
+* With virtio drivers:
+
+  % disk_args="-drive file=windows.qcow2,format=qcow2,index=0"
+  At the QEMU level:
+    (qemu) info block
+    virtio0: windows.qcow2
+      Attached to: /machine/peripheral-anon/device[5]/virtio-backend
+  At the UEFI level:
+    PciRoot(0)/Pci(3,0)
+
+  or
+
+  % disk_args="-drive file=windows.qcow2,format=qcow2,if=virtio,id=disk1"
+  At the QEMU level:
+    (qemu) info block
+    disk1: windows.qcow2
+      Attached to: /machine/peripheral-anon/device[5]/virtio-backend
+  At the UEFI level:
+    PciRoot(0)/Pci(3,0)
+
+  or
+
+  % disk_args="-drive file=windows.qcow2,format=qcow2,if=none,id=disk1 -device virtio-blk-device,drive=disk1"
+  At the QEMU level:
+    (qemu) info block
+    disk1: windows.qcow2
+      Attached to: /machine/peripheral-anon/device[5]
+  At the UEFI level:
+    VenHw(...)
+
+(NW) Choose the network arguments
+---------------------------------
+
+There are several possibilities.
+
+* Without virtio drivers:
+
+  % net_args="-netdev type=user,id=net0 -device e1000,netdev=net0,mac=52:54:00:12:34:56"
+
+  This provides an ethernet interface:
+  (qemu) info network
+  e1000.0: index=0,type=nic,model=e1000,macaddr=52:54:00:12:34:56
+   \ net0: index=0,type=user,net=10.0.2.0,restrict=off
+
+* With virtio drivers:
+
+  % net_args=""
+
+  This provides an ethernet interface by default:
+  (qemu) info network
+  hub 0
+   \ hub0port1: #net160: index=0,type=user,net=10.0.2.0,restrict=off
+   \ hub0port0: virtio-net-pci.0: index=0,type=nic,model=virtio-net-pci,macaddr=52:54:00:12:34:56
+
+  % net_args="-nic user,model=virtio-net-pci"
+
+  This provides an ethernet interface too:
+  (qemu) info network
+  virtio-net-pci.0: index=0,type=nic,model=virtio-net-pci,macaddr=52:54:00:12:34:56
+   \ #net068: index=0,type=user,net=10.0.2.0,restrict=off
+
+(DV) Choose the display/video arguments
+---------------------------------------
+
+% display_args="-device ramfb -device usb-kbd -device usb-tablet"
+This works.
+or
+% display_args="-device VGA -device usb-kbd -device usb-tablet"
+Not useful: The display does not get initialized.
+or
+% display_args="-nographic"
+This option is useful only for experimenting with the UEFI shell.
+
+(B1) Boot from the disk
+-----------------------
+
+% common_args="$machine_args $disk_args $net_args $display_args"
+
+In order for the UEFI to recognize the CDROM, we need to attach it via USB.
+
+* Without virtio drivers:
+
+  % qemu-system-aarch64 $common_args \
+      -drive file=windows11-installer.iso,format=raw,media=cdrom,if=none,id=installer -device usb-storage,drive=installer
+
+* With virtio drivers:
+
+  % qemu-system-aarch64 $common_args \
+      -drive file=windows11-installer.iso,format=raw,media=cdrom,if=none,id=installer -device usb-storage,drive=installer \
+      -drive file=virtio-win.iso,format=raw,media=cdrom,if=none,id=virtio-drivers -device usb-storage,drive=virtio-drivers
+
+When the prompt "Press any key to boot from CD or DVD..." appears, press any key.
+You should soon see a rotating Windows cursor.
+
+(IN) Perform the steps of the installer
+---------------------------------------
+
+As described in https://linaro.atlassian.net/wiki/spaces/WOAR/pages/28914909194/windows-arm64+VM+using+qemu-system
+
+Language to install: English (UK)
+Time and currency:   French (France)
+
+Keyboard: US
+
+Select "Install Windows 11." Click "I agree..."
+
+Click "I don't have a product key."
+
+Operating system: Windows 11 Pro
+
+Shift-F10, regedit, open HKEY_LOCAL_MACHINE\SYSTEM\Setup,
+new > key 'LabConfig',
+new > DWORD value
+  BypassSecureBootCheck, modify > 1
+  BypassTPMCheck, modify > 1
+
+Back. Next.
+
+Accept license.
+
+You encounter a dialog
+"Setup does not support configuration of or installation to disks connected through a USB or IEEE 1394 port."
+Bummer!
+=> Repeat the same procedure with the virtio drivers.
+
+Click "Load driver".
+Click "Browse".
+Select CD virtio-win > viostor > w11 > ARM64.
+Select the viostor.inf driver. Click "Install".
+
+Select "Disk 0 Unallocated Space".
+
+Click "Install".
+
+Region: France.
+
+Keyboard: US.
+
+Network: Shift-F10, OOBE\BYPASSNRO
+
+Region: France.
+
+Keyboard: US.
+
+Click "I don't have internet".
+
+User name: MY_USER_NAME
+(If you enter MY_FULL_NAME here, with spaces, then your Windows home directory
+C:\Users\MY_FULL_NAME\ and your MSYS2 home directory /home/MY_FULL_NAME/ will
+contain spaces, which is bound to cause trouble with some shell scripts later.)
+Password: ********
+Answer three "security" questions.
+
+Location services: No other choice than "Yes"!
+Find my device: No.
+Diagnostic data: No other choice than "Include optional"!
+Improve inking: No.
+Personalized offers: No other choice than "Yes"!
+
+Start menu Right-click > Device Manager
+Other devices > Ethernet controller Right-click > Update driver.
+Browse my computer > E:\NetKVM. Click "Next".
+
+File Manager: View > Show > File name extensions.
+
+Start menu Right-click > Settings
+
+(B2) Boot from the installed disk
+---------------------------------
+
+This does not need a -kernel option, since a Windows bootloader is installed.
+
+% qemu-system-aarch64 $common_args
+
+% cp windows.qcow2 windows-v1-justWindows.qcow2          (size: 18 GB)
+================================================================================
+
+Start menu Right-click > Settings: Rename computer to MY_HOSTNAME.
+
+Start menu Right-click > Settings > Time & language > Date & time:
+Sync.
+Format > Short date: ISO 8601.
+
+Start menu > Control panel > Power settings > Turn off the display: Never.
+
+* Install Firefox from mozilla.org.
+
+* Install MSYS2 from msys2.org, in C:\msys2026; there:
+List of packages: https://packages.msys2.org/search
+$ pacman -S mingw-w64-clang-aarch64-toolchain mingw-w64-clang-aarch64-diffutils
+$ pacman -S mingw-w64-clang-x86_64-gdb-multiarch
+$ pacman -S openssh make vim
+
+Create ~/.ssh/config, ~/.vimrc.
+
+% cp windows.qcow2 windows-v2-with-devtools.qcow2        (size: 51 GB)
+================================================================================
+
+Cleaning up the 20 GB of C:\Windows\WinSxS\: see
+https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/clean-up-the-winsxs-folder?view=windows-11
+cmd> dism /online /Cleanup-Image /AnalyzeComponentStore
+cmd> dism /online /Cleanup-Image /StartComponentCleanup
+
+
+Remaining problems:
+
+* After every boot, you have to sync the clock.
+  Start menu Right-click > Settings > Time & language > Date & time: Sync.
