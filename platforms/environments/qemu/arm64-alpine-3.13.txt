@@ -37,10 +37,15 @@ directly, the Alpine Linux installer fails with an error message
 
   - Either the UEFI firmware that comes bundled with QEMU:
     % machine_args="$machine_args -bios edk2-aarch64-code.fd"
+    Provides the UEFI shell.
+    "Shell>" prompt => see arm64-uefi.txt
+    After command "exit", you get into the EFI's boot manager.
 
   - Or some UEFI firmware named 'QEMU_EFI.fd' that is part of some Linux
     distros, such as in the Ubuntu package 'qemu-efi'.
+    Download https://packages.debian.org/sid/qemu-efi-aarch64 -> all -> QEMU_EFI.fd
     % machine_args="$machine_args -bios QEMU_EFI.fd"
+    Provides a boot menu with, as fallback, the UEFI shell.
 
   - Or U-Boot.
 

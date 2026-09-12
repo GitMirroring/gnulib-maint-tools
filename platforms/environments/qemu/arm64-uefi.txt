@@ -1,0 +1,265 @@
+Commands of the UEFI shell on arm64 systems
+===========================================
+
+UEFI Shell specification: https://uefi.org/sites/default/files/resources/UEFI_Shell_2_2.pdf
+chapter 5.
+
+All commands
+------------
+
+Shell> help
+alias         - Displays, creates, or deletes UEFI Shell aliases.
+attrib        - Displays or modifies the attributes of files or directories.
+bcfg          - Manages the boot and driver options that are stored in NVRAM.
+cd            - Displays or changes the current directory.
+cls           - Clears the console output and optionally changes the background and foreground color.
+comp          - Compares the contents of two files on a byte-for-byte basis.
+connect       - Binds a driver to a specific device and starts the driver.
+cp            - Copies one or more files or directories to another location.
+date          - Displays and sets the current date for the system.
+dblk          - Displays one or more blocks from a block device.
+devices       - Displays the list of devices managed by UEFI drivers.
+devtree       - Displays the UEFI Driver Model compliant device tree.
+dh            - Displays the device handles in the UEFI environment.
+disconnect    - Disconnects one or more drivers from the specified devices.
+dmem          - Displays the contents of system or device memory.
+dmpstore      - Manages all UEFI variables.
+drivers       - Displays the UEFI driver list.
+drvcfg        - Invokes the driver configuration.
+drvdiag       - Invokes the Driver Diagnostics Protocol.
+echo          - Controls script file command echoing or displays a message.
+edit          - Provides a full screen text editor for ASCII or UCS-2 files.
+eficompress   - Compresses a file using UEFI Compression Algorithm.
+efidecompress - Decompresses a file using UEFI Decompression Algorithm.
+else          - Identifies the code executed when 'if' is FALSE.
+endfor        - Ends a 'for' loop.
+endif         - Ends the block of a script controlled by an 'if' statement.
+exit          - Exits the UEFI Shell or the current script.
+for           - Starts a loop based on 'for' syntax.
+getmtc        - Gets the MTC from BootServices and displays it.
+goto          - Moves around the point of execution in a script.
+help          - Displays the UEFI Shell command list or verbose command help.
+hexedit       - Provides a full screen hex editor for files, block devices, or memory.
+if            - Executes commands in specified conditions.
+ifconfig      - Modifies the default IP address of the UEFI IPv4 Network Stack.
+ifconfig6     - Displays or modifies IPv6 configuration for network interface.
+initrd        - Registers or unregisters a file as Linux initrd.
+load          - Loads a UEFI driver into memory.
+loadpcirom    - Loads a PCI Option ROM.
+ls            - Lists the contents of a directory or file information.
+map           - Displays or defines file system mappings.
+memmap        - Displays the memory map maintained by the UEFI environment.
+mkdir         - Creates one or more new directories.
+mm            - Displays or modifies MEM/MMIO/IO/PCI/PCIE address space.
+mode          - Displays or changes the console output device mode.
+mv            - Moves one or more files to a destination within or between file systems.
+openinfo      - Displays the protocols and agents associated with a handle.
+parse         - Retrieves a value from a standard format output file.
+pause         - Pauses a script and waits for an operator to press a key.
+pci           - Displays PCI device list or PCI function configuration space and PCIe extended
+configuration space.
+ping          - Ping the target host with an IPv4 stack.
+ping6         - Ping a target machine with UEFI IPv6 network stack.
+reconnect     - Reconnects drivers to the specific device.
+reset         - Resets the system.
+rm            - Deletes one or more files or directories.
+sermode       - Sets serial port attributes.
+set           - Displays or modifies UEFI Shell environment variables.
+setsize       - Adjusts the size of a file.
+setvar        - Displays or modifies a UEFI variable.
+shift         - Shifts in-script parameter positions.
+smbiosview    - Displays SMBIOS information.
+stall         - Stalls the operation for a specified number of microseconds.
+time          - Displays or sets the current time for the system.
+timezone      - Displays or sets time zone information.
+touch         - Updates the filename timestamp with the current system date and time.
+type          - Sends the contents of a file to the standard output device.
+unload        - Unloads a driver image that was already loaded.
+varpolicy     - Lists UEFI variable policy information.
+ver           - Displays UEFI Firmware version information.
+vol           - Displays or modifies information about a disk volume.
+
+Help usage:help [cmd|pattern|special] [-usage] [-verbose] [-section name][-b]
+
+
+Commands, grouped by function
+-----------------------------
+
+Boot / UEFI variables
+
+bcfg
+dmpstore
+setvar
+
+Devices / drivers
+
+connect
+devices
+devtree
+dh
+disconnect
+drivers
+drvcfg
+drvdiag
+load
+loadpcirom
+openinfo
+reconnect
+unload
+
+File/directory
+
+attrib
+cd
+comp
+cp
+del
+dir
+ls
+md
+mkdir
+mv
+rm
+setsize
+touch
+type
+
+Shell/environment & scripting
+
+alias
+echo
+exit
+for
+getmtc
+goto
+help
+if
+pause
+set
+shift
+
+Memory / hardware debugging
+
+dblk
+dmem
+hexedit
+mem
+memmap
+mm
+pci
+smbiosview
+
+Networking
+
+ifconfig
+ifconfig6
+ping
+ping6
+
+System configuration
+
+date
+mode
+reset
+sermode
+stall
+time
+timezone
+ver
+vol
+
+Compression / utilities
+
+eficompress
+efidecompress
+map
+parse
+
+
+Commands for booting
+--------------------
+
+Shell> help bcfg
+Manages the boot and driver options that are stored in NVRAM.
+
+BCFG driver|boot [dump [-v]] [add # file "desc"] [addp # file "desc"]
+                 [addh # handle "desc"] [rm #] [mv # #]
+                 [-opt # [[filename]|["data"]] |
+                         [KeyData <ScanCode UnicodeChar>]]
+
+  -v          - Displays verbose information about options, including the optional
+                data.
+  -opt        - Displays or modifies the optional data associated with a
+                driver or boot option. This parameter is followed by the file name of the
+                file that contains the binary data to be associated with the
+                driver or boot option optional data, or the quote
+                delimited data to be associated with the driver or
+                boot option optional data.
+  driver      - Displays or modifies the driver option list.
+  boot        - Displays or modifies the boot option list.
+  dump        - Displays the option list.
+  add         - Adds an option. The # is the number of options to add in
+                hexadecimal format. The file name is the name of the UEFI application/driver for
+                the option. The quoted parameter is the description of the
+                option to be added.
+  addh        - Adds an option that refers to the driver specified by a handle.
+                The # is the number of options to add, in hexadecimal format. The
+                handle is the driver handle, in hexadecimal format. The device path
+                for the option is retrieved from the handle. The quoted
+                parameter is the description of the option to be added.
+  addp        - Adds an option that refers to a specific file. Only the portion
+                of the device path starting with the hard drive partition is
+                placed in the option. The # is the number of options to add,
+                in hexadecimal format. The quoted parameter is the description of the
+                option being added.
+  rm          - Removes an option. The parameter lists the number of the options
+                to remove in hexadecimal format.
+  mv          - Moves an option. The first numeric parameter is the number of
+                the option to move in hexadecimal format. The second numeric parameter
+                is the new number of the option to be moved.
+  KeyData     - Specifies the packed value associated with a hot-key.
+  ScanCode    - Specifies the UEFI-defined scan code portion of the
+                EFI_INPUT_KEY instruction. This value is directly associated
+                with the preceding KeyData value. When one instance of this
+                parameter has a non-zero value, the paired UnicodeChar value
+                will have a zero-based value.
+  UnicodeChar - Specifies the Unicode value for the character associated with
+                the preceding KeyData value. When one instance of this
+                parameter has a non-zero value, the paired ScanCode value
+                will have a zero-based value.
+
+NOTES:
+  1. This command manages the boot and driver options stored in NVRAM.
+  2. Use the dump option to display Boot#### or Driver#### environment variables.
+  3. Use the add option to add a new Boot#### or Driver####
+     environment variable.
+  4. Use the rm option to delete a Boot#### or Driver####
+     environment variable, and then the mv option to reorder
+     the Boot#### and Driver#### environment variables.
+  5. The add, rm, and mv options also update the BootOrder or DriverOrder
+     environment variables, as appropriate.
+
+EXAMPLES:
+  * To display driver options:
+    Shell> bcfg driver dump
+
+  * To display boot options:
+    Shell> bcfg boot dump
+
+  * To display verbose information about boot options:
+    Shell> bcfg boot dump -v
+
+  * To add a driver option #5:
+    Shell> bcfg driver add 5 mydriver.efi "My Driver"
+
+  * To add a boot option #3:
+    Shell> bcfg boot add 3 osloader.efi "My OS"
+
+  * To remove boot option #3:
+    Shell> bcfg boot rm 3
+
+  * To move boot option #3 to boot option #7:
+    Shell> bcfg boot mv 3 7
+
+  * To assign a CTRL-B hot-key to boot option #3:
+    Shell> bcfg boot -opt 3 0x40000200 0 0x42
