@@ -177,10 +177,16 @@ or
 % display_args="-nographic"
 This option is useful only for experimenting with the UEFI shell.
 
+(CK) Choose the clock arguments
+-------------------------------
+
+This is necessary because the guest is Windows:
+% clock_args="-rtc base=localtime"
+
 (B1) Boot from the disk
 -----------------------
 
-% common_args="$machine_args $disk_args $net_args $display_args"
+% common_args="$machine_args $disk_args $net_args $display_args $clock_args"
 
 In order for the UEFI to recognize the CDROM, we need to attach it via USB.
 
@@ -306,9 +312,3 @@ Cleaning up the 20 GB of C:\Windows\WinSxS\: see
 https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/clean-up-the-winsxs-folder?view=windows-11
 cmd> dism /online /Cleanup-Image /AnalyzeComponentStore
 cmd> dism /online /Cleanup-Image /StartComponentCleanup
-
-
-Remaining problems:
-
-* After every boot, you have to sync the clock.
-  Start menu Right-click > Settings > Time & language > Date & time: Sync.
